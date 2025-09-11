@@ -1,6 +1,6 @@
 # WKND Trendsetters DA E2E
 
-This is an end-to-end testing repository for the daily migration of the WKND Trendsetters site to Edge Delivery Services using Document Authoring (DA) as the content source.
+This is an end-to-end testing repository for the daily migration of the [WKND Trendsetters site](https://www.wknd-trendsetters.site/) to Edge Delivery Services using DA as the content source.
 
 ## Purpose
 
@@ -11,12 +11,6 @@ This repository automates the daily migration and testing of the WKND Trendsette
 - Preview: https://main--sta-wknd-trendsetters-da-e2e--aemysites.aem.page/
 - Live: https://main--sta-wknd-trendsetters-da-e2e--aemysites.aem.live/
 - Block Library: https://main--sta-wknd-trendsetters-da-e2e--aemysites.aem.page/tools/sidekick/library.html?plugin=blocks
-
-## Source Content
-
-- **Content Source**: Document Authoring (DA)
-- **Origin**: https://content.da.live/aemysites/sta-wknd-trendsetters-da-e2e/
-- **Type**: Markup-based content authoring
 
 ## Daily E2E Testing
 
@@ -35,29 +29,6 @@ This repository is configured for automated daily end-to-end testing:
 
 3. **Status Reporting**: Throughout the process, status updates are sent to AEMY and Slack
 
-## Content Source Differences
-
-Unlike SharePoint-based migrations, this DA repository handles:
-
-- **Markup-based authoring** instead of Office documents
-- **Google Drive or DA storage** instead of SharePoint
-- **Real-time content updates** from Universal Editor
-- **Different block transformation** rules optimized for DA content
-
-## Documentation
-
-Before using this repository, we recommend going through the documentation on [www.aem.live](https://www.aem.live/docs/) and [experienceleague.adobe.com](https://experienceleague.adobe.com/en/docs/experience-manager-cloud-service/content/edge-delivery/wysiwyg-authoring/authoring):
-
-1. [Getting Started](https://experienceleague.adobe.com/en/docs/experience-manager-cloud-service/content/edge-delivery/wysiwyg-authoring/edge-dev-getting-started)
-2. [Creating Blocks](https://experienceleague.adobe.com/en/docs/experience-manager-cloud-service/content/edge-delivery/wysiwyg-authoring/create-block)
-3. [Content Modelling](https://experienceleague.adobe.com/en/docs/experience-manager-cloud-service/content/edge-delivery/wysiwyg-authoring/content-modeling)
-4. [The Anatomy of a Project](https://www.aem.live/developer/anatomy-of-a-project)
-
-## Prerequisites
-
-- nodejs 18.3.x or newer
-- AEM Cloud Service release 2024.8 or newer (>= `17465`)
-
 ## Installation
 
 ```sh
@@ -69,14 +40,6 @@ npm i
 ```sh
 npm run lint
 ```
-
-## Local development
-
-1. The repository is already configured with the DA mountpoint in `fstab.yaml`
-1. The [AEM Code Sync GitHub App](https://github.com/apps/aem-code-sync) should be added to the repository
-1. Install the [AEM CLI](https://github.com/adobe/helix-cli): `npm install -g @adobe/aem-cli`
-1. Start AEM Proxy: `aem up` (opens your browser at `http://localhost:3000`)
-1. Open the `sta-wknd-trendsetters-da-e2e` directory in your favorite IDE and start coding :)
 
 ## Required Repository Configuration
 

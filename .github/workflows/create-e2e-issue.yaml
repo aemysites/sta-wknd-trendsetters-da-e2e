@@ -22,7 +22,7 @@ jobs:
           script: |
             const today = new Date().toISOString().split('T')[0];
             const issueTitle = `AEMY Catalyze WKND Trendsetters DA - ${today}`;
-            const issueBody = `Catalyze https://content.da.live/aemysites/sta-wknd-trendsetters-da-e2e/.`;
+            const issueBody = `Catalyze https://www.wknd-trendsetters.site/.`;
 
             const response = await github.rest.issues.create({
               owner: context.repo.owner,
@@ -43,7 +43,7 @@ jobs:
           channel-id: ${{ secrets.SLACK_CHANNEL_ID }}
           payload: |
             {
-              "text": "*E2E Test Started for WKND Trendsetters DA* :rocket:\nSource: https://content.da.live/aemysites/sta-wknd-trendsetters-da-e2e/\nIssue: <${{ steps.create_issue.outputs.issue_url }}|${{ steps.create_issue.outputs.issue_title }}>"
+              "text": "*E2E Test Started for WKND Trendsetters DA* :rocket:\nSource: https://www.wknd-trendsetters.site/\nIssue: <${{ steps.create_issue.outputs.issue_url }}|${{ steps.create_issue.outputs.issue_title }}>"
             }
         env:
           SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}
