@@ -1,3 +1,4 @@
+/* stylelint-disable no-descending-specificity */
 .hero-container .hero-wrapper {
   max-width: unset;
   padding: 0;
@@ -410,12 +411,14 @@
   margin: 48px auto 0;
   padding: 0;
 }
+
 .hero.hero12.block > div {
   display: flex;
   flex-direction: row;
   width: 100%;
   height: 100%;
 }
+
 .hero.hero12.block > div:first-child {
   flex: 0 0 340px;
   align-items: flex-start;
@@ -428,6 +431,7 @@
   display: flex;
   flex-direction: column;
 }
+
 .hero.hero12.block > div:first-child picture {
   position: static;
   z-index: auto;
@@ -443,6 +447,7 @@
   background: #eaeaea;
   transition: box-shadow 0.2s;
 }
+
 .hero.hero12.block > div:nth-child(2) {
   flex: 1 1 0;
   display: flex;
@@ -503,6 +508,7 @@
   color: #fff;
   border-color: #181818;
 }
+
 @media (width <= 900px) {
   .hero.hero12.block {
     flex-direction: column;
@@ -537,13 +543,6 @@
   }
 }
 
-
-.hero-container > .hero-wrapper {
-  max-width: unset;
-  padding: 0;
-}
-
-/* Hero main grid */
 .hero.hero20 {
   position: relative;
   width: 100vw;
@@ -555,14 +554,12 @@
   overflow: hidden;
 }
 
-/* Collage/grid for background images with more organic spanning and placement */
 .hero.hero20 > div:first-child {
   grid-column: 1 / -1;
   grid-row: 1 / -1;
   width: 100vw;
   height: 100vh;
   display: grid;
-  /* Make top row taller for visual balance, bottom for buttons/description */
   grid-template-columns: 2fr 1.15fr 1.2fr;
   grid-template-rows: 38% 38% 24%;
   gap: 0;
@@ -579,9 +576,28 @@
   height: 100%;
   display: block;
 }
-
-/* Assign each image more visually organic grid area */
-.hero.hero20 > div:first-child picture:nth-of-type(1) { grid-column: 1 / 2; grid-row: 1 / 2; }
+.hero.hero20 > div:first-child picture:nth-of-type(1) {
+.hero.hero20 > div:first-child picture:nth-of-type(2) {
+.hero.hero20 > div:first-child picture:nth-of-type(3) {
+.hero.hero20 > div:first-child picture:nth-of-type(4) {
+.hero.hero20 > div:first-child picture:nth-of-type(5) {
+.hero.hero20 > div:first-child picture:nth-of-type(6) {
+.hero.hero20 > div:first-child picture:nth-of-type(7) {
+  grid-column: 1 / 2;
+  grid-row: 3 / 4;
+}
+  grid-row: 3 / 4;
+}
+  grid-row: 2 / 4;
+}
+  grid-row: 2 / 3;
+}
+  grid-row: 2 / 4;
+}
+  grid-row: 1 / 2;
+}
+  grid-row: 1 / 2;
+}
 .hero.hero20 > div:first-child picture:nth-of-type(2) { grid-column: 2 / 4; grid-row: 1 / 2; }
 .hero.hero20 > div:first-child picture:nth-of-type(3) { grid-column: 1 / 2; grid-row: 2 / 4; }
 .hero.hero20 > div:first-child picture:nth-of-type(4) { grid-column: 2 / 3; grid-row: 2 / 3; }
@@ -598,43 +614,19 @@
   display: block;
 }
 
-/* Dark overlay for contrast */
 .hero.hero20::before {
   position: absolute;
-  top: 0; left: 0; right: 0; bottom: 0;
-  background: rgba(0,0,0,0.60);
+  inset: 0;
+  background: rgb(0 0 0 / 60%);
   z-index: 2;
   pointer-events: none;
 }
 
-/* Overlay content centralized vertically and horizontally */
 .hero.hero20 > div:nth-child(2) {
   grid-column: 1 / -1;
   grid-row: 1 / -1;
   position: absolute;
-  top: 0; left: 0; right: 0; bottom: 0;
-  width: 100vw;
-  height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 3;
-  pointer-events: none;
-}
-
-.hero.hero20 > div:nth-child(2) > div {
-  width: 100%;
-  max-width: 1200px;
-  margin: 0 auto;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  pointer-events: auto;
-  gap: 2.2rem;
-}
-
-/* Headline: large, wide, centered */
+  inset: 0;
 .hero.hero20 h1 {
   color: #fff;
   font-size: clamp(2.8rem, 10vw, 7.3rem);
@@ -647,10 +639,30 @@
   width: 95vw;
   max-width: 1350px;
   word-break: break-word;
-  text-shadow: 0 0 16px rgba(0,0,0,0.25);
+  text-shadow: 0 0 16px rgb(0 0 0 / 25%);
+}
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  pointer-events: auto;
+  gap: 2.2rem;
 }
 
-/* Description: white, centered, wide, just above buttons */
+.hero.hero20 h1 {
+  color: #fff;
+  font-size: clamp(2.8rem, 10vw, 7.3rem);
+  font-weight: 700;
+  line-height: 1.05;
+  letter-spacing: 0.025em;
+  margin-bottom: 0;
+  margin-top: 0;
+  text-align: center;
+  width: 95vw;
+  max-width: 1350px;
+  word-break: break-word;
+  text-shadow: 0 0 16px rgb(0 0 0 / 25%);
+}
+
 .hero.hero20 > div:nth-child(2) p:not(.button-container) {
   color: #fff;
   font-size: 1.2rem;
@@ -661,10 +673,9 @@
   width: 100%;
   margin-left: auto;
   margin-right: auto;
-  text-shadow: 0 0 10px rgba(0,0,0,0.24);
+  text-shadow: 0 0 10px rgb(0 0 0 / 24%);
 }
 
-/* Arrange buttons in a single horizontal row below description */
 .hero.hero20 > div:nth-child(2) > div .button-container {
   display: flex;
   flex-direction: row;
@@ -674,9 +685,8 @@
   padding: 0;
 }
 
-/* Button styling: pill, side by side, centered */
 .hero.hero20 > div:nth-child(2) .button {
-  background: rgba(0,0,0,0.36);
+  background: rgb(0 0 0 / 36%);
   color: #fff;
   border: 2px solid #fff;
   border-radius: 2em;
@@ -698,39 +708,119 @@
   text-decoration: none;
 }
 
-/* Responsive adjustments for grid and overlay */
-@media (max-width: 900px) {
+@media (width <= 900px) {
   .hero.hero20 {
     min-height: 70vh;
   }
+
   .hero.hero20 > div:first-child {
     grid-template-columns: 1.5fr 1fr;
     grid-template-rows: repeat(5, 1fr);
   }
+
   .hero.hero20 h1 {
     font-size: clamp(2rem, 9vw, 3.2rem);
     width: 97vw;
     max-width: 99vw;
   }
+
   .hero.hero20 > div:nth-child(2) > div {
     max-width: 97vw;
     gap: 1.4rem;
   }
+
   .hero.hero20 > div:nth-child(2) > div .button-container {
     gap: 0.7rem;
   }
 }
 
-@media (max-width: 600px) {
+@media (width <= 600px) {
   .hero.hero20 h1 {
     font-size: clamp(1.3rem, 7vw, 2rem);
   }
+
   .hero.hero20 > div:first-child {
     grid-template-columns: 1fr;
     grid-template-rows: repeat(9, 1fr);
   }
+
   .hero.hero20 > div:nth-child(2) > div .button-container {
     flex-direction: column;
     gap: 0.7rem;
+  }
+}
+
+
+.hero.hero28 {
+  position: relative;
+  width: 100vw;
+  min-height: 100vh;
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+  background: transparent;
+  display: flex;
+  align-items: stretch;
+  justify-content: stretch;
+}
+
+/* Background image wrapper as full layer */
+.hero.hero28 > div:first-child {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  display: flex;
+}
+
+/* Background image covers */
+.hero.hero28 > div:first-child picture,
+.hero.hero28 > div:first-child img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Overlay text region: perfectly centered */
+.hero.hero28 > div:last-child {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  padding-top: 0;
+}
+
+/* Headline styling, tight line-height for hero effect */
+.hero.hero28 h1 {
+  color: #fff;
+  font-size: clamp(2.5rem, 7vw, 6.5rem);
+  font-weight: 400;
+  text-align: center;
+  line-height: 1;
+  margin: 0;
+  letter-spacing: 0.03em;
+  text-shadow: 0 5px 36px rgb(0 0 0 / 50%);
+  max-width: 70vw;
+  background: none;
+  border: none;
+  box-shadow: none;
+  padding: 0;
+}
+
+@media (width <= 900px) {
+  .hero.hero28 h1 {
+    font-size: clamp(2rem, 9vw, 4.5rem);
+    max-width: 95vw;
+  }
+
+  .hero.hero28 > div:last-child {
+    padding-top: 0;
   }
 }
