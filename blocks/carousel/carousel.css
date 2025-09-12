@@ -1,3 +1,4 @@
+/* stylelint-disable no-descending-specificity */
 .carousel .carousel-slides-container {
   position: relative;
 }
@@ -99,7 +100,6 @@
   z-index: 1;
 }
 
-/* stylelint-disable-next-line no-descending-specificity */
 .carousel .carousel-navigation-buttons button {
   position: relative;
   width: 44px;
@@ -149,5 +149,252 @@
 
   .carousel .carousel-slide .carousel-slide-content[data-align='justify'] {
     --slide-content-width: auto;
+  }
+}
+
+
+.carousel.carousel16 .carousel-slides {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
+  padding: 60px 0;
+  overflow: visible;
+}
+
+.carousel.carousel16 .carousel-slide {
+  flex: 0 0 260px;
+  max-width: 260px;
+  min-width: 180px;
+  margin: 0;
+  background: none;
+  box-shadow: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.carousel.carousel16 .carousel-slide-image {
+  width: 100%;
+  height: 180px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.carousel.carousel16 .carousel-slide-image picture {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.carousel.carousel16 .carousel-slide-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 12px;
+  box-shadow: 0 6px 32px rgb(0 0 0 / 10%);
+  transition: transform 0.3s;
+  display: block;
+}
+
+.carousel.carousel16 .carousel-slide:nth-child(1) .carousel-slide-image img {
+  transform: rotate(-7deg);
+}
+
+.carousel.carousel16 .carousel-slide:nth-child(2) .carousel-slide-image img {
+  transform: rotate(4deg);
+}
+
+.carousel.carousel16 .carousel-slide:nth-child(3) .carousel-slide-image img {
+  transform: rotate(-4deg);
+}
+
+.carousel.carousel16 .carousel-slide:nth-child(4) .carousel-slide-image img {
+  transform: rotate(6deg);
+}
+
+.carousel.carousel16 .carousel-slide:nth-child(5) .carousel-slide-image img {
+  transform: rotate(-4deg);
+}
+
+.carousel.carousel16 .carousel-slide:nth-child(6) .carousel-slide-image img {
+  transform: rotate(3deg);
+}
+
+.carousel.carousel16 .carousel-slide-content {
+  display: none;
+}
+
+.carousel.carousel16 .carousel-navigation-buttons,
+.carousel.carousel16 .carousel-slide-indicators {
+  display: none;
+}
+
+
+.carousel.carousel21 {
+  position: relative;
+  overflow: hidden;
+}
+
+/* Main bold, rotated white card overlay */
+.carousel.carousel21 .carousel-slide::before {
+  content: '';
+  position: absolute;
+  left: 7vw;
+  top: 9vw;
+  width: 38vw;
+  height: 13vw;
+  background: #fff;
+  opacity: 0.92;
+  border-radius: 1vw;
+  box-shadow: 0 8px 28px 0 rgb(40 40 40 / 17%);
+  transform: rotate(-7deg);
+  z-index: 2;
+  pointer-events: none;
+}
+
+/* Second, subtle card for collage effect */
+.carousel.carousel21 .carousel-slide::after {
+  content: '';
+  position: absolute;
+  left: 21vw;
+  top: 19vw;
+  width: 18vw;
+  height: 5vw;
+  background: #fff;
+  opacity: 0.5;
+  border-radius: 0.7vw;
+  box-shadow: 0 6px 16px 0 rgb(80 80 80 / 7%);
+  transform: rotate(-13deg);
+  z-index: 3;
+  pointer-events: none;
+}
+
+/* Accent diagonal line, top left */
+.carousel.carousel21 .carousel-slides::before {
+  content: '';
+  position: absolute;
+  top: 5vw;
+  left: 0;
+  width: 30vw;
+  height: 0.22vw;
+  background: #222;
+  opacity: 0.21;
+  transform: rotate(-14deg);
+  z-index: 4;
+}
+
+/* Accent diagonal line, top right */
+.carousel.carousel21 .carousel-slides::after {
+  content: '';
+  position: absolute;
+  top: 7vw;
+  right: 2vw;
+  width: 32vw;
+  height: 0.21vw;
+  background: #262626;
+  opacity: 0.23;
+  transform: rotate(10deg);
+  z-index: 4;
+}
+
+/* Heading: integrated, high-contrast, rotated, inside overlay card */
+.carousel.carousel21 .carousel-slide .carousel-slide-content {
+  background: none;
+  position: absolute;
+  left: 10vw;
+  top: 12vw;
+  max-width: 32vw;
+  z-index: 5;
+  transform: rotate(-7deg);
+  margin: 0;
+  padding: 0;
+  opacity: 1;
+  box-shadow: none;
+  pointer-events: none;
+}
+
+/* Heading text styling: readable, bold, collage style */
+.carousel.carousel21 .carousel-slide .carousel-slide-content h2 {
+  margin: 0;
+  padding: 0.75em 0.5em 0.6em 0.9em;
+  background: transparent;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  text-shadow: 0 2px 12px rgb(0 0 0 / 18%);
+  font-size: 2.5vw;
+  color: #232323;
+  line-height: 1.09;
+  border-radius: 0.4em;
+  opacity: 0.98;
+  display: inline-block;
+}
+
+/* Faint angled overlay text, collage style */
+.carousel.carousel21 .carousel-slide .carousel-slide-content::after {
+  display: block;
+  content: 'Party Nights Trend On';
+  position: absolute;
+  left: 22vw;
+  top: 6.1vw;
+  color: #212121;
+  opacity: 0.36;
+  font-size: 1vw;
+  letter-spacing: 0.09em;
+  font-weight: 500;
+  transform: rotate(-13deg);
+  z-index: 7;
+  pointer-events: none;
+  white-space: nowrap;
+  user-select: none;
+}
+
+/* Responsive adjustments for smaller screens */
+@media (width <= 900px) {
+  .carousel.carousel21 .carousel-slide::before {
+    left: 4vw;
+    top: 19vw;
+    width: 67vw;
+    height: 22vw;
+    border-radius: 2vw;
+  }
+
+  .carousel.carousel21 .carousel-slide::after {
+    left: 21vw;
+    top: 34vw;
+    width: 35vw;
+    height: 10vw;
+    border-radius: 1.5vw;
+  }
+
+  .carousel.carousel21 .carousel-slide .carousel-slide-content {
+    left: 9vw;
+    top: 24vw;
+    max-width: 62vw;
+    font-size: 5vw;
+  }
+
+  .carousel.carousel21 .carousel-slide .carousel-slide-content h2 {
+    font-size: 5vw;
+    padding: 0.6em 0.3em 0.55em 0.7em;
+  }
+
+  .carousel.carousel21 .carousel-slide .carousel-slide-content::after {
+    left: 25vw;
+    top: 17vw;
+    font-size: 2vw;
+  }
+
+  .carousel.carousel21 .carousel-slides::before,
+  .carousel.carousel21 .carousel-slides::after {
+    width: 56vw;
+    height: 0.29vw;
+    top: 12vw;
   }
 }
