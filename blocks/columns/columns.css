@@ -140,11 +140,11 @@
 .columns.columns14 > div {
   display: flex;
   flex-direction: row;
-  align-items: flex-start; /* top-align both columns */
+  align-items: flex-start;
   justify-content: flex-start;
   gap: 64px;
   width: 100%;
-  padding: 32px 0; /* add vertical space for a more open look */
+  padding: 32px 0;
   min-height: unset;
 }
 
@@ -157,7 +157,6 @@
   }
 }
 
-/* Widen the left column, right column only as wide as content allows */
 .columns.columns14 > div > div:first-child {
   flex: 1.6 1 0;
   max-width: 48vw;
@@ -182,7 +181,6 @@
   }
 }
 
-/* Heading styles */
 .columns.columns14 h2 {
   font-size: 3.2rem;
   font-weight: 300;
@@ -194,20 +192,18 @@
   width: 100%;
 }
 
-/* Paragraph constraint and spacing */
 .columns.columns14 > div > div:last-child p {
   font-size: 1rem;
   font-weight: 400;
   color: #000;
   line-height: 1.5;
   margin-top: 0;
-  margin-bottom: 0.3em; /* much closer to button */
+  margin-bottom: 0.3em;
   text-align: left;
   width: 100%;
   max-width: 395px;
 }
 
-/* Button container and button tweaks */
 .columns.columns14 .button-container {
   margin-top: 0;
   margin-bottom: 0;
@@ -238,7 +234,180 @@
   border-color: #222;
 }
 
-/* Remove any default margin from the last-child paragraph to tighten up button spacing */
 .columns.columns14 > div > div:last-child p:last-of-type {
   margin-bottom: 0.25em;
+}
+
+
+.columns.columns18 {
+  display: grid;
+  grid-template-columns: 0.90fr 2fr;
+  align-items: center;
+  gap: 48px;
+  max-width: 1264px;
+  margin: 0 auto 56px;
+  padding: 56px 0 0;
+  background: var(--background-color);
+  border-radius: 0;
+}
+
+@media (width <= 1000px) {
+  .columns.columns18 {
+    grid-template-columns: 1fr;
+    gap: 32px;
+    padding: 32px 0 0;
+    max-width: 100%;
+    margin-bottom: 32px;
+    align-items: start;
+  }
+}
+
+.columns.columns18 > div:first-child {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 0;
+  max-width: 370px;
+  min-width: 0;
+  padding-left: 0;
+  height: 100%;
+}
+
+@media (width <= 1000px) {
+  .columns.columns18 > div:first-child {
+    padding-left: 0;
+    max-width: 100%;
+    height: auto;
+  }
+}
+
+.columns.columns18 h2 {
+  font-size: 13px;
+  text-transform: uppercase;
+  font-weight: 400;
+  letter-spacing: 1.2px;
+  color: #6d6d6d;
+  margin: 0 0 16px;
+}
+
+.columns.columns18 h3 {
+  font-size: 34px;
+  font-weight: 600;
+  color: #181818;
+  line-height: 1.1;
+  letter-spacing: 1px;
+  margin: 0 0 16px;
+}
+
+.columns.columns18 p {
+  font-size: 16px;
+  color: #444;
+  margin: 0 0 10px;
+  line-height: 1.7;
+}
+
+.columns.columns18 > div:first-child > div:last-child {
+  margin-top: 0;
+  width: 100%;
+}
+
+.columns.columns18 ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.columns.columns18 ul li {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 2px;
+  padding: 0;
+  min-height: 32px;
+}
+
+.columns.columns18 ul li h4,
+.columns.columns18 ul li p:not(:first-child) {
+  display: inline-flex;
+  vertical-align: middle;
+  margin: 0;
+  align-items: center;
+}
+
+.columns.columns18 ul li h4 {
+  font-size: 10px;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 0.85px;
+  color: #b7b7b7;
+  line-height: 1.2;
+  margin-right: 9px;
+  min-width: 62px;
+}
+
+.columns.columns18 ul li p:not(:first-child) {
+  font-size: 15px;
+  color: #222;
+  font-weight: 400;
+  margin: 0;
+  line-height: 1.4;
+}
+
+.columns.columns18 ul li p > img {
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: #f5f5f5;
+  padding: 4px;
+  object-fit: contain;
+  box-shadow: none;
+  display: block;
+  margin: 0;
+}
+
+.columns.columns18 ul li .button-container .button {
+  background: none;
+  color: #222;
+  padding: 0;
+  border: none;
+  border-radius: 0;
+  font-size: 15px;
+  font-weight: 400;
+  text-decoration: underline;
+  margin: 0;
+  box-shadow: none;
+  line-height: 1.4;
+  cursor: pointer;
+  max-width: unset;
+  display: inline;
+}
+
+.columns.columns18 > div:last-child {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  width: 100%;
+  min-width: 0;
+}
+
+.columns.columns18 .columns-img-col img {
+  width: 100%;
+  max-width: 1200px;
+  height: auto;
+  border-radius: 56px;
+  display: block;
+  box-shadow: none;
+  margin-right: 0;
+}
+
+@media (width <= 1000px) {
+  .columns.columns18 .columns-img-col img {
+    max-width: 100%;
+    border-radius: 24px;
+  }
 }
