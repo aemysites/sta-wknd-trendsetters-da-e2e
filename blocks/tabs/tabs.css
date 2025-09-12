@@ -1,3 +1,4 @@
+/* stylelint-disable no-descending-specificity */
 .tabs .tabs-list {
   display: flex;
   gap: 0.5ch;
@@ -55,4 +56,138 @@
 
 .tabs .tabs-panel[aria-hidden='true'] {
   display: none;
+}
+
+
+.tabs.tabs22 {
+  background: #000;
+  padding-bottom: 32px;
+}
+
+/* Tabs bar: flex row, centered, increased gap, less top margin */
+.tabs.tabs22 .tabs-list {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: flex-end;
+  gap: 8em;
+  background: none;
+  border: none;
+  margin-top: 4px;
+  margin-bottom: 54px;
+  padding: 0;
+}
+
+/* Individual tabs: uppercase, letter spacing, transparent background, no border */
+.tabs.tabs22 .tabs-list .tabs-tab {
+  background: none;
+  border: none;
+  margin: 0;
+  padding: 0 4px 7px;
+  color: #666;
+  font-size: 17px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 2.5px;
+  cursor: pointer;
+  position: relative;
+  line-height: 1;
+  box-shadow: none;
+  border-radius: 0;
+  min-width: 80px;
+  text-align: center;
+  transition: color 0.2s;
+}
+
+.tabs.tabs22 .tabs-list .tabs-tab p {
+  margin: 0;
+  color: inherit;
+  font-size: inherit;
+  font-weight: inherit;
+  letter-spacing: inherit;
+  text-transform: inherit;
+  text-align: center;
+}
+
+/* Active tab: white color, underline effect with border-bottom */
+.tabs.tabs22 .tabs-list .tabs-tab[aria-selected='true'] {
+  color: #fff;
+  cursor: default;
+  border-bottom: 2px solid #fff;
+}
+
+/* Inactive tab text: gray */
+.tabs.tabs22 .tabs-list .tabs-tab:not([aria-selected='true']) p {
+  color: #666;
+}
+
+/* Panel layout and centering */
+.tabs.tabs22 .tabs-panel {
+  border: none;
+  background: none;
+  margin-top: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Only show visible panel */
+.tabs.tabs22 .tabs-panel[aria-hidden='true'] {
+  display: none;
+}
+
+/* Stack heading and image vertically, tight gap, centered */
+.tabs.tabs22 .tabs-panel > div {
+  width: 100%;
+  max-width: 1200px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 18px;
+}
+
+/* Heading: large, white, centered, tight margin above and below */
+.tabs.tabs22 .tabs-panel h3 {
+  color: #fff;
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 2.9rem;
+  letter-spacing: 2.7px;
+  font-weight: 400;
+  margin: 4px 0 0;
+  line-height: 1.1;
+}
+
+@media (width >= 900px) {
+  .tabs.tabs22 .tabs-panel h3 {
+    font-size: 3.3rem;
+    margin-top: 10px;
+  }
+}
+
+/* Remove margin from wrapping p (image container) */
+.tabs.tabs22 .tabs-panel p {
+  margin: 0;
+  padding: 0;
+}
+
+/* Image styling: slightly less width, rounded, centered, no border */
+.tabs.tabs22 .tabs-panel picture,
+.tabs.tabs22 .tabs-panel img {
+  display: block;
+  border-radius: 20px;
+  margin: 0 auto;
+  width: 95%;
+  max-width: 1200px;
+  height: auto;
+  box-shadow: 0 4px 32px rgb(0 0 0 / 14%);
+  background: none;
+}
+
+@media (width >= 900px) {
+  .tabs.tabs22 .tabs-panel picture,
+  .tabs.tabs22 .tabs-panel img {
+    width: 100%;
+  }
 }
