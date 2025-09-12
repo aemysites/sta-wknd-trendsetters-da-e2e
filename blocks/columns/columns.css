@@ -1,7 +1,10 @@
 /* stylelint-disable no-descending-specificity */
 .columns > div {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  justify-content: center;
+  align-items: flex-start;
+  width: 100%;
 }
 
 .columns img {
@@ -880,7 +883,6 @@
   }
 }
 
-/* Image styling */
 .columns.columns32 .columns-img-col img {
   width: 370px;
   height: 280px;
@@ -899,7 +901,6 @@
   }
 }
 
-/* Text column: vertical stack, center within available space */
 .columns.columns32 > div > div:not(.columns-img-col) {
   display: flex;
   flex-direction: column;
@@ -908,7 +909,6 @@
   height: 100%;
 }
 
-/* Label + Badge flex row (for desktop) */
 .columns.columns32 > div > div:not(.columns-img-col) .columns-label-badge,
 .columns.columns32 > div > div:not(.columns-img-col) > p:nth-child(1),
 .columns.columns32 > div > div:not(.columns-img-col) > p:nth-child(2) {
@@ -916,7 +916,6 @@
   margin-bottom: 0;
 }
 
-/* Emulate label + badge row with flexbox for sibling p elements */
 @media (width >= 900px) {
   .columns.columns32 > div > div:not(.columns-img-col) {
     min-height: 280px;
@@ -933,7 +932,6 @@
   }
 }
 
-/* Label styling */
 .columns.columns32 > div > div:not(.columns-img-col) > p:nth-child(1) {
   font-size: 13px;
   color: #888;
@@ -943,7 +941,6 @@
   margin-right: 12px;
 }
 
-/* Badge styling */
 .columns.columns32 > div > div:not(.columns-img-col) > p:nth-child(2) {
   background: #f2f2f2;
   color: #444;
@@ -958,7 +955,6 @@
   align-items: center;
 }
 
-/* Headline styling */
 .columns.columns32 > div > div:not(.columns-img-col) h2 {
   font-size: 44px;
   color: #222;
@@ -969,7 +965,6 @@
   text-align: left;
 }
 
-/* Metadata flex row: author, dot, role, dot, date (inline, compact) */
 .columns.columns32 > div > div:not(.columns-img-col) .columns-meta-row {
   display: flex;
   flex-direction: row;
@@ -978,7 +973,6 @@
   gap: 8px;
 }
 
-/* If there's no wrapper, select all metadata p's and dot p's inline in a flex row */
 .columns.columns32 > div > div:not(.columns-img-col) > p:nth-child(3),
 .columns.columns32 > div > div:not(.columns-img-col) > p:nth-child(4),
 .columns.columns32 > div > div:not(.columns-img-col) > p:nth-child(5),
@@ -1001,9 +995,69 @@
   margin-top: 0;
 }
 
-/* Keep overall block centered with whitespace */
 .columns.columns32 {
   max-width: 1040px;
   margin: 0 auto;
   padding: 0;
+}
+
+
+.columns {
+  background-color: #f6f7f4;
+  padding-top: 40px;
+  padding-bottom: 56px;
+  width: 100%;
+}
+
+/* Use flexbox for horizontal centering of the row container */
+
+/* Hide everything except the first paragraph in the second column section */
+.columns h2,
+.columns .button-container,
+.columns > div > div:nth-child(2) > p:not(:first-child) {
+  display: none;
+}
+
+/* Content column as flex for horizontal centering, but restrict max width for optimal line length */
+.columns > div > div:nth-child(2) {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+/* Center and style the only visible paragraph */
+.columns > div > div:nth-child(2) > p:first-child {
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 400;
+  color: #222;
+  text-align: center;
+  margin: 0;
+  padding: 0;
+  max-width: 580px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* Responsive stacking for smaller screens */
+@media (width <= 700px) {
+  .columns {
+    padding-top: 24px;
+    padding-bottom: 32px;
+  }
+
+  .columns > div {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .columns > div > div:nth-child(2) {
+    justify-content: center;
+    width: 100%;
+  }
+
+  .columns > div > div:nth-child(2) > p:first-child {
+    max-width: 95vw;
+  }
 }
