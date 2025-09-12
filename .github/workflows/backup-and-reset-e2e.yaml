@@ -96,7 +96,7 @@ jobs:
               owner: context.repo.owner,
               repo: context.repo.repo,
               title: 'AEMY Installation',
-              body: 'Setup the workflows for WKND Trendsetters DA E2E migration',
+              body: 'Setup the workflows',
               labels: ['aemy-go', 'aemy-help', 'aemy-merge']
             });
             console.log(`Created issue #${issue.number}: ${issue.html_url}`);
@@ -107,7 +107,7 @@ jobs:
           channel-id: ${{ secrets.SLACK_CHANNEL_ID }}
           payload: |
             {
-              "text": "*WKND Trendsetters DA E2E - Backup and Reset Completed* :white_check_mark:\n• Created backup branch: `${{ steps.backup.outputs.branch_name }}`\n• Reset main branch to commit: `${{ vars.E2E_WORKFLOW_COMMIT }}`",
+              "text": "*Backup and Reset Completed* :white_check_mark:\n• Created backup branch: `${{ steps.backup.outputs.branch_name }}`\n• Reset main branch to commit: `${{ vars.E2E_WORKFLOW_COMMIT }}`",
               "thread_ts": "${{ steps.get_issue.outputs.thread_ts }}"
             }
         env:
