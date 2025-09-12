@@ -1,3 +1,4 @@
+/* stylelint-disable no-descending-specificity */
 .cards > ul {
   list-style: none;
   margin: 0;
@@ -24,4 +25,205 @@
   width: 100%;
   aspect-ratio: 4 / 3;
   object-fit: cover;
+}
+
+
+.cards.cards2 > ul {
+  display: grid;
+  grid-template-columns: 1.25fr 1fr 1fr;
+  grid-template-rows: auto auto auto auto auto auto auto auto;
+  gap: 40px 36px;
+  align-items: start;
+  padding: 0;
+  list-style: none;
+  background: transparent;
+  width: 100%;
+  min-height: 650px; /* helps achieve vertical centering with margin below */
+}
+
+/* Main card: large image, title, desc */
+.cards.cards2 > ul > li:first-child {
+  grid-column: 1;
+  grid-row: 1 / span 3;
+  display: flex;
+  flex-direction: column;
+  border: none;
+  background: transparent;
+  justify-content: flex-start;
+}
+
+/* Second card: image, title, desc */
+.cards.cards2 > ul > li:nth-child(2) {
+  grid-column: 2;
+  grid-row: 1 / span 2;
+  display: flex;
+  flex-direction: column;
+  border: none;
+  background: transparent;
+  justify-content: flex-start;
+}
+
+/* Right column, each gets its own row in column 3 */
+.cards.cards2 > ul > li:nth-child(3) {
+  grid-column: 3;
+.cards.cards2 > ul > li:nth-child(4) {
+.cards.cards2 > ul > li:nth-child(5) {
+.cards.cards2 > ul > li:nth-child(6) {
+.cards.cards2 > ul > li:nth-child(7) {
+.cards.cards2 > ul > li:nth-child(8) {
+  grid-column: 3;
+  grid-row: 6;
+}
+  grid-row: 5;
+}
+  grid-row: 4;
+}
+  grid-row: 3;
+}
+  grid-row: 2;
+}
+  margin-top: 180px;
+}
+.cards.cards2 > ul > li:nth-child(4)  { grid-column: 3; grid-row: 2; }
+.cards.cards2 > ul > li:nth-child(5)  { grid-column: 3; grid-row: 3; }
+.cards.cards2 > ul > li:nth-child(6)  { grid-column: 3; grid-row: 4; }
+.cards.cards2 > ul > li:nth-child(7)  { grid-column: 3; grid-row: 5; }
+.cards.cards2 > ul > li:nth-child(8)  { grid-column: 3; grid-row: 6; }
+.cards.cards2 > ul > li:nth-child(9)  { grid-column: 3; grid-row: 7; }
+.cards.cards2 > ul > li:nth-child(10) { grid-column: 3; grid-row: 8; }
+
+/* Nudge right column group downward for visual alignment (simulate centering) */
+
+/* --- IMAGES --- */
+.cards.cards2 > ul > li .cards-card-image img {
+  width: 100%;
+  object-fit: cover;
+  box-shadow: 0 2px 14px rgb(0 0 0 / 4%);
+}
+
+.cards.cards2 > ul > li:first-child .cards-card-image img {
+  border-radius: 24px;
+  aspect-ratio: 16/10;
+  margin-bottom: 1.5rem;
+}
+
+.cards.cards2 > ul > li:nth-child(2) .cards-card-image img {
+  border-radius: 16px;
+  aspect-ratio: 16/10;
+  margin-bottom: 1.2rem;
+}
+
+/* --- LABEL (PILL) --- */
+.cards.cards2 > ul > li:first-child .cards-card-body p:first-child,
+.cards.cards2 > ul > li:nth-child(2) .cards-card-body p:first-child {
+  background: #e0e0e0;
+  color: #333;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  border-radius: 18px;
+  padding: 0.18em 1em;
+  display: inline-block;
+  margin-bottom: 1.1em;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+}
+
+/* --- MAIN TITLE & DESC --- */
+.cards.cards2 > ul > li:first-child .cards-card-body h3 {
+  font-size: 2.4rem;
+  font-weight: 700;
+  color: #1a1a1a;
+  margin: 0 0 0.7em;
+  line-height: 1.1;
+  letter-spacing: -0.01em;
+}
+
+.cards.cards2 > ul > li:first-child .cards-card-body p:last-child {
+  font-size: 1rem;
+  color: #4d4d4d;
+  margin: 0;
+}
+
+/* --- IMAGE CARD TITLE & DESC --- */
+.cards.cards2 > ul > li:nth-child(2) .cards-card-body h3 {
+  font-size: 1.18rem;
+  font-weight: 600;
+  color: #222;
+  margin: 0 0 0.6em;
+  line-height: 1.2;
+}
+
+.cards.cards2 > ul > li:nth-child(2) .cards-card-body p:last-child {
+  font-size: 0.96rem;
+  color: #454545;
+  margin: 0;
+}
+
+/* --- RIGHT COLUMN (LINK BLOCKS) --- */
+.cards.cards2 > ul > li:nth-child(n+3) .cards-card-body {
+  margin: 0;
+  padding: 0.1em 0 1.1em;
+  border: none;
+  background: none;
+}
+
+.cards.cards2 > ul > li:nth-child(n+3):not(:last-child) .cards-card-body {
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.cards.cards2 > ul > li:nth-child(n+3) h3 {
+  font-size: 1.1rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  color: #3a3a3a;
+  margin: 0 0 0.35em;
+  line-height: 1.15;
+  letter-spacing: 0.01em;
+}
+
+.cards.cards2 > ul > li:nth-child(n+3) p {
+  font-size: 0.98rem;
+  color: #6c6c6c;
+  margin: 0;
+  line-height: 1.5;
+}
+
+/* --- Remove card backgrounds globally --- */
+.cards.cards2 > ul > li {
+  border: none;
+  background: none;
+  border-radius: 0;
+  box-shadow: none;
+  padding: 0;
+}
+
+/* Remove default body margin for card bodies within this block */
+.cards.cards2 .cards-card-body {
+  margin: 0;
+  padding: 0;
+}
+
+/* --- Responsive stacking for mobile: stack all cards --- */
+@media (width <= 900px) {
+  .cards.cards2 > ul {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+    min-height: 0;
+  }
+
+  .cards.cards2 > ul > li {
+    margin-bottom: 2.2rem;
+    padding-bottom: 0;
+    grid-column: span 1;
+    grid-row: auto;
+  }
+
+  .cards.cards2 > ul > li .cards-card-image img {
+    margin-bottom: 1rem;
+  }
+
+  .cards.cards2 > ul > li:nth-child(3) {
+    margin-top: 0;
+  }
 }
