@@ -411,3 +411,172 @@
     border-radius: 24px;
   }
 }
+
+
+.columns.columns26 {
+  background: #fafbf8;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 48px 32px 40px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+/* The two main columns side by side */
+.columns.columns26 > div {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 48px;
+  width: 100%;
+}
+
+/* --- Top Row (heading left, quote right) --- */
+.columns.columns26 > div:first-child {
+  margin-bottom: 40px;
+  position: relative;
+}
+
+.columns.columns26 > div:first-child > div {
+  flex: 1 1 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+/* Heading left */
+.columns.columns26 > div:first-child > div:first-child p {
+  font-size: 2.4rem;
+  line-height: 1.07;
+  letter-spacing: 0.04em;
+  color: #232323;
+  font-weight: 400;
+  margin: 0 0 16px;
+  text-align: left;
+}
+
+/* Quote right */
+.columns.columns26 > div:first-child > div:last-child p {
+  font-size: 1rem;
+  color: #232323;
+  line-height: 1.35;
+  font-weight: 400;
+  margin: 0;
+  text-align: left;
+}
+
+/* Divider line between top and bottom row */
+
+.columns.columns26 > div:first-child::after {
+  display: block;
+  width: 100%;
+  height: 1px;
+  background: #e4e4e4;
+  margin-top: 36px;
+  position: absolute;
+  left: 0;
+  bottom: -36px;
+  content: "";
+}
+
+/* --- Bottom Row (avatar/name/role left, logo right) --- */
+.columns.columns26 > div:last-child {
+  align-items: center;
+  min-height: 64px;
+  margin-top: 60px;
+}
+
+/* Left: avatar + name + role */
+.columns.columns26 > div:last-child > div:first-child {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+/* Avatar styling */
+.columns.columns26 > div:last-child > div:first-child picture,
+.columns.columns26 > div:last-child > div:first-child img {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-right: 12px;
+  box-shadow: 0 1px 4px rgb(0 0 0 / 8%);
+  background: #ececec;
+}
+
+/* Name/role text styling */
+.columns.columns26 > div:last-child > div:first-child p {
+  margin: 0;
+  color: #232323;
+  font-size: 1rem;
+  font-weight: 500;
+  line-height: 1.2;
+  display: inline-block;
+}
+
+/* Name bold, role lighter */
+.columns.columns26 > div:last-child > div:first-child p:nth-of-type(2) {
+  font-weight: 600;
+  color: #232323;
+  font-size: 1rem;
+  margin-bottom: 2px;
+  margin-left: 0;
+}
+
+.columns.columns26 > div:last-child > div:first-child p:nth-of-type(3) {
+  color: #6d6d6d;
+  font-weight: 400;
+  font-size: 0.95rem;
+  margin-top: 2px;
+  margin-left: 10px;
+}
+
+/* Right: logo, aligned baseline with avatar/name/role */
+.columns.columns26 > div:last-child > div:last-child {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+/* Logo sizing */
+.columns.columns26 > div:last-child > div:last-child img {
+  height: 28px;
+  width: auto;
+  margin-left: 12px;
+  filter: grayscale(100%);
+  vertical-align: middle;
+}
+
+/* --- Responsiveness: stack columns on mobile --- */
+@media (width <= 900px) {
+  .columns.columns26 {
+    padding: 32px 10vw;
+    max-width: 100vw;
+  }
+
+  .columns.columns26 > div {
+    flex-direction: column;
+    gap: 24px;
+    align-items: flex-start;
+  }
+
+  .columns.columns26 > div > div {
+    width: 100%;
+  }
+
+  .columns.columns26 > div:last-child > div:last-child {
+    justify-content: flex-start;
+    margin-top: 12px;
+  }
+}
+
+/* Prevent images from stretching awkwardly */
+.columns.columns26 img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
