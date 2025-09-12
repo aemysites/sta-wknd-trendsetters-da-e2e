@@ -1,3 +1,4 @@
+/* stylelint-disable no-descending-specificity */
 .carousel .carousel-slides-container {
   position: relative;
 }
@@ -99,7 +100,6 @@
   z-index: 1;
 }
 
-/* stylelint-disable-next-line no-descending-specificity */
 .carousel .carousel-navigation-buttons button {
   position: relative;
   width: 44px;
@@ -150,4 +150,95 @@
   .carousel .carousel-slide .carousel-slide-content[data-align='justify'] {
     --slide-content-width: auto;
   }
+}
+
+
+.carousel.carousel16 .carousel-slides {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
+  padding: 60px 0;
+  overflow: visible;
+}
+
+.carousel.carousel16 .carousel-slide {
+  flex: 0 0 260px;
+  max-width: 260px;
+  min-width: 180px;
+  margin: 0;
+  background: none;
+  box-shadow: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.carousel.carousel16 .carousel-slide-image {
+  width: 100%;
+  height: 180px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  /* Center the image vertically in the slide */
+}
+
+.carousel.carousel16 .carousel-slide-image picture {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+
+  /* Remove absolute positioning */
+}
+
+.carousel.carousel16 .carousel-slide-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 12px;
+  box-shadow: 0 6px 32px rgb(0 0 0 / 10%);
+  transition: transform 0.3s;
+  display: block;
+}
+
+/* Apply playful staggered rotation only to images */
+.carousel.carousel16 .carousel-slide:nth-child(1) .carousel-slide-image img {
+  transform: rotate(-7deg);
+}
+
+.carousel.carousel16 .carousel-slide:nth-child(2) .carousel-slide-image img {
+  transform: rotate(4deg);
+}
+
+.carousel.carousel16 .carousel-slide:nth-child(3) .carousel-slide-image img {
+  transform: rotate(-4deg);
+}
+
+.carousel.carousel16 .carousel-slide:nth-child(4) .carousel-slide-image img {
+  transform: rotate(6deg);
+}
+
+.carousel.carousel16 .carousel-slide:nth-child(5) .carousel-slide-image img {
+  transform: rotate(-4deg);
+}
+
+.carousel.carousel16 .carousel-slide:nth-child(6) .carousel-slide-image img {
+  transform: rotate(3deg);
+}
+
+/* Hide slide content overlays */
+.carousel.carousel16 .carousel-slide-content {
+  display: none;
+}
+
+/* Hide navigation buttons and indicators for clarity */
+.carousel.carousel16 .carousel-navigation-buttons,
+.carousel.carousel16 .carousel-slide-indicators {
+  display: none;
 }
