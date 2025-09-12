@@ -34,6 +34,154 @@
 }
 
 
+.columns {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  background: #fafaf7;
+  padding: 60px 0;
+  max-width: 1100px;
+  margin: 0 auto;
+  gap: 56px;
+  min-height: 600px;
+}
+
+/* Left column: headline and paragraph stacked, centered vertically */
+.columns > div:first-child {
+  flex: 1 1 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  min-width: 0;
+  min-height: 0;
+  padding-left: 24px;
+  padding-right: 12px;
+  gap: 40px;
+}
+
+.columns > div:first-child > div {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+/* Headline style */
+.columns > div:first-child > div:first-child > p {
+  font-size: 4rem;
+  color: #131313;
+  font-weight: 400;
+  line-height: 1.08;
+  margin: 0 0 28px;
+  letter-spacing: 0.01em;
+  text-align: left;
+  max-width: 95%;
+}
+
+/* Paragraph style */
+.columns > div:first-child > div:nth-child(2) > p {
+  font-size: 1.12rem;
+  color: #555;
+  font-weight: 400;
+  margin: 0;
+  text-align: left;
+  line-height: 1.5;
+  max-width: 440px;
+}
+
+/* Right column: center content vertically and horizontally, tight grouping */
+.columns > div:last-child {
+  flex: 1 1 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-width: 0;
+  min-height: 0;
+  padding-right: 24px;
+  padding-left: 12px;
+}
+
+/* Right column's inner stack: image and supporting text tightly grouped */
+.columns > div:last-child > div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+}
+
+/* Image styling: ensure image is visible at the top of the stack */
+.columns > div:last-child picture img {
+  width: 420px;
+  height: 420px;
+  object-fit: cover;
+  border-radius: 32px;
+  display: block;
+  margin-bottom: 0;
+}
+
+/* Name and role */
+.columns > div:last-child > div > p {
+  font-size: 1.13rem;
+  color: #131313;
+  font-weight: 500;
+  margin: 0;
+  text-align: center;
+  line-height: 1.15;
+}
+
+.columns > div:last-child > div > p:last-child {
+  font-size: 1.01rem;
+  color: #555;
+  font-weight: 400;
+  margin: 0;
+  text-align: center;
+}
+
+/* SVG styling */
+.columns > div:last-child > div:last-child img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 1.5px solid #131313;
+  background: #fafaf7;
+  display: block;
+  margin: 12px auto 0;
+}
+
+/* Responsive: stack columns and scale image */
+@media (width <= 900px) {
+  .columns {
+    flex-direction: column;
+    gap: 40px;
+    padding: 32px 0;
+    max-width: 100%;
+    min-height: unset;
+  }
+
+  .columns > div,
+  .columns > div:first-child,
+  .columns > div:last-child {
+    align-items: center;
+    justify-content: flex-start;
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .columns > div:last-child > div {
+    gap: 8px;
+  }
+
+  .columns > div:last-child picture img {
+    width: 100%;
+    max-width: 420px;
+    height: auto;
+  }
+}
+=======
 .columns.columns3 > div {
   display: flex;
   flex-direction: row;
