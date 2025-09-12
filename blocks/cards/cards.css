@@ -708,8 +708,6 @@
   border-top-left-radius: 1.5rem;
   border-top-right-radius: 1.5rem;
 }
-
-/* Card body layout for tag/date row and headline */
 .cards.cards24 .cards-card-body {
   padding: 0.65rem 1.1rem 1.05rem 1.1rem;
   display: flex;
@@ -717,8 +715,6 @@
   gap: 0.38rem;
   width: 100%;
 }
-
-/* Tag/date row: flex row for first two <p> only */
 .cards.cards24 .cards-card-body > p:first-child,
 .cards.cards24 .cards-card-body > p:nth-child(2) {
   margin: 0;
@@ -732,8 +728,6 @@
   align-items: center;
   width: 100%;
 }
-
-/* Flex row trick for sibling <p>: put .cards-card-body itself in relative position and use absolute+flex for the tag/date row */
 .cards.cards24 .cards-card-body {
   position: relative;
 }
@@ -754,8 +748,6 @@
   right: 1.1rem;
   left: auto;
 }
-
-/* Add spacing below absolute row so headline doesn't overlap */
 .cards.cards24 .cards-card-body h3 {
   margin-top: 2.2em;
   text-transform: uppercase;
@@ -766,8 +758,6 @@
   line-height: 1.15;
   align-self: flex-start;
 }
-
-/* Tag pill: compact, proper baseline */
 .cards.cards24 .cards-card-body > p:first-child {
   background: #F4F4F3;
   color: #232323;
@@ -778,8 +768,6 @@
   font-weight: 500;
   padding: 0.09em 0.7em 0.09em 0.7em;
 }
-
-/* Date: compact, right-aligned, baseline-aligned */
 .cards.cards24 .cards-card-body > p:nth-child(2) {
   font-size: 0.75rem;
   color: #232323;
@@ -792,8 +780,6 @@
   padding-right: 0;
   justify-content: flex-end;
 }
-
-/* Responsive: adjust image, padding, and headline size */
 @media (max-width: 900px) {
   .cards.cards24 > ul {
     grid-template-columns: 1fr 1fr;
@@ -831,5 +817,161 @@
   .cards.cards24 .cards-card-body > p:first-child,
   .cards.cards24 .cards-card-body > p:nth-child(2) {
     top: 0.3rem;
+  }
+}
+
+
+.cards.cards25 {
+  width: 100%;
+  margin: 0 auto;
+  padding: 0;
+}
+
+/* Two-column grid with compact rows and filled columns */
+.cards.cards25 > ul {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  justify-items: stretch;
+  align-items: stretch;
+  grid-auto-flow: row dense;
+}
+
+/* Card: column layout, image over text */
+.cards.cards25 > ul > li {
+  background: #f3f3f3;
+  border: none;
+  border-radius: 1rem;
+  overflow: hidden;
+  min-height: 320px;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  position: relative;
+  grid-column: span 1;
+  margin: 0;
+}
+
+/* Feature cards: span both columns, maintain flow */
+.cards.cards25 > ul > li:nth-child(2),
+.cards.cards25 > ul > li:nth-child(4) {
+  grid-column: 1 / span 2;
+  min-height: 360px;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Make sure last row contains two cards when possible */
+.cards.cards25 > ul > li:nth-last-child(2),
+.cards.cards25 > ul > li:last-child {
+  margin-right: 0;
+  margin-left: 0;
+}
+
+/* Card image: top position, rounded corners, fixed height */
+.cards.cards25 .cards-card-image {
+  width: 100%;
+  position: relative;
+  line-height: 0;
+  flex-shrink: 0;
+}
+.cards.cards25 .cards-card-image img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  border-radius: 1rem 1rem 0 0;
+  display: block;
+}
+
+/* Feature card images: taller for visual emphasis */
+.cards.cards25 > ul > li:nth-child(2) .cards-card-image img,
+.cards.cards25 > ul > li:nth-child(4) .cards-card-image img {
+  height: 320px;
+}
+
+/* Body content: below image for regular cards, overlay for feature cards */
+.cards.cards25 .cards-card-body {
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  color: #444;
+  position: static;
+  background: none;
+}
+
+/* Overlay for feature cards */
+.cards.cards25 > ul > li:nth-child(2) .cards-card-body,
+.cards.cards25 > ul > li:nth-child(4) .cards-card-body {
+  position: absolute;
+  top: 2rem;
+  left: 2rem;
+  right: 2rem;
+  background: none;
+  padding: 0;
+  z-index: 2;
+  color: #d4c6b2;
+  text-shadow: 0px 2px 8px rgba(0,0,0,0.45);
+  pointer-events: none;
+  max-width: calc(100% - 4rem);
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+/* Heading styling */
+.cards.cards25 .cards-card-body h3 {
+  font-size: 2.2rem;
+  font-weight: 400;
+  letter-spacing: 0.08em;
+  color: #d4c6b2;
+  margin: 0 0 0.75rem 0;
+  line-height: 1.1;
+  text-shadow: 0px 2px 8px rgba(0,0,0,0.45);
+}
+.cards.cards25 > ul > li:not(:nth-child(2)):not(:nth-child(4)) .cards-card-body h3 {
+  color: #444;
+  text-shadow: none;
+}
+
+/* Paragraph styling */
+.cards.cards25 .cards-card-body p {
+  font-size: 1rem;
+  color: #444;
+  margin: 0;
+}
+.cards.cards25 > ul > li:nth-child(2) .cards-card-body p,
+.cards.cards25 > ul > li:nth-child(4) .cards-card-body p {
+  color: #d4c6b2;
+  text-shadow: 0px 2px 8px rgba(0,0,0,0.45);
+}
+
+/* Responsive: stack cards vertically on small screens */
+@media (max-width: 900px) {
+  .cards.cards25 > ul {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+  .cards.cards25 > ul > li,
+  .cards.cards25 > ul > li:nth-child(2),
+  .cards.cards25 > ul > li:nth-child(4) {
+    grid-column: span 1;
+    min-height: 220px;
+  }
+  .cards.cards25 .cards-card-image img {
+    height: 160px;
+  }
+  .cards.cards25 > ul > li:nth-child(2) .cards-card-image img,
+  .cards.cards25 > ul > li:nth-child(4) .cards-card-image img {
+    height: 160px;
+  }
+  .cards.cards25 > ul > li:nth-child(2) .cards-card-body,
+  .cards.cards25 > ul > li:nth-child(4) .cards-card-body {
+    top: 1rem;
+    left: 1rem;
+    right: 1rem;
+    max-width: calc(100% - 2rem);
   }
 }
