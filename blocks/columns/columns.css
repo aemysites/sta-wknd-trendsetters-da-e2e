@@ -424,7 +424,6 @@
   gap: 0;
 }
 
-/* The two main columns side by side */
 .columns.columns26 > div {
   display: flex;
   flex-direction: row;
@@ -434,7 +433,6 @@
   width: 100%;
 }
 
-/* --- Top Row (heading left, quote right) --- */
 .columns.columns26 > div:first-child {
   margin-bottom: 40px;
   position: relative;
@@ -447,7 +445,6 @@
   justify-content: flex-start;
 }
 
-/* Heading left */
 .columns.columns26 > div:first-child > div:first-child p {
   font-size: 2.4rem;
   line-height: 1.07;
@@ -458,7 +455,6 @@
   text-align: left;
 }
 
-/* Quote right */
 .columns.columns26 > div:first-child > div:last-child p {
   font-size: 1rem;
   color: #232323;
@@ -467,8 +463,6 @@
   margin: 0;
   text-align: left;
 }
-
-/* Divider line between top and bottom row */
 
 .columns.columns26 > div:first-child::after {
   display: block;
@@ -482,21 +476,18 @@
   content: "";
 }
 
-/* --- Bottom Row (avatar/name/role left, logo right) --- */
 .columns.columns26 > div:last-child {
   align-items: center;
   min-height: 64px;
   margin-top: 60px;
 }
 
-/* Left: avatar + name + role */
 .columns.columns26 > div:last-child > div:first-child {
   display: flex;
   align-items: center;
   gap: 16px;
 }
 
-/* Avatar styling */
 .columns.columns26 > div:last-child > div:first-child picture,
 .columns.columns26 > div:last-child > div:first-child img {
   width: 36px;
@@ -508,7 +499,6 @@
   background: #ececec;
 }
 
-/* Name/role text styling */
 .columns.columns26 > div:last-child > div:first-child p {
   margin: 0;
   color: #232323;
@@ -518,7 +508,6 @@
   display: inline-block;
 }
 
-/* Name bold, role lighter */
 .columns.columns26 > div:last-child > div:first-child p:nth-of-type(2) {
   font-weight: 600;
   color: #232323;
@@ -535,14 +524,12 @@
   margin-left: 10px;
 }
 
-/* Right: logo, aligned baseline with avatar/name/role */
 .columns.columns26 > div:last-child > div:last-child {
   display: flex;
   align-items: center;
   justify-content: flex-end;
 }
 
-/* Logo sizing */
 .columns.columns26 > div:last-child > div:last-child img {
   height: 28px;
   width: auto;
@@ -551,7 +538,6 @@
   vertical-align: middle;
 }
 
-/* --- Responsiveness: stack columns on mobile --- */
 @media (width <= 900px) {
   .columns.columns26 {
     padding: 32px 10vw;
@@ -574,9 +560,161 @@
   }
 }
 
-/* Prevent images from stretching awkwardly */
 .columns.columns26 img {
   max-width: 100%;
   height: auto;
   display: block;
+}
+
+
+.columns.columns27.block.columns-2-cols {
+  background: #fcfaf7;
+  padding: 24px 0;
+}
+
+.columns.columns27.block.columns-2-cols > div {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 8px;
+  gap: 20px;
+}
+
+@media (width >= 900px) {
+  .columns.columns27.block.columns-2-cols > div {
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 72px;
+    padding: 0 18px;
+  }
+}
+
+/* Left (text) column */
+.columns.columns27.block.columns-2-cols > div > div:first-child {
+  flex: 0 1 400px;
+  max-width: 400px;
+  min-width: 260px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding: 0;
+}
+
+/* Byline */
+.columns.columns27.block.columns-2-cols > div > div:first-child > p:first-child {
+  text-transform: uppercase;
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  color: #767676;
+  margin: 0 0 20px;
+  font-weight: 500;
+}
+
+/* Headline */
+.columns.columns27.block.columns-2-cols > div > div:first-child > h2 {
+  font-size: 56px;
+  line-height: 1.05;
+  font-weight: 400;
+  color: #181818;
+  letter-spacing: 0.01em;
+  margin: 0 0 24px;
+  text-transform: none;
+}
+
+/* Main body paragraph */
+.columns.columns27.block.columns-2-cols > div > div:first-child > p:nth-child(3) {
+  font-size: 20px;
+  color: #232323;
+  margin: 0 0 24px;
+  line-height: 1.5;
+}
+
+/* Small caption above button */
+.columns.columns27.block.columns-2-cols > div > div:first-child > p:nth-child(4) {
+  font-size: 12px;
+  color: #d2d2d2;
+  margin: 0 0 20px;
+}
+
+/* Button container paragraph */
+.columns.columns27.block.columns-2-cols .button-container {
+  margin: 0;
+  padding: 0;
+  margin-top: 20px;
+}
+
+/* Button style override */
+.columns.columns27.block.columns-2-cols .button-container .button {
+  background: #fff;
+  color: #181818;
+  border: 1px solid #181818;
+  border-radius: 999px;
+  font-size: 16px;
+  font-weight: 500;
+  padding: 8px 28px;
+  box-shadow: none;
+  margin-top: 0;
+  margin-bottom: 0;
+  transition: background 0.2s, color 0.2s, border-color 0.2s;
+}
+
+.columns.columns27.block.columns-2-cols .button-container .button:hover,
+.columns.columns27.block.columns-2-cols .button-container .button:focus {
+  background: #181818;
+  color: #fff;
+  border-color: #181818;
+  text-decoration: none;
+}
+
+/* Right (image) column */
+.columns.columns27.block.columns-2-cols .columns-img-col {
+  flex: 1 1 0;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-end;
+  min-width: 0;
+  padding: 0;
+}
+
+.columns.columns27.block.columns-2-cols .columns-img-col img {
+  width: 100%;
+  max-width: 640px;
+  border-radius: 44px;
+  display: block;
+  height: auto;
+  box-shadow: none;
+  background: #fff;
+  margin: 0;
+  align-self: flex-start;
+}
+
+@media (width <= 1199px) and (width >= 900px) {
+  .columns.columns27.block.columns-2-cols .columns-img-col img {
+    max-width: 480px;
+    border-radius: 24px;
+  }
+}
+
+@media (width <= 899px) {
+  .columns.columns27.block.columns-2-cols {
+    padding: 16px 0;
+  }
+
+  .columns.columns27.block.columns-2-cols > div {
+    padding: 0 4px;
+    gap: 12px;
+  }
+
+  .columns.columns27.block.columns-2-cols > div > div:first-child {
+    max-width: 100%;
+    flex-basis: 100%;
+  }
+
+  .columns.columns27.block.columns-2-cols .columns-img-col img {
+    max-width: 100%;
+    border-radius: 12px;
+  }
 }
