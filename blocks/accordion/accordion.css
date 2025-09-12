@@ -2,7 +2,6 @@
   border: 1px solid #dadada;
 }
 
-/* stylelint-disable-next-line no-descending-specificity */
 .accordion details + details {
   margin-top: 24px;
 }
@@ -58,4 +57,99 @@
 .accordion details[open] .accordion-item-body {
   border-top: 1px solid #dadada;
   background-color: var(--background-color);
+}
+
+
+.accordion.accordion34 {
+  background-color: #F8F8F4;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+/* Stack each accordion item vertically */
+.accordion.accordion34 > details {
+  margin: 0;
+  border: none;
+  background: transparent;
+  box-sizing: border-box;
+}
+
+/* Divider line between items, except last */
+.accordion.accordion34 > details:not(:last-child) {
+  border-bottom: 1px solid #E6E6E0;
+}
+
+/* Accordion summary: flex, tuned paddings for accurate alignment */
+.accordion.accordion34 > details > summary {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 18px 0 18px 22px; /* left=22px, right=0 for chevron flush right, 18px vertical for more "air" */
+  min-height: 44px;
+  cursor: pointer;
+  outline: none;
+  color: #292929;
+  font-size: 15px;
+  line-height: 1.5;
+  background: transparent;
+  border: none;
+  box-sizing: border-box;
+  width: 100%;
+}
+
+/* Remove default marker */
+.accordion.accordion34 > details > summary::-webkit-details-marker {
+  display: none;
+}
+
+/* Chevron: flush right edge, visually balanced */
+.accordion.accordion34 > details > summary::after {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  margin-left: auto;
+  margin-right: 2px; /* subtle buffer for flush look */
+  border: solid #292929;
+  border-width: 0 3px 3px 0;
+  transform: rotate(45deg);
+  box-sizing: border-box;
+  vertical-align: middle;
+}
+
+/* Chevron rotates when open */
+.accordion.accordion34 > details[open] > summary::after {
+  transform: rotate(-135deg);
+}
+
+/* Paragraph styling inside summary: left-aligned, no truncation */
+.accordion.accordion34 > details > summary p {
+  margin: 0;
+  color: #292929;
+  font-size: 15px;
+  flex: 1 1 auto;
+  white-space: normal;
+  overflow: visible;
+  text-overflow: unset;
+  text-align: left;
+  line-height: 1.5;
+}
+
+/* Accordion body: match left padding to summary, no right padding */
+.accordion.accordion34 > details > .accordion-item-body {
+  padding: 18px 0 18px 22px;
+  color: #292929;
+  font-size: 15px;
+  background: transparent;
+  box-sizing: border-box;
+}
+
+/* Paragraph in body */
+.accordion.accordion34 > details > .accordion-item-body p {
+  margin: 0;
+  color: #292929;
+  font-size: 15px;
+  line-height: 1.5;
 }
