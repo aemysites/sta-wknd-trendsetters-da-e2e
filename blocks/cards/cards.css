@@ -826,8 +826,6 @@
   margin: 0 auto;
   padding: 0;
 }
-
-/* Two-column grid with compact rows and filled columns */
 .cards.cards25 > ul {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -839,8 +837,6 @@
   align-items: stretch;
   grid-auto-flow: row dense;
 }
-
-/* Card: column layout, image over text */
 .cards.cards25 > ul > li {
   background: #f3f3f3;
   border: none;
@@ -854,8 +850,6 @@
   grid-column: span 1;
   margin: 0;
 }
-
-/* Feature cards: span both columns, maintain flow */
 .cards.cards25 > ul > li:nth-child(2),
 .cards.cards25 > ul > li:nth-child(4) {
   grid-column: 1 / span 2;
@@ -863,15 +857,11 @@
   display: flex;
   flex-direction: column;
 }
-
-/* Make sure last row contains two cards when possible */
 .cards.cards25 > ul > li:nth-last-child(2),
 .cards.cards25 > ul > li:last-child {
   margin-right: 0;
   margin-left: 0;
 }
-
-/* Card image: top position, rounded corners, fixed height */
 .cards.cards25 .cards-card-image {
   width: 100%;
   position: relative;
@@ -885,14 +875,10 @@
   border-radius: 1rem 1rem 0 0;
   display: block;
 }
-
-/* Feature card images: taller for visual emphasis */
 .cards.cards25 > ul > li:nth-child(2) .cards-card-image img,
 .cards.cards25 > ul > li:nth-child(4) .cards-card-image img {
   height: 320px;
 }
-
-/* Body content: below image for regular cards, overlay for feature cards */
 .cards.cards25 .cards-card-body {
   padding: 1.5rem;
   display: flex;
@@ -902,8 +888,6 @@
   position: static;
   background: none;
 }
-
-/* Overlay for feature cards */
 .cards.cards25 > ul > li:nth-child(2) .cards-card-body,
 .cards.cards25 > ul > li:nth-child(4) .cards-card-body {
   position: absolute;
@@ -920,8 +904,6 @@
   flex-direction: column;
   justify-content: flex-start;
 }
-
-/* Heading styling */
 .cards.cards25 .cards-card-body h3 {
   font-size: 2.2rem;
   font-weight: 400;
@@ -935,8 +917,6 @@
   color: #444;
   text-shadow: none;
 }
-
-/* Paragraph styling */
 .cards.cards25 .cards-card-body p {
   font-size: 1rem;
   color: #444;
@@ -947,8 +927,6 @@
   color: #d4c6b2;
   text-shadow: 0px 2px 8px rgba(0,0,0,0.45);
 }
-
-/* Responsive: stack cards vertically on small screens */
 @media (max-width: 900px) {
   .cards.cards25 > ul {
     grid-template-columns: 1fr;
@@ -973,5 +951,151 @@
     left: 1rem;
     right: 1rem;
     max-width: calc(100% - 2rem);
+  }
+}
+
+
+.cards.cards33 > ul {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px 32px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  background: transparent;
+}
+
+@media (max-width: 900px) {
+  .cards.cards33 > ul {
+    grid-template-columns: 1fr;
+    gap: 24px 0;
+  }
+}
+
+.cards.cards33 > ul > li {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 2px 8px rgba(50,50,50,0.06);
+  border: none;
+  min-height: 140px;
+  padding: 20px 24px;
+  margin: 0;
+  transition: box-shadow 0.2s;
+}
+
+.cards.cards33 > ul > li:hover {
+  box-shadow: 0 4px 16px rgba(50,50,50,0.10);
+}
+
+.cards.cards33 .cards-card-image {
+  flex: 0 0 160px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 120px;
+  margin: 0;
+}
+
+.cards.cards33 .cards-card-image picture,
+.cards.cards33 .cards-card-image img {
+  width: 160px;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 8px;
+  display: block;
+}
+
+.cards.cards33 .cards-card-body {
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 8px;
+  margin-left: 24px;
+  min-width: 0;
+  padding: 0;
+  position: relative;
+}
+
+.cards.cards33 .cards-card-body p:nth-child(1),
+.cards.cards33 .cards-card-body p:nth-child(2) {
+  display: inline-flex;
+  align-items: center;
+  background: #F3F4F6;
+  color: #737373;
+  border-radius: 16px;
+  font-size: 12px;
+  font-weight: 600;
+  padding: 2px 12px;
+  margin: 0 8px 0 0;
+  line-height: 1.6;
+  min-width: 0;
+  max-width: max-content;
+}
+
+.cards.cards33 .cards-card-body p:nth-child(2) {
+  margin-right: 0;
+}
+
+.cards.cards33 .cards-card-body p:nth-child(1),
+.cards.cards33 .cards-card-body p:nth-child(2) {
+  margin-bottom: 0 !important;
+}
+.cards.cards33 .cards-card-body p:nth-child(3) {
+  margin-top: 8px;
+}
+
+.cards.cards33 .cards-card-body h3 {
+  font-size: 22px;
+  font-weight: bold;
+  color: #232323;
+  margin: 0 0 4px 0;
+  letter-spacing: 0.01em;
+  line-height: 1.2;
+}
+
+.cards.cards33 .cards-card-body p:nth-child(4) {
+  font-size: 15px;
+  color: #5A5A5A;
+  font-weight: 400;
+  margin-bottom: 4px;
+  margin-top: 0;
+  line-height: 1.6;
+}
+
+.cards.cards33 .cards-card-body p:last-child {
+  font-size: 15px;
+  color: #232323;
+  font-weight: 500;
+  margin-top: 4px;
+  margin-bottom: 0;
+  text-decoration: underline;
+  cursor: pointer;
+  line-height: 1.6;
+}
+
+.cards.cards33 > ul > li:not(:last-child) {
+  margin-bottom: 0;
+}
+
+.cards.cards33 .cards-card-body {
+  word-break: break-word;
+}
+
+@media (max-width: 600px) {
+  .cards.cards33 > ul > li {
+    flex-direction: column;
+    align-items: stretch;
+    padding: 16px;
+  }
+  .cards.cards33 .cards-card-image {
+    margin-bottom: 16px;
+    margin-left: 0;
+  }
+  .cards.cards33 .cards-card-body {
+    margin-left: 0;
   }
 }
