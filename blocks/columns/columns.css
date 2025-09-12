@@ -591,7 +591,6 @@
   }
 }
 
-/* Left (text) column */
 .columns.columns27.block.columns-2-cols > div > div:first-child {
   flex: 0 1 400px;
   max-width: 400px;
@@ -603,7 +602,6 @@
   padding: 0;
 }
 
-/* Byline */
 .columns.columns27.block.columns-2-cols > div > div:first-child > p:first-child {
   text-transform: uppercase;
   font-size: 12px;
@@ -613,7 +611,6 @@
   font-weight: 500;
 }
 
-/* Headline */
 .columns.columns27.block.columns-2-cols > div > div:first-child > h2 {
   font-size: 56px;
   line-height: 1.05;
@@ -624,7 +621,6 @@
   text-transform: none;
 }
 
-/* Main body paragraph */
 .columns.columns27.block.columns-2-cols > div > div:first-child > p:nth-child(3) {
   font-size: 20px;
   color: #232323;
@@ -632,21 +628,18 @@
   line-height: 1.5;
 }
 
-/* Small caption above button */
 .columns.columns27.block.columns-2-cols > div > div:first-child > p:nth-child(4) {
   font-size: 12px;
   color: #d2d2d2;
   margin: 0 0 20px;
 }
 
-/* Button container paragraph */
 .columns.columns27.block.columns-2-cols .button-container {
   margin: 0;
   padding: 0;
   margin-top: 20px;
 }
 
-/* Button style override */
 .columns.columns27.block.columns-2-cols .button-container .button {
   background: #fff;
   color: #181818;
@@ -669,7 +662,6 @@
   text-decoration: none;
 }
 
-/* Right (image) column */
 .columns.columns27.block.columns-2-cols .columns-img-col {
   flex: 1 1 0;
   display: flex;
@@ -717,4 +709,153 @@
     max-width: 100%;
     border-radius: 12px;
   }
+}
+
+
+.columns.columns32 > div {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 60px;
+  justify-content: center;
+  max-width: 1040px;
+  margin: 0 auto;
+  padding: 48px 0;
+}
+
+@media (width <= 900px) {
+  .columns.columns32 > div {
+    flex-direction: column;
+    gap: 32px;
+    padding: 32px 0;
+    max-width: 98vw;
+  }
+}
+
+/* Image styling */
+.columns.columns32 .columns-img-col img {
+  width: 370px;
+  height: 280px;
+  object-fit: cover;
+  border-radius: 20px;
+  display: block;
+}
+
+@media (width <= 900px) {
+  .columns.columns32 .columns-img-col img {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    min-height: 140px;
+    border-radius: 16px;
+  }
+}
+
+/* Text column: vertical stack, center within available space */
+.columns.columns32 > div > div:not(.columns-img-col) {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-width: 0;
+  height: 100%;
+}
+
+/* Label + Badge flex row (for desktop) */
+.columns.columns32 > div > div:not(.columns-img-col) .columns-label-badge,
+.columns.columns32 > div > div:not(.columns-img-col) > p:nth-child(1),
+.columns.columns32 > div > div:not(.columns-img-col) > p:nth-child(2) {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+/* Emulate label + badge row with flexbox for sibling p elements */
+@media (width >= 900px) {
+  .columns.columns32 > div > div:not(.columns-img-col) {
+    min-height: 280px;
+    justify-content: center;
+  }
+
+  .columns.columns32 > div > div:not(.columns-img-col) > p:nth-child(1),
+  .columns.columns32 > div > div:not(.columns-img-col) > p:nth-child(2) {
+    display: inline-flex;
+    flex-direction: row;
+    align-items: center;
+    margin-bottom: 4px;
+    vertical-align: middle;
+  }
+}
+
+/* Label styling */
+.columns.columns32 > div > div:not(.columns-img-col) > p:nth-child(1) {
+  font-size: 13px;
+  color: #888;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-weight: 500;
+  margin-right: 12px;
+}
+
+/* Badge styling */
+.columns.columns32 > div > div:not(.columns-img-col) > p:nth-child(2) {
+  background: #f2f2f2;
+  color: #444;
+  border-radius: 16px;
+  font-size: 13px;
+  font-weight: 500;
+  padding: 1px 14px;
+  min-width: unset;
+  max-width: 140px;
+  white-space: nowrap;
+  display: flex;
+  align-items: center;
+}
+
+/* Headline styling */
+.columns.columns32 > div > div:not(.columns-img-col) h2 {
+  font-size: 44px;
+  color: #222;
+  font-weight: 400;
+  line-height: 1.05;
+  margin: 18px 0 12px;
+  letter-spacing: 0;
+  text-align: left;
+}
+
+/* Metadata flex row: author, dot, role, dot, date (inline, compact) */
+.columns.columns32 > div > div:not(.columns-img-col) .columns-meta-row {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-top: 10px;
+  gap: 8px;
+}
+
+/* If there's no wrapper, select all metadata p's and dot p's inline in a flex row */
+.columns.columns32 > div > div:not(.columns-img-col) > p:nth-child(3),
+.columns.columns32 > div > div:not(.columns-img-col) > p:nth-child(4),
+.columns.columns32 > div > div:not(.columns-img-col) > p:nth-child(5),
+.columns.columns32 > div > div:not(.columns-img-col) > p:nth-child(6),
+.columns.columns32 > div > div:not(.columns-img-col) > p:nth-child(7),
+.columns.columns32 > div > div:not(.columns-img-col) > p:nth-child(8) {
+  display: inline-block;
+  font-size: 15px;
+  color: #666;
+  font-weight: 400;
+  vertical-align: middle;
+  margin: 0 8px 0 0;
+}
+
+.columns.columns32 > div > div:not(.columns-img-col) > p:last-child {
+  margin-right: 0;
+}
+
+.columns.columns32 > div > div:not(.columns-img-col) h2 + p {
+  margin-top: 0;
+}
+
+/* Keep overall block centered with whitespace */
+.columns.columns32 {
+  max-width: 1040px;
+  margin: 0 auto;
+  padding: 0;
 }
