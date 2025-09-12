@@ -1,3 +1,4 @@
+/* stylelint-disable no-descending-specificity */
 .columns > div {
   display: flex;
   flex-direction: column;
@@ -73,14 +74,14 @@
   align-items: center;
   justify-content: flex-start;
   min-width: 240px;
-  margin-top: 0.22rem; /* Lower the button stack slightly for top alignment */
+  margin-top: 0.22rem;
   padding-top: 0;
 }
 
 .columns.columns3 > div > div:last-child p {
   display: flex;
   flex-direction: column;
-  gap: 0.34rem; /* Further reduce gap for tight stacking */
+  gap: 0.34rem;
   margin: 0;
   padding: 0;
 }
@@ -113,7 +114,6 @@
   color: #000;
 }
 
-/* Responsive: stack vertically on smaller screens */
 @media (width <= 900px) {
   .columns.columns3 > div {
     flex-direction: column;
@@ -134,4 +134,111 @@
   .columns.columns3 > div > div:last-child a {
     width: 100%;
   }
+}
+
+
+.columns.columns14 > div {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start; /* top-align both columns */
+  justify-content: flex-start;
+  gap: 64px;
+  width: 100%;
+  padding: 32px 0; /* add vertical space for a more open look */
+  min-height: unset;
+}
+
+@media (width <= 899px) {
+  .columns.columns14 > div {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 32px;
+    padding: 16px 0;
+  }
+}
+
+/* Widen the left column, right column only as wide as content allows */
+.columns.columns14 > div > div:first-child {
+  flex: 1.6 1 0;
+  max-width: 48vw;
+  display: flex;
+  align-items: flex-start;
+}
+
+.columns.columns14 > div > div:last-child {
+  flex: 1 1 0;
+  min-width: 320px;
+  max-width: 400px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+@media (width <= 899px) {
+  .columns.columns14 > div > div:first-child,
+  .columns.columns14 > div > div:last-child {
+    max-width: 100%;
+    min-width: 0;
+  }
+}
+
+/* Heading styles */
+.columns.columns14 h2 {
+  font-size: 3.2rem;
+  font-weight: 300;
+  letter-spacing: 0.03em;
+  line-height: 1.05;
+  color: #000;
+  margin: 0;
+  text-align: left;
+  width: 100%;
+}
+
+/* Paragraph constraint and spacing */
+.columns.columns14 > div > div:last-child p {
+  font-size: 1rem;
+  font-weight: 400;
+  color: #000;
+  line-height: 1.5;
+  margin-top: 0;
+  margin-bottom: 0.3em; /* much closer to button */
+  text-align: left;
+  width: 100%;
+  max-width: 395px;
+}
+
+/* Button container and button tweaks */
+.columns.columns14 .button-container {
+  margin-top: 0;
+  margin-bottom: 0;
+  padding: 0;
+  text-align: center;
+}
+
+.columns.columns14 .button-container .button {
+  background: #fff;
+  color: #000;
+  border: 1.5px solid #222;
+  border-radius: 2em;
+  padding: 0.45em 2.4em;
+  font-size: 1rem;
+  font-weight: 400;
+  margin: 0;
+  box-shadow: none;
+  transition: background 0.2s, color 0.2s, border-color 0.2s;
+  display: inline-block;
+  text-align: center;
+  text-decoration: none;
+}
+
+.columns.columns14 .button-container .button:hover,
+.columns.columns14 .button-container .button:focus {
+  background: #222;
+  color: #fff;
+  border-color: #222;
+}
+
+/* Remove any default margin from the last-child paragraph to tighten up button spacing */
+.columns.columns14 > div > div:last-child p:last-of-type {
+  margin-bottom: 0.25em;
 }
