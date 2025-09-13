@@ -409,7 +409,6 @@
   gap: 0;
 }
 
-/* More organic, collage-like offsets and layering */
 .cards.cards21 > ul > li {
   position: relative;
   background: none;
@@ -425,7 +424,6 @@
   overflow: visible;
 }
 
-/* Dramatic background layer peeking out left-top and right-bottom */
 .cards.cards21 > ul > li::before {
   position: absolute;
   z-index: 0;
@@ -444,7 +442,6 @@
   content: "";
 }
 
-/* Second background layer: more offset, peeking on right-bottom, lighter border */
 .cards.cards21 > ul > li::after {
   position: absolute;
   z-index: 1;
@@ -462,7 +459,6 @@
   content: "";
 }
 
-/* Main card: slightly bigger, more rotation, slightly bolder shadow */
 .cards.cards21 .cards-card-image {
   position: relative;
   z-index: 2;
@@ -479,7 +475,6 @@
   align-items: flex-end;
 }
 
-/* Image full fill */
 .cards.cards21 .cards-card-image img,
 .cards.cards21 .cards-card-image picture {
   width: 100%;
@@ -488,7 +483,6 @@
   display: block;
 }
 
-/* Text overlay: more compact, closer to card's lower edge, more organic pill shape, bolder shadow */
 .cards.cards21 .cards-card-body {
   position: absolute;
   z-index: 3;
@@ -517,7 +511,6 @@
   font-size: 1em;
 }
 
-/* Responsive adjustments */
 @media (width <= 900px) {
   .cards.cards21 > ul > li::before,
   .cards.cards21 > ul > li::after,
@@ -580,5 +573,134 @@
     font-size: 0.96rem;
     border-radius: 16px;
     transform: translateX(-50%) rotate(3deg);
+  }
+}
+
+
+.cards.cards23 {
+  background: #F6F6F6;
+  padding: 40px 0;
+  border-radius: 24px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* Ensure inner block and container stretch, with max-width */
+.cards.cards23 .block {
+  width: 100%;
+  max-width: 1040px;
+  margin: 0 auto;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+}
+
+/* Main grid for cards: 2 columns, 2 rows */
+.cards.cards23 ul {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 32px;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  width: 100%;
+  place-items: stretch stretch;
+}
+
+.cards.cards23 ul > li {
+  background: #fff;
+  border-radius: 24px;
+  box-shadow: 0 4px 24px rgb(0 0 0 / 7%);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  min-height: 320px;
+  height: 100%;
+  padding: 0;
+  transition: box-shadow 0.2s;
+}
+
+/* Card images (if present) should appear at the top, cropped, rounded top corners */
+.cards.cards23 .cards-card-image {
+  width: 100%;
+  display: block;
+  background: transparent;
+  min-height: 0;
+  line-height: 0;
+
+  /* If no image, minimum height collapses */
+}
+
+.cards.cards23 .cards-card-image picture,
+.cards.cards23 .cards-card-image img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-top-left-radius: 24px;
+  border-top-right-radius: 24px;
+  display: block;
+}
+
+/* Card body: move content immediately below image, tight top padding */
+.cards.cards23 .cards-card-body {
+  padding: 24px 28px 18px;
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 auto;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+/* Headline styles: uppercase, color, spacing */
+.cards.cards23 .cards-card-body h3 {
+  text-transform: uppercase;
+  font-size: 22px;
+  font-weight: 600;
+  letter-spacing: 1.1px;
+  color: #4D4D4D;
+  margin: 0 0 7px;
+  line-height: 1.1;
+}
+
+/* Description styles */
+.cards.cards23 .cards-card-body p {
+  font-size: 15px;
+  color: #414141;
+  margin: 0;
+  line-height: 1.4;
+}
+
+/* Responsive layout: stack cards vertically on mobile */
+@media (width <= 900px) {
+  .cards.cards23 {
+    padding: 24px 0;
+  }
+
+  .cards.cards23 .block {
+    max-width: 100vw;
+    padding: 0 2vw;
+  }
+
+  .cards.cards23 ul {
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(4, 1fr);
+    gap: 20px 0;
+  }
+
+  .cards.cards23 ul > li {
+    min-height: 180px;
+  }
+
+  .cards.cards23 .cards-card-image picture,
+  .cards.cards23 .cards-card-image img {
+    height: 120px;
+  }
+
+  .cards.cards23 .cards-card-body {
+    padding: 16px 14px 10px;
   }
 }
