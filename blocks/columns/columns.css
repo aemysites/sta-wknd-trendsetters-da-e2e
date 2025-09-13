@@ -31,3 +31,50 @@
     order: unset;
   }
 }
+
+
+.columns.columns4 {
+  background: #F6F7F3;
+  padding: 32px 0 24px;
+  width: 100%;
+  box-sizing: border-box;
+  display: block;
+}
+
+/* Ensure direct child is a horizontal flex container */
+.columns.columns4 > div {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: flex-start;
+  width: 100%;
+  min-height: 1em;
+}
+
+/* Hide image columns */
+.columns.columns4 .columns-img-col {
+  display: none;
+}
+
+/* Center and style visible text, spans, or paragraphs only */
+.columns.columns4 > div > *:not(.columns-img-col) {
+  color: #222;
+  font-size: 16px;
+  font-weight: 400;
+  text-align: center;
+  margin: 0 auto;
+  padding: 0;
+  line-height: 1.5;
+  align-self: flex-start;
+  box-sizing: border-box;
+  width: auto;
+  max-width: 80vw;
+  min-width: 0;
+}
+
+/* Responsive: increase vertical padding for larger screens */
+@media (width >= 900px) {
+  .columns.columns4 {
+    padding: 40px 0 32px;
+  }
+}
