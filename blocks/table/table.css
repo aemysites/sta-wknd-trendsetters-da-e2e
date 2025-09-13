@@ -1,3 +1,5 @@
+/* stylelint-disable no-descending-specificity */
+
 .table.block {
   width: 100%;
   overflow-x: auto;
@@ -50,18 +52,348 @@
   margin-top: 0.25em;
 }
 
-/* no header variant */
-.table.block.no-header table tbody tr {
-  border-top: 1px solid;
-}
-
-/* striped variant */
 .table.block.striped tbody tr:nth-child(odd) {
   background-color: var(--overlay-background-color);
 }
 
-/* bordered variant */
 .table.block.bordered table th,
 .table.block.bordered table td {
   border: 1px solid;
+}
+
+/* --- EDS Foundation --- */
+header nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1264px;
+  width: 100%;
+  margin: 0 auto;
+  height: var(--nav-height, 75px);
+  background: #fff;
+  padding: 0 56px;
+  box-sizing: border-box;
+  border: none;
+}
+header { display: flex; }
+
+.header-wrapper .nav-wrapper {
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  z-index: 2;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100vw;
+  background: #fff;
+  box-shadow: 0 1px 8px 0 rgb(0 0 0 / 3%);
+}
+header nav .nav-hamburger {
+  display: none;
+  visibility: hidden;
+}
+
+/* --- Layout & Positioning --- */
+
+header nav .nav-brand { order: 1;
+  display: flex;
+  align-items: center;
+  min-width: 44px;
+  margin-right: 64px; }
+
+header nav .nav-sections { order: 2;
+  display: flex;
+  flex: 1 1 0;
+  align-items: center;
+  justify-content: flex-start;
+  min-width: 0; }
+
+header nav .nav-tools { order: 3;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-width: 120px;
+  margin-left: 64px; }
+
+/* --- Brand Logo --- */
+
+header nav .nav-brand img {
+  height: 32px;
+  width: 32px;
+  object-fit: contain;
+  margin: 0;
+  display: block;
+}
+
+/* --- Nav Sections: Flex Layout --- */
+
+header nav .nav-sections .default-content-wrapper > ul {
+  display: flex;
+  align-items: center;
+  gap: 54px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+header nav .nav-sections > .default-content-wrapper > ul > li {
+  position: relative;
+  display: flex;
+  align-items: center;
+  min-width: 0;
+  font-family: var(--body-font-family,"Instrument Sans",sans-serif);
+}
+
+/* --- Dropdown Triggers --- */
+header nav .nav-sections .nav-drop > p {
+  font-family: var(--body-font-family,"Instrument Sans",sans-serif);
+  font-size: 16px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.17em;
+  color: #222;
+  background: none;
+  border: none;
+  margin: 0;
+  padding: 8px 0;
+  cursor: pointer;
+  border-radius: 2em;
+  transition: background .13s;
+  display: flex;
+  align-items: center;
+}
+
+header nav .nav-sections .nav-drop > p::after {
+  content: " ▼";
+  font-size: 14px;
+  color: #222;
+  margin-left: 5px;
+  vertical-align: middle;
+}
+
+/* --- Dropdown open/hover --- */
+header nav .nav-sections .nav-drop[aria-expanded="true"] > p,
+header nav .nav-sections .nav-drop > p:hover,
+header nav .nav-sections .nav-drop > p:focus {
+  background: #f7f8f8;
+}
+
+header nav .nav-sections .nav-drop > ul {
+  display: none;
+  position: absolute;
+  left: 0;
+  top: 100%;
+  min-width: 260px;
+  background: #fff;
+  box-shadow: 0 3px 18px 0 rgb(0 0 0 / 9%);
+  border-radius: 9px;
+  padding: 17px 0;
+  z-index: 10;
+}
+
+header nav .nav-sections .nav-drop[aria-expanded="true"] > ul {
+  display: block;
+}
+
+header nav .nav-sections .nav-drop ul ul {
+  left: 100%;
+  top: 0;
+  margin-left: 2px;
+  box-shadow: 0 2px 12px 0 rgb(0 0 0 / 7%);
+}
+
+/* --- Dropdown list items --- */
+header nav .nav-sections .nav-drop ul li {
+  padding: 7px 18px 7px 28px;
+  min-width: 200px;
+  font-size: 15px;
+}
+
+header nav .nav-sections .nav-drop ul img {
+  max-height: 18px;
+  max-width: 18px;
+  object-fit: contain;
+  margin-right: 7px;
+  vertical-align: middle;
+}
+
+header nav .nav-sections .button-container {
+  margin: 0;
+  padding: 0;
+}
+
+/* --- Remove unwanted lines/borders --- */
+
+header, .header-wrapper, .nav-wrapper {
+  background: #fff;
+  box-shadow: 0 1px 8px 0 rgb(0 0 0 / 3%);
+}
+
+/* --- Buttons --- */
+header nav .nav-sections a.button,
+header nav .nav-tools a.button {
+  box-sizing: border-box;
+  display: inline-block;
+  margin: 0 18px;
+  border: 2px solid #3b63fb;
+  border-radius: 2em;
+  padding: 0.44em 1.18em;
+  font-family: var(--body-font-family,"Instrument Sans",sans-serif);
+  font-size: 16px;
+  font-weight: 500;
+  text-align: center;
+  background: #fff;
+  color: #3b63fb;
+  cursor: pointer;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  min-width: 48px;
+  min-height: 36px;
+  transition: background .14s, color .14s, border-color .14s;
+}
+
+header nav .nav-sections a.button.primary,
+header nav .nav-tools a.button.primary {
+  background: #3b63fb;
+  color: #fff;
+  border: 2px solid #3b63fb;
+}
+
+header nav .nav-sections a.button:hover,
+header nav .nav-sections a.button:focus,
+header nav .nav-tools a.button:hover,
+header nav .nav-tools a.button:focus {
+  background: #3b63fb;
+  color: #fff;
+  border-color: #3b63fb;
+}
+
+header nav .nav-sections a.button:active,
+header nav .nav-tools a.button:active {
+  background: #1d3ecf;
+  border-color: #1d3ecf;
+  color: #fff;
+}
+
+header nav .nav-sections .button-container,
+header nav .nav-tools .button-container {
+  margin: 0;
+  padding: 0;
+}
+
+/* --- Tool section --- */
+
+header nav .nav-tools img,
+header nav .nav-tools svg {
+  width: 24px;
+  height: 24px;
+  object-fit: contain;
+  display: inline-block;
+  vertical-align: middle;
+  margin: 0 0 0 6px;
+}
+
+/* --- Only images in nav-sections (not buttons in nav-tools) are hidden for desktop --- */
+header nav .nav-sections img:not([alt=""]),
+header nav .nav-sections picture {
+  display: none;
+}
+
+/* --- Responsive styles --- */
+@media (width <= 899px) {
+  header, .header-wrapper .nav-wrapper {
+    min-height: 56px;
+    height: 56px;
+  }
+
+  header nav {
+    flex-wrap: wrap;
+    padding: 0 8px;
+    min-height: 56px;
+    height: auto;
+  }
+
+  header nav .nav-brand {
+    min-width: 36px;
+    margin-right: 10px;
+  }
+
+  header nav .nav-brand img {
+    max-width: 28px;
+    max-height: 28px;
+  }
+
+  header nav .nav-hamburger {
+    display: flex;
+    visibility: visible;
+    align-items: center;
+    margin-right: 6px;
+  }
+
+  header nav .nav-sections {
+    display: none;
+    position: absolute;
+    top: 56px;
+    left: 0;
+    width: 100vw;
+    background: #fff;
+    flex-direction: column;
+    align-items: flex-start;
+    box-shadow: 0 2px 16px 0 rgb(0 0 0 / 10%);
+    z-index: 12;
+    padding: 18px 0;
+  }
+
+  header nav[aria-expanded="true"] .nav-sections {
+    display: flex;
+  }
+
+  header nav .nav-sections .default-content-wrapper > ul {
+    flex-direction: column;
+    gap: 0;
+    width: 100%;
+  }
+
+  header nav .nav-sections li {
+    width: 100%;
+    padding: 0;
+  }
+
+  header nav .nav-sections .nav-drop > ul {
+    position: static;
+    box-shadow: none;
+    border-radius: 0;
+    background: none;
+    min-width: 0;
+    padding: 0 0 0 16px;
+  }
+
+  header nav .nav-tools {
+    margin-left: auto;
+    gap: 4px;
+  }
+
+  header nav .nav-tools .button,
+  header nav .nav-sections a.button {
+    min-width: 44px;
+    min-height: 44px;
+    font-size: 15px;
+    padding: 0.35em 0.9em;
+    margin: 0 2px 0 0;
+  }
+}
+
+/* --- Touch targets: All major interactive elements meet 44px min height --- */
+@media (width <= 899px) {
+  header nav .nav-sections a,
+  header nav .nav-sections button,
+  header nav .nav-sections .nav-drop > p,
+  header nav .nav-tools a.button {
+    min-height: 44px;
+    min-width: 44px;
+    font-size: 16px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
 }
