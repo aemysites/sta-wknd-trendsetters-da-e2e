@@ -822,7 +822,6 @@
   background: transparent;
 }
 
-/* Cards as stacking contexts for overlays */
 .cards.cards25 > ul > li {
   border: none;
   border-radius: 22px;
@@ -835,7 +834,6 @@
   display: block;
 }
 
-/* Card images fill the card area */
 .cards.cards25 .cards-card-image {
   position: absolute;
   inset: 0;
@@ -855,7 +853,6 @@
   background: #eee;
 }
 
-/* Overlay the text directly on the image */
 .cards.cards25 .cards-card-body {
   position: absolute;
   top: 24px;
@@ -889,7 +886,6 @@
   line-height: 1.45;
 }
 
-/* --- Tighter interlock for grid and card placement --- */
 .cards.cards25 > ul > li:nth-child(1) {
   grid-column: 1 / span 2;
   grid-row: 1;
@@ -932,7 +928,6 @@
   aspect-ratio: 1.6 / 1;
 }
 
-/* Responsive stacking on small screens */
 @media (width <= 900px) {
   .cards.cards25 > ul {
     display: flex;
@@ -954,5 +949,179 @@
     right: 14px;
     top: 16px;
     max-width: 97%;
+  }
+}
+
+
+.cards.cards33 {
+  background: #f7f8f9;
+  padding: 32px 0;
+}
+
+.cards.cards33 > ul {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px 24px;
+  align-items: stretch;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* Card container: horizontal split with image and text visible and balanced */
+.cards.cards33 > ul > li {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  background: #fff;
+  border-radius: 14px;
+  box-shadow: 0 2px 8px rgb(30 44 105 / 5%);
+  overflow: hidden;
+  border: none;
+  min-height: 220px;
+  height: 100%;
+  position: relative;
+  transition: box-shadow 0.15s;
+}
+
+/* Make image take ~40% and text ~60%, and stretch both for equal heights */
+.cards.cards33 .cards-card-image {
+  flex: 0 0 40%;
+  min-width: 140px;
+  max-width: 40%;
+  display: flex;
+  align-items: stretch;
+  border-radius: 14px 0 0 14px;
+  overflow: hidden;
+  background: #f5f5f5;
+  height: 100%;
+}
+
+.cards.cards33 .cards-card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  aspect-ratio: 4/3;
+  border-radius: 14px 0 0 14px;
+  display: block;
+}
+
+/* Text area: fill remaining space, align to top, compact padding */
+.cards.cards33 .cards-card-body {
+  flex: 1 1 60%;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  padding: 24px 20px 24px 28px;
+  background: #fff;
+  border-radius: 0 14px 14px 0;
+  height: 100%;
+  box-sizing: border-box;
+  overflow-wrap: break-word;
+}
+
+/* Remove default margins for first/last paragraphs */
+.cards.cards33 .cards-card-body p {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+/* Badge styling: nearly full width, less left padding, more bottom margin */
+.cards.cards33 .cards-card-body p:first-child {
+  box-sizing: border-box;
+}
+
+/* Badge color by card order */
+.cards.cards33 > ul > li:nth-child(1) .cards-card-body p:first-child {
+  background: #b3e5fc;
+  color: #1976d2;
+}
+
+.cards.cards33 > ul > li:nth-child(2) .cards-card-body p:first-child {
+  color: #7743a1;
+}
+.cards.cards33 > ul > li:nth-child(3) .cards-card-body p:first-child { background: #e1bee7; color: #7743a1; }
+.cards.cards33 > ul > li:nth-child(4) .cards-card-body p:first-child { background: #b3e5fc; color: #1976d2; }
+
+/* Read time: below badge, compact spacing */
+.cards.cards33 .cards-card-body p:nth-child(2) {
+  display: block;
+  color: #878787;
+  font-size: 13px;
+  margin-bottom: 10px;
+  font-weight: 400;
+}
+
+/* Heading: slightly less space below, bold */
+.cards.cards33 .cards-card-body h3 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #232323;
+  margin: 0 0 10px;
+  letter-spacing: 0.01em;
+  line-height: 1.19;
+  padding: 0;
+}
+
+/* Description: slightly less bottom margin */
+.cards.cards33 .cards-card-body p:nth-child(4) {
+  font-size: 1rem;
+  color: #545454;
+  margin: 0 0 14px;
+  font-weight: 400;
+  line-height: 1.5;
+}
+
+/* Read link: more spacing, bold */
+.cards.cards33 .cards-card-body p:last-child {
+  font-size: 1rem;
+  color: #2176ff;
+  font-weight: 700;
+  margin: 0;
+  margin-top: 2px;
+  cursor: pointer;
+  letter-spacing: 0.01em;
+}
+
+/* Card hover effect */
+.cards.cards33 > ul > li:hover {
+  box-shadow: 0 6px 24px rgb(30 44 105 / 13%);
+}
+
+/* Responsive: single column, full-width cards */
+@media (width <= 900px) {
+  .cards.cards33 > ul {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+
+  .cards.cards33 > ul > li {
+    flex-direction: column;
+    border-radius: 14px;
+    min-height: 0;
+    height: auto;
+  }
+
+  .cards.cards33 .cards-card-image, 
+  .cards.cards33 .cards-card-image img {
+    border-radius: 14px 14px 0 0;
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    aspect-ratio: 16/9;
+    height: auto;
+  }
+
+  .cards.cards33 .cards-card-body {
+    border-radius: 0 0 14px 14px;
+    padding: 18px 12px;
+    height: auto;
+  }
+
+  .cards.cards33 .cards-card-body p:first-child {
+    width: 80%;
+    padding-left: 10px;
   }
 }
