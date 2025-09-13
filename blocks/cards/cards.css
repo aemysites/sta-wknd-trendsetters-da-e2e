@@ -588,7 +588,6 @@
   box-sizing: border-box;
 }
 
-/* Ensure inner block and container stretch, with max-width */
 .cards.cards23 .block {
   width: 100%;
   max-width: 1040px;
@@ -598,7 +597,6 @@
   justify-content: center;
 }
 
-/* Main grid for cards: 2 columns, 2 rows */
 .cards.cards23 ul {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -624,15 +622,12 @@
   transition: box-shadow 0.2s;
 }
 
-/* Card images (if present) should appear at the top, cropped, rounded top corners */
 .cards.cards23 .cards-card-image {
   width: 100%;
   display: block;
   background: transparent;
   min-height: 0;
   line-height: 0;
-
-  /* If no image, minimum height collapses */
 }
 
 .cards.cards23 .cards-card-image picture,
@@ -645,7 +640,6 @@
   display: block;
 }
 
-/* Card body: move content immediately below image, tight top padding */
 .cards.cards23 .cards-card-body {
   padding: 24px 28px 18px;
   display: flex;
@@ -655,7 +649,6 @@
   align-items: flex-start;
 }
 
-/* Headline styles: uppercase, color, spacing */
 .cards.cards23 .cards-card-body h3 {
   text-transform: uppercase;
   font-size: 22px;
@@ -666,7 +659,6 @@
   line-height: 1.1;
 }
 
-/* Description styles */
 .cards.cards23 .cards-card-body p {
   font-size: 15px;
   color: #414141;
@@ -674,7 +666,6 @@
   line-height: 1.4;
 }
 
-/* Responsive layout: stack cards vertically on mobile */
 @media (width <= 900px) {
   .cards.cards23 {
     padding: 24px 0;
@@ -702,5 +693,121 @@
 
   .cards.cards23 .cards-card-body {
     padding: 16px 14px 10px;
+  }
+}
+
+
+.cards.cards24 > ul {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 16px;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.cards.cards24 > ul > li {
+  background: #fff;
+  border-radius: 20px;
+  box-shadow: 0 2px 8px rgb(0 0 0 / 8%);
+  border: none;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.cards.cards24 .cards-card-image {
+  width: 100%;
+  line-height: 0;
+  overflow: hidden;
+}
+
+.cards.cards24 .cards-card-image img {
+  width: 100%;
+  display: block;
+  object-fit: cover;
+  aspect-ratio: 4/5;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+}
+
+/* Group first two p tags in flex row above headline */
+.cards.cards24 .cards-card-body {
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 auto;
+  justify-content: flex-end;
+}
+
+.cards.cards24 .cards-card-body-row {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 6px;
+}
+
+/* Visually group first two p's in a flex row using advanced selector */
+.cards.cards24 .cards-card-body > p:first-child,
+.cards.cards24 .cards-card-body > p:first-child + p {
+  margin: 0;
+  padding: 0;
+  display: inline-flex;
+  align-items: center;
+}
+
+.cards.cards24 .cards-card-body > p:first-child {
+  background: #ececec;
+  color: #101010;
+  font-size: 12px;
+  font-weight: bold;
+  text-transform: uppercase;
+  border-radius: 14px;
+  padding: 3px 12px;
+  margin-right: 8px;
+  margin-bottom: 0;
+  line-height: 1.6;
+}
+
+.cards.cards24 .cards-card-body > p:first-child + p {
+  color: #444;
+  font-size: 13px;
+  font-weight: 400;
+  margin-bottom: 0;
+  margin-left: auto;
+  text-align: right;
+  line-height: 1.6;
+}
+
+/* Place flex row above headline and tighten spacing */
+.cards.cards24 .cards-card-body > h3 {
+  order: 3;
+  margin-top: 10px;
+  margin-bottom: 0;
+  color: #101010;
+  font-size: 24px;
+  font-weight: bold;
+  text-transform: uppercase;
+  line-height: 1.13;
+  letter-spacing: 0.02em;
+}
+
+/* Responsive: shrink columns and switch to 1col on mobile */
+@media (width <= 900px) {
+  .cards.cards24 > ul {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .cards.cards24 > ul > li {
+    max-width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .cards.cards24 .cards-card-image img {
+    aspect-ratio: 4/3;
   }
 }
