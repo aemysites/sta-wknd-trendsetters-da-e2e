@@ -413,7 +413,6 @@
   grid-auto-rows: min-content;
 }
 
-/* Responsive: stack columns vertically on small screens */
 @media (width <= 900px) {
   .columns.columns30 > div {
     grid-template-columns: 1fr;
@@ -427,7 +426,6 @@
   }
 }
 
-/* Author name styling */
 .columns.columns30 > div > div:nth-child(1) {
   margin-top: 0;
   margin-bottom: 0;
@@ -441,10 +439,6 @@
   margin-bottom: 10px;
   padding-left: 0;
 }
-
-/* STACK TAGS VERTICALLY UNDER AUTHOR NAME */
-
-/* To create a vertical stack with the author+tags, use a grid row for the left column and stack the two divs inside */
 
 .columns.columns30 > div > div:nth-child(1),
 .columns.columns30 > div > div:nth-child(2) {
@@ -461,7 +455,6 @@
   gap: 8px;
 }
 
-/* Pill tags: ensure no row layout, stack vertically, left-aligned */
 .columns.columns30 > div > div:nth-child(2) p {
   display: block;
   margin: 0;
@@ -477,7 +470,6 @@
   max-width: fit-content;
 }
 
-/* Right column: headline and paragraphs stacked, left-aligned */
 .columns.columns30 > div > div:nth-child(3),
 .columns.columns30 > div > div:nth-child(4) {
   grid-column: 2;
@@ -490,7 +482,6 @@
   margin-right: 0;
 }
 
-/* Headline styling */
 .columns.columns30 > div > div:nth-child(3) h2 {
   color: var(--text-color);
   font-size: 64px;
@@ -502,7 +493,6 @@
   text-align: left;
 }
 
-/* Paragraph styling */
 .columns.columns30 > div > div:nth-child(4) p {
   color: #222;
   font-size: var(--body-font-size-s);
@@ -510,4 +500,97 @@
   margin-top: 0;
   margin-bottom: 18px;
   text-align: left;
+}
+
+
+.columns.columns31 {
+  background: #f7f8f6;
+  padding: 0;
+}
+
+.columns.columns31 > div {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 48px;
+  width: 100%;
+}
+
+.columns.columns31 > div > div {
+  flex: 0 0 auto;
+  max-width: 260px;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.columns.columns31 > div > div:last-child {
+  max-width: none;
+  display: flex;
+  align-items: flex-start;
+}
+
+.columns.columns31 > div > div > p {
+  margin: 0;
+  font-size: 13px;
+  color: #222;
+  line-height: 1.4;
+  font-weight: 400;
+}
+
+/* Button container aligns button to right edge vertically with text */
+.columns.columns31 .button-container {
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-start;
+  padding: 0;
+  margin: 0;
+  height: auto;
+}
+
+/* Button override for pill shape, border, highlight, and text */
+.columns.columns31 .button-container .button {
+  background: #fff;
+  color: #222;
+  border: 1px solid #222;
+  border-radius: 999px;
+  box-shadow: 0 2px 0 #fafd90;
+  padding: 2px 22px;
+  font-size: 13px;
+  font-weight: 400;
+  margin: 0;
+  line-height: 1.7;
+  min-width: 110px;
+  min-height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  box-sizing: border-box;
+  white-space: nowrap;
+}
+
+/* Remove underline and keep color consistent on hover/focus */
+.columns.columns31 .button-container .button:hover,
+.columns.columns31 .button-container .button:focus {
+  background: #f7f8f6;
+  color: #222;
+  text-decoration: none;
+}
+
+/* Responsive: stack columns vertically on small screens */
+@media (width <= 700px) {
+  .columns.columns31 > div {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .columns.columns31 > div > div {
+    max-width: 100%;
+  }
+
+  .columns.columns31 .button-container {
+    justify-content: flex-start;
+    height: auto;
+  }
 }
