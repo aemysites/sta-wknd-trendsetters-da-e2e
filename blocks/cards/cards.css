@@ -732,7 +732,6 @@
   border-top-right-radius: 20px;
 }
 
-/* Group first two p tags in flex row above headline */
 .cards.cards24 .cards-card-body {
   padding: 16px;
   display: flex;
@@ -749,7 +748,6 @@
   margin-bottom: 6px;
 }
 
-/* Visually group first two p's in a flex row using advanced selector */
 .cards.cards24 .cards-card-body > p:first-child,
 .cards.cards24 .cards-card-body > p:first-child + p {
   margin: 0;
@@ -781,7 +779,6 @@
   line-height: 1.6;
 }
 
-/* Place flex row above headline and tighten spacing */
 .cards.cards24 .cards-card-body > h3 {
   order: 3;
   margin-top: 10px;
@@ -794,7 +791,6 @@
   letter-spacing: 0.02em;
 }
 
-/* Responsive: shrink columns and switch to 1col on mobile */
 @media (width <= 900px) {
   .cards.cards24 > ul {
     grid-template-columns: 1fr;
@@ -809,5 +805,154 @@
 
   .cards.cards24 .cards-card-image img {
     aspect-ratio: 4/3;
+  }
+}
+
+
+.cards.cards25 > ul {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr;
+  grid-auto-rows: 170px;
+  gap: 22px;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  place-items: stretch stretch;
+  grid-auto-flow: dense;
+  background: transparent;
+}
+
+/* Cards as stacking contexts for overlays */
+.cards.cards25 > ul > li {
+  border: none;
+  border-radius: 22px;
+  overflow: hidden;
+  background: transparent;
+  box-shadow: 0 4px 24px rgb(44 44 44 / 8%);
+  position: relative;
+  min-width: 0;
+  min-height: 0;
+  display: block;
+}
+
+/* Card images fill the card area */
+.cards.cards25 .cards-card-image {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  line-height: 0;
+  display: block;
+}
+
+.cards.cards25 .cards-card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  border-radius: 22px;
+  background: #eee;
+}
+
+/* Overlay the text directly on the image */
+.cards.cards25 .cards-card-body {
+  position: absolute;
+  top: 24px;
+  left: 24px;
+  right: 24px;
+  z-index: 2;
+  color: var(--text-color);
+  background: none;
+  box-shadow: none;
+  margin: 0;
+  padding: 0;
+  max-width: 85%;
+  text-shadow: 0 2px 8px rgb(255 255 255 / 19%);
+  pointer-events: none;
+}
+
+.cards.cards25 .cards-card-body h3 {
+  margin: 0 0 0.5em;
+  font-size: 2rem;
+  font-weight: 400;
+  letter-spacing: 0.01em;
+  line-height: 1.13;
+  color: var(--text-color);
+}
+
+.cards.cards25 .cards-card-body p {
+  margin: 0;
+  font-size: 1.03rem;
+  font-weight: 300;
+  color: var(--text-color);
+  line-height: 1.45;
+}
+
+/* --- Tighter interlock for grid and card placement --- */
+.cards.cards25 > ul > li:nth-child(1) {
+  grid-column: 1 / span 2;
+  grid-row: 1;
+  min-height: 170px;
+  aspect-ratio: 2.6 / 1;
+}
+
+.cards.cards25 > ul > li:nth-child(2) {
+  grid-column: 1;
+  grid-row: 2 / span 2;
+  min-height: 225px;
+  aspect-ratio: 1.65 / 1;
+}
+
+.cards.cards25 > ul > li:nth-child(3) {
+  grid-column: 1;
+  grid-row: 4;
+  min-height: 145px;
+  aspect-ratio: 2.3 / 1;
+}
+
+.cards.cards25 > ul > li:nth-child(4) {
+  grid-column: 2;
+  grid-row: 2;
+  min-height: 148px;
+  aspect-ratio: 1.15 / 1;
+}
+
+.cards.cards25 > ul > li:nth-child(5) {
+  grid-column: 2;
+  grid-row: 3;
+  min-height: 148px;
+  aspect-ratio: 1.15 / 1;
+}
+
+.cards.cards25 > ul > li:nth-child(6) {
+  grid-column: 2;
+  grid-row: 4;
+  min-height: 145px;
+  aspect-ratio: 1.6 / 1;
+}
+
+/* Responsive stacking on small screens */
+@media (width <= 900px) {
+  .cards.cards25 > ul {
+    display: flex;
+    flex-direction: column;
+    gap: 18px 0;
+  }
+
+  .cards.cards25 > ul > li {
+    width: 100%;
+    max-width: 100%;
+    min-height: 140px;
+    aspect-ratio: unset;
+    grid-column: auto;
+    grid-row: auto;
+  }
+
+  .cards.cards25 .cards-card-body {
+    left: 14px;
+    right: 14px;
+    top: 16px;
+    max-width: 97%;
   }
 }
