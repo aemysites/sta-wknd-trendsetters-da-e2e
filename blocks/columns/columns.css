@@ -41,7 +41,6 @@
   display: block;
 }
 
-/* Ensure direct child is a horizontal flex container */
 .columns.columns4 > div {
   display: flex;
   flex-direction: row;
@@ -51,12 +50,10 @@
   min-height: 1em;
 }
 
-/* Hide image columns */
 .columns.columns4 .columns-img-col {
   display: none;
 }
 
-/* Center and style visible text, spans, or paragraphs only */
 .columns.columns4 > div > *:not(.columns-img-col) {
   color: #222;
   font-size: 16px;
@@ -72,9 +69,149 @@
   min-width: 0;
 }
 
-/* Responsive: increase vertical padding for larger screens */
 @media (width >= 900px) {
   .columns.columns4 {
     padding: 40px 0 32px;
+  }
+}
+
+
+.columns.columns15 {
+  background: #f6f7f4;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* The main row: side-by-side columns, centered vertically */
+.columns.columns15 > div {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  max-width: 800px;
+  margin: auto;
+  padding: 0 8px;
+  gap: 22px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* Responsive: stack columns vertically and adjust spacing */
+@media (width <= 900px) {
+  .columns.columns15 > div {
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: center;
+    gap: 16px;
+    padding: 16px 4px;
+    max-width: 100%;
+  }
+}
+
+/* Left column: stack text and controls vertically */
+.columns.columns15 > div > div:first-child {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  max-width: 480px;
+  min-width: 0;
+  margin: 0;
+}
+
+/* Headline styling */
+.columns.columns15 h1 {
+  font-size: 64px;
+  font-weight: 400;
+  line-height: 1.08;
+  letter-spacing: 0.01em;
+  color: #181818;
+  margin: 0 0 24px;
+  max-width: 100%;
+}
+
+/* Body text styling */
+.columns.columns15 p {
+  font-size: 18px;
+  color: #606060;
+  margin-top: 0;
+  margin-bottom: 8px; /* Tighten paragraph/button rhythm */
+  max-width: 100%;
+}
+
+/* Button container adjustments */
+.columns.columns15 .button-container {
+  margin: 0;
+  padding: 0;
+}
+
+/* Button styling: outlined, pill, black text */
+.columns.columns15 .button-container .button {
+  display: inline-block;
+  background: #fff;
+  color: #181818;
+  border: 1.5px solid #181818;
+  border-radius: 24px;
+  padding: 12px 28px;
+  font-size: 16px;
+  font-weight: 500;
+  margin-bottom: 0;
+  margin-right: 16px;
+  margin-top: 0;
+  text-decoration: none;
+  box-shadow: none;
+  transition: background 0.2s, color 0.2s, border-color 0.2s;
+}
+
+/* Button hover/focus effect */
+.columns.columns15 .button-container .button:hover,
+.columns.columns15 .button-container .button:focus {
+  background: #181818;
+  color: #fff;
+  border-color: #181818;
+  text-decoration: none;
+}
+
+/* Right column: image alignment and sizing */
+.columns.columns15 .columns-img-col {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-width: 0;
+  margin: 0;
+}
+
+/* Image style: rounded, subtle shadow, slightly larger */
+.columns.columns15 .columns-img-col img,
+.columns.columns15 .columns-img-col picture {
+  border-radius: 32px;
+  max-width: 480px;
+  width: 100%;
+  height: auto;
+  box-shadow: 0 4px 32px 0 rgb(0 0 0 / 4%);
+  display: block;
+  margin: 0;
+}
+
+/* Remove extra spacing from picture element */
+.columns.columns15 .columns-img-col picture {
+  padding: 0;
+  margin: 0;
+  line-height: 0;
+}
+
+/* Responsive: image full width, center image column on mobile */
+@media (width <= 900px) {
+  .columns.columns15 .columns-img-col {
+    align-items: center;
+    margin-top: 4px;
+    margin-bottom: 0;
+  }
+
+  .columns.columns15 .columns-img-col img,
+  .columns.columns15 .columns-img-col picture {
+    max-width: 100%;
   }
 }
