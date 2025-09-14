@@ -638,7 +638,6 @@
   }
 }
 
-/* HEADLINE & TESTIMONIAL */
 .columns.columns26 > div > div:first-child {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -646,7 +645,6 @@
   align-items: start;
 }
 
-/* Headline left */
 .columns.columns26 > div > div:first-child > p:nth-child(1) {
   font-size: 2.375rem;
   font-weight: 400;
@@ -660,7 +658,6 @@
   align-self: start;
 }
 
-/* Testimonial right */
 .columns.columns26 > div > div:first-child > p:nth-child(2) {
   font-size: 1rem;
   font-weight: 400;
@@ -672,7 +669,6 @@
   align-self: start;
 }
 
-/* Divider line spanning both columns */
 .columns.columns26 > div > div:first-child::after {
   display: block;
   border-bottom: 1px solid #dadbd6;
@@ -701,7 +697,6 @@
   }
 }
 
-/* --- BOTTOM ROW: Avatar, Name, Role as flex row --- */
 .columns.columns26 > div > div:first-child > .bottom-row-flex {
   display: flex;
   flex-direction: row;
@@ -713,7 +708,6 @@
   margin-bottom: 0;
 }
 
-/* Trick: flex the bottom three <p>s on desktop only */
 @media (width >= 900px) {
   .columns.columns26 > div > div:first-child {
     position: relative;
@@ -735,7 +729,6 @@
     order: 0;
   }
 
-  /* Flex row for the three elements as a group */
   .columns.columns26 > div > div:first-child > p:nth-child(3) {
     margin-right: 16px;
     grid-row: 3;
@@ -754,13 +747,8 @@
     grid-row: 3;
     grid-column: 1 / span 2;
   }
-
-  /* Container flex: put all three <p>s on a single row */
-
-  /* Parent grid: override grid auto flow */
 }
 
-/* Avatar (leftmost) */
 .columns.columns26 > div > div:first-child > p:nth-child(3) picture,
 .columns.columns26 > div > div:first-child > p:nth-child(3) img {
   width: 40px;
@@ -770,14 +758,12 @@
   display: block;
 }
 
-/* Name */
 .columns.columns26 > div > div:first-child > p:nth-child(4) {
   font-size: 1.05rem;
   font-weight: 500;
   color: #222320;
 }
 
-/* Role: aligned far right within flex row */
 .columns.columns26 > div > div:first-child > p:nth-child(5) {
   font-size: 0.85rem;
   font-weight: 400;
@@ -785,7 +771,6 @@
   align-self: baseline;
 }
 
-/* On mobile, stack vertically and left-align everything */
 @media (width <= 900px) {
   .columns.columns26 > div > div:first-child > p:nth-child(3),
   .columns.columns26 > div > div:first-child > p:nth-child(4),
@@ -799,7 +784,6 @@
   }
 }
 
-/* Logo column: baseline align with role (bottom row) */
 .columns.columns26 > div > div:last-child {
   display: flex;
   align-items: flex-end;
@@ -834,5 +818,144 @@
 
   .columns.columns26 > div > div:last-child img {
     max-height: 28px;
+  }
+}
+
+
+.columns.columns27 {
+  background: #faf9f6;
+  padding: 0;
+}
+
+/* Main row: side-by-side, vertically and horizontally centered as a unit */
+.columns.columns27 > div {
+  display: flex;
+  flex-direction: row;
+  align-items: center;       /* vertical center as a unit */
+  justify-content: center;   /* horizontal center in block */
+  max-width: 1200px;
+  margin: 0 auto;
+  min-height: 80vh;
+  padding: 0;
+  gap: 56px;
+}
+
+/* Responsive: stack on mobile */
+@media (width <= 900px) {
+  .columns.columns27 > div {
+    flex-direction: column;
+    align-items: stretch;
+    min-height: unset;
+    gap: 40px;
+    padding: 32px 0;
+  }
+}
+
+/* Text column: center vertically, control width, tighter vertical grouping */
+.columns.columns27 > div > div:first-child {
+  flex: 1 1 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-width: 0;
+  max-width: 520px;
+  margin: 0;
+  height: auto;
+}
+
+/* Headline: narrower max-width, less bottom margin */
+.columns.columns27 > div > div:first-child > h2 {
+  font-size: 64px;
+  font-weight: 400;
+  color: #181818;
+  line-height: 1.08;
+  letter-spacing: -1px;
+  margin: 0 0 16px;
+  max-width: 380px;
+}
+
+/* Body text: less bottom margin */
+.columns.columns27 > div > div:first-child > h2 + p {
+  font-size: 18px;
+  color: #181818;
+  line-height: 1.5;
+  margin: 0 0 10px;
+  max-width: 500px;
+}
+
+/* Caption/note: even less margin */
+.columns.columns27 > div > div:first-child > h2 + p + p {
+  font-size: 13px;
+  color: #b0b0b0;
+  margin: 0 0 4px;
+  max-width: 500px;
+}
+
+/* Button container: nearly flush to caption */
+.columns.columns27 .button-container {
+  margin: 2px 0 0;
+}
+
+/* Button style: match original */
+.columns.columns27 .button-container .button {
+  background: #fff;
+  color: #181818;
+  border: 1px solid #181818;
+  border-radius: 24px;
+  padding: 10px 32px;
+  font-size: 14px;
+  font-weight: 500;
+  box-shadow: 0 2px 6px rgb(0 0 0 / 6%);
+  margin: 0;
+  transition: background 0.2s, color 0.2s;
+  display: inline-block;
+}
+
+.columns.columns27 .button-container .button:hover,
+.columns.columns27 .button-container .button:focus {
+  background: #181818;
+  color: #fff;
+}
+
+/* Image column: increase width, allow full vertical centering and stretching */
+.columns.columns27 .columns-img-col {
+  flex: 1 1 0;
+  min-width: 400px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  align-self: stretch;
+  margin: 0;
+}
+
+/* Image: fill parent column, no bottom cropping, generous vertical size */
+.columns.columns27 .columns-img-col img {
+  width: 100%;
+  height: 100%;
+  max-width: 540px;
+  min-width: 320px;
+  min-height: 420px;
+  max-height: 620px;
+  object-fit: cover;
+  border-radius: 24px;
+  box-shadow: 0 4px 32px rgb(0 0 0 / 6%);
+  display: block;
+  margin: 0;
+}
+
+/* On mobile, relax min/max and allow stacking */
+@media (width <= 900px) {
+  .columns.columns27 .columns-img-col {
+    min-width: 0;
+    height: auto;
+    align-self: auto;
+  }
+
+  .columns.columns27 .columns-img-col img {
+    max-width: 100%;
+    min-width: 0;
+    min-height: unset;
+    height: auto;
+    max-height: 340px;
   }
 }
