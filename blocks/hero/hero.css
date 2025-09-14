@@ -1,3 +1,4 @@
+/* stylelint-disable no-descending-specificity */
 .hero-container .hero-wrapper {
   max-width: unset;
   padding: 0;
@@ -189,4 +190,174 @@
     margin: 20px 0 0;
     padding: 20px 8vw 18px;
   }
+}
+
+
+.hero.hero12 {
+  /* Add a background image for visual energy and depth */
+  background: url('./your-background-image.jpg') center center/cover no-repeat;
+  position: relative;
+  min-height: 340px;
+  border-radius: 28px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  /* Remove fallback gray color so overlay transparency works */
+  background-color: transparent;
+  box-shadow: none;
+  padding: 0;
+}
+
+/* Floating overlay panel: semi-transparent, rounded, inset, with border & shadow */
+.hero.hero12 > div {
+  background: rgb(32 32 32 / 34%);
+  border-radius: 22px;
+  border: 1.5px solid rgb(32 32 32 / 19%);
+  margin: 32px 38px;
+  box-shadow: 0 8px 32px 0 rgb(0 0 0 / 15%);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: calc(100% - 76px);
+  max-width: 1400px;
+  min-height: 240px;
+  box-sizing: border-box;
+  padding: 0 46px;
+  gap: 44px;
+}
+
+/* Left column: image side-by-side with content */
+.hero.hero12 > div > div:first-child {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 240px;
+  min-width: 160px;
+  max-width: 340px;
+  padding: 0;
+}
+
+.hero.hero12 > div > div:first-child picture,
+.hero.hero12 > div > div:first-child img {
+  width: 200px;
+  height: 200px;
+  border-radius: 16px;
+  object-fit: cover;
+  display: block;
+  margin: 0;
+  box-shadow: 0 2px 12px 0 rgb(0 0 0 / 9%);
+  background: #dedede;
+}
+
+/* Right column: flexible content side */
+.hero.hero12 > div > div:last-child {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  flex: 1 1 0%;
+  min-width: 0;
+  gap: 22px;
+  padding: 30px 0;
+}
+
+.hero.hero12 h1,
+.hero.hero12 h2,
+.hero.hero12 h3,
+.hero.hero12 h4,
+.hero.hero12 h5,
+.hero.hero12 h6 {
+  color: #232323;
+  font-weight: 700;
+  line-height: 1.08;
+  letter-spacing: 0.01em;
+  margin: 0 0 0.3em;
+  padding: 0;
+  max-width: 640px;
+}
+
+.hero.hero12 p,
+.hero.hero12 li,
+.hero.hero12 span {
+  color: rgb(24 24 24 / 88%);
+  font-size: 1.06em;
+  font-weight: 400;
+  line-height: 1.57;
+  margin: 0 0 0.5em;
+  padding: 0;
+  max-width: 570px;
+}
+
+.hero.hero12 .button,
+.hero.hero12 button,
+.hero.hero12 input[type="button"],
+.hero.hero12 input[type="submit"] {
+  border-radius: 2.2em;
+  border: 2px solid #232323;
+  background: #fff;
+  color: #232323;
+  font-weight: 600;
+  font-size: 1.08em;
+  padding: 0.62em 2em;
+  margin: 8px 0 0;
+  box-shadow: none;
+  transition: background 0.18s, color 0.18s, border-color 0.18s;
+}
+
+.hero.hero12 .button:hover,
+.hero.hero12 .button:focus,
+.hero.hero12 button:hover,
+.hero.hero12 button:focus {
+  background: #232323;
+  color: #fff;
+  border-color: #232323;
+}
+
+/* Responsive tweaks for mobile/tablet */
+@media (width <= 1100px) {
+  .hero.hero12 > div {
+    padding: 0 14px;
+    gap: 18px;
+    width: calc(100% - 28px);
+    margin: 12px 6px;
+  }
+}
+
+@media (width <= 900px) {
+  .hero.hero12 > div {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 18px;
+    margin: 8px;
+    padding: 0 6px;
+    width: calc(100% - 16px);
+    min-height: 0;
+  }
+
+  .hero.hero12 > div > div:first-child {
+    justify-content: center;
+    width: 100%;
+    max-width: 100%;
+    padding-top: 10px;
+    padding-bottom: 2px;
+  }
+
+  .hero.hero12 > div > div:first-child picture,
+  .hero.hero12 > div > div:first-child img {
+    width: 110px;
+    height: 110px;
+  }
+
+  .hero.hero12 > div > div:last-child {
+    padding: 10px 0 12px;
+    min-width: 0;
+  }
+}
+
+/* Ensure edge-to-edge hero if needed */
+.hero-container > .hero-wrapper {
+  max-width: unset;
+  padding: 0;
 }
