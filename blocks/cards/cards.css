@@ -587,7 +587,6 @@
   gap: 0;
 }
 
-/* Image section: occupy slightly more space, maintain aspect ratio */
 .cards.cards23 .cards-card-image {
   flex: 0 0 57%;
   display: flex;
@@ -610,7 +609,6 @@
   position: relative;
 }
 
-/* Text section: more generous horizontal padding, center vertically */
 .cards.cards23 .cards-card-body {
   flex: 1 1 43%;
   display: flex;
@@ -625,7 +623,6 @@
   background: #fff;
 }
 
-/* Heading: uppercased, large, spaced, left-aligned, avoid wrap to 3rd line */
 .cards.cards23 .cards-card-body h3 {
   text-transform: uppercase;
   color: #161616;
@@ -639,7 +636,6 @@
   overflow-wrap: break-word;
 }
 
-/* Subtitle: darker gray, left-aligned, margin top, natural line length */
 .cards.cards23 .cards-card-body p {
   color: #353535;
   font-size: 1.15rem;
@@ -650,7 +646,6 @@
   line-height: 1.6;
 }
 
-/* Responsive: stack and adjust padding for small screens */
 @media (width <= 900px) {
   .cards.cards23 > ul > li {
     flex-direction: column;
@@ -674,5 +669,134 @@
     padding: 44px 20px;
     min-width: unset;
     height: auto;
+  }
+}
+
+
+.cards.cards24 > ul {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 24px;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  overflow-x: auto;
+}
+
+.cards.cards24 > ul > li {
+  background: #fff;
+  border-radius: 24px;
+  box-shadow: 0 4px 16px rgb(0 0 0 / 8%);
+  border: none;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  min-width: 260px;
+}
+
+.cards.cards24 .cards-card-image {
+  width: 100%;
+  height: 210px;
+  overflow: hidden;
+  border-top-left-radius: 24px;
+  border-top-right-radius: 24px;
+}
+
+.cards.cards24 .cards-card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-top-left-radius: 24px;
+  border-top-right-radius: 24px;
+  display: block;
+}
+
+/* Ensure card body and its content are visible and properly stacked */
+.cards.cards24 .cards-card-body {
+  padding: 16px 20px 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  flex: 1 1 auto;
+}
+
+/* Flex row for label and date - visually side by side */
+.cards.cards24 .cards-card-body-row {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 4px;
+}
+
+/* Apply flex row to first two <p> elements directly */
+.cards.cards24 .cards-card-body > p:first-child,
+.cards.cards24 .cards-card-body > p:nth-child(2) {
+  margin: 0;
+  padding: 0;
+  display: inline-flex;
+  align-items: center;
+  vertical-align: middle;
+}
+
+/* Label pill styling */
+.cards.cards24 .cards-card-body > p:first-child {
+  background: #ededed;
+  border-radius: 14px;
+  padding: 3px 16px;
+  font-size: 13px;
+  color: #222;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  width: fit-content;
+  min-width: 0;
+  margin-right: 12px;
+}
+
+/* Date styling, right-aligned but not stretched */
+.cards.cards24 .cards-card-body > p:nth-child(2) {
+  background: none;
+  border-radius: 0;
+  font-size: 13px;
+  color: #222;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  width: fit-content;
+  min-width: 0;
+  margin-left: auto;
+  padding-right: 3px;
+  text-align: right;
+}
+
+/* Title below label/date, compact vertical gap */
+.cards.cards24 .cards-card-body > h3 {
+  margin-top: 6px;
+  margin-bottom: 0;
+}
+
+.cards.cards24 .cards-card-body h3 {
+  font-size: 24px;
+  text-transform: uppercase;
+  color: #000;
+  letter-spacing: 0.08em;
+  line-height: 1.14;
+  font-weight: 700;
+}
+
+/* Responsive adjustments */
+@media (width <= 700px) {
+  .cards.cards24 > ul {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .cards.cards24 > ul > li {
+    min-width: 0;
+  }
+
+  .cards.cards24 .cards-card-image {
+    height: 160px;
   }
 }
