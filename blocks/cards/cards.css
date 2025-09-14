@@ -831,8 +831,6 @@
   grid-column: 1 / 2;
   grid-row: 1 / span 2;
   min-height: 510px;
-
-  /* Height adjusted for better column alignment */
   display: flex;
   flex-direction: column;
   justify-content: stretch;
@@ -923,5 +921,171 @@
   .cards.cards25 .cards-card-body {
     padding: 12px 8px 8px 10px;
     max-width: 100%;
+  }
+}
+
+
+.cards.cards33 {
+  /* Minimize horizontal padding for a more expansive, "edge-to-edge" feel */
+  padding: 18px 6px;
+  background: #fff;
+  max-width: 1240px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Tighter grid gap for denser layout */
+.cards.cards33 > ul {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 14px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+/* Each card: horizontal, top-aligned, no border/shadow */
+.cards.cards33 > ul > li {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  background: none;
+  box-shadow: none;
+  border-radius: 0;
+  border: none;
+  padding: 0;
+  min-height: 158px;
+}
+
+/* Image container: slightly less width for text comfort */
+.cards.cards33 .cards-card-image {
+  flex: 0 0 35%;
+  max-width: 35%;
+  min-width: 112px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: 0;
+  margin: 0;
+}
+
+.cards.cards33 .cards-card-image img {
+  border-radius: 16px;
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  aspect-ratio: 4/3;
+  margin: 0;
+}
+
+/* Text container: more space, less left padding */
+.cards.cards33 .cards-card-body {
+  flex: 1 1 65%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: 0 0 0 12px;
+  margin: 0;
+  background: none;
+}
+
+/* Tag and read time: ultra tight row */
+.cards.cards33 .cards-card-body > p:nth-child(1),
+.cards.cards33 .cards-card-body > p:nth-child(2) {
+  display: inline-block;
+  margin-bottom: 0;
+  margin-right: 2px;
+  vertical-align: middle;
+  margin-top: 0;
+}
+
+.cards.cards33 .cards-card-body > p:nth-child(1) {
+  background: #f3f3f3;
+  color: #444;
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  border-radius: 12px;
+  padding: 2px 9px;
+  letter-spacing: 0.05em;
+  margin-right: 2px;
+}
+
+.cards.cards33 .cards-card-body > p:nth-child(2) {
+  color: #888;
+  font-size: 12px;
+  font-weight: 400;
+  margin-right: 0;
+}
+
+/* Remove extra margin above/below pill row */
+
+/* Title: more vertical space above/below for rhythm */
+.cards.cards33 .cards-card-body > h3 {
+  margin-top: 16px;
+  margin-bottom: 16px;
+  font-size: 24px;
+  color: #222;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.015em;
+  line-height: 1.14;
+}
+
+/* Description: slightly less space below */
+.cards.cards33 .cards-card-body > p:nth-child(4) {
+  font-size: 16px;
+  color: #666;
+  font-weight: 400;
+  line-height: 1.5;
+  margin: 0 0 8px;
+}
+
+/* "Read" link styling */
+.cards.cards33 .cards-card-body > p:last-child {
+  font-size: 14px;
+  color: #0083FF;
+  text-decoration: underline;
+  font-weight: 500;
+  margin: 0;
+  cursor: pointer;
+  align-self: flex-start;
+}
+
+/* Remove excess margin from all direct children of body */
+.cards.cards33 .cards-card-body > * {
+  margin-left: 0;
+  margin-right: 0;
+}
+
+/* Responsive: stack cards vertically, maintain padding */
+@media (width <= 900px) {
+  .cards.cards33 {
+    padding: 10px 4px;
+  }
+
+  .cards.cards33 > ul {
+    grid-template-columns: 1fr;
+    grid-template-rows: none;
+    gap: 14px 0;
+  }
+
+  .cards.cards33 > ul > li {
+    flex-direction: column;
+    min-height: unset;
+  }
+
+  .cards.cards33 .cards-card-image {
+    max-width: 100%;
+    width: 100%;
+    padding: 0;
+    margin-bottom: 12px;
+    justify-content: center;
+  }
+
+  .cards.cards33 .cards-card-body {
+    padding: 0;
   }
 }
