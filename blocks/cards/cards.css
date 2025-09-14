@@ -1,3 +1,4 @@
+/* stylelint-disable no-descending-specificity */
 .cards > ul {
   list-style: none;
   margin: 0;
@@ -189,18 +190,22 @@
   margin: 0;
   line-height: 1.6;
 }
+
 @media (width <= 1200px) {
   .cards.cards10 > ul {
     grid-template-columns: repeat(2, 1fr);
   }
+
   .cards.cards10 > ul > li {
     max-width: calc(50% - 12px);
   }
 }
+
 @media (width <= 700px) {
   .cards.cards10 > ul {
     grid-template-columns: 1fr;
   }
+
   .cards.cards10 > ul > li {
     max-width: 100%;
   }
@@ -216,7 +221,6 @@
   display: block;
 }
 
-/* Grid layout for cards */
 .cards.cards17 > ul {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -225,12 +229,11 @@
   margin: 0 auto;
   padding: 0;
   box-sizing: border-box;
-  justify-items: center;
-  align-items: start;
+  place-items: start center;
   background: #fff;
 }
 
-@media (max-width: 900px) {
+@media (width <= 900px) {
   .cards.cards17 > ul {
     grid-template-columns: repeat(2, 1fr);
     max-width: 760px;
@@ -238,7 +241,7 @@
   }
 }
 
-@media (max-width: 600px) {
+@media (width <= 600px) {
   .cards.cards17 > ul {
     grid-template-columns: 1fr;
     max-width: 380px;
@@ -261,7 +264,6 @@
   min-width: 0;
 }
 
-/* Card image container */
 .cards.cards17 .cards-card-image {
   border-radius: 24px;
   overflow: hidden;
@@ -269,7 +271,6 @@
   line-height: 0;
 }
 
-/* Images: fill card, consistent aspect, rounded corners */
 .cards.cards17 .cards-card-image img {
   width: 100%;
   aspect-ratio: 4 / 3;
@@ -279,7 +280,107 @@
   height: auto;
 }
 
-/* Hide card body text */
 .cards.cards17 .cards-card-body {
   display: none;
+}
+
+
+.cards.cards19 > ul {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 38px 72px; /* vertical horizontal; more breathing room */
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  background: none;
+}
+
+@media (width <= 900px) {
+  .cards.cards19 > ul {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px 36px;
+  }
+}
+
+@media (width <= 600px) {
+  .cards.cards19 > ul {
+    grid-template-columns: 1fr;
+    gap: 26px 0;
+  }
+}
+
+/* Card row: top-align icon and text to visually align icon with first text line */
+.cards.cards19 > ul > li {
+  display: flex;
+  align-items: flex-start;
+  background: none;
+  border: none;
+  margin: 0;
+  padding: 0;
+  min-width: 0;
+}
+
+/* Remove default margins and paddings on card body */
+.cards.cards19 .cards-card-body {
+  margin: 0;
+  padding: 0;
+  background: none;
+  border: none;
+}
+
+/* Icon wrapper: generous margin-right and subtle vertical nudge for alignment */
+.cards.cards19 .cards-card-body:first-child {
+  margin-right: 22px;
+  transform: translateY(2px);
+  display: flex;
+  align-items: flex-start;
+  flex-shrink: 0;
+  min-width: 24px;
+}
+
+/* Icon sizing: lock icon to 24x24px */
+.cards.cards19 .cards-card-body:first-child img {
+  width: 24px;
+  height: 24px;
+  min-width: 24px;
+  min-height: 24px;
+  max-width: 24px;
+  max-height: 24px;
+  object-fit: contain;
+  display: block;
+  vertical-align: middle;
+}
+
+/* Text content: allow to wrap, align left */
+.cards.cards19 .cards-card-body:last-child {
+  flex: 1 1 0;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+/* Text styling: match color, font size, line height, left align */
+.cards.cards19 .cards-card-body:last-child p {
+  color: #222;
+  font-size: 13px;
+  line-height: 1.35;
+  font-weight: 400;
+  margin: 0;
+  padding: 0;
+  background: none;
+  border: none;
+  text-align: left;
+  word-break: break-word;
+  overflow-wrap: break-word;
+}
+
+/* Prevent legacy grid image rules from overriding icon sizing */
+.cards.cards19 > ul > li img {
+  aspect-ratio: unset;
+  width: 24px;
+  height: 24px;
+  object-fit: contain;
+  max-width: none;
+  max-height: none;
 }
