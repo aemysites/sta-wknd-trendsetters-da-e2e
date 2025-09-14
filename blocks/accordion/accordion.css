@@ -1,8 +1,8 @@
+/* stylelint-disable no-descending-specificity */
 .accordion details {
   border: 1px solid #dadada;
 }
 
-/* stylelint-disable-next-line no-descending-specificity */
 .accordion details + details {
   margin-top: 24px;
 }
@@ -58,4 +58,108 @@
 .accordion details[open] .accordion-item-body {
   border-top: 1px solid #dadada;
   background-color: var(--background-color);
+}
+
+
+.accordion.accordion34 {
+  background-color: #f7f7f2;
+  padding: 0;
+  border-radius: 0;
+  box-shadow: none;
+}
+
+/* Remove details borders/gaps, add only divider lines between items */
+.accordion.accordion34 .accordion-item {
+  border: none;
+  margin: 0;
+  padding: 0;
+}
+
+.accordion.accordion34 .accordion-item:not(:last-child) {
+  border-bottom: 1px solid #e8e8e3;
+}
+
+/* Layout summary row with minimal horizontal padding, flex row, tight alignment */
+.accordion.accordion34 .accordion-item-label {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 32px;
+  padding: 0 2px 0 8px; /* Very tight right, subtle left */
+  width: 100%;
+  cursor: pointer;
+  background: none;
+  border: none;
+  outline: none;
+  box-sizing: border-box;
+  margin: 0;
+  gap: 4px;
+  position: relative;
+}
+
+/* Question text: tight, centered vertically */
+.accordion.accordion34 .accordion-item-label > p {
+  color: #232323;
+  font-size: 15px;
+  margin: 0;
+  font-weight: 400;
+  letter-spacing: 0;
+  line-height: 1.5;
+  background: transparent;
+  align-self: center;
+  flex: 1 1 auto;
+  min-width: 0;
+  overflow-wrap: break-word;
+}
+
+/* Remove default marker for supported browsers */
+.accordion.accordion34 .accordion-item-label::-webkit-details-marker,
+.accordion.accordion34 .accordion-item-label::marker {
+  display: none;
+}
+
+/* Chevron: downward triangle, flush to right, pixel-perfect vertical center */
+.accordion.accordion34 .accordion-item-label::after {
+  display: block;
+  width: 18px;
+  height: 18px;
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: #232323;
+  mask-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'%3E%3Cpolygon fill='black' points='7,9 12,15 17,9'/%3E%3C/svg%3E");
+  mask-repeat: no-repeat;
+  mask-position: center;
+  mask-size: contain;
+  pointer-events: none;
+}
+
+/* Accordion body: matches summary row horizontal padding */
+.accordion.accordion34 .accordion-item-body {
+  display: none;
+  padding: 0 8px 10px;
+  color: #232323;
+  font-size: 15px;
+  box-sizing: border-box;
+}
+
+.accordion.accordion34 details[open] .accordion-item-body {
+  display: block;
+}
+
+@media (width <= 600px) {
+  .accordion.accordion34 .accordion-item-label {
+    padding: 0 2px 0 4px;
+  }
+
+  .accordion.accordion34 .accordion-item-body {
+    padding: 0 4px 10px;
+  }
+}
+
+/* Remove extra spacing between accordion items */
+.accordion.accordion34 details + details {
+  margin-top: 0;
 }
