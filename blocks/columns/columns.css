@@ -1,3 +1,4 @@
+/* stylelint-disable no-descending-specificity */
 .columns > div {
   display: flex;
   flex-direction: column;
@@ -29,5 +30,139 @@
   .columns > div > div {
     flex: 1;
     order: unset;
+  }
+}
+
+
+.columns.columns3 {
+  background: #fff;
+  padding: 64px 0;
+  min-height: 480px;
+  box-sizing: border-box;
+  display: flex;
+  align-items: stretch; /* for grid vertical alignment */
+  justify-content: center;
+}
+
+/* Use CSS Grid for robust alignment: 2 columns, center both content blocks vertically */
+.columns.columns3 > div {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center; /* <--- vertical centering of both columns as a group */
+  justify-content: center;
+  width: 100%;
+  max-width: 1200px;
+  min-height: 360px;
+  margin: 0 auto;
+  gap: 32px; /* tighter gap for closer grouping */
+}
+
+@media (width <= 900px) {
+  .columns.columns3 {
+    min-height: unset;
+    padding: 40px 0;
+  }
+
+  .columns.columns3 > div {
+    grid-template-columns: 1fr;
+    align-items: stretch;
+    gap: 32px;
+    min-height: unset;
+  }
+}
+
+/* Left column: allow more width, ensure vertical compactness */
+.columns.columns3 > div > div:first-child {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  min-width: 350px;
+  max-width: 760px; /* more width to minimize wrapping */
+  box-sizing: border-box;
+}
+
+/* Headline: tight grouping */
+.columns.columns3 > div > div:first-child h2 {
+  margin-bottom: 2px;
+}
+
+/* Subtext: minimal margin, slightly smaller text for less wrapping */
+.columns.columns3 > div > div:first-child p {
+  margin-top: 0;
+  margin-bottom: 0;
+  font-size: 0.97rem;
+  color: #000;
+  line-height: 1.33;
+  max-width: 700px;
+}
+
+/* Right column: vertical stack of buttons, center relative to text block */
+.columns.columns3 > div > div:last-child {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-width: 170px;
+  max-width: 260px;
+}
+
+/* Button container: vertically stack buttons, tight vertical gap */
+.columns.columns3 > div > div:last-child p {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 13px;
+  margin: 0;
+}
+
+/* Buttons: more compact and visually balanced */
+.columns.columns3 > div > div:last-child a {
+  display: block;
+  min-width: 170px;
+  max-width: 260px;
+  padding: 0.62em 1em;
+  border: 2px solid #000;
+  border-radius: 999px;
+  background: #fff;
+  color: #000;
+  text-align: center;
+  font-size: 1.02rem;
+  font-weight: 400;
+  transition: border-color 0.2s;
+  margin: 0;
+  line-height: 1.2;
+  box-shadow: none;
+  letter-spacing: 0;
+  outline: none;
+}
+
+/* Subtle yellow right border for the top button */
+.columns.columns3 > div > div:last-child a:first-of-type {
+  border-right: 2.5px solid #f7f780;
+}
+
+/* Remove blue link color & underline for these buttons */
+.columns.columns3 > div > div:last-child a,
+.columns.columns3 > div > div:last-child a:hover,
+.columns.columns3 > div > div:last-child a:focus {
+  color: #000;
+  text-decoration: none;
+  background: #fff;
+  border-color: #000;
+}
+
+/* Button hover/focus effect: yellow border color */
+.columns.columns3 > div > div:last-child a:hover,
+.columns.columns3 > div > div:last-child a:focus {
+  border-color: #f7f780;
+}
+
+/* Responsive constraints for buttons */
+@media (width <= 600px) {
+  .columns.columns3 > div > div:last-child a {
+    min-width: 110px;
+    font-size: 0.97rem;
+    padding: 0.5em 0.7em;
   }
 }
