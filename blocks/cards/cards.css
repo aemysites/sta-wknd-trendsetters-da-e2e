@@ -558,3 +558,121 @@
     right: unset;
   }
 }
+
+
+.cards.cards23 {
+  background: #f6f6f9;
+  padding: 56px 0;
+}
+
+.cards.cards23 > ul {
+  display: block;
+  margin: 0 auto;
+  padding: 0;
+  max-width: 1100px;
+}
+
+.cards.cards23 > ul > li {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  background: #fff;
+  border-radius: 36px;
+  box-shadow: 0 8px 40px 0 rgb(30 30 30 / 12%);
+  border: none;
+  overflow: hidden;
+  max-width: 1100px;
+  min-height: 500px;
+  margin: 0 auto;
+  gap: 0;
+}
+
+/* Image section: occupy slightly more space, maintain aspect ratio */
+.cards.cards23 .cards-card-image {
+  flex: 0 0 57%;
+  display: flex;
+  align-items: stretch;
+  justify-content: stretch;
+  border-radius: 36px 0 0 36px;
+  overflow: hidden;
+  min-height: 500px;
+  position: relative;
+  background: none;
+}
+
+.cards.cards23 .cards-card-image picture,
+.cards.cards23 .cards-card-image img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 36px 0 0 36px;
+  position: relative;
+}
+
+/* Text section: more generous horizontal padding, center vertically */
+.cards.cards23 .cards-card-body {
+  flex: 1 1 43%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 70px 88px;
+  min-width: 350px;
+  min-height: 0;
+  box-sizing: border-box;
+  height: 100%;
+  background: #fff;
+}
+
+/* Heading: uppercased, large, spaced, left-aligned, avoid wrap to 3rd line */
+.cards.cards23 .cards-card-body h3 {
+  text-transform: uppercase;
+  color: #161616;
+  font-size: 2.25rem;
+  font-weight: 600;
+  letter-spacing: 0.035em;
+  margin: 0 0 22px;
+  line-height: 1.14;
+  text-align: left;
+  max-width: 100%;
+  overflow-wrap: break-word;
+}
+
+/* Subtitle: darker gray, left-aligned, margin top, natural line length */
+.cards.cards23 .cards-card-body p {
+  color: #353535;
+  font-size: 1.15rem;
+  margin: 0;
+  text-align: left;
+  max-width: 100%;
+  font-weight: 400;
+  line-height: 1.6;
+}
+
+/* Responsive: stack and adjust padding for small screens */
+@media (width <= 900px) {
+  .cards.cards23 > ul > li {
+    flex-direction: column;
+    max-width: 100%;
+    min-height: unset;
+    border-radius: 36px;
+  }
+
+  .cards.cards23 .cards-card-image {
+    width: 100%;
+    min-height: 220px;
+    border-radius: 36px 36px 0 0;
+  }
+
+  .cards.cards23 .cards-card-image img,
+  .cards.cards23 .cards-card-image picture {
+    border-radius: 36px 36px 0 0;
+  }
+
+  .cards.cards23 .cards-card-body {
+    padding: 44px 20px;
+    min-width: unset;
+    height: auto;
+  }
+}
