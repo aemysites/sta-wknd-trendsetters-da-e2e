@@ -113,7 +113,6 @@
 
 
 .cards.cards10 {
-  /* Prevent style leaks, set background for visual clarity */
   background: transparent;
   padding: 0;
 }
@@ -134,24 +133,16 @@
   overflow: hidden;
   display: flex;
   flex-direction: column;
-
-  /* Fixed size for desktop, adjust as needed */
   min-width: 220px;
   max-width: 100%;
-
-  /* Height, if you want to fix: */
-
-  /* height: 340px; */
 }
 
 .cards.cards10 .cards-card-image {
   width: 100%;
-  aspect-ratio: 4 / 3; /* Ensures image crops correctly */
+  aspect-ratio: 4 / 3;
   overflow: hidden;
   border-top-left-radius: 16px;
   border-top-right-radius: 16px;
-
-  /* No border on bottom corners */
 }
 
 .cards.cards10 .cards-card-image img {
@@ -198,27 +189,97 @@
   margin: 0;
   line-height: 1.6;
 }
-
-/* Responsive grid for tablets */
 @media (width <= 1200px) {
   .cards.cards10 > ul {
     grid-template-columns: repeat(2, 1fr);
   }
-
-  /* Flexbox alternative: change max-width */
   .cards.cards10 > ul > li {
     max-width: calc(50% - 12px);
   }
 }
-
-/* Responsive grid for mobile */
 @media (width <= 700px) {
   .cards.cards10 > ul {
     grid-template-columns: 1fr;
   }
-
-  /* Flexbox alternative: */
   .cards.cards10 > ul > li {
     max-width: 100%;
   }
+}
+
+
+.cards.cards17 {
+  background: #fff;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  width: 100%;
+  box-sizing: border-box;
+  display: block;
+}
+
+/* Grid layout for cards */
+.cards.cards17 > ul {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  max-width: 1140px;
+  margin: 0 auto;
+  padding: 0;
+  box-sizing: border-box;
+  justify-items: center;
+  align-items: start;
+  background: #fff;
+}
+
+@media (max-width: 900px) {
+  .cards.cards17 > ul {
+    grid-template-columns: repeat(2, 1fr);
+    max-width: 760px;
+    gap: 14px;
+  }
+}
+
+@media (max-width: 600px) {
+  .cards.cards17 > ul {
+    grid-template-columns: 1fr;
+    max-width: 380px;
+    gap: 12px;
+  }
+}
+
+.cards.cards17 > ul > li {
+  background: #fff;
+  border: none;
+  border-radius: 24px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: stretch;
+  padding: 0;
+  box-shadow: none;
+  width: 100%;
+  min-width: 0;
+}
+
+/* Card image container */
+.cards.cards17 .cards-card-image {
+  border-radius: 24px;
+  overflow: hidden;
+  width: 100%;
+  line-height: 0;
+}
+
+/* Images: fill card, consistent aspect, rounded corners */
+.cards.cards17 .cards-card-image img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  border-radius: 24px;
+  display: block;
+  height: auto;
+}
+
+/* Hide card body text */
+.cards.cards17 .cards-card-body {
+  display: none;
 }
