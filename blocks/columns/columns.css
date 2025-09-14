@@ -40,21 +40,20 @@
   min-height: 480px;
   box-sizing: border-box;
   display: flex;
-  align-items: stretch; /* for grid vertical alignment */
+  align-items: stretch;
   justify-content: center;
 }
 
-/* Use CSS Grid for robust alignment: 2 columns, center both content blocks vertically */
 .columns.columns3 > div {
   display: grid;
   grid-template-columns: 1fr auto;
-  align-items: center; /* <--- vertical centering of both columns as a group */
+  align-items: center;
   justify-content: center;
   width: 100%;
   max-width: 1200px;
   min-height: 360px;
   margin: 0 auto;
-  gap: 32px; /* tighter gap for closer grouping */
+  gap: 32px;
 }
 
 @media (width <= 900px) {
@@ -71,23 +70,20 @@
   }
 }
 
-/* Left column: allow more width, ensure vertical compactness */
 .columns.columns3 > div > div:first-child {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
   min-width: 350px;
-  max-width: 760px; /* more width to minimize wrapping */
+  max-width: 760px;
   box-sizing: border-box;
 }
 
-/* Headline: tight grouping */
 .columns.columns3 > div > div:first-child h2 {
   margin-bottom: 2px;
 }
 
-/* Subtext: minimal margin, slightly smaller text for less wrapping */
 .columns.columns3 > div > div:first-child p {
   margin-top: 0;
   margin-bottom: 0;
@@ -97,7 +93,6 @@
   max-width: 700px;
 }
 
-/* Right column: vertical stack of buttons, center relative to text block */
 .columns.columns3 > div > div:last-child {
   display: flex;
   flex-direction: column;
@@ -107,7 +102,6 @@
   max-width: 260px;
 }
 
-/* Button container: vertically stack buttons, tight vertical gap */
 .columns.columns3 > div > div:last-child p {
   display: flex;
   flex-direction: column;
@@ -116,7 +110,6 @@
   margin: 0;
 }
 
-/* Buttons: more compact and visually balanced */
 .columns.columns3 > div > div:last-child a {
   display: block;
   min-width: 170px;
@@ -137,12 +130,10 @@
   outline: none;
 }
 
-/* Subtle yellow right border for the top button */
 .columns.columns3 > div > div:last-child a:first-of-type {
   border-right: 2.5px solid #f7f780;
 }
 
-/* Remove blue link color & underline for these buttons */
 .columns.columns3 > div > div:last-child a,
 .columns.columns3 > div > div:last-child a:hover,
 .columns.columns3 > div > div:last-child a:focus {
@@ -152,17 +143,86 @@
   border-color: #000;
 }
 
-/* Button hover/focus effect: yellow border color */
 .columns.columns3 > div > div:last-child a:hover,
 .columns.columns3 > div > div:last-child a:focus {
   border-color: #f7f780;
 }
 
-/* Responsive constraints for buttons */
 @media (width <= 600px) {
   .columns.columns3 > div > div:last-child a {
     min-width: 110px;
     font-size: 0.97rem;
     padding: 0.5em 0.7em;
+  }
+}
+
+
+.columns.columns4 {
+  background: #f7f7f4;
+  padding: 40px 0;
+  box-sizing: border-box;
+}
+
+.columns.columns4 > div {
+  display: flex;
+  flex-direction: row;
+  justify-content: stretch;
+  align-items: stretch;
+  gap: 0;
+  width: 100vw;
+  max-width: 100vw;
+  margin-left: 50%;
+  transform: translateX(-50%);
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Each image column fills exactly 20% horizontally in desktop view */
+.columns.columns4 .columns-img-col {
+  flex: 0 1 20%;
+  max-width: 20%;
+  min-width: 0;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+  box-sizing: border-box;
+}
+
+/* Images fill their column and maintain aspect ratio */
+.columns.columns4 .columns-img-col picture,
+.columns.columns4 .columns-img-col img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  margin: 0;
+  padding: 0;
+  border: none;
+  box-sizing: border-box;
+}
+
+/* Responsive: two columns per row on tablet */
+@media (width <= 900px) {
+  .columns.columns4 > div {
+    flex-wrap: wrap;
+    width: 100vw;
+    max-width: 100vw;
+    margin-left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .columns.columns4 .columns-img-col {
+    max-width: 50%;
+    flex: 0 1 50%;
+  }
+}
+
+/* Responsive: one column per row on mobile */
+@media (width <= 600px) {
+  .columns.columns4 .columns-img-col {
+    max-width: 100%;
+    flex: 1 1 100%;
   }
 }
