@@ -545,7 +545,6 @@
   justify-content: center;
 }
 
-/* Outer flex centers the actual image row container */
 .columns.columns16 > div {
   width: 100%;
   height: 100%;
@@ -555,7 +554,6 @@
   flex-direction: row;
 }
 
-/* Image row: six images, row layout, even spacing */
 .columns.columns16 > div > div {
   display: flex;
   flex-direction: row;
@@ -568,7 +566,6 @@
   box-sizing: border-box;
 }
 
-/* Ensure each image column behaves as a flex item and doesn't collapse */
 .columns.columns16 > div > div > .columns-img-col {
   flex: 0 0 auto;
   min-width: 0;
@@ -579,12 +576,10 @@
   order: unset;
 }
 
-/* Remove unwanted ordering from any previous rules */
 .columns.columns16 > div > div > div {
   order: unset;
 }
 
-/* Images sizing and rotation */
 .columns.columns16 .columns-img-col img {
   width: 180px;
   height: 120px;
@@ -596,8 +591,6 @@
   background: none;
   transition: transform 0.3s;
 }
-
-/* Rotations for each image in the row */
 .columns.columns16 .columns-img-col:nth-child(1) img { transform: rotate(-7deg); }
 .columns.columns16 .columns-img-col:nth-child(2) img { transform: rotate(4deg); }
 .columns.columns16 .columns-img-col:nth-child(3) img { transform: rotate(-5deg); }
@@ -605,7 +598,6 @@
 .columns.columns16 .columns-img-col:nth-child(5) img { transform: rotate(-4deg); }
 .columns.columns16 .columns-img-col:nth-child(6) img { transform: rotate(6deg); }
 
-/* Responsive: Wrap then stack on small screens */
 @media (width <= 900px) {
   .columns.columns16 > div > div {
     gap: 24px;
@@ -619,5 +611,228 @@
     flex-direction: column;
     gap: 16px;
     padding: 0;
+  }
+}
+
+
+.columns.columns26 {
+  background: #f8f9f6;
+  padding: 56px 0;
+}
+
+.columns.columns26 > div {
+  display: grid;
+  grid-template-columns: 1fr 220px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 32px;
+  column-gap: 56px;
+  align-items: start;
+}
+
+@media (width <= 900px) {
+  .columns.columns26 > div {
+    grid-template-columns: 1fr;
+    padding: 0 16px;
+    gap: 40px 0;
+  }
+}
+
+/* HEADLINE & TESTIMONIAL */
+.columns.columns26 > div > div:first-child {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto auto auto;
+  align-items: start;
+}
+
+/* Headline left */
+.columns.columns26 > div > div:first-child > p:nth-child(1) {
+  font-size: 2.375rem;
+  font-weight: 400;
+  letter-spacing: 0.01em;
+  color: #222320;
+  line-height: 1.07;
+  text-transform: uppercase;
+  grid-row: 1;
+  grid-column: 1;
+  margin: 0;
+  align-self: start;
+}
+
+/* Testimonial right */
+.columns.columns26 > div > div:first-child > p:nth-child(2) {
+  font-size: 1rem;
+  font-weight: 400;
+  color: #222320;
+  line-height: 1.3;
+  grid-row: 1;
+  grid-column: 2;
+  margin: 0;
+  align-self: start;
+}
+
+/* Divider line spanning both columns */
+.columns.columns26 > div > div:first-child::after {
+  display: block;
+  border-bottom: 1px solid #dadbd6;
+  margin: 32px 0 18px;
+  grid-row: 2;
+  grid-column: 1 / span 2;
+  height: 0;
+  content: "";
+}
+
+@media (width <= 900px) {
+  .columns.columns26 > div > div:first-child {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto auto;
+  }
+
+  .columns.columns26 > div > div:first-child > p:nth-child(1),
+  .columns.columns26 > div > div:first-child > p:nth-child(2) {
+    grid-column: 1;
+    margin-bottom: 16px;
+    font-size: 1.3rem;
+  }
+
+  .columns.columns26 > div > div:first-child::after {
+    margin: 20px 0;
+  }
+}
+
+/* --- BOTTOM ROW: Avatar, Name, Role as flex row --- */
+.columns.columns26 > div > div:first-child > .bottom-row-flex {
+  display: flex;
+  flex-direction: row;
+  align-items: baseline;
+  gap: 0;
+  grid-row: 3;
+  grid-column: 1 / span 2;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+/* Trick: flex the bottom three <p>s on desktop only */
+@media (width >= 900px) {
+  .columns.columns26 > div > div:first-child {
+    position: relative;
+    display: grid;
+    grid-template-rows: auto auto auto;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .columns.columns26 > div > div:first-child > p:nth-child(3),
+  .columns.columns26 > div > div:first-child > p:nth-child(4),
+  .columns.columns26 > div > div:first-child > p:nth-child(5) {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    position: static;
+    margin-top: 0;
+    margin-bottom: 0;
+    padding: 0;
+    order: 0;
+  }
+
+  /* Flex row for the three elements as a group */
+  .columns.columns26 > div > div:first-child > p:nth-child(3) {
+    margin-right: 16px;
+    grid-row: 3;
+    grid-column: 1 / span 2;
+  }
+
+  .columns.columns26 > div > div:first-child > p:nth-child(4) {
+    margin-right: 0;
+    grid-row: 3;
+    grid-column: 1 / span 2;
+  }
+
+  .columns.columns26 > div > div:first-child > p:nth-child(5) {
+    margin-left: auto;
+    margin-right: 0;
+    grid-row: 3;
+    grid-column: 1 / span 2;
+  }
+
+  /* Container flex: put all three <p>s on a single row */
+
+  /* Parent grid: override grid auto flow */
+}
+
+/* Avatar (leftmost) */
+.columns.columns26 > div > div:first-child > p:nth-child(3) picture,
+.columns.columns26 > div > div:first-child > p:nth-child(3) img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Name */
+.columns.columns26 > div > div:first-child > p:nth-child(4) {
+  font-size: 1.05rem;
+  font-weight: 500;
+  color: #222320;
+}
+
+/* Role: aligned far right within flex row */
+.columns.columns26 > div > div:first-child > p:nth-child(5) {
+  font-size: 0.85rem;
+  font-weight: 400;
+  color: #7B7C7A;
+  align-self: baseline;
+}
+
+/* On mobile, stack vertically and left-align everything */
+@media (width <= 900px) {
+  .columns.columns26 > div > div:first-child > p:nth-child(3),
+  .columns.columns26 > div > div:first-child > p:nth-child(4),
+  .columns.columns26 > div > div:first-child > p:nth-child(5) {
+    display: block;
+    width: 100%;
+    text-align: left;
+    margin-bottom: 8px;
+    margin-right: 0;
+    margin-left: 0;
+  }
+}
+
+/* Logo column: baseline align with role (bottom row) */
+.columns.columns26 > div > div:last-child {
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+  min-width: 160px;
+  width: 100%;
+  height: 100%;
+  padding-bottom: 8px;
+}
+
+.columns.columns26 > div > div:last-child p {
+  display: flex;
+  align-items: baseline;
+  justify-content: flex-end;
+  margin: 0;
+}
+
+.columns.columns26 > div > div:last-child img {
+  max-height: 32px;
+  width: auto;
+  display: block;
+}
+
+@media (width <= 900px) {
+  .columns.columns26 > div > div:last-child {
+    align-items: flex-start;
+    justify-content: flex-start;
+    min-width: 0;
+    padding-bottom: 0;
+    margin-top: 24px;
+  }
+
+  .columns.columns26 > div > div:last-child img {
+    max-height: 28px;
   }
 }
