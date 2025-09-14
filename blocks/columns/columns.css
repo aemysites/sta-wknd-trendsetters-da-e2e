@@ -359,7 +359,6 @@
   }
 }
 
-/* Left column (heading) */
 .columns.columns14 > .columns > div > div:first-child {
   flex: 1 1 0;
   min-width: 0;
@@ -367,7 +366,6 @@
   align-items: flex-start;
 }
 
-/* Heading style */
 .columns.columns14 h2 {
   margin: 0;
   font-size: 2.9rem;
@@ -377,7 +375,6 @@
   color: #000;
 }
 
-/* Right column (text + button) */
 .columns.columns14 > .columns > div > div:last-child {
   flex: 1 1 0;
   min-width: 0;
@@ -388,7 +385,6 @@
   justify-content: flex-start;
 }
 
-/* Paragraph in right column */
 .columns.columns14 > .columns > div > div:last-child > p {
   font-size: 0.94rem;
   color: #000;
@@ -396,12 +392,10 @@
   margin: 0 0 0.4em;
 }
 
-/* Tighten button container and button margins */
 .columns.columns14 .button-container {
   margin: 0;
 }
 
-/* Button appearance fix */
 .columns.columns14 .button {
   background: transparent;
   border: 1.1px solid #000;
@@ -420,4 +414,129 @@
   background: #000;
   color: #fff;
   border-color: #000;
+}
+
+
+.columns.columns15 {
+  background: #f7f8f6;
+  padding: 96px 0 64px; /* Add generous top padding for visual centering */
+}
+
+/* Flex row for columns, align to top, allow image column to be level with headline */
+.columns.columns15 > div {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 48px;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  box-sizing: border-box;
+  position: relative;
+}
+
+@media (width <= 900px) {
+  .columns.columns15 {
+    padding: 48px 0 32px;
+  }
+
+  .columns.columns15 > div {
+    flex-direction: column;
+    gap: 32px;
+    padding: 0 16px;
+  }
+}
+
+/* Left column: keep tight vertical stacking */
+.columns.columns15 > div > div:first-child {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  min-width: 0;
+  flex: 1 1 0;
+  margin-top: 0;
+}
+
+/* Headline and paragraph: extra-tight vertical spacing */
+.columns.columns15 h1 {
+  color: #181818;
+  font-size: 60px;
+  line-height: 1.05;
+  font-weight: 700;
+  margin-top: 0;
+  margin-bottom: 4px;
+  letter-spacing: -1px;
+}
+
+.columns.columns15 p {
+  font-size: 15px;
+  color: #5b5b5b;
+  line-height: 1.6;
+  margin-top: 0;
+  margin-bottom: 8px;
+}
+
+.columns.columns15 .button-container {
+  margin-top: 0;
+}
+
+/* Button styling */
+.columns.columns15 .button-container .button {
+  background: #fff;
+  color: #181818;
+  border: 1px solid #181818;
+  border-radius: 24px;
+  box-shadow: 0 0 0 2px #d3e44d;
+  font-size: 15px;
+  font-weight: 500;
+  padding: 12px 28px;
+  margin-right: 0;
+  text-decoration: none;
+  display: inline-block;
+  min-width: 140px;
+  text-align: center;
+  white-space: nowrap;
+  margin-bottom: 0;
+}
+
+/* Right column: no vertical offset, align image with headline */
+.columns.columns15 .columns-img-col {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: flex-start;
+  flex: 1 1 0;
+  margin-top: 0;
+}
+
+/* Image: slightly larger for even better match */
+.columns.columns15 .columns-img-col img {
+  width: 400px;
+  height: 400px;
+  object-fit: cover;
+  border-radius: 24px;
+  box-shadow: 0 2px 16px 0 rgb(0 0 0 / 3%);
+  background: #fff;
+  display: block;
+}
+
+@media (width <= 1200px) {
+  .columns.columns15 .columns-img-col img {
+    width: 350px;
+    height: 350px;
+  }
+}
+
+@media (width <= 900px) {
+  .columns.columns15 .columns-img-col {
+    margin-top: 0;
+  }
+
+  .columns.columns15 .columns-img-col img {
+    width: 100vw;
+    max-width: 360px;
+    height: auto;
+    margin-left: auto;
+    margin-right: auto;
+  }
 }
