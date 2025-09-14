@@ -827,12 +827,11 @@
   padding: 0;
 }
 
-/* Main row: side-by-side, vertically and horizontally centered as a unit */
 .columns.columns27 > div {
   display: flex;
   flex-direction: row;
-  align-items: center;       /* vertical center as a unit */
-  justify-content: center;   /* horizontal center in block */
+  align-items: center;
+  justify-content: center;
   max-width: 1200px;
   margin: 0 auto;
   min-height: 80vh;
@@ -840,7 +839,6 @@
   gap: 56px;
 }
 
-/* Responsive: stack on mobile */
 @media (width <= 900px) {
   .columns.columns27 > div {
     flex-direction: column;
@@ -851,7 +849,6 @@
   }
 }
 
-/* Text column: center vertically, control width, tighter vertical grouping */
 .columns.columns27 > div > div:first-child {
   flex: 1 1 0;
   display: flex;
@@ -863,7 +860,6 @@
   height: auto;
 }
 
-/* Headline: narrower max-width, less bottom margin */
 .columns.columns27 > div > div:first-child > h2 {
   font-size: 64px;
   font-weight: 400;
@@ -874,7 +870,6 @@
   max-width: 380px;
 }
 
-/* Body text: less bottom margin */
 .columns.columns27 > div > div:first-child > h2 + p {
   font-size: 18px;
   color: #181818;
@@ -883,7 +878,6 @@
   max-width: 500px;
 }
 
-/* Caption/note: even less margin */
 .columns.columns27 > div > div:first-child > h2 + p + p {
   font-size: 13px;
   color: #b0b0b0;
@@ -891,12 +885,10 @@
   max-width: 500px;
 }
 
-/* Button container: nearly flush to caption */
 .columns.columns27 .button-container {
   margin: 2px 0 0;
 }
 
-/* Button style: match original */
 .columns.columns27 .button-container .button {
   background: #fff;
   color: #181818;
@@ -917,7 +909,6 @@
   color: #fff;
 }
 
-/* Image column: increase width, allow full vertical centering and stretching */
 .columns.columns27 .columns-img-col {
   flex: 1 1 0;
   min-width: 400px;
@@ -928,7 +919,6 @@
   margin: 0;
 }
 
-/* Image: fill parent column, no bottom cropping, generous vertical size */
 .columns.columns27 .columns-img-col img {
   width: 100%;
   height: 100%;
@@ -943,7 +933,6 @@
   margin: 0;
 }
 
-/* On mobile, relax min/max and allow stacking */
 @media (width <= 900px) {
   .columns.columns27 .columns-img-col {
     min-width: 0;
@@ -957,5 +946,47 @@
     min-height: unset;
     height: auto;
     max-height: 340px;
+  }
+}
+
+
+.columns.columns29 {
+  width: 100%;
+  max-width: 100%;
+  display: block;
+}
+
+.columns.columns29 > div {
+  display: flex;
+  flex-direction: row;
+  gap: 24px;
+  align-items: stretch;
+}
+
+.columns.columns29 .columns-img-col {
+  flex: 1 1 0;
+  display: flex;
+  border-radius: 20px;
+  overflow: hidden;
+  min-width: 0;
+
+  /* The height will be determined by the image's natural aspect ratio */
+}
+
+/* Let the images themselves define the height (no fixed aspect ratio here) */
+.columns.columns29 .columns-img-col picture,
+.columns.columns29 .columns-img-col img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  display: block;
+  aspect-ratio: unset;
+}
+
+/* Responsive: stack vertically on small screens */
+@media (width <= 900px) {
+  .columns.columns29 > div {
+    flex-direction: column;
+    gap: 16px;
   }
 }
