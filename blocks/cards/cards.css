@@ -711,7 +711,6 @@
   display: block;
 }
 
-/* Ensure card body and its content are visible and properly stacked */
 .cards.cards24 .cards-card-body {
   padding: 16px 20px 18px;
   display: flex;
@@ -720,7 +719,6 @@
   flex: 1 1 auto;
 }
 
-/* Flex row for label and date - visually side by side */
 .cards.cards24 .cards-card-body-row {
   display: flex;
   flex-direction: row;
@@ -729,7 +727,6 @@
   margin-bottom: 4px;
 }
 
-/* Apply flex row to first two <p> elements directly */
 .cards.cards24 .cards-card-body > p:first-child,
 .cards.cards24 .cards-card-body > p:nth-child(2) {
   margin: 0;
@@ -739,7 +736,6 @@
   vertical-align: middle;
 }
 
-/* Label pill styling */
 .cards.cards24 .cards-card-body > p:first-child {
   background: #ededed;
   border-radius: 14px;
@@ -754,7 +750,6 @@
   margin-right: 12px;
 }
 
-/* Date styling, right-aligned but not stretched */
 .cards.cards24 .cards-card-body > p:nth-child(2) {
   background: none;
   border-radius: 0;
@@ -770,7 +765,6 @@
   text-align: right;
 }
 
-/* Title below label/date, compact vertical gap */
 .cards.cards24 .cards-card-body > h3 {
   margin-top: 6px;
   margin-bottom: 0;
@@ -785,7 +779,6 @@
   font-weight: 700;
 }
 
-/* Responsive adjustments */
 @media (width <= 700px) {
   .cards.cards24 > ul {
     grid-template-columns: 1fr;
@@ -798,5 +791,137 @@
 
   .cards.cards24 .cards-card-image {
     height: 160px;
+  }
+}
+
+
+.cards.cards25 {
+  margin: 0 auto;
+  max-width: 1200px;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.cards.cards25 > ul {
+  display: grid;
+  grid-template-columns: 1.07fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 18px;
+  width: 100%;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  align-items: stretch;
+}
+
+.cards.cards25 > ul > li {
+  position: relative;
+  border-radius: 28px;
+  overflow: hidden;
+  background: var(--background-color);
+  box-shadow: 0 4px 22px rgb(0 0 0 / 9%);
+  border: none;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  min-height: 240px;
+}
+
+.cards.cards25 > ul > li:nth-child(1) {
+  grid-column: 1 / 2;
+  grid-row: 1 / span 2;
+  min-height: 510px;
+
+  /* Height adjusted for better column alignment */
+  display: flex;
+  flex-direction: column;
+  justify-content: stretch;
+}
+
+.cards.cards25 > ul > li:nth-child(2) {
+  grid-column: 2 / 3;
+  grid-row: 1 / 2;
+  min-height: 240px;
+}
+
+.cards.cards25 > ul > li:nth-child(3) {
+  grid-column: 2 / 3;
+  grid-row: 2 / 3;
+  min-height: 240px;
+}
+
+.cards.cards25 .cards-card-image {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  height: 100%;
+  width: 100%;
+  line-height: 0;
+  pointer-events: none;
+}
+
+.cards.cards25 > ul > li img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  border-radius: 28px;
+}
+
+.cards.cards25 .cards-card-body {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 2;
+  padding: 18px 16px 12px 20px;
+  color: var(--text-color);
+  max-width: 85%;
+  background: linear-gradient(180deg, rgb(255 255 255 / 78%) 2%, rgb(255 255 255 / 14%) 50%, rgb(255 255 255 / 0%) 95%);
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+.cards.cards25 .cards-card-body h3 {
+  margin-top: 0;
+  margin-bottom: 8px;
+  font-size: 2.1rem;
+  font-weight: 600;
+  line-height: 1.07;
+  letter-spacing: 0.03em;
+  color: var(--text-color);
+  text-shadow: 0 1px 7px rgb(255 255 255 / 60%), 0 2px 12px rgb(0 0 0 / 9%);
+}
+
+.cards.cards25 .cards-card-body p {
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.55;
+  color: var(--dark-color);
+  margin: 0;
+  text-shadow: 0 1px 3px rgb(255 255 255 / 45%);
+}
+
+@media (width <= 900px) {
+  .cards.cards25 > ul {
+    grid-template-columns: 1fr;
+    grid-template-rows: unset;
+    gap: 14px;
+  }
+
+  .cards.cards25 > ul > li,
+  .cards.cards25 > ul > li:nth-child(1) {
+    grid-column: auto;
+    grid-row: auto;
+    min-height: 180px;
+    height: auto;
+  }
+
+  .cards.cards25 .cards-card-body {
+    padding: 12px 8px 8px 10px;
+    max-width: 100%;
   }
 }
