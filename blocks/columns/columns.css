@@ -31,3 +31,123 @@
     order: unset;
   }
 }
+
+
+.columns {
+  background: #FAFAF6;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  padding: 64px 0;
+  max-width: 1200px;
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+
+/* Structure: image column left, unified text/content column right */
+.columns > div {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 48px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* Image column (first child) */
+.columns > div > div:first-child {
+  flex: 0 0 40%;
+  min-width: 320px;
+  max-width: 440px;
+  aspect-ratio: 1/1;
+  border-radius: 24px;
+  background: url('https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=facearea&w=700&q=80') center center/cover no-repeat;
+  box-shadow: 0 4px 24px 0 rgba(0,0,0,0.06);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  position: relative;
+}
+
+/* Hide any child content inside the image column */
+.columns > div > div:first-child > * {
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* UNIFY all right text into a single vertical stack */
+.columns > div > div:not(:first-child) {
+  flex: 1 1 60%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 0;
+  padding: 0 16px;
+  box-sizing: border-box;
+}
+
+/* Flatten all nested children into vertical stack, removing multi-column look */
+.columns > div > div:not(:first-child) > div,
+.columns > div > div:not(:first-child) > div > div {
+  display: contents;
+}
+
+/* Add vertical gaps between direct child blocks inside the text column */
+.columns > div > div:not(:first-child) > div:not(:last-child) {
+  margin-bottom: 24px;
+}
+
+/* All text: left-aligned, proper color/spacing */
+.columns > div > div:not(:first-child) h2 {
+  color: #222221;
+  font-size: 3.5rem;
+  font-weight: 600;
+  line-height: 1.05;
+  margin: 0 0 20px 0;
+  letter-spacing: 0.01em;
+  text-align: left;
+}
+
+.columns > div > div:not(:first-child) p,
+.columns > div > div:not(:first-child) > div p {
+  color: #595959;
+  font-size: 1.1rem;
+  line-height: 1.52;
+  margin: 0 0 12px 0;
+  text-align: left;
+}
+
+/* Remove last margin for the last paragraph */
+.columns > div > div:not(:first-child) p:last-child,
+.columns > div > div:not(:first-child) > div p:last-child {
+  margin-bottom: 0;
+}
+
+/* Responsive: stack image above text on small screens */
+@media (max-width: 900px) {
+  .columns {
+    padding: 28px 0;
+  }
+  .columns > div {
+    flex-direction: column;
+    gap: 32px;
+  }
+  .columns > div > div:first-child,
+  .columns > div > div:not(:first-child) {
+    min-width: 0;
+    max-width: 100%;
+    width: 100%;
+    padding: 0;
+  }
+  .columns > div > div:first-child {
+    aspect-ratio: 16/10;
+    min-height: 180px;
+    margin-bottom: 16px;
+  }
+  .columns > div > div:not(:first-child) > div:not(:last-child) {
+    margin-bottom: 16px;
+  }
+}
