@@ -1,3 +1,5 @@
+/* stylelint-disable no-descending-specificity */
+
 .table.block {
   width: 100%;
   overflow-x: auto;
@@ -50,18 +52,304 @@
   margin-top: 0.25em;
 }
 
-/* no header variant */
-.table.block.no-header table tbody tr {
-  border-top: 1px solid;
-}
-
-/* striped variant */
 .table.block.striped tbody tr:nth-child(odd) {
   background-color: var(--overlay-background-color);
 }
 
-/* bordered variant */
 .table.block.bordered table th,
 .table.block.bordered table td {
   border: 1px solid;
+}
+
+/* --- EDS Foundation --- */
+header nav {
+  /* Merged Properties from both Base and Generated CSS */
+  display: flex;
+  max-width: 1264px;
+  width: 100%;
+  min-height: 75px;
+  height: 75px;
+  align-items: center;
+  margin: 0 auto;
+  padding: 0 24px;
+  box-sizing: border-box;
+  background: #fff;
+}
+header { display: flex; }
+.header-wrapper .nav-wrapper { justify-content: center; align-items: center;
+  position: fixed;
+  z-index: 2;
+  top: 0; left: 0; right: 0;
+  width: 100%;
+  background: #fff;
+  box-shadow: 0 1px 0 #eee; }
+header nav .nav-hamburger { display: none; visibility: hidden; }
+
+/* --- Header core layout --- */
+
+/* --- Desktop Layout: Brand | Nav | Tools --- */
+header nav .nav-brand {
+header nav .nav-sections {
+  order: 2;
+  flex: 1 1 auto;
+  display: flex;
+  align-items: center;
+  min-width: 0;
+}
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+  margin-right: 36px;
+}
+header nav .nav-sections{ order: 2; flex: 1 1 auto; display: flex; align-items: center; min-width: 0;}
+header nav .nav-tools   { order: 3; flex: 0 0 auto; display: flex;
+  align-items: center;
+  gap: 24px; margin-left: 36px;
+  min-width: 48px;}
+
+/* --- Logo --- */
+header nav .nav-brand picture,
+header nav .nav-brand img {
+  height: 40px;
+  width: 40px;
+  min-width: 40px;
+  object-fit: contain;
+  border-radius: 6px;
+  background: #f8f8f8;
+  display: block;
+}
+
+/* --- Main navigation list --- */
+header nav .nav-sections > .default-content-wrapper > ul {
+  display: flex;
+  list-style: none;
+  gap: 40px;
+  padding: 0;
+  margin: 0;
+  align-items: center;
+}
+
+header nav .nav-sections > .default-content-wrapper > ul > li {
+  position: relative;
+  display: flex;
+  align-items: center;
+  min-width: 44px;
+  height: 44px;
+  font-size: 16px;
+  font-family: Syncopate, 'Syncopate Fallback', sans-serif;
+  letter-spacing: 0.13em;
+  color: #131313;
+  background: none;
+}
+
+header nav .nav-sections > .default-content-wrapper > ul > li > p,
+header nav .nav-sections > .default-content-wrapper > ul > li > a {
+  font-family: Syncopate, 'Syncopate Fallback', sans-serif;
+  text-transform: uppercase;
+  font-size: 16px;
+  letter-spacing: 0.13em;
+  margin: 0;
+  color: #131313;
+  background: none;
+  font-weight: 400;
+  padding: 0 2px;
+}
+
+/* --- Dropdown arrow for nav-drop --- */
+header nav .nav-sections .nav-drop > p::after {
+  content: " ▼";
+  font-size: 0.8em;
+  color: #222;
+  vertical-align: middle;
+  opacity: 0.7;
+}
+
+/* --- Dropdown menus --- */
+header nav .nav-sections .nav-drop > ul {
+  display: none;
+  position: absolute;
+  left: 0;
+  top: 100%;
+  background: #fff;
+  min-width: 220px;
+  box-shadow: 0 6px 32px rgb(40 40 40 / 10%);
+  padding: 8px 0;
+  border-radius: 4px;
+  border: 1px solid #ededed;
+  z-index: 10;
+}
+
+header nav .nav-sections .nav-drop[aria-expanded="true"] > ul {
+  display: block;
+}
+
+header nav .nav-sections .nav-drop > ul > li {
+  padding: 8px 24px;
+  white-space: nowrap;
+}
+
+header nav .nav-sections .nav-drop > ul > li a,
+header nav .nav-sections .nav-drop > ul > li p {
+  color: #505050;
+  font-size: 15px;
+  font-family: var(--body-font-family);
+}
+
+header nav .nav-sections .nav-drop > ul > li a:hover {
+  color: var(--link-color);
+  text-decoration: underline;
+}
+
+/* --- Nav & Tool Buttons --- */
+header nav .nav-sections a.button,
+header nav .nav-tools a.button {
+  margin: 0 12px 0 0;
+  min-height: 44px;
+  min-width: 80px;
+  padding: 0.5em 2.1em;
+  font-size: 16px;
+  font-family: var(--body-font-family);
+  border-radius: 2em;
+  background: #fff;
+  color: #131313;
+  border: 2px solid #e2e2e2;
+  font-weight: 400;
+  cursor: pointer;
+  transition: background 0.16s, border-color 0.16s, color 0.16s;
+  display: inline-block;
+  box-shadow: none;
+}
+
+header nav .nav-sections a.button.primary,
+header nav .nav-tools a.button.primary {
+  background: var(--link-color);
+  color: #fff;
+  border-color: var(--link-color);
+  font-weight: 500;
+}
+
+header nav .nav-sections a.button:hover,
+header nav .nav-tools a.button:hover {
+  background: var(--link-hover-color);
+  color: #fff;
+  border-color: var(--link-hover-color);
+  text-decoration: none;
+}
+
+header nav .nav-sections .button-container,
+header nav .nav-tools .button-container {
+  margin: 0;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+/* --- SVG/Icon sizing (nav/tools) --- */
+header nav .nav-sections img,
+header nav .nav-tools img {
+  height: 24px;
+  width: 24px;
+  object-fit: contain;
+  vertical-align: middle;
+  margin: 0 8px 0 0;
+  display: inline-block;
+}
+
+/* --- Tool section gap and button sizing --- */
+
+header nav .nav-tools a.button {
+  font-size: 16px;
+  padding: 0.5em 2.1em;
+}
+
+/* --- Remove unwanted borders/shadow/artifacts --- */
+header nav, .header-wrapper .nav-wrapper, header nav .nav-brand, header nav .nav-sections, header nav .nav-tools {
+  border: none;
+  box-shadow: none;
+  background: #fff;
+}
+
+/* --- Responsive: Mobile & Tablet --- */
+@media (width <= 899px) {
+  .header-wrapper .nav-wrapper {
+    min-height: 56px;
+    padding: 0;
+    box-shadow: 0 1px 0 #eee;
+    background: #fff;
+  }
+
+  header nav {
+    min-height: 56px;
+    height: auto;
+    padding: 0 8px;
+    flex-direction: row;
+  }
+
+  header nav .nav-brand {
+    min-width: 44px;
+    margin-right: 8px;
+  }
+
+  header nav .nav-sections {
+    margin: 0;
+    flex: 1 1 auto;
+  }
+
+  header nav .nav-sections > .default-content-wrapper > ul {
+    gap: 0;
+    flex-direction: column;
+    position: absolute;
+    top: 56px;
+    left: 0;
+    width: 100vw;
+    background: #fff;
+    box-shadow: 0 4px 24px rgb(40 40 40 / 13%);
+    display: none;
+    z-index: 30;
+    padding: 24px 0;
+  }
+
+  header nav[aria-expanded="true"] .nav-sections > .default-content-wrapper > ul {
+    display: flex;
+  }
+
+  header nav .nav-tools {
+    gap: 8px;
+    flex-direction: row;
+  }
+
+  header nav .nav-tools a.button,
+  header nav .nav-sections a.button {
+    min-height: 44px;
+    font-size: 15px;
+    padding: 0.5em 1.2em;
+  }
+
+  header nav .nav-brand img,
+  header nav .nav-brand picture {
+    height: 32px;
+    width: 32px;
+    margin-right: 0;
+  }
+
+  /* Hamburger visible only on mobile */
+  header nav .nav-hamburger {
+    display: flex;
+    visibility: visible;
+    align-items: center;
+    min-width: 44px;
+    margin-left: 8px;
+  }
+}
+
+/* --- Accessibility: touch targets min 44px --- */
+header nav .nav-sections > .default-content-wrapper > ul > li,
+header nav .nav-tools .button,
+header nav .nav-brand {
+  min-height: 44px;
+  min-width: 44px;
+}
+
+/* --- Always solid background --- */
+header, .header-wrapper, .nav-wrapper {
+  background: #fff;
 }
