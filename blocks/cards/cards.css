@@ -1054,7 +1054,6 @@
   background: #fff;
 }
 
-/* --- DENSE MOSAIC GRID --- */
 .cards.cards25 > ul {
   display: grid;
   grid-template-columns: 1.1fr 1.55fr 1fr;
@@ -1068,7 +1067,6 @@
   align-items: start;
 }
 
-/* --- CARD TILE APPEARANCE --- */
 .cards.cards25 > ul > li {
   position: relative;
   border-radius: 28px;
@@ -1084,7 +1082,6 @@
   width: 100%;
 }
 
-/* --- GRID PLACEMENT --- */
 .cards.cards25 > ul > li:nth-child(1) {
   grid-column: 1;
   grid-row: 1 / span 2;
@@ -1121,7 +1118,6 @@
   height: 100%;
 }
 
-/* --- RESPONSIVE: stack vertically on mobile --- */
 @media (width <= 900px) {
   .cards.cards25 > ul {
     grid-template-columns: 1fr;
@@ -1137,7 +1133,6 @@
   }
 }
 
-/* --- IMAGE FILL --- */
 .cards.cards25 .cards-card-image {
   position: absolute;
   inset: 0;
@@ -1160,7 +1155,6 @@
   border: none;
 }
 
-/* --- TEXT OVERLAY: contained, top-left, consistent padding --- */
 .cards.cards25 .cards-card-body {
   position: relative;
   z-index: 2;
@@ -1175,11 +1169,8 @@
   pointer-events: none;
   box-sizing: border-box;
   overflow: hidden;
-
-  /* Prevent overflow outside tile */
 }
 
-/* --- HEADINGS & PARAGRAPH --- */
 .cards.cards25 .cards-card-body h3 {
   font-size: 2.05rem;
   font-weight: 700;
@@ -1201,4 +1192,152 @@
   overflow-wrap: break-word;
 }
 
-/* --- Remove border from image container --- */
+
+.cards.cards33 {
+  background: #f7f8f5;
+  padding: 0;
+}
+
+/* Tighter, more compact grid */
+.cards.cards33 > ul {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 28px 20px;
+  margin: 0;
+  padding: 32px 0;
+  width: 100%;
+  justify-items: center;
+}
+
+@media (width <= 900px) {
+  .cards.cards33 > ul {
+    grid-template-columns: 1fr;
+    gap: 20px 0;
+    padding: 20px 0;
+  }
+}
+
+/* Card: compact size, less padding, top-aligned content */
+.cards.cards33 > ul > li {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 2px 8px rgb(30 30 30 / 8%);
+  border: none;
+  overflow: hidden;
+  min-height: 184px;
+  width: 98%;
+  margin: auto;
+  padding: 0;
+}
+
+/* Left image: more width, fills available height */
+.cards.cards33 .cards-card-image {
+  flex: 0 0 46%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  background: none;
+  min-width: 0;
+  min-height: 0;
+  height: 100%;
+}
+
+/* Image: larger radius, fills card vertical space */
+.cards.cards33 .cards-card-image img {
+  width: 100%;
+  height: 100%;
+  border-radius: 13px;
+  aspect-ratio: 4/3;
+  object-fit: cover;
+  display: block;
+}
+
+/* Text side: less padding, full height, tighter spacing */
+.cards.cards33 .cards-card-body {
+  flex: 1 1 54%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding: 22px 16px 18px 22px;
+  margin: 0;
+  min-width: 0;
+  min-height: 0;
+  height: 100%;
+}
+
+/* Pill + time row: inline, compact pill */
+.cards.cards33 .cards-card-body p:first-child,
+.cards.cards33 .cards-card-body p:nth-child(2) {
+  display: inline-block;
+  vertical-align: middle;
+  margin-bottom: 0;
+}
+
+.cards.cards33 .cards-card-body p:first-child {
+  background: #f5f5f5;
+  color: #222;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  border-radius: 10px;
+  padding: 2px 9px;
+  margin-right: 8px;
+  min-width: 0;
+  width: auto;
+  white-space: nowrap;
+}
+
+.cards.cards33 .cards-card-body p:nth-child(2) {
+  color: #888;
+  font-size: 12px;
+  font-weight: 400;
+  margin-right: 0;
+}
+
+/* Headline: less margin, tighter vertical spacing */
+.cards.cards33 .cards-card-body h3 {
+  font-size: 22px;
+  font-weight: 700;
+  color: #222;
+  margin: 8px 0 10px;
+  letter-spacing: 0.02em;
+  line-height: 1.1;
+}
+
+/* Description: compact */
+.cards.cards33 .cards-card-body p:nth-child(4) {
+  color: #5a5a5a;
+  font-size: 16px;
+  font-weight: 400;
+  margin-bottom: 6px;
+  margin-top: 0;
+  line-height: 1.35;
+}
+
+/* "Read" link: always at bottom, small gap below */
+.cards.cards33 .cards-card-body p:last-child {
+  color: #666;
+  font-size: 14px;
+  font-weight: 500;
+  text-decoration: underline;
+  cursor: pointer;
+  margin-top: auto;
+  margin-bottom: 2px;
+  transition: color 0.18s;
+  align-self: flex-start;
+}
+
+.cards.cards33 .cards-card-body p:last-child:hover {
+  color: #222;
+  text-decoration: underline;
+}
+
+.cards.cards33 .cards-card-body p {
+  margin-top: 0;
+  margin-bottom: 0;
+}
