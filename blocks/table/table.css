@@ -1,3 +1,4 @@
+/* stylelint-disable no-descending-specificity */
 .table.block {
   width: 100%;
   overflow-x: auto;
@@ -50,18 +51,89 @@
   margin-top: 0.25em;
 }
 
-/* no header variant */
 .table.block.no-header table tbody tr {
   border-top: 1px solid;
 }
 
-/* striped variant */
 .table.block.striped tbody tr:nth-child(odd) {
   background-color: var(--overlay-background-color);
 }
 
-/* bordered variant */
-.table.block.bordered table th,
-.table.block.bordered table td {
-  border: 1px solid;
+
+.table.bordered.tablebordered13 {
+  background: #fff;
+  padding: 0;
+}
+
+.table.bordered.tablebordered13 table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #fff;
+  table-layout: fixed;
+}
+
+/* Restore normal table layout for rows, do not use display: block/grid/flex on table, thead, tbody, tr */
+.table.bordered.tablebordered13 th,
+.table.bordered.tablebordered13 td {
+  vertical-align: middle;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 20px 28px;
+  border: none;
+  background: transparent;
+}
+
+/* Column widths and styling */
+.table.bordered.tablebordered13 th,
+.table.bordered.tablebordered13 td:first-child {
+  width: 30%;
+  text-transform: uppercase;
+  font-weight: 300;
+  color: #555;
+  font-size: 17px;
+  letter-spacing: 0.02em;
+  line-height: 1.2;
+}
+
+.table.bordered.tablebordered13 th:last-child,
+.table.bordered.tablebordered13 td:last-child {
+  width: 70%;
+  text-transform: none;
+  font-weight: 400;
+  color: #232323;
+  font-size: 15px;
+  line-height: 1.4;
+}
+
+/* Remove default margins from <p> */
+.table.bordered.tablebordered13 th p,
+.table.bordered.tablebordered13 td p {
+  margin: 0;
+}
+
+/* Row dividers (thin, light gray) */
+.table.bordered.tablebordered13 thead tr,
+.table.bordered.tablebordered13 tbody tr {
+  border-bottom: 1px solid #ccc;
+}
+
+.table.bordered.tablebordered13 tbody tr:last-child {
+  border-bottom: none;
+}
+
+/* Remove any thick border from table header row */
+.table.bordered.tablebordered13 thead tr {
+  border-top: none;
+}
+
+/* Responsive: stack columns vertically on small screens */
+@media (width <= 600px) {
+  .table.bordered.tablebordered13 th,
+  .table.bordered.tablebordered13 td {
+    display: block;
+    width: 100%;
+    padding: 16px 12px;
+    font-size: 16px;
+    text-align: left;
+  }
 }
