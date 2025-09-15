@@ -226,7 +226,6 @@
   overflow: hidden;
 }
 
-/* Full-bleed image background */
 .hero.hero20 > div:first-child {
   position: absolute;
   inset: 0;
@@ -255,7 +254,6 @@
   display: block;
 }
 
-/* Overlay content: positioned in upper third, with more breathing room */
 .hero.hero20 > div:last-child {
   position: absolute;
   z-index: 2;
@@ -281,7 +279,6 @@
   pointer-events: auto;
 }
 
-/* Headline: reduced size, contained, more space above and below */
 .hero.hero20 h1 {
   font-size: clamp(2.1rem, 6.5vw, 5.5rem);
   line-height: 1.08;
@@ -297,7 +294,6 @@
   overflow-wrap: break-word;
 }
 
-/* Subhead: more space below, strong shadow, centered */
 .hero.hero20 > div:last-child > div > p:not(.button-container) {
   color: #fff;
   font-size: var(--body-font-size-s);
@@ -308,7 +304,6 @@
   text-align: center;
 }
 
-/* Button Row: horizontal on desktop, spaced, centered */
 .hero.hero20 .button-row,
 .hero.hero20 > div:last-child > div .button-row {
   display: flex;
@@ -321,7 +316,6 @@
   margin-bottom: 0;
 }
 
-/* Use a flex row for p.button-container siblings */
 .hero.hero20 > div:last-child > div > p.button-container {
   display: flex;
   margin: 0;
@@ -334,9 +328,6 @@
   margin-left: 1.4rem;
 }
 
-/* BUTTON style overrides */
-
-/* Responsive: stack buttons on mobile, headline stays contained */
 @media (width <= 900px) {
   .hero.hero20 > div:last-child > div {
     margin-top: 4vh;
@@ -374,5 +365,91 @@
 
   .hero.hero20 > div:last-child > div > p.button-container + p.button-container {
     margin-left: 0;
+  }
+}
+
+.hero.hero28 {
+  position: relative;
+  width: 100vw;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  overflow: hidden;
+  display: block;
+}
+
+/* Background image: absolute positioning for full-bleed */
+.hero.hero28 > div:first-child {
+  position: absolute;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 1;
+  pointer-events: none;
+  display: block;
+}
+
+.hero.hero28 > div:first-child > div,
+.hero.hero28 picture,
+.hero.hero28 img {
+  width: 100vw;
+  height: 100vh;
+  display: block;
+}
+
+.hero.hero28 img {
+  object-fit: cover;
+  width: 100vw;
+  height: 100vh;
+}
+
+/* Overlay using a dark background on the text container (works with provided HTML only) */
+.hero.hero28 > div:last-child {
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgb(0 0 0 / 38%);
+
+  /* pointer-events: none; removed to allow interaction if needed */
+}
+
+/* Make the headline visible and centered regardless of nesting */
+.hero.hero28 > div:last-child * {
+  color: #fff;
+  text-align: center;
+  font-size: clamp(2.2rem, 7vw, 5.2rem);
+  font-weight: 400;
+  letter-spacing: 0.04em;
+  line-height: 1.1;
+  max-width: 88vw;
+  margin: 0 auto;
+  text-shadow: 0 2px 24px rgb(0 0 0 / 38%);
+  padding: 0 2vw;
+  display: inline-block;
+  box-sizing: border-box;
+}
+
+@media (width <= 900px) {
+  .hero.hero28,
+  .hero.hero28 > div:first-child,
+  .hero.hero28 > div:first-child > div,
+  .hero.hero28 picture,
+  .hero.hero28 img,
+  .hero.hero28 > div:last-child {
+    height: 60vw;
+    min-height: 340px;
+    max-height: 90vw;
+  }
+
+  .hero.hero28 > div:last-child * {
+    font-size: clamp(1.7rem, 7vw, 2.5rem);
+    max-width: 95vw;
+    padding: 0 3vw;
   }
 }
