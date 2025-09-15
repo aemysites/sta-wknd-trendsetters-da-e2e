@@ -875,7 +875,7 @@
   overflow: visible;
   white-space: normal;
   text-overflow: unset;
-  overflow-wrap: break-word; /* Retained modern equivalent for proper functionality */
+  overflow-wrap: break-word;
 }
 
 .cards.cards23 .button-container {
@@ -989,8 +989,6 @@
   justify-content: flex-start;
 }
 
-/* Label + date row: arrange first two <p> in a flex row for each card */
-
 .cards.cards24 .cards-card-body > p:first-child,
 .cards.cards24 .cards-card-body > p:nth-child(2) {
   display: inline-flex;
@@ -1003,7 +1001,6 @@
   vertical-align: middle;
 }
 
-/* Label pill */
 .cards.cards24 .cards-card-body p:first-child {
   background: #f5f5f5;
   color: #222;
@@ -1019,7 +1016,6 @@
   box-sizing: border-box;
 }
 
-/* Date */
 .cards.cards24 .cards-card-body p:nth-child(2) {
   color: #888;
   font-size: 0.91rem;
@@ -1029,7 +1025,6 @@
   box-sizing: border-box;
 }
 
-/* Title */
 .cards.cards24 .cards-card-body h3 {
   margin: 10px 0 0;
   color: #181818;
@@ -1039,7 +1034,7 @@
   line-height: 1.13;
   text-align: left;
   padding: 0;
-  overflow-wrap: break-word; /* Modern equivalent */
+  overflow-wrap: break-word;
 }
 
 @media (width <= 700px) {
@@ -1053,4 +1048,157 @@
   }
 }
 
-/* Remove extra outer margin/padding from cards block */
+
+.cards.cards25 {
+  padding: 36px 0;
+  background: #fff;
+}
+
+/* --- DENSE MOSAIC GRID --- */
+.cards.cards25 > ul {
+  display: grid;
+  grid-template-columns: 1.1fr 1.55fr 1fr;
+  grid-template-rows: 220px 140px 140px 200px;
+  gap: 14px;
+  list-style: none;
+  margin: 0 auto;
+  padding: 0;
+  max-width: 1200px;
+  justify-content: center;
+  align-items: start;
+}
+
+/* --- CARD TILE APPEARANCE --- */
+.cards.cards25 > ul > li {
+  position: relative;
+  border-radius: 28px;
+  overflow: hidden;
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  min-height: 0;
+  border: none;
+  box-shadow: 0 2px 12px 0 rgb(20 20 20 / 3%);
+  height: 100%;
+  width: 100%;
+}
+
+/* --- GRID PLACEMENT --- */
+.cards.cards25 > ul > li:nth-child(1) {
+  grid-column: 1;
+  grid-row: 1 / span 2;
+  height: 100%;
+}
+
+.cards.cards25 > ul > li:nth-child(2) {
+  grid-column: 2;
+  grid-row: 1 / span 2;
+  height: 100%;
+}
+
+.cards.cards25 > ul > li:nth-child(3) {
+  grid-column: 1;
+  grid-row: 3 / span 2;
+  height: 100%;
+}
+
+.cards.cards25 > ul > li:nth-child(4) {
+  grid-column: 2 / span 2;
+  grid-row: 4;
+  height: 100%;
+}
+
+.cards.cards25 > ul > li:nth-child(5) {
+  grid-column: 3;
+  grid-row: 1 / 2;
+  height: 100%;
+}
+
+.cards.cards25 > ul > li:nth-child(6) {
+  grid-column: 3;
+  grid-row: 2 / 4;
+  height: 100%;
+}
+
+/* --- RESPONSIVE: stack vertically on mobile --- */
+@media (width <= 900px) {
+  .cards.cards25 > ul {
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(6, minmax(160px, auto));
+    gap: 12px;
+    max-width: 100%;
+  }
+
+  .cards.cards25 > ul > li {
+    grid-column: 1;
+    grid-row: auto;
+    min-height: 160px;
+  }
+}
+
+/* --- IMAGE FILL --- */
+.cards.cards25 .cards-card-image {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  display: flex;
+  align-items: stretch;
+  background: transparent;
+  border: none;
+}
+
+.cards.cards25 .cards-card-image img {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+  display: block;
+  border-radius: 28px;
+  background: none;
+  border: none;
+}
+
+/* --- TEXT OVERLAY: contained, top-left, consistent padding --- */
+.cards.cards25 .cards-card-body {
+  position: relative;
+  z-index: 2;
+  padding: 28px 28px 0;
+  color: #1a1a1a;
+  background: none;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  height: 100%;
+  pointer-events: none;
+  box-sizing: border-box;
+  overflow: hidden;
+
+  /* Prevent overflow outside tile */
+}
+
+/* --- HEADINGS & PARAGRAPH --- */
+.cards.cards25 .cards-card-body h3 {
+  font-size: 2.05rem;
+  font-weight: 700;
+  margin: 0 0 10px;
+  letter-spacing: 0.01em;
+  color: #232323;
+  line-height: 1.08;
+  text-align: left;
+  overflow-wrap: break-word;
+}
+
+.cards.cards25 .cards-card-body p {
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.45;
+  margin: 0;
+  color: #232323;
+  text-align: left;
+  overflow-wrap: break-word;
+}
+
+/* --- Remove border from image container --- */
