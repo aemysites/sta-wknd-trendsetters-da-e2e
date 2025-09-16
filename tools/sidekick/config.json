@@ -2,5 +2,5 @@
   "project": "AEM XWalk Boilerplate",
   "editUrlLabel": "AEM Editor",
   "editUrlPattern": "{{contentSourceUrl}}{{pathname}}?cmd=open",
-  "host": "https://wknd-trendsetters.webflow.io/"
+  "host": "wknd-trendsetters.webflow.io"
 }
