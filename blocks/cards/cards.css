@@ -431,7 +431,7 @@
   width: 340px;
   min-width: 220px;
   max-width: 51vw;
-  margin-right: -180px; /* increased overlap for both axes */
+  margin-right: -180px;
   margin-top: 0;
   transform: rotate(-4deg);
   box-shadow: 0 8px 26px rgb(0 0 0 / 16%);
@@ -472,11 +472,11 @@
   box-shadow: 0 3px 10px rgb(0 0 0 / 9%);
   border-radius: 11px;
   padding: 1.1rem 1.3rem 1rem;
-  width: 310px; /* wider for two-line text */
+  width: 310px;
   min-width: 180px;
   max-width: 49vw;
-  margin-left: -140px;  /* further negative, so more tucked under */
-  margin-top: 50px;    /* move up so it tucks under image */
+  margin-left: -140px;
+  margin-top: 50px;
   transform: rotate(2deg);
   display: flex;
   align-items: flex-start;
@@ -508,7 +508,7 @@
   line-height: 1.45;
   transform: rotate(-2deg);
   background: none;
-  overflow-wrap: break-word; /* Modern alternative to `word-break: break-word` */
+  overflow-wrap: break-word;
   white-space: pre-line;
 }
 
@@ -546,5 +546,114 @@
     height: 91%;
     border-radius: 6px;
     transform: none;
+  }
+}
+
+
+.cards.cards23 {
+  background: #f8f8f4;
+  padding: 48px 0;
+  margin: 0 auto;
+  max-width: 1120px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.cards.cards23 > ul {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-auto-rows: 1fr;
+  gap: 28px 40px;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  list-style: none;
+}
+
+.cards.cards23 > ul > li {
+  background: #fff;
+  border-radius: 24px;
+  box-shadow: 0 4px 24px 0 rgb(30 30 34 / 7%);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  min-height: 0;
+  transition: box-shadow 0.2s;
+}
+
+.cards.cards23 .cards-card-image {
+  width: 100%;
+  line-height: 0;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+.cards.cards23 .cards-card-image img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 24px 24px 0 0;
+  aspect-ratio: 4/3;
+  object-fit: cover;
+  background: transparent;
+}
+
+.cards.cards23 .cards-card-body {
+  padding: 28px 24px 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 12px;
+  flex: 1;
+}
+
+.cards.cards23 .cards-card-body h3 {
+  font-size: 23px;
+  font-weight: 500;
+  color: #2e2e2e;
+  letter-spacing: 0.03em;
+  margin: 0 0 6px;
+  line-height: 1.2;
+  text-align: left;
+  word-break: break-word;
+  overflow-wrap: break-word;
+}
+
+.cards.cards23 .cards-card-body p {
+  font-size: 15px;
+  color: #2e2e2e;
+  font-weight: 400;
+  margin: 0;
+  line-height: 1.5;
+  text-align: left;
+}
+
+/* Responsive: stack cards vertically on small screens */
+@media (width <= 900px) {
+  .cards.cards23 {
+    padding: 20px 0;
+    max-width: 100%;
+  }
+
+  .cards.cards23 > ul {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .cards.cards23 > ul > li {
+    border-radius: 20px;
+  }
+
+  .cards.cards23 .cards-card-image img {
+    border-radius: 20px 20px 0 0;
+    min-height: 120px;
+    max-height: 220px;
+  }
+
+  .cards.cards23 .cards-card-body {
+    padding: 16px 12px 20px;
+    gap: 8px;
   }
 }
