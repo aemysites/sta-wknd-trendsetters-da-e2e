@@ -161,7 +161,6 @@
   display: none;
 }
 
-/* Show multiple images, horizontal layout, nice spacing */
 .carousel.carousel16 .carousel-slides {
   display: flex;
   flex-flow: row nowrap;
@@ -172,7 +171,6 @@
   background: transparent;
 }
 
-/* Make each slide a visually separate card */
 .carousel.carousel16 .carousel-slide {
   flex: 0 0 260px;
   min-width: 200px;
@@ -187,7 +185,6 @@
   transition: box-shadow 0.2s;
 }
 
-/* Style image wrapper for card effect */
 .carousel.carousel16 .carousel-slide-image {
   display: flex;
   align-items: center;
@@ -200,8 +197,6 @@
   box-shadow: 0 4px 20px rgb(0 0 0 / 10%), 0 2px 8px rgb(0 0 0 / 6%);
   transition: transform 0.2s, box-shadow 0.2s;
 }
-
-/* Slight playful rotations for each slide (repeat pattern for more) */
 .carousel.carousel16 .carousel-slide:nth-child(1) .carousel-slide-image { transform: rotate(-5deg);}
 .carousel.carousel16 .carousel-slide:nth-child(2) .carousel-slide-image { transform: rotate(4deg);}
 .carousel.carousel16 .carousel-slide:nth-child(3) .carousel-slide-image { transform: rotate(-3deg);}
@@ -209,7 +204,6 @@
 .carousel.carousel16 .carousel-slide:nth-child(5) .carousel-slide-image { transform: rotate(-6deg);}
 .carousel.carousel16 .carousel-slide:nth-child(6) .carousel-slide-image { transform: rotate(3deg);}
 
-/* Ensure images fill card nicely */
 .carousel.carousel16 .carousel-slide-image picture,
 .carousel.carousel16 .carousel-slide-image img {
   display: block;
@@ -221,7 +215,229 @@
   background: #fff;
 }
 
-/* Hide overlay if empty */
 .carousel.carousel16 .carousel-slide-content {
   display: none;
+}
+
+
+.carousel.carousel36 {
+  background: #f7f8f5;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-start;
+  padding: 64px 0 0;
+  border-radius: 0;
+  min-height: 700px;
+}
+
+.carousel.carousel36 .carousel-slides-container {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  background: none;
+  position: relative;
+  width: 100%;
+  gap: 72px;
+  padding: 0 64px 0 0;
+  min-height: 600px;
+}
+
+/* Left text column */
+.carousel.carousel36 .carousel-slide:first-child {
+  flex: 0 0 440px;
+  max-width: 500px;
+  min-width: 320px;
+  margin: 0;
+  background: none;
+  box-shadow: none;
+  border-radius: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  overflow: visible;
+  height: 600px;
+  position: static;
+  padding-top: 24px;
+}
+
+/* Hide alt image for first slide */
+.carousel.carousel36 .carousel-slide:first-child .carousel-slide-image {
+  display: none;
+}
+
+.carousel.carousel36 .carousel-slide:first-child .carousel-slide-content {
+  margin: 0;
+  padding: 0;
+  background: none;
+  color: var(--text-color);
+  box-shadow: none;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+
+.carousel.carousel36 .carousel-slide:first-child .carousel-slide-content h1 {
+  font-size: 4.5rem;
+  margin: 0 0 28px;
+  line-height: 1.04;
+  letter-spacing: -0.03em;
+  color: var(--text-color);
+}
+
+.carousel.carousel36 .carousel-slide:first-child .carousel-slide-content p {
+  font-size: 1.1rem;
+  color: #505050;
+  margin: 0 0 32px;
+  line-height: 1.45;
+}
+
+/* Button container with two pill buttons */
+.carousel.carousel36 .carousel-slide:first-child .button-container {
+  display: flex;
+  gap: 20px;
+  margin-top: 10px;
+}
+
+.carousel.carousel36 .carousel-slide:first-child .button-container a.button {
+  background: none;
+  border: 2px solid #505050;
+  color: #505050;
+  border-radius: 24px;
+  font-weight: 500;
+  padding: 0.55em 1.8em;
+  margin: 0;
+  box-shadow: none;
+  transition: border-color 0.2s, color 0.2s, background 0.2s;
+  min-width: 0;
+  white-space: nowrap;
+}
+
+.carousel.carousel36 .carousel-slide:first-child .button-container a.button:hover,
+.carousel.carousel36 .carousel-slide:first-child .button-container a.button:focus {
+  border-color: #3b63fb;
+  color: #3b63fb;
+  background: #f2f6ff;
+}
+
+/* Show both buttons if two links exist */
+.carousel.carousel36 .carousel-slide:first-child .button-container a.button + a.button {
+  margin-left: 0;
+}
+
+/* IMAGE CARDS: Arrange 3 image cards in a row */
+.carousel.carousel36 .carousel-slides {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 36px;
+  padding: 0;
+  margin: 0;
+  overflow: visible;
+  flex: 1;
+  background: none;
+}
+
+/* Hide first slide from the row of image cards */
+
+.carousel.carousel36 .carousel-slide:not(:first-child) {
+  flex: 0 0 340px;
+  max-width: 340px;
+  min-width: 240px;
+  background: #fff;
+  border-radius: 32px;
+  box-shadow: 0 1px 18px rgb(0 0 0 / 6%);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-end;
+  height: 480px;
+  position: relative;
+}
+
+.carousel.carousel36 .carousel-slide:not(:first-child) .carousel-slide-image {
+  width: 100%;
+  height: 100%;
+  border-radius: 32px;
+  overflow: hidden;
+}
+
+.carousel.carousel36 .carousel-slide:not(:first-child) .carousel-slide-image picture,
+.carousel.carousel36 .carousel-slide:not(:first-child) .carousel-slide-image img {
+  border-radius: 32px;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  position: relative;
+}
+
+.carousel.carousel36 .carousel-slide:not(:first-child) .carousel-slide-content {
+  display: none;
+}
+
+/* Show 3 image cards: force all non-first slides to display as cards */
+.carousel.carousel36 .carousel-slide[data-slide-index="1"],
+.carousel.carousel36 .carousel-slide[data-slide-index="2"] {
+  display: flex;
+}
+
+.carousel.carousel36 .carousel-slide[data-slide-index="0"] {
+  /* Only display in text area, not in card row */
+  order: -1;
+}
+
+/* Remove indicators and navigation arrows */
+.carousel.carousel36 .carousel-slide-indicators,
+.carousel.carousel36 .carousel-navigation-buttons {
+  display: none;
+}
+
+/* Responsive adjustments */
+@media (width <= 1100px) {
+  .carousel.carousel36 .carousel-slides-container {
+    gap: 36px;
+    padding: 0 18px 0 0;
+  }
+
+  .carousel.carousel36 .carousel-slide:not(:first-child) {
+    max-width: 220px;
+    height: 220px;
+  }
+}
+
+@media (width <= 900px) {
+  .carousel.carousel36 {
+    flex-direction: column;
+    padding: 24px 0 0;
+    min-height: unset;
+  }
+
+  .carousel.carousel36 .carousel-slides-container {
+    flex-direction: column;
+    padding: 0 16px;
+    gap: 24px;
+    min-height: unset;
+  }
+
+  .carousel.carousel36 .carousel-slide:first-child {
+    margin: 0 0 32px;
+    max-width: 100%;
+    height: auto;
+    padding-top: 0;
+  }
+
+  .carousel.carousel36 .carousel-slides {
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  .carousel.carousel36 .carousel-slide:not(:first-child) {
+    max-width: 100%;
+    height: 220px;
+  }
 }
