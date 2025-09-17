@@ -25,3 +25,69 @@
   aspect-ratio: 4 / 3;
   object-fit: cover;
 }
+
+
+.cards.cards7 {
+  background: #fff;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  max-width: 100%;
+}
+
+.cards.cards7 > ul {
+  display: flex;
+  flex-direction: row;
+  justify-content: stretch;
+  align-items: stretch;
+  gap: 2px; /* Ultra-tight gap for almost seamless look */
+  padding: 0;
+  margin: 0;
+  width: 100%;
+}
+
+.cards.cards7 > ul > li {
+  flex: 1 1 0;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  background: #fff;
+  border-radius: 12px; /* Gentle, consistent rounding */
+  overflow: hidden;
+  border: none;
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+.cards.cards7 .cards-card-image {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  display: block;
+  overflow: hidden;
+  border-radius: 12px;
+}
+
+.cards.cards7 .cards-card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  border-radius: 0;
+}
+
+.cards.cards7 .cards-card-body {
+  display: none;
+}
+
+@media (width <= 900px) {
+  .cards.cards7 > ul {
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .cards.cards7 > ul > li,
+  .cards.cards7 .cards-card-image {
+    border-radius: 8px;
+  }
+}
