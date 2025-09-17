@@ -520,7 +520,6 @@
   }
 }
 
-/* Left column: improved vertical balance for content group */
 .columns.columns5 > div > div:not(.columns-img-col) {
   flex: 1 1 50%;
   display: flex;
@@ -540,7 +539,6 @@
   }
 }
 
-/* Right column: image fills entire column, full height */
 .columns.columns5 > div > .columns-img-col {
   flex: 1 1 50%;
   display: flex;
@@ -577,7 +575,6 @@
   }
 }
 
-/* Heading styles */
 .columns.columns5 h2 {
   font-size: 2.3rem;
   font-weight: 600;
@@ -588,7 +585,6 @@
   margin-top: 0;
 }
 
-/* Paragraph styles */
 .columns.columns5 p:not(.button-container) {
   font-size: 1rem;
   color: #222;
@@ -597,14 +593,12 @@
   max-width: 420px;
 }
 
-/* Button container for horizontal layout */
 .columns.columns5 .button-container {
   display: flex;
   gap: 1rem;
   margin-top: 0.5rem;
 }
 
-/* Outlined pill button style */
 .columns.columns5 .button {
   border: 1.5px solid #222;
   border-radius: 2rem;
@@ -628,5 +622,173 @@
   .columns.columns5 .button-container {
     flex-direction: column;
     gap: 0.5rem;
+  }
+}
+
+
+.columns.columns11 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 64px;
+  align-items: start;
+  max-width: 1080px;
+  margin: 0 auto;
+  background: var(--background-color);
+  padding: 64px 0;
+}
+
+@media (width <= 900px) {
+  .columns.columns11 {
+    grid-template-columns: 1fr;
+    gap: 32px;
+    padding: 32px 0;
+  }
+}
+
+.columns.columns11 > div:first-child {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 48px;
+}
+
+/* Headline + label block */
+.columns.columns11 > div:first-child > div:first-child p {
+  font-size: var(--body-font-size-xs);
+  text-transform: uppercase;
+  color: #A3A3A3;
+  letter-spacing: 0.08em;
+  margin-bottom: 16px;
+  margin-top: 0;
+}
+
+.columns.columns11 > div:first-child > div:first-child h1 {
+  font-size: clamp(2.5rem, 7vw, var(--heading-font-size-xxl));
+  font-weight: 600;
+  line-height: 0.95;
+  color: var(--text-color);
+  margin: 0;
+  letter-spacing: 0.01em;
+}
+
+/* Right text column: description, author/meta, button row */
+.columns.columns11 > div:first-child > div:last-child {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding-top: 12px;
+}
+
+/* Description paragraph */
+.columns.columns11 > div:first-child > div:last-child > p:first-child {
+  font-size: var(--body-font-size-s);
+  color: var(--dark-color);
+  margin-bottom: 0;
+  margin-top: 0;
+}
+
+/* Author/meta/button row styling */
+.columns.columns11 > div:first-child > div:last-child > p:nth-child(n+2):not(.button-container) {
+  display: inline-block;
+  font-size: var(--body-font-size-xs);
+  color: #A3A3A3;
+  margin-right: 8px;
+  margin-bottom: 0;
+  margin-top: 0;
+  vertical-align: middle;
+}
+
+/* Avatar image styling */
+.columns.columns11 > div:first-child > div:last-child picture img {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-right: 12px;
+  vertical-align: middle;
+  display: inline-block;
+  box-shadow: 0 2px 8px rgb(0 0 0 / 5%);
+}
+
+/* Group author/meta/button in a row for desktop */
+@media (width >= 900px) {
+  .columns.columns11 > div:first-child > div:last-child > p.button-container,
+  .columns.columns11 > div:first-child > div:last-child > p:nth-child(n+2):not(.button-container) {
+    vertical-align: middle;
+  }
+
+  .columns.columns11 > div:first-child > div:last-child {
+    flex-flow: row wrap;
+    align-items: center;
+    gap: 12px;
+  }
+}
+
+/* Button styling: override default for in-row pill look */
+.columns.columns11 .button-container .button {
+  font-size: var(--body-font-size-s);
+  border: 1.5px solid #131313;
+  border-radius: 999px;
+  padding: 8px 26px;
+  background: #fff;
+  color: #131313;
+  margin: 0;
+  box-shadow: 0 1px 4px rgb(0 0 0 / 3%);
+  transition: background 0.15s, color 0.15s, border-color 0.15s;
+}
+
+.columns.columns11 .button-container .button:hover,
+.columns.columns11 .button-container .button:focus {
+  background: var(--light-color);
+  color: #131313;
+  border-color: var(--link-hover-color);
+}
+
+/* Bottom row: images side by side */
+.columns.columns11 > div:last-child {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+  margin-top: 0;
+  align-items: stretch;
+}
+
+/* Image block styling */
+.columns.columns11 .columns-img-col {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.columns.columns11 .columns-img-col img {
+  width: 340px;
+  height: 340px;
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: cover;
+  border-radius: 24px;
+  box-shadow: 0 2px 16px rgb(0 0 0 / 6%);
+  display: block;
+}
+
+/* Responsive: stack images vertically on small screens */
+@media (width <= 900px) {
+  .columns.columns11 > div:last-child {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .columns.columns11 .columns-img-col img {
+    width: 100%;
+    height: auto;
+    border-radius: 18px;
+  }
+}
+
+/* Reduce block padding for very small screens */
+@media (width <= 600px) {
+  .columns.columns11 {
+    padding: 16px 0;
+    gap: 20px;
   }
 }
