@@ -796,7 +796,6 @@
   width: 100%;
 }
 
-/* Masonry-like Grid Layout */
 .cards.cards25 > ul {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -808,7 +807,6 @@
   justify-content: center;
 }
 
-/* Responsive - stack on small screens */
 @media (width <= 900px) {
   .cards.cards25 > ul {
     grid-template-columns: 1fr;
@@ -817,7 +815,6 @@
   }
 }
 
-/* Masonry effect with variable row span for each card */
 .cards.cards25 > ul > li {
   border: none;
   border-radius: 24px;
@@ -854,12 +851,10 @@
   grid-row: span 1;
 }
 
-/* Hide empty cards (for cards without content or image) */
 .cards.cards25 > ul > li:empty {
   display: none;
 }
 
-/* Card image fills card */
 .cards.cards25 .cards-card-image {
   position: absolute;
   inset: 0;
@@ -880,7 +875,6 @@
   border-radius: 24px;
 }
 
-/* Overlay card body */
 .cards.cards25 .cards-card-body {
   position: absolute;
   z-index: 2;
@@ -917,17 +911,12 @@
   pointer-events: auto;
 }
 
-/* Rounded corners for images and cards */
 .cards.cards25 > ul > li,
 .cards.cards25 .cards-card-image img,
 .cards.cards25 .cards-card-image picture {
   border-radius: 24px;
   overflow: hidden;
 }
-
-/* Remove default ul margin/padding */
-
-/* Compact card-body overlay for better alignment */
 
 @media (width <= 900px) {
   .cards.cards25 .cards-card-body {
@@ -936,4 +925,150 @@
     top: 10px;
     max-width: 86%;
   }
+}
+
+
+.cards.cards33 > ul {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+@media (width <= 900px) {
+  .cards.cards33 > ul {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+}
+
+.cards.cards33 > ul > li {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  background: #f5f5f7;
+  border-radius: 12px;
+  box-shadow: 0 2px 12px rgb(40 40 40 / 8%);
+  overflow: hidden;
+  border: none;
+  min-height: 270px;
+  height: 100%;
+}
+
+@media (width <= 600px) {
+  .cards.cards33 > ul > li {
+    flex-direction: column;
+    min-height: 0;
+    height: auto;
+  }
+}
+
+.cards.cards33 .cards-card-image {
+  flex: 0 0 46%;
+  max-width: 46%;
+  height: 100%;
+  border-top-left-radius: 12px;
+  border-bottom-left-radius: 12px;
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  align-items: stretch;
+}
+
+@media (width <= 600px) {
+  .cards.cards33 .cards-card-image {
+    border-radius: 0;
+    max-width: 100%;
+    height: auto;
+  }
+}
+
+.cards.cards33 .cards-card-image img {
+  width: 100%;
+  height: 100%;
+  min-height: 100%;
+  object-fit: cover;
+  display: block;
+  border-radius: 0;
+}
+
+.cards.cards33 .cards-card-body {
+  flex: 1 1 54%;
+  max-width: 54%;
+  min-height: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 32px 28px 24px;
+  box-sizing: border-box;
+}
+
+@media (width <= 600px) {
+  .cards.cards33 .cards-card-body {
+    max-width: 100%;
+    padding: 24px 16px 16px;
+    min-height: auto;
+    height: auto;
+    justify-content: flex-start;
+  }
+}
+
+.cards.cards33 .cards-card-body p:first-child {
+  display: inline-block;
+  background: #e5e7ea;
+  color: #222;
+  font-size: 13px;
+  border-radius: 16px;
+  padding: 4px 14px 3px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-top: 0;
+  margin-bottom: 0;
+  margin-left: 0;
+}
+
+.cards.cards33 .cards-card-body p:nth-child(2) {
+  color: #7d7d7d;
+  font-size: 13px;
+  margin-top: 0;
+  margin-bottom: 6px;
+}
+
+.cards.cards33 .cards-card-body h3 {
+  font-size: 22px;
+  color: #222;
+  margin: 0 0 8px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  line-height: 1.18;
+}
+
+.cards.cards33 .cards-card-body p:nth-child(4) {
+  color: #444;
+  font-size: 15px;
+  margin-top: 0;
+  margin-bottom: 8px;
+}
+
+.cards.cards33 .cards-card-body p:last-child {
+  color: #1877f2;
+  font-size: 15px;
+  font-weight: 600;
+  margin-top: 0;
+  margin-bottom: 0;
+  text-decoration: underline;
+  align-self: flex-start;
+  cursor: pointer;
+}
+
+.cards.cards33 > ul > li,
+.cards.cards33 .cards-card-image,
+.cards.cards33 .cards-card-body {
+  box-sizing: border-box;
 }
