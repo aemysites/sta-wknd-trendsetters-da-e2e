@@ -360,7 +360,6 @@
 
 
 .columns.columns3 {
-  /* Slightly tighter vertical padding for block */
   padding: 12px 0 20px;
   background: var(--background-color);
 }
@@ -369,11 +368,10 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
   align-items: start;
-  gap: 40px; /* Closer column gap for a more compact look */
+  gap: 40px;
   width: 100%;
 }
 
-/* Responsive stacking for narrow screens */
 @media (width <= 900px) {
   .columns.columns3 > div {
     grid-template-columns: 1fr;
@@ -381,18 +379,16 @@
   }
 }
 
-/* Left column: headline and description */
 .columns.columns3 > div > div:first-child {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   align-items: flex-start;
   min-width: 260px;
-  max-width: 420px; /* Slightly wider for improved line length */
+  max-width: 420px;
   padding-top: 0;
 }
 
-/* Headline styling */
 .columns.columns3 h2 {
   font-size: var(--heading-font-size-xl);
   color: #000;
@@ -403,7 +399,6 @@
   line-height: 1.05;
 }
 
-/* Description paragraph */
 .columns.columns3 h2 + p {
   font-size: var(--body-font-size-s);
   color: #222;
@@ -412,18 +407,16 @@
   line-height: 1.45;
 }
 
-/* Right column: buttons */
 .columns.columns3 > div > div:last-child {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
   padding-top: 0;
-  gap: 16px; /* More relaxed button stack */
+  gap: 16px;
   min-width: 202px;
 }
 
-/* The paragraph wrapping the links */
 .columns.columns3 > div > div:last-child > p {
   margin: 0;
   padding: 0;
@@ -433,7 +426,6 @@
   align-items: center;
 }
 
-/* Buttons (links) styling */
 .columns.columns3 > div > div:last-child a {
   display: block;
   width: 185px;
@@ -452,16 +444,63 @@
   box-sizing: border-box;
 }
 
-/* Top button accent */
 .columns.columns3 > div > div:last-child a:first-child {
   border-top: 2px solid #eaea74;
 }
 
-/* Button hover/focus */
 .columns.columns3 > div > div:last-child a:hover,
 .columns.columns3 > div > div:last-child a:focus {
   border-color: #1d3ecf;
   color: var(--link-hover-color);
   background: var(--light-color);
   text-decoration: underline;
+}
+
+
+.columns.columns4 {
+  background: #F5F6F3;
+  padding-top: 36px;
+  padding-bottom: 0;
+  min-height: 80px;
+  box-sizing: border-box;
+  color: #181818;
+  font-size: 16px;
+  text-align: center;
+  width: 100%;
+}
+
+/* Hide only the image columns */
+.columns.columns4 .columns-img-col {
+  display: none;
+}
+
+/* Use flexbox to ensure any remaining children are laid out in a single row (side-by-side if more than one) */
+.columns.columns4 > div {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: flex-start;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+/* Style any direct child of the row that is not an image column */
+.columns.columns4 > div > *:not(.columns-img-col) {
+  flex: 1 1 100%;
+  color: #181818;
+  font-size: 16px;
+  text-align: center;
+  margin: 0;
+  line-height: 1.45;
+  padding: 0;
+  display: block;
+  align-self: flex-start;
+}
+
+/* Responsive spacing adjustment */
+@media (width <= 900px) {
+  .columns.columns4 {
+    padding-top: 24px;
+  }
 }
