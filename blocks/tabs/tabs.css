@@ -1,3 +1,4 @@
+/* stylelint-disable no-descending-specificity */
 .tabs .tabs-list {
   display: flex;
   gap: 0.5ch;
@@ -55,4 +56,172 @@
 
 .tabs .tabs-panel[aria-hidden='true'] {
   display: none;
+}
+
+
+.tabs.tabs22 {
+  background: #000;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-bottom: 48px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* Tabs navigation bar */
+.tabs.tabs22 .tabs-list {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: flex-end;
+  width: 100%;
+  gap: 64px;
+  margin-top: 32px;
+  margin-bottom: 48px;
+  background: transparent;
+  border: none;
+  padding: 0;
+}
+
+/* Tab buttons: Remove backgrounds/borders */
+.tabs.tabs22 .tabs-tab {
+  background: none;
+  border: none;
+  box-shadow: none;
+  padding: 0;
+  margin: 0;
+  min-width: 0;
+  outline: none;
+  cursor: pointer;
+  display: flex;
+  align-items: flex-end;
+}
+
+/* Remove any background/rectangle from the selected tab button itself */
+.tabs.tabs22 .tabs-tab[aria-selected="true"],
+.tabs.tabs22 .tabs-tab[aria-selected="true"]:hover {
+  background: none;
+  border: none;
+  box-shadow: none;
+}
+
+/* Selected tab: ONLY underline and color, no rectangle */
+.tabs.tabs22 .tabs-tab[aria-selected="true"] p {
+  color: #fff;
+  font-weight: 600;
+  border-bottom: 2px solid #fff;
+  background: none;
+  margin: 0;
+  padding-bottom: 8px;
+  box-shadow: none;
+}
+
+/* Unselected tabs: muted gray, no underline */
+.tabs.tabs22 .tabs-tab[aria-selected="false"] p {
+  color: #A1A1A1;
+  border-bottom: none;
+  background: none;
+  margin: 0;
+  padding-bottom: 8px;
+  box-shadow: none;
+}
+
+/* Tab text sizing and spacing */
+.tabs.tabs22 .tabs-tab p {
+  margin: 0;
+  padding: 0;
+  background: none;
+  text-align: center;
+  font-size: 1.2rem;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  line-height: 1.2;
+}
+
+/* Panel container: remove excess padding/border, ensure full width */
+.tabs.tabs22 .tabs-panel {
+  width: 100%;
+  max-width: 950px;
+  margin: 0 auto;
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  padding: 0;
+  display: block;
+}
+
+/* Hide inactive panels */
+.tabs.tabs22 .tabs-panel[aria-hidden="true"] {
+  display: none;
+}
+
+/* Headline and image layout: vertical stack, centered */
+.tabs.tabs22 .tabs-panel > div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0;
+}
+
+/* Headline styling */
+.tabs.tabs22 .tabs-panel h3 {
+  color: #fff;
+  text-align: center;
+  font-size: 2.7rem;
+  font-weight: 400;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  margin-top: 0;
+  margin-bottom: 40px;
+  line-height: 1.05;
+  background: transparent;
+}
+
+/* Image container as flex row */
+.tabs.tabs22 .tabs-panel picture,
+.tabs.tabs22 .tabs-panel p {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin: 0;
+  background: transparent;
+  padding: 0;
+}
+
+/* Image styling: visible, wide, rounded corners */
+.tabs.tabs22 .tabs-panel img {
+  display: block;
+  max-width: 100%;
+  width: 100%;
+  height: auto;
+  border-radius: 24px;
+  box-shadow: none;
+  background: none;
+  margin-bottom: 0;
+}
+
+/* Responsive tweaks */
+@media (width <= 950px) {
+  .tabs.tabs22 .tabs-panel {
+    max-width: 100vw;
+  }
+
+  .tabs.tabs22 .tabs-panel img {
+    border-radius: 18px;
+  }
+
+  .tabs.tabs22 .tabs-panel h3 {
+    font-size: 1.6rem;
+    margin-bottom: 24px;
+  }
+
+  .tabs.tabs22 .tabs-list {
+    gap: 32px;
+    margin-bottom: 32px;
+  }
 }
