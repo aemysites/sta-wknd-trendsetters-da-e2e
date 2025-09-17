@@ -1,3 +1,4 @@
+/* stylelint-disable no-descending-specificity */
 .columns > div {
   display: flex;
   flex-direction: column;
@@ -38,7 +39,6 @@
   padding: 64px 0;
 }
 
-/* Flex row for two columns, vertically center columns in block */
 .columns.columns1 > div {
   display: flex;
   flex-direction: row;
@@ -48,11 +48,10 @@
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 40px;
-  height: 440px; /* helps centering if content is shorter than image */
+  height: 440px;
   min-height: 390px;
 }
 
-/* Image column */
 .columns.columns1 .columns-img-col {
   display: flex;
   align-items: center;
@@ -71,19 +70,17 @@
   display: block;
 }
 
-/* Text column: center group vertically, space out stack with gap */
 .columns.columns1 .columns-img-col + div {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
-  gap: 24px; /* space between h1, p, button */
+  gap: 24px;
   min-height: 0;
   height: auto;
   max-width: 520px;
 }
 
-/* Headline */
 .columns.columns1 .columns-img-col + div h1 {
   font-size: 70px;
   font-weight: 400;
@@ -93,7 +90,6 @@
   letter-spacing: 0.01em;
 }
 
-/* Subheadline */
 .columns.columns1 .columns-img-col + div p {
   font-size: 18px;
   color: #373737;
@@ -102,12 +98,10 @@
   max-width: 480px;
 }
 
-/* Remove extra margin from button container paragraph */
 .columns.columns1 .columns-img-col + div p.button-container {
   margin: 0;
 }
 
-/* Button container: keep buttons close under subheadline */
 .columns.columns1 .columns-img-col + div .button-container {
   display: flex;
   gap: 20px;
@@ -116,7 +110,6 @@
   margin: 0;
 }
 
-/* Outlined minimal button style */
 .columns.columns1 .button-container .button {
   background: #fff;
   color: #000;
@@ -182,5 +175,199 @@
   .columns.columns1 .button-container .button {
     font-size: 16px;
     padding: 12px 26px;
+  }
+}
+
+
+.columns.columns2 {
+  padding: 20px 0 0;
+  background: var(--background-color);
+}
+
+.columns.columns2 > div {
+  display: grid;
+  grid-template-columns: 1.1fr 0.95fr;
+  gap: 40px;
+  align-items: start;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding-top: 0;
+}
+
+/* Remove unnecessary top margin/padding from columns */
+.columns.columns2 > div > :first-child,
+.columns.columns2 > div > :nth-child(2) {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+/* LEFT column: image + headline + desc, all top-aligned */
+.columns.columns2 > div > :first-child {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 16px;
+}
+
+/* Large feature image */
+.columns.columns2 > div > :first-child picture img {
+  width: 100%;
+  border-radius: 26px;
+  box-shadow: 0 3px 24px 0 rgb(0 0 0 / 4%);
+  margin-bottom: 0;
+  object-fit: cover;
+  display: block;
+}
+
+/* Headline + desc: tighter grouping, more readable */
+.columns.columns2 > div > :first-child p {
+  margin: 0;
+  color: var(--text-color);
+  font-size: 2.08rem;
+  font-weight: 700;
+  line-height: 1.11;
+  letter-spacing: -0.01em;
+  padding: 10px 0 0;
+}
+
+/* Headline as a block if link */
+.columns.columns2 > div > :first-child p a {
+  color: var(--text-color);
+  font-size: 2.08rem;
+  font-weight: 700;
+  line-height: 1.13;
+  display: block;
+  margin-bottom: 8px;
+  letter-spacing: -0.01em;
+}
+
+/* RIGHT column: stack cards and list into one continuous column with minimal gap */
+.columns.columns2 > div > :nth-child(n+2) {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  align-items: stretch;
+  justify-content: flex-start;
+}
+
+/* Card stack: reduce gap, increase card padding */
+.columns.columns2 > div > :nth-child(2) {
+  gap: 14px;
+  margin-bottom: 4px;
+}
+
+.columns.columns2 > div > :nth-child(2) > p {
+  margin: 0 0 8px;
+  padding: 18px 18px 14px;
+  background: #f8f8f8;
+  border-radius: 18px;
+  box-shadow: 0 2px 12px 0 rgb(0 0 0 / 3%);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+/* Card image */
+.columns.columns2 > div > :nth-child(2) picture {
+  width: 100%;
+  margin-bottom: 8px;
+}
+
+.columns.columns2 > div > :nth-child(2) picture img {
+  width: 100%;
+  border-radius: 14px;
+  box-shadow: 0 2px 12px 0 rgb(0 0 0 / 4%);
+  display: block;
+  aspect-ratio: 16/9;
+  object-fit: cover;
+  margin-bottom: 0;
+}
+
+/* Card text: visually emphasize first line, separate desc */
+.columns.columns2 > div > :nth-child(2) p a {
+  color: var(--text-color);
+  font-size: 1.09rem;
+  font-weight: 700;
+  line-height: 1.19;
+  margin-bottom: 2px;
+  display: block;
+  letter-spacing: 0.01em;
+  white-space: pre-line;
+}
+
+.columns.columns2 > div > :nth-child(2) p {
+  color: #444;
+  font-size: 1.01rem;
+  font-weight: 400;
+  line-height: 1.24;
+}
+
+/* List block: stack list close to cards, add subtle padding */
+.columns.columns2 > div > :nth-child(3) {
+  margin-top: 0;
+  padding: 3px 0 0;
+}
+
+.columns.columns2 > div > :nth-child(3) p {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  margin: 0;
+  padding: 0 4px;
+}
+
+/* List items: visually split heading/desc using spacing and color */
+.columns.columns2 > div > :nth-child(3) a {
+  color: var(--text-color);
+  font-size: 1.03rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  margin: 0;
+  display: block;
+  padding: 14px 0 4px;
+  border-bottom: 1px solid #e5e5e5;
+  letter-spacing: 0.015em;
+  line-height: 1.25;
+  white-space: pre-line;
+}
+
+.columns.columns2 > div > :nth-child(3) a:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+/* Visually separate heading (first line) from description (second line) */
+
+.columns.columns2 > div > :nth-child(3) a:not(:last-child) {
+  margin-bottom: 0;
+}
+
+/* Responsive improvements for mobile */
+@media (width <= 900px) {
+  .columns.columns2 > div {
+    grid-template-columns: 1fr;
+    gap: 8px;
+    max-width: 100%;
+    padding: 0 6px;
+  }
+
+  .columns.columns2 > div > :first-child,
+  .columns.columns2 > div > :nth-child(n+2) {
+    gap: 8px;
+  }
+
+  .columns.columns2 > div > :first-child p a,
+  .columns.columns2 > div > :first-child p {
+    font-size: 1.09rem;
+  }
+
+  .columns.columns2 > div > :nth-child(2) p {
+    padding: 7px;
+    border-radius: 9px;
+  }
+
+  .columns.columns2 > div > :nth-child(2) picture img {
+    border-radius: 8px;
   }
 }
