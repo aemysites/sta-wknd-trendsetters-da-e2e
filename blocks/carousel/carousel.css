@@ -1,3 +1,4 @@
+/* stylelint-disable no-descending-specificity */
 .carousel .carousel-slides-container {
   position: relative;
 }
@@ -99,7 +100,6 @@
   z-index: 1;
 }
 
-/* stylelint-disable-next-line no-descending-specificity */
 .carousel .carousel-navigation-buttons button {
   position: relative;
   width: 44px;
@@ -150,4 +150,78 @@
   .carousel .carousel-slide .carousel-slide-content[data-align='justify'] {
     --slide-content-width: auto;
   }
+}
+
+
+.carousel.carousel16 .carousel-navigation-buttons {
+  display: none;
+}
+
+.carousel.carousel16 .carousel-slide-indicators {
+  display: none;
+}
+
+/* Show multiple images, horizontal layout, nice spacing */
+.carousel.carousel16 .carousel-slides {
+  display: flex;
+  flex-flow: row nowrap;
+  gap: 36px;
+  padding: 48px 0;
+  justify-content: center;
+  overflow-x: auto;
+  background: transparent;
+}
+
+/* Make each slide a visually separate card */
+.carousel.carousel16 .carousel-slide {
+  flex: 0 0 260px;
+  min-width: 200px;
+  max-width: 280px;
+  margin: 0;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  box-shadow: none;
+  position: relative;
+  min-height: 200px;
+  transition: box-shadow 0.2s;
+}
+
+/* Style image wrapper for card effect */
+.carousel.carousel16 .carousel-slide-image {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 220px;
+  border-radius: 18px;
+  overflow: hidden;
+  background: #fff;
+  box-shadow: 0 4px 20px rgb(0 0 0 / 10%), 0 2px 8px rgb(0 0 0 / 6%);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+/* Slight playful rotations for each slide (repeat pattern for more) */
+.carousel.carousel16 .carousel-slide:nth-child(1) .carousel-slide-image { transform: rotate(-5deg);}
+.carousel.carousel16 .carousel-slide:nth-child(2) .carousel-slide-image { transform: rotate(4deg);}
+.carousel.carousel16 .carousel-slide:nth-child(3) .carousel-slide-image { transform: rotate(-3deg);}
+.carousel.carousel16 .carousel-slide:nth-child(4) .carousel-slide-image { transform: rotate(7deg);}
+.carousel.carousel16 .carousel-slide:nth-child(5) .carousel-slide-image { transform: rotate(-6deg);}
+.carousel.carousel16 .carousel-slide:nth-child(6) .carousel-slide-image { transform: rotate(3deg);}
+
+/* Ensure images fill card nicely */
+.carousel.carousel16 .carousel-slide-image picture,
+.carousel.carousel16 .carousel-slide-image img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 18px;
+  box-shadow: none;
+  background: #fff;
+}
+
+/* Hide overlay if empty */
+.carousel.carousel16 .carousel-slide-content {
+  display: none;
 }
