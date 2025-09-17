@@ -652,7 +652,6 @@
   gap: 48px;
 }
 
-/* Headline + label block */
 .columns.columns11 > div:first-child > div:first-child p {
   font-size: var(--body-font-size-xs);
   text-transform: uppercase;
@@ -671,7 +670,6 @@
   letter-spacing: 0.01em;
 }
 
-/* Right text column: description, author/meta, button row */
 .columns.columns11 > div:first-child > div:last-child {
   display: flex;
   flex-direction: column;
@@ -679,7 +677,6 @@
   padding-top: 12px;
 }
 
-/* Description paragraph */
 .columns.columns11 > div:first-child > div:last-child > p:first-child {
   font-size: var(--body-font-size-s);
   color: var(--dark-color);
@@ -687,7 +684,6 @@
   margin-top: 0;
 }
 
-/* Author/meta/button row styling */
 .columns.columns11 > div:first-child > div:last-child > p:nth-child(n+2):not(.button-container) {
   display: inline-block;
   font-size: var(--body-font-size-xs);
@@ -698,7 +694,6 @@
   vertical-align: middle;
 }
 
-/* Avatar image styling */
 .columns.columns11 > div:first-child > div:last-child picture img {
   width: 38px;
   height: 38px;
@@ -710,7 +705,6 @@
   box-shadow: 0 2px 8px rgb(0 0 0 / 5%);
 }
 
-/* Group author/meta/button in a row for desktop */
 @media (width >= 900px) {
   .columns.columns11 > div:first-child > div:last-child > p.button-container,
   .columns.columns11 > div:first-child > div:last-child > p:nth-child(n+2):not(.button-container) {
@@ -724,7 +718,6 @@
   }
 }
 
-/* Button styling: override default for in-row pill look */
 .columns.columns11 .button-container .button {
   font-size: var(--body-font-size-s);
   border: 1.5px solid #131313;
@@ -744,7 +737,6 @@
   border-color: var(--link-hover-color);
 }
 
-/* Bottom row: images side by side */
 .columns.columns11 > div:last-child {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -753,7 +745,6 @@
   align-items: stretch;
 }
 
-/* Image block styling */
 .columns.columns11 .columns-img-col {
   display: flex;
   align-items: center;
@@ -771,7 +762,6 @@
   display: block;
 }
 
-/* Responsive: stack images vertically on small screens */
 @media (width <= 900px) {
   .columns.columns11 > div:last-child {
     grid-template-columns: 1fr;
@@ -785,10 +775,100 @@
   }
 }
 
-/* Reduce block padding for very small screens */
 @media (width <= 600px) {
   .columns.columns11 {
     padding: 16px 0;
     gap: 20px;
   }
+}
+
+
+.columns.columns14 > div {
+  display: flex;
+  flex-direction: row;
+  align-items: center; /* vertical centering */
+  gap: 24px; /* moderate gap for balance */
+  width: 100%;
+}
+
+/* Responsive stacking for mobile/tablet */
+@media (width <= 899px) {
+  .columns.columns14 > div {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 24px;
+  }
+}
+
+/* Headline column */
+.columns.columns14 > div > div:first-child {
+  flex: 1.05 1 0; /* slightly less wide than right for balance */
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  min-width: 0;
+}
+
+/* Headline styles */
+.columns.columns14 h2 {
+  font-size: 48px;
+  font-weight: 400;
+  letter-spacing: 0.04em;
+  color: #000;
+  line-height: 1.1;
+  margin: 0;
+  padding: 0;
+}
+
+/* Right column: paragraph and button vertical stack, vertically centered */
+.columns.columns14 > div > div:last-child {
+  flex: 1.6 1 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center; /* vertical centering relative to headline */
+  gap: 28px;
+  min-width: 260px;
+  max-width: 520px;
+}
+
+/* Paragraph styles */
+.columns.columns14 > div > div:last-child p {
+  font-size: 13px;
+  line-height: 1.4;
+  color: #000;
+  margin: 0;
+  padding: 0;
+  max-width: 520px;
+}
+
+/* Button container: left-align and control vertical spacing */
+.columns.columns14 .button-container {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: flex-start;
+  width: auto;
+}
+
+/* Button styles: pill shape, thin black border, white background, left-aligned */
+.columns.columns14 .button-container .button {
+  background: #fff;
+  color: #000;
+  border: 1.5px solid #000;
+  border-radius: 999px;
+  padding: 6px 28px;
+  font-size: 14px;
+  font-weight: 400;
+  box-shadow: none;
+  margin: 0;
+  transition: background 0.18s;
+  display: inline-block;
+  text-align: center;
+  line-height: 1.2;
+}
+
+.columns.columns14 .button-container .button:hover,
+.columns.columns14 .button-container .button:focus {
+  background: #f6f6f6;
 }
