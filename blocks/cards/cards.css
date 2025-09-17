@@ -667,7 +667,6 @@
   list-style: none;
 }
 
-/* Card styling */
 .cards.cards24 > ul > li {
   background: #fff;
   border: none;
@@ -680,7 +679,6 @@
   transition: box-shadow 0.15s;
 }
 
-/* Card image */
 .cards.cards24 .cards-card-image {
   line-height: 0;
 }
@@ -694,7 +692,6 @@
   border-radius: 24px 24px 0 0;
 }
 
-/* Card body: tight top/bottom padding for compact look */
 .cards.cards24 .cards-card-body {
   padding: 12px 22px 10px;
   margin: 0;
@@ -706,7 +703,6 @@
   justify-content: flex-start;
 }
 
-/* Tag/date row as flex row with vertical centering */
 .cards.cards24 .cards-card-body-row {
   display: flex;
   flex-direction: row;
@@ -715,7 +711,6 @@
   margin-bottom: 0;
 }
 
-/* Simulate tag/date row: flex for first two <p> */
 .cards.cards24 .cards-card-body > p:nth-child(1),
 .cards.cards24 .cards-card-body > p:nth-child(2) {
   display: flex;
@@ -746,14 +741,10 @@
   float: right;
 }
 
-/* Float as fallback for side-by-side layout */
-
-/* Remove gap between tag/date and the title */
 .cards.cards24 .cards-card-body > h3 {
   margin-top: 6px;
 }
 
-/* Title styles: less vertical gap, good line height for wrapping */
 .cards.cards24 .cards-card-body h3 {
   color: #232323;
   font-size: 23px;
@@ -767,7 +758,6 @@
   padding: 0;
 }
 
-/* Responsive adjustments */
 @media (width <= 900px) {
   .cards.cards24 > ul {
     grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -794,7 +784,156 @@
   }
 }
 
-/* Card hover effect */
 .cards.cards24 > ul > li:hover {
   box-shadow: 0 8px 24px rgb(30 30 30 / 15%);
+}
+
+
+.cards.cards25 {
+  margin: 0 auto;
+  box-sizing: border-box;
+  padding: 0;
+  width: 100%;
+}
+
+/* Masonry-like Grid Layout */
+.cards.cards25 > ul {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-auto-rows: 270px;
+  gap: 32px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  justify-content: center;
+}
+
+/* Responsive - stack on small screens */
+@media (width <= 900px) {
+  .cards.cards25 > ul {
+    grid-template-columns: 1fr;
+    grid-auto-rows: 220px;
+    gap: 20px;
+  }
+}
+
+/* Masonry effect with variable row span for each card */
+.cards.cards25 > ul > li {
+  border: none;
+  border-radius: 24px;
+  overflow: hidden;
+  background: none;
+  position: relative;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  min-height: 0;
+  min-width: 0;
+  padding: 0;
+}
+
+.cards.cards25 > ul > li:nth-child(1) {
+  grid-row: span 1;
+}
+
+.cards.cards25 > ul > li:nth-child(2) {
+  grid-row: span 2;
+}
+
+.cards.cards25 > ul > li:nth-child(3) {
+  grid-row: span 1;
+}
+
+.cards.cards25 > ul > li:nth-child(4) {
+  grid-row: span 2;
+}
+
+.cards.cards25 > ul > li:nth-child(5),
+.cards.cards25 > ul > li:nth-child(6) {
+  grid-row: span 1;
+}
+
+/* Hide empty cards (for cards without content or image) */
+.cards.cards25 > ul > li:empty {
+  display: none;
+}
+
+/* Card image fills card */
+.cards.cards25 .cards-card-image {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  overflow: hidden;
+  border-radius: 24px;
+  display: flex;
+}
+
+.cards.cards25 .cards-card-image picture,
+.cards.cards25 .cards-card-image img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 24px;
+}
+
+/* Overlay card body */
+.cards.cards25 .cards-card-body {
+  position: absolute;
+  z-index: 2;
+  top: 20px;
+  left: 22px;
+  right: 22px;
+  padding: 0;
+  margin: 0;
+  color: #222;
+  background: none;
+  max-width: 70%;
+  pointer-events: none;
+}
+
+.cards.cards25 .cards-card-body h3 {
+  margin-top: 0;
+  margin-bottom: 8px;
+  font-size: 2rem;
+  font-weight: 400;
+  line-height: 1.1;
+  letter-spacing: 0.03em;
+  color: #222;
+  background: none;
+  text-shadow: 0 2px 8px rgb(255 255 255 / 12%);
+  pointer-events: auto;
+}
+
+.cards.cards25 .cards-card-body p {
+  margin: 0;
+  color: #222;
+  font-size: 1rem;
+  background: none;
+  text-shadow: 0 2px 8px rgb(255 255 255 / 11%);
+  pointer-events: auto;
+}
+
+/* Rounded corners for images and cards */
+.cards.cards25 > ul > li,
+.cards.cards25 .cards-card-image img,
+.cards.cards25 .cards-card-image picture {
+  border-radius: 24px;
+  overflow: hidden;
+}
+
+/* Remove default ul margin/padding */
+
+/* Compact card-body overlay for better alignment */
+
+@media (width <= 900px) {
+  .cards.cards25 .cards-card-body {
+    left: 14px;
+    right: 14px;
+    top: 10px;
+    max-width: 86%;
+  }
 }
