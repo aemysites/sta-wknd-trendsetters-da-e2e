@@ -896,7 +896,6 @@
   }
 }
 
-/* Left column: stack, start-aligned with image */
 .columns.columns18 > div:first-child {
   display: flex;
   flex-direction: column;
@@ -905,7 +904,6 @@
   height: 100%;
 }
 
-/* Headings and paragraph spacing tighter */
 .columns.columns18 h2 {
   font-size: var(--heading-font-size-xs);
   text-transform: uppercase;
@@ -933,7 +931,6 @@
   line-height: 1.5;
 }
 
-/* Contact info list: compact vertical spacing */
 .columns.columns18 ul {
   list-style: none;
   padding: 0;
@@ -943,7 +940,6 @@
   gap: 12px;
 }
 
-/* Contact row: icon left, label/detail stacked in a column */
 .columns.columns18 ul > li {
   display: flex;
   flex-direction: row;
@@ -968,7 +964,6 @@
   box-sizing: border-box;
 }
 
-/* Stack label and value vertically for each contact item */
 .columns.columns18 ul > li h4,
 .columns.columns18 ul > li p:not(:first-child) {
   margin-left: 0;
@@ -982,7 +977,6 @@
   gap: 2.5px;
 }
 
-/* Contact label style */
 .columns.columns18 ul > li h4 {
   text-transform: uppercase;
   font-size: var(--heading-font-size-xs);
@@ -993,7 +987,6 @@
   line-height: 1.2;
 }
 
-/* Contact detail style */
 .columns.columns18 ul > li p:not(:first-child) {
   font-size: var(--body-font-size-s);
   color: var(--text-color);
@@ -1008,7 +1001,6 @@
   display: block;
 }
 
-/* Email link style override */
 .columns.columns18 .button-container .button {
   color: var(--text-color);
   text-decoration: underline;
@@ -1031,7 +1023,6 @@
   background: none;
 }
 
-/* Image column: slightly larger image */
 .columns.columns18 > div:last-child {
   display: flex;
   align-items: flex-start;
@@ -1052,4 +1043,36 @@
   width: 100%;
   height: auto;
   border-radius: 26px;
+}
+
+
+.columns.columns29 > div {
+  display: flex;
+  flex-direction: row;
+  gap: 24px;
+  align-items: stretch;
+}
+
+.columns.columns29 .columns-img-col {
+  flex: 1 1 0;
+  border-radius: 24px;
+  overflow: hidden;
+  display: flex;
+}
+
+.columns.columns29 .columns-img-col picture,
+.columns.columns29 .columns-img-col img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Responsive: stack columns vertically on small screens */
+@media (width <= 899px) {
+  .columns.columns29 > div {
+    flex-direction: column;
+    gap: 24px;
+    align-items: stretch;
+  }
 }
