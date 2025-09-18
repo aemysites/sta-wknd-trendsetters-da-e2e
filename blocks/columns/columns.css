@@ -436,7 +436,6 @@
   padding: 0;
 }
 
-/* Reduce excessive vertical space and keep alignment */
 .columns.columns27 > div {
   display: flex;
   flex-direction: row;
@@ -448,7 +447,6 @@
   min-height: unset;
 }
 
-/* Responsive: stack on small screens */
 @media (width <= 900px) {
   .columns.columns27 > div {
     flex-direction: column;
@@ -457,7 +455,6 @@
   }
 }
 
-/* LEFT COLUMN - vertical centering, width */
 .columns.columns27 > div > div:first-child {
   display: flex;
   flex-direction: column;
@@ -476,7 +473,6 @@
   min-height: 0;
 }
 
-/* Byline (first p) */
 .columns.columns27 > div > div:first-child > div > p:first-child {
   text-transform: uppercase;
   font-size: 12px;
@@ -486,7 +482,6 @@
   margin-top: 0;
 }
 
-/* Heading */
 .columns.columns27 h2 {
   font-size: 56px;
   font-weight: 400;
@@ -499,7 +494,6 @@
   overflow-wrap: break-word;
 }
 
-/* Main paragraph (second p after h2) */
 .columns.columns27 > div > div:first-child > div > p:nth-of-type(2) {
   font-size: 18px;
   color: #000;
@@ -508,7 +502,6 @@
   line-height: 1.5;
 }
 
-/* Footnote/small (third p after h2) */
 .columns.columns27 > div > div:first-child > div > p:nth-of-type(3) {
   font-size: 13px;
   color: #888;
@@ -517,14 +510,12 @@
   line-height: 1.5;
 }
 
-/* Button container: remove extra margin, push button lower */
 .columns.columns27 .button-container {
   margin: 0;
   display: flex;
   align-items: flex-start;
 }
 
-/* Button style */
 .columns.columns27 .button-container .button {
   background: #fff;
   color: #000;
@@ -547,7 +538,6 @@
   text-decoration: none;
 }
 
-/* RIGHT COLUMN - vertical centering, width */
 .columns.columns27 .columns-img-col {
   display: flex;
   align-items: center;
@@ -559,7 +549,6 @@
   min-height: 0;
 }
 
-/* Image: larger size, fill vertical space if possible, rounded corners */
 .columns.columns27 .columns-img-col img {
   width: 100%;
   max-width: 580px;
@@ -570,7 +559,6 @@
   object-fit: cover;
 }
 
-/* Responsive tweaks */
 @media (width <= 1200px) {
   .columns.columns27 > div {
     gap: 40px;
@@ -605,5 +593,57 @@
     font-size: 32px;
     max-width: 100%;
     margin-bottom: 20px;
+  }
+}
+
+
+.columns.columns29 {
+  background: #fff;
+  padding-left: 24px;
+  padding-right: 24px;
+  box-sizing: border-box;
+}
+
+.columns.columns29 > div {
+  display: flex;
+  flex-direction: row;
+  gap: 24px;
+  justify-content: center;
+  align-items: stretch;
+  width: 100%;
+  max-width: 100%;
+  margin-left: 0;
+  transform: none;
+  box-sizing: border-box;
+}
+
+.columns.columns29 .columns-img-col {
+  flex: 1 1 0;
+  display: flex;
+  align-items: stretch;
+  border-radius: 24px;
+  overflow: hidden;
+  min-width: 0;
+}
+
+.columns.columns29 .columns-img-col picture,
+.columns.columns29 .columns-img-col img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 24px;
+  object-fit: cover;
+}
+
+/* Responsive: stack columns vertically and add horizontal spacing on small screens */
+@media (width <= 900px) {
+  .columns.columns29 {
+    padding-left: 12px;
+    padding-right: 12px;
+  }
+
+  .columns.columns29 > div {
+    flex-direction: column;
+    gap: 16px;
   }
 }
