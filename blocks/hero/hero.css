@@ -749,3 +749,112 @@
     max-width: 95vw;
   }
 }
+
+
+.hero.hero35 {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 64px 0 40px;
+  width: 100%;
+  background: #fff;
+  border-bottom: 2px solid #000;
+  min-height: 180px;
+  box-sizing: border-box;
+}
+
+/* Hide the first spacer column for a true content-aligned layout */
+.hero.hero35 > div:first-of-type {
+  display: none;
+}
+
+/* Make the innermost content a row: text group (headline+subtitle) and button side-by-side */
+.hero.hero35 > div:last-of-type > div {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100%;
+  gap: 56px;
+}
+
+/* Text group: stack headline + subtitle vertically and left-align as a block */
+.hero.hero35 > div:last-of-type > div > h2,
+.hero.hero35 > div:last-of-type > div > p:not(.button-container) {
+  margin: 0;
+  text-align: left;
+  display: block;
+}
+
+.hero.hero35 > div:last-of-type > div > h2 {
+  font-size: 2.35rem;
+  font-weight: 400;
+  letter-spacing: 1.5px;
+  color: #000;
+  line-height: 1.1;
+  margin-bottom: 8px;
+}
+
+.hero.hero35 > div:last-of-type > div > p:not(.button-container) {
+  font-size: 1rem;
+  color: #7d7d7d;
+  font-weight: 400;
+  line-height: 1.4;
+}
+
+.hero.hero35 > div:last-of-type > div > .button-container {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  margin: 0;
+  flex-shrink: 0;
+}
+
+.hero.hero35 .button {
+  min-width: 320px;
+  height: 44px;
+  background: #fff;
+  color: #000;
+  border: 2px solid #000;
+  border-radius: 999px;
+  font-size: 1.05rem;
+  font-weight: 400;
+  text-align: center;
+  line-height: 44px;
+  box-sizing: border-box;
+  transition: border-color 0.2s, color 0.2s, background 0.2s;
+  margin: 0;
+  position: relative;
+  text-transform: none;
+  letter-spacing: 0.01em;
+  box-shadow: 0 2px 0 0 #d9d97b;
+}
+
+/* Group headline+subtitle into a left-side block for proper vertical stacking and gap */
+
+.hero.hero35 > div:last-of-type > div > h2 + p:not(.button-container) {
+  margin-top: 8px;
+}
+
+/* Responsive: stack vertically on small screens */
+@media (width <= 900px) {
+  .hero.hero35 {
+    flex-direction: column;
+    padding: 32px 0 24px;
+    min-height: 0;
+  }
+
+  .hero.hero35 > div:last-of-type > div {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 18px;
+    width: 100%;
+  }
+
+  .hero.hero35 .button {
+    min-width: 200px;
+    width: 100%;
+    max-width: 340px;
+  }
+}
