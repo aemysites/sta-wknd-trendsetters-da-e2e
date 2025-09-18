@@ -31,3 +31,141 @@
     order: unset;
   }
 }
+
+
+.columns.columns1 {
+  background: #f9f9f6;
+  padding: 64px 0;
+}
+
+/* Flexbox for side-by-side layout, align text block lower relative to image */
+.columns.columns1 > div {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  gap: 48px;
+
+  /* Let the content dictate the height */
+}
+
+@media (width <= 900px) {
+  .columns.columns1 > div {
+    flex-direction: column;
+    gap: 32px;
+    align-items: stretch;
+  }
+}
+
+/* Image column: maintain squareness and vertical centering */
+.columns.columns1 .columns-img-col {
+  flex: 0 0 420px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+}
+
+.columns.columns1 .columns-img-col picture,
+.columns.columns1 .columns-img-col img {
+  width: 420px;
+  max-width: 100%;
+  aspect-ratio: 1 / 1;
+  border-radius: 24px;
+  object-fit: cover;
+  display: block;
+}
+
+@media (width <= 900px) {
+  .columns.columns1 .columns-img-col,
+  .columns.columns1 .columns-img-col picture,
+  .columns.columns1 .columns-img-col img {
+    width: 100%;
+    max-width: 350px;
+    margin: 0 auto;
+    align-items: center;
+  }
+}
+
+/* Right column: increase max-width for balanced heading wrapping, shift content lower using padding */
+.columns.columns1 > div > div:last-child {
+  flex: 1 1 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-start;
+  max-width: 430px;
+  width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
+  padding-bottom: 10px;
+}
+
+@media (width <= 900px) {
+  .columns.columns1 > div > div:last-child {
+    max-width: 100%;
+    justify-content: flex-start;
+    align-items: flex-start;
+    padding-bottom: 0;
+  }
+}
+
+/* Heading: tighter wrapping, reduce font size, compact spacing */
+.columns.columns1 h1 {
+  font-size: 56px;
+  font-weight: 400;
+  line-height: 1.05;
+  letter-spacing: -2px;
+  color: #111;
+  margin-top: 0;
+  margin-bottom: 8px;
+  width: 100%;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  white-space: normal;
+}
+
+@media (width <= 900px) {
+  .columns.columns1 h1 {
+    font-size: 32px;
+    margin-bottom: 6px;
+  }
+}
+
+/* Subtext: match width to heading/right column, minimize spacing below */
+.columns.columns1 p:not(.button-container) {
+  font-size: 16px;
+  color: #666;
+  margin-top: 0;
+  margin-bottom: 2px;
+  line-height: 1.6;
+  max-width: 430px;
+  width: 100%;
+}
+
+/* Button container: tight grouping, remove margin */
+.columns.columns1 .button-container {
+  display: flex;
+  gap: 16px;
+  padding: 0;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+/* Outlined pill button style, visually wider */
+.columns.columns1 .button-container .button {
+  background: transparent;
+  border: 2px solid #111;
+  color: #111;
+  border-radius: 24px;
+  padding: 12px 44px;
+  font-size: 16px;
+  font-weight: 400;
+  box-sizing: border-box;
+  transition: background 0.2s, color 0.2s;
+  margin: 0;
+}
+
+.columns.columns1 .button-container .button:hover,
+.columns.columns1 .button-container .button:focus {
+  background: #111;
+  color: #fff;
+}
