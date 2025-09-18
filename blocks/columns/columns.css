@@ -635,7 +635,6 @@
   object-fit: cover;
 }
 
-/* Responsive: stack columns vertically and add horizontal spacing on small screens */
 @media (width <= 900px) {
   .columns.columns29 {
     padding-left: 12px;
@@ -646,4 +645,80 @@
     flex-direction: column;
     gap: 16px;
   }
+}
+
+
+.columns.columns31 {
+  background-color: #F8F9F4;
+  padding: 0;
+}
+
+/* The immediate child div is the "row" of three columns */
+.columns.columns31 > div {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 48px;
+  width: 100%;
+}
+
+/* Responsive: stack columns vertically on small screens */
+@media (width <= 900px) {
+  .columns.columns31 > div {
+    flex-direction: column;
+    gap: 24px;
+  }
+}
+
+/* Text columns: expand to fit content naturally */
+.columns.columns31 > div > div:not(:last-child) {
+  flex: 1 1 0;
+  min-width: 0;
+  display: block;
+}
+
+/* Paragraph style inside columns */
+.columns.columns31 p {
+  color: #222;
+  font-size: 13px;
+  line-height: 1.2;
+  margin: 0;
+  font-weight: 400;
+
+  /* Allow normal line wrapping */
+  white-space: normal;
+}
+
+/* Button column: keep it sized by content, align top and right */
+.columns.columns31 > div > div:last-child {
+  flex: 0 0 auto;
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-start;
+  min-width: 0;
+}
+
+/* Button styling to match the reference image */
+.columns.columns31 .button {
+  background: transparent;
+  color: #222;
+  border: 1px solid #222;
+  border-radius: 999px;
+  font-size: 13px;
+  padding: 4px 18px;
+  box-shadow: 0 3px 0 0 #FEFFC1;
+  text-align: center;
+  font-weight: 400;
+  margin: 0;
+  max-width: none;
+  white-space: nowrap;
+}
+
+.columns.columns31 .button:hover,
+.columns.columns31 .button:focus {
+  background: transparent;
+  color: #222;
+  border-color: #222;
+  box-shadow: 0 3px 0 0 #FEFFC1;
+  text-decoration: underline;
 }
