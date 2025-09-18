@@ -764,12 +764,10 @@
   box-sizing: border-box;
 }
 
-/* Hide the first spacer column for a true content-aligned layout */
 .hero.hero35 > div:first-of-type {
   display: none;
 }
 
-/* Make the innermost content a row: text group (headline+subtitle) and button side-by-side */
 .hero.hero35 > div:last-of-type > div {
   display: flex;
   flex-direction: row;
@@ -779,7 +777,6 @@
   gap: 56px;
 }
 
-/* Text group: stack headline + subtitle vertically and left-align as a block */
 .hero.hero35 > div:last-of-type > div > h2,
 .hero.hero35 > div:last-of-type > div > p:not(.button-container) {
   margin: 0;
@@ -831,13 +828,10 @@
   box-shadow: 0 2px 0 0 #d9d97b;
 }
 
-/* Group headline+subtitle into a left-side block for proper vertical stacking and gap */
-
 .hero.hero35 > div:last-of-type > div > h2 + p:not(.button-container) {
   margin-top: 8px;
 }
 
-/* Responsive: stack vertically on small screens */
 @media (width <= 900px) {
   .hero.hero35 {
     flex-direction: column;
@@ -857,4 +851,111 @@
     width: 100%;
     max-width: 340px;
   }
+}
+
+
+.hero.hero39 {
+  position: relative;
+  min-height: 768px;
+  width: 100vw;
+  max-width: 100vw;
+  border-radius: 16px;
+  overflow: hidden;
+  background: #222;
+  display: block;
+}
+
+/* Make image fill the background */
+.hero.hero39 > div:first-child {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.hero.hero39 picture,
+.hero.hero39 img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Overlay text container positioned closer to top-left, with tighter grouping */
+.hero.hero39 > div:last-child {
+  position: absolute;
+  inset: 3rem auto auto 2.2rem;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  max-width: 440px;
+  box-sizing: border-box;
+  gap: 0.65rem;
+}
+
+@media (width <= 900px) {
+  .hero.hero39 {
+    min-height: 440px;
+  }
+
+  .hero.hero39 > div:last-child {
+    top: 1.2rem;
+    left: 0.7rem;
+    max-width: 96vw;
+    gap: 0.45rem;
+  }
+}
+
+.hero.hero39 h1 {
+  color: #fff;
+  font-size: clamp(2.1rem, 7vw, 4rem);
+  line-height: 1.07;
+  font-weight: 400;
+  letter-spacing: 0.02em;
+  margin: 0;
+  max-width: 410px;
+  text-align: left;
+}
+
+.hero.hero39 p {
+  color: #F1F1F1;
+  font-size: 1.02rem;
+  line-height: 1.5;
+  margin: 0;
+  max-width: 360px;
+  text-align: left;
+}
+
+/* Button container and button, visually grouped closer to text */
+.hero.hero39 .button-container {
+  margin: 0;
+}
+
+.hero-container > .hero-wrapper > .block.hero .button,
+.hero.hero39 .button {
+  background: transparent;
+  border: 2px solid #F1F1F1;
+  color: #F1F1F1;
+  font-weight: 500;
+  border-radius: 2em;
+  padding: 0.7em 1.7em;
+  font-size: 1rem;
+  text-transform: none;
+  box-shadow: 0 2px 8px rgb(34 34 34 / 13%);
+  margin: 0;
+  text-align: left;
+  transition: background 0.3s, color 0.3s, border-color 0.3s;
+}
+
+.hero-container > .hero-wrapper > .block.hero .button:hover,
+.hero-container > .hero-wrapper > .block.hero .button:focus,
+.hero.hero39 .button:hover,
+.hero.hero39 .button:focus {
+  background: #F1F1F1;
+  color: #222;
+  border-color: #222;
 }
