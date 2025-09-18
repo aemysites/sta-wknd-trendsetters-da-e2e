@@ -253,3 +253,97 @@
     gap: 10px;
   }
 }
+
+
+.cards.cards19 ul {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px 24px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  background: #fff;
+}
+
+@media (width <= 900px) {
+  .cards.cards19 ul {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px 14px;
+  }
+}
+
+@media (width <= 600px) {
+  .cards.cards19 ul {
+    grid-template-columns: 1fr;
+    gap: 8px 0;
+  }
+}
+
+.cards.cards19 ul > li {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  border: none;
+  background: none;
+  box-shadow: none;
+  padding: 0;
+  margin: 0;
+  min-width: 0;
+}
+
+.cards.cards19 .cards-card-body {
+  margin: 0;
+  padding: 0;
+  min-width: 0;
+}
+
+/* Icon placeholder: hide the "null" text, show a subtle circle */
+.cards.cards19 .cards-card-body:first-child {
+  width: 22px;
+  min-width: 22px;
+  height: 22px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  margin-right: 10px;
+  position: relative;
+  font-size: 0;         /* Hides the "null" text */
+  color: transparent;   /* Ensures "null" is never visible */
+}
+
+.cards.cards19 .cards-card-body:first-child > p {
+  font-size: 0;
+  color: transparent;
+  margin: 0;
+  padding: 0;
+}
+
+.cards.cards19 .cards-card-body:first-child::after {
+  display: block;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: #202124;
+  opacity: 0.14;
+  content: "";
+  margin-top: 2px;
+}
+
+.cards.cards19 .cards-card-body:last-child {
+  color: #202124;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 1.5;
+  text-align: left;
+  margin: 0;
+  padding: 0;
+  display: block;
+  min-width: 0;
+  max-width: 100%;
+  word-break: break-word;
+}
+
+.cards.cards19 .cards-card-body:last-child p {
+  margin: 0;
+  padding: 0;
+}
