@@ -540,7 +540,6 @@
   padding: 0;
 }
 
-/* Ensure a single background image fills the hero */
 .hero.hero20 > div:first-child {
   position: absolute;
   inset: 0;
@@ -558,7 +557,6 @@
   display: block;
 }
 
-/* More focused overlay for tighter contrast behind text */
 .hero.hero20::after {
   position: absolute;
   inset: 0;
@@ -567,7 +565,6 @@
   z-index: 2;
 }
 
-/* Vertically center content, tighter and narrower text block */
 .hero.hero20 > div:last-child {
   position: relative;
   z-index: 3;
@@ -579,7 +576,6 @@
   padding: 0;
 }
 
-/* Slightly narrower content, for improved headline wrapping */
 .hero.hero20 > div:last-child > div {
   max-width: 510px;
   width: 100%;
@@ -591,7 +587,6 @@
   align-items: center;
 }
 
-/* Headline: large but fits in fewer lines */
 .hero.hero20 h1 {
   color: #fff;
   font-size: 60px;
@@ -606,7 +601,6 @@
   margin-right: auto;
 }
 
-/* Subheadline: tight vertical grouping below headline */
 .hero.hero20 p:not(:last-child) {
   color: rgb(255 255 255 / 98%);
   font-size: 21px;
@@ -618,7 +612,6 @@
   max-width: 100%;
 }
 
-/* Buttons: compact, visually grouped with subheadline */
 .hero.hero20 p:last-child {
   display: flex;
   flex-direction: row;
@@ -651,7 +644,6 @@
   border: 2px solid #fff;
 }
 
-/* Responsive: scaling and compacting at breakpoints */
 @media (width <= 900px) {
   .hero.hero20 {
     min-height: 420px;
@@ -676,8 +668,84 @@
   display: flex;
   gap: 7px;
 }
+
 .hero.hero20 p:last-child a {
   font-size: 12px;
   padding: 6px 8vw;
 }
+}
+
+
+.hero.hero28 {
+  position: relative;
+  width: 100vw;
+  min-height: 60vh;
+  padding: 0;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+.hero.hero28 > div:first-child {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+.hero.hero28 > div:first-child img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  filter: brightness(0.52);
+}
+
+.hero.hero28 > div:nth-child(2) {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 0;
+  padding: 0 10vw;
+  pointer-events: none;
+  box-sizing: border-box;
+}
+
+.hero.hero28 h1 {
+  color: #fff;
+  font-weight: 400;
+  text-align: center;
+  letter-spacing: 0.11em;
+  line-height: 1.22;
+  text-shadow: 0 4px 40px rgb(0 0 0 / 42%);
+  margin: 0;
+  padding: 0;
+  max-width: 80vw;
+  font-size: clamp(3rem, 9vw, 6.3rem);
+  pointer-events: auto;
+  box-sizing: border-box;
+}
+
+@media (width <= 900px) {
+  .hero.hero28,
+  .hero.hero28 > div:first-child,
+  .hero.hero28 > div:nth-child(2) {
+    min-height: 40vh;
+    width: 100%;
+  }
+
+  .hero.hero28 > div:nth-child(2) {
+    padding: 0 5vw;
+  }
+
+  .hero.hero28 h1 {
+    font-size: clamp(2rem, 8vw, 4rem);
+    max-width: 95vw;
+  }
 }
