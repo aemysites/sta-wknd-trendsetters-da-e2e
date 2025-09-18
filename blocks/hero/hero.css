@@ -1,3 +1,4 @@
+/* stylelint-disable no-descending-specificity */
 .hero-container .hero-wrapper {
   max-width: unset;
   padding: 0;
@@ -43,5 +44,161 @@
 @media (width >= 900px) {
   .hero {
     padding: 40px 32px;
+  }
+}
+
+.hero.hero5 {
+  display: flex;
+  flex-direction: row;
+  width: 100vw;
+  height: 100vh;
+  min-height: 600px;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.hero.hero5 > div {
+  flex: 1 1 0;
+  min-width: 0;
+  min-height: 100vh;
+  padding: 0;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Image: always fills the right side, edge-to-edge */
+.hero.hero5 > div:first-child {
+  order: 2;
+  justify-content: center;
+  align-items: stretch;
+  background: none;
+  padding: 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero.hero5 > div:first-child > div {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  align-items: stretch;
+  justify-content: stretch;
+}
+
+.hero.hero5 picture,
+.hero.hero5 img {
+  width: 100%;
+  height: 100vh;
+  object-fit: cover;
+  display: block;
+}
+
+/* Center left content both vertically and horizontally */
+.hero.hero5 > div:last-child {
+  order: 1;
+  background: #fff;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+}
+
+.hero.hero5 > div:last-child > div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  max-width: 480px;
+  width: 100%;
+
+  /* Visual centering in the left column */
+  margin-left: 0;
+  margin-right: 0;
+}
+
+/* Typography */
+.hero.hero5 h2 {
+  color: #232323;
+  font-size: clamp(2.4rem, 5vw, 3.4rem);
+  font-weight: 400;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  margin-bottom: 1.6rem;
+  line-height: 1.1;
+  text-align: left;
+}
+
+.hero.hero5 p {
+  color: #616161;
+  font-size: 1.18rem;
+  line-height: 1.6;
+  margin-bottom: 2.2rem;
+  max-width: 35em;
+  text-align: left;
+}
+
+/* Button row - centers button under content */
+.hero.hero5 .button-container {
+  display: flex;
+  flex-direction: row;
+  gap: 1.4rem;
+  margin-top: 0.7rem;
+  width: 100%;
+}
+
+/* Pill button styling */
+.hero-container > .hero-wrapper > .block.hero .button {
+  background: #fff;
+  border: 1.5px solid #616161;
+  color: #232323;
+  font-weight: 500;
+  text-transform: uppercase;
+  border-radius: 2em;
+  padding: 0.75em 2.2em;
+  font-size: 1.05rem;
+  transition: border-color 0.2s, color 0.2s, background 0.2s;
+  box-shadow: none;
+  margin: 0;
+  text-align: center;
+}
+
+/* Button hover */
+.hero-container > .hero-wrapper > .block.hero .button:hover,
+.hero-container > .hero-wrapper > .block.hero .button:focus {
+  border-color: #232323;
+  color: #232323;
+  background: #fff;
+}
+
+/* Responsive stacking for small screens */
+@media (width <= 900px) {
+  .hero.hero5 {
+    flex-direction: column;
+    height: auto;
+    min-height: 0;
+  }
+
+  .hero.hero5 > div {
+    min-height: 40vh;
+    height: auto;
+    width: 100vw;
+  }
+
+  .hero.hero5 > div:last-child {
+    align-items: center;
+    justify-content: flex-start;
+  }
+
+  .hero.hero5 > div:last-child > div {
+    margin: 0 auto;
+    padding: 2rem 1.5rem;
+  }
+
+  .hero.hero5 > div:first-child > div,
+  .hero.hero5 picture,
+  .hero.hero5 img {
+    height: 40vh;
+    min-height: 240px;
   }
 }
