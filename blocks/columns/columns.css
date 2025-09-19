@@ -316,7 +316,6 @@
   width: 100%;
 }
 
-/* Both columns: make sure children are visible and occupy space */
 .columns.columns26 > div {
   display: flex;
   flex-direction: column;
@@ -327,13 +326,11 @@
   flex: 1 1 0;
 }
 
-/* Left column: group and align all content at the top */
 .columns.columns26 > div:first-child {
   flex: 2 1 0;
   padding-right: 6vw;
 }
 
-/* Inner stack for left column: group all text/avatar tightly */
 .columns.columns26 > div:first-child > div {
   display: flex;
   flex-direction: column;
@@ -343,7 +340,6 @@
   width: 100%;
 }
 
-/* Heading (first p) */
 .columns.columns26 > div:first-child > div > p:first-child {
   color: #e1e2db;
   font-size: 2.8rem;
@@ -356,7 +352,6 @@
   max-width: 720px;
 }
 
-/* Testimonial (second p) */
 .columns.columns26 > div:first-child > div > p:nth-child(2) {
   color: #e1e2db;
   font-size: 1.16rem;
@@ -367,7 +362,6 @@
   text-align: left;
 }
 
-/* Avatar image (third p > picture > img) */
 .columns.columns26 > div:first-child > div > p:nth-child(3) picture img {
   width: 44px;
   height: 44px;
@@ -378,7 +372,6 @@
   margin-top: 0;
 }
 
-/* Avatar's parent p (third p) grouped tightly */
 .columns.columns26 > div:first-child > div > p:nth-child(3) {
   margin: 0;
   padding: 0;
@@ -386,7 +379,6 @@
   align-items: center;
 }
 
-/* Name and subtitle (fourth and fifth p) grouped closely */
 .columns.columns26 > div:first-child > div > p:nth-child(4),
 .columns.columns26 > div:first-child > div > p:nth-child(5) {
   color: #e1e2db;
@@ -405,7 +397,6 @@
   margin-bottom: 0;
 }
 
-/* Right column: logo at bottom right, visible */
 .columns.columns26 > div:last-child {
   flex: 1 1 0;
   min-width: 160px;
@@ -418,7 +409,6 @@
   padding-left: 1vw;
 }
 
-/* If there's a logo (img), show it bottom right */
 .columns.columns26 > div:last-child img {
   width: 138px;
   height: auto;
@@ -429,7 +419,6 @@
   margin-top: auto;
 }
 
-/* Responsive: stack columns on small screens */
 @media (width <= 900px) {
   .columns.columns26 {
     flex-direction: column;
@@ -451,5 +440,149 @@
 
   .columns.columns26 > div:last-child img {
     margin-top: 0;
+  }
+}
+
+
+.columns.columns27 {
+  background: #f8f8f3;
+  padding: 64px 0;
+}
+
+/* Main layout: flex row, align columns to the top for headline-image alignment */
+.columns.columns27 > div {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 100px;
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+  min-height: 400px;
+}
+
+/* Responsive: stack columns and adjust sizing on small screens */
+@media (width <= 900px) {
+  .columns.columns27 > div {
+    flex-direction: column;
+    gap: 40px;
+    padding: 0 16px;
+    min-height: unset;
+    align-items: stretch;
+  }
+}
+
+/* Left column: left-align and remove vertical centering, restrict width for text */
+.columns.columns27 > div > div:first-child {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  min-width: 0;
+  max-width: 390px;
+  flex: 1 1 0;
+  height: auto;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+/* Headline: ensure top alignment and balanced margin */
+.columns.columns27 h1 {
+  font-size: 3.2rem;
+  line-height: 1.08;
+  font-weight: 400;
+  color: #191919;
+  letter-spacing: 0.02em;
+  margin: 0 0 28px;
+  max-width: 390px;
+}
+
+/* Paragraph: optimal line length, minimal bottom spacing */
+.columns.columns27 p {
+  font-size: 1rem;
+  color: #5b5b5b;
+  line-height: 1.6;
+  margin: 0 0 10px;
+  max-width: 370px;
+}
+
+/* Button container: tight grouping */
+.columns.columns27 .button-container {
+  display: flex;
+  flex-direction: row;
+  gap: 0;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+/* Outlined pill button: concise padding and spacing */
+.columns.columns27 .button-container .button {
+  background: transparent;
+  border: 2px solid #191919;
+  color: #191919;
+  border-radius: 999px;
+  padding: 10px 24px;
+  font-size: 1rem;
+  font-weight: 500;
+  box-shadow: none;
+  margin: 0;
+  transition: background 0.2s, color 0.2s;
+}
+
+.columns.columns27 .button-container .button:hover,
+.columns.columns27 .button-container .button:focus {
+  background: #191919;
+  color: #f8f8f3;
+  text-decoration: none;
+}
+
+/* Right column: top align card to match headline */
+.columns.columns27 .columns-img-col {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  min-width: 0;
+  flex: 1 1 0;
+  height: auto;
+}
+
+/* Card wrapper: image fills card, top aligned */
+.columns.columns27 .columns-img-col picture {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  background: #fff;
+  border-radius: 32px;
+  box-shadow: 0 4px 24px rgb(0 0 0 / 4%);
+  padding: 24px;
+  width: 400px;
+  height: 400px;
+  min-width: 320px;
+}
+
+/* Image: fill card space, rounded edges */
+.columns.columns27 .columns-img-col img {
+  border-radius: 24px;
+  max-width: 320px;
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  display: block;
+}
+
+/* Responsiveness for card and image */
+@media (width <= 900px) {
+  .columns.columns27 .columns-img-col picture {
+    width: 100%;
+    max-width: 100vw;
+    height: auto;
+    padding: 16px;
+    min-width: unset;
+    align-items: center;
+  }
+
+  .columns.columns27 .columns-img-col img {
+    max-width: 100%;
   }
 }
