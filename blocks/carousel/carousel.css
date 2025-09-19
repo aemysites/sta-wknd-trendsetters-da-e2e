@@ -1,3 +1,4 @@
+/* stylelint-disable no-descending-specificity */
 .carousel .carousel-slides-container {
   position: relative;
 }
@@ -99,7 +100,6 @@
   z-index: 1;
 }
 
-/* stylelint-disable-next-line no-descending-specificity */
 .carousel .carousel-navigation-buttons button {
   position: relative;
   width: 44px;
@@ -149,5 +149,140 @@
 
   .carousel .carousel-slide .carousel-slide-content[data-align='justify'] {
     --slide-content-width: auto;
+  }
+}
+
+
+.carousel.carousel32 {
+  /* Strong black background for the entire block */
+  background: #000;
+  position: relative;
+  min-height: 60vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+/* Hide nav and indicators as before */
+.carousel.carousel32 .carousel-navigation-buttons,
+.carousel.carousel32 .carousel-slide-indicators {
+  display: none;
+}
+
+/* Ensure all slides show up in a horizontal row, ignore carousel overflow */
+.carousel.carousel32 .carousel-slides {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 42px;
+  width: auto;
+  margin: 0 auto;
+  padding: 0;
+  background: transparent;
+  overflow: visible;
+  pointer-events: none;
+}
+
+/* Make all slides visible. Undo potential hiding from base CSS. */
+.carousel.carousel32 .carousel-slide {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 220px;
+  width: 220px;
+  height: 160px;
+  margin: 0;
+  opacity: 1;
+  position: relative;
+  pointer-events: auto;
+  min-height: unset;
+  background: none;
+  z-index: 1;
+  border-radius: 15px;
+  box-shadow: none;
+  overflow: visible;
+  transform-style: preserve-3d;
+  transition: transform 0.4s cubic-bezier(0.4, 0.2, 0.2, 1);
+}
+
+/* Remove slide hiding from base carousel logic */
+.carousel.carousel32 .carousel-slide[aria-hidden="true"] {
+  opacity: 1;
+  pointer-events: auto;
+  position: relative;
+  display: flex;
+}
+
+/* Make the actual image visible and styled */
+.carousel.carousel32 .carousel-slide-image picture,
+.carousel.carousel32 .carousel-slide-image img {
+  width: 100%;
+  height: 100%;
+  border-radius: 15px;
+  object-fit: cover;
+  background: #181818;
+  display: block;
+  box-shadow: 0 8px 28px 0 rgb(0 0 0 / 36%);
+}
+
+/* Hide overlay content */
+.carousel.carousel32 .carousel-slide-content {
+  display: none;
+}
+
+/* Distinct tilts for each slide to create a scattered look */
+.carousel.carousel32 .carousel-slide:nth-child(1) {
+  transform: rotateZ(-12deg) rotateY(-11deg) scale(0.97);
+  z-index: 3;
+}
+
+.carousel.carousel32 .carousel-slide:nth-child(2) {
+  transform: rotateZ(-5deg) rotateY(-7deg) scale(1.02);
+  z-index: 4;
+}
+
+.carousel.carousel32 .carousel-slide:nth-child(3) {
+  transform: rotateZ(2deg) rotateY(5deg) scale(1.09);
+  z-index: 5;
+}
+
+.carousel.carousel32 .carousel-slide:nth-child(4) {
+  transform: rotateZ(8deg) rotateY(7deg) scale(1.04);
+  z-index: 4;
+}
+
+.carousel.carousel32 .carousel-slide:nth-child(5) {
+  transform: rotateZ(-6deg) rotateY(-8deg) scale(0.99);
+  z-index: 3;
+}
+
+.carousel.carousel32 .carousel-slide:nth-child(6) {
+  transform: rotateZ(15deg) rotateY(10deg) scale(0.94);
+  z-index: 2;
+}
+
+/* Responsive tweaks: reduce size and gap on smaller screens */
+@media (width <= 900px) {
+  .carousel.carousel32 .carousel-slide {
+    flex: 0 0 120px;
+    width: 120px;
+    height: 88px;
+  }
+
+  .carousel.carousel32 .carousel-slides {
+    gap: 14px;
+  }
+}
+
+@media (width <= 600px) {
+  .carousel.carousel32 .carousel-slide {
+    flex: 0 0 72px;
+    width: 72px;
+    height: 52px;
+  }
+
+  .carousel.carousel32 .carousel-slides {
+    gap: 4px;
   }
 }
