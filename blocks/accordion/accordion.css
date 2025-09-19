@@ -155,3 +155,89 @@
     font-size: 12px;
   }
 }
+
+
+.accordion.accordion17 {
+  background: #F8F9F5;
+  width: 100%;
+  max-width: none;
+  margin: 0;
+  box-sizing: border-box;
+  padding: 0;
+}
+
+.accordion.accordion17 details {
+  border: none;
+  margin: 0;
+  padding: 0;
+}
+
+.accordion.accordion17 details + details {
+  margin-top: 0;
+}
+
+.accordion.accordion17 summary {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 44px;
+  box-sizing: border-box;
+  width: 100%;
+  padding: 16px 0 16px 4px; /* Minimal left padding for nearly flush left alignment */
+  cursor: pointer;
+  background: transparent;
+  outline: none;
+  border: none;
+  position: relative;
+  gap: 0;
+}
+
+.accordion.accordion17 summary::-webkit-details-marker {
+  display: none;
+}
+
+.accordion.accordion17 details[open] summary,
+.accordion.accordion17 summary:focus,
+.accordion.accordion17 summary:hover {
+  background: transparent;
+}
+
+.accordion.accordion17 summary p {
+  color: #222;
+  font-size: 16px;
+  font-weight: 400;
+  margin: 0;
+  padding: 0;
+  line-height: 1.3;
+  flex-shrink: 1;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* Chevron: flush right, no extra margin */
+.accordion.accordion17 summary::after {
+  display: inline-block;
+  width: 18px;
+  height: 18px;
+  border-right: 2px solid #222;
+  border-bottom: 2px solid #222;
+  transform: rotate(45deg);
+  vertical-align: middle;
+  background: none;
+  box-sizing: border-box;
+  position: absolute;
+  right: 0;
+  top: 50%;
+  translate: 0 -50%;
+  margin: 0;
+}
+
+/* Accordion answer body: match summary left alignment */
+.accordion.accordion17 .accordion-item-body {
+  padding: 0 4px 10px;
+  background: transparent;
+  border-top: none;
+}
