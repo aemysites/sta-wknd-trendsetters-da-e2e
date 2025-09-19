@@ -449,7 +449,6 @@
   padding: 64px 0;
 }
 
-/* Main layout: flex row, align columns to the top for headline-image alignment */
 .columns.columns27 > div {
   display: flex;
   flex-direction: row;
@@ -462,7 +461,6 @@
   min-height: 400px;
 }
 
-/* Responsive: stack columns and adjust sizing on small screens */
 @media (width <= 900px) {
   .columns.columns27 > div {
     flex-direction: column;
@@ -473,7 +471,6 @@
   }
 }
 
-/* Left column: left-align and remove vertical centering, restrict width for text */
 .columns.columns27 > div > div:first-child {
   display: flex;
   flex-direction: column;
@@ -487,7 +484,6 @@
   margin-bottom: 0;
 }
 
-/* Headline: ensure top alignment and balanced margin */
 .columns.columns27 h1 {
   font-size: 3.2rem;
   line-height: 1.08;
@@ -498,7 +494,6 @@
   max-width: 390px;
 }
 
-/* Paragraph: optimal line length, minimal bottom spacing */
 .columns.columns27 p {
   font-size: 1rem;
   color: #5b5b5b;
@@ -507,7 +502,6 @@
   max-width: 370px;
 }
 
-/* Button container: tight grouping */
 .columns.columns27 .button-container {
   display: flex;
   flex-direction: row;
@@ -516,7 +510,6 @@
   margin-bottom: 0;
 }
 
-/* Outlined pill button: concise padding and spacing */
 .columns.columns27 .button-container .button {
   background: transparent;
   border: 2px solid #191919;
@@ -537,7 +530,6 @@
   text-decoration: none;
 }
 
-/* Right column: top align card to match headline */
 .columns.columns27 .columns-img-col {
   display: flex;
   align-items: flex-start;
@@ -547,7 +539,6 @@
   height: auto;
 }
 
-/* Card wrapper: image fills card, top aligned */
 .columns.columns27 .columns-img-col picture {
   display: flex;
   align-items: flex-start;
@@ -561,7 +552,6 @@
   min-width: 320px;
 }
 
-/* Image: fill card space, rounded edges */
 .columns.columns27 .columns-img-col img {
   border-radius: 24px;
   max-width: 320px;
@@ -571,7 +561,6 @@
   display: block;
 }
 
-/* Responsiveness for card and image */
 @media (width <= 900px) {
   .columns.columns27 .columns-img-col picture {
     width: 100%;
@@ -585,4 +574,137 @@
   .columns.columns27 .columns-img-col img {
     max-width: 100%;
   }
+}
+
+
+.columns.columns28 {
+  background: #f7f7f4;
+  padding: 0;
+}
+
+.columns.columns28 > div {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 6vw;
+  padding: 72px 7vw;
+  box-sizing: border-box;
+}
+
+@media (width <= 900px) {
+  .columns.columns28 > div {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 40px;
+    padding: 40px 4vw;
+  }
+}
+
+.columns.columns28 > div > div:first-child {
+  flex: 1.25 1 0%;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  color: #e9e9e4;
+  margin-top: 0;
+}
+
+.columns.columns28 > div > .columns-img-col {
+  flex: 1 1 0%;
+  min-width: 0;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.columns.columns28 .columns-img-col picture,
+.columns.columns28 .columns-img-col img {
+  display: block;
+  width: 100%;
+  max-width: 520px;
+  border-radius: 32px;
+  object-fit: cover;
+  background: transparent;
+  box-shadow: none;
+  margin: 0;
+}
+
+@media (width <= 900px) {
+  .columns.columns28 > div > .columns-img-col {
+    justify-content: center;
+    margin-top: 18px;
+  }
+
+  .columns.columns28 .columns-img-col picture,
+  .columns.columns28 .columns-img-col img {
+    max-width: 100%;
+    border-radius: 24px;
+  }
+}
+
+.columns.columns28 > div > div:first-child > p:first-child {
+  margin-top: 0;
+  margin-bottom: 14px;
+  font-size: 13px;
+  letter-spacing: 0.12em;
+  font-weight: 300;
+  text-transform: uppercase;
+  color: #e9e9e4;
+  opacity: 0.93;
+}
+
+.columns.columns28 > div > div:first-child > h2 {
+  margin: 0 0 28px;
+  font-size: 62px;
+  font-weight: 200;
+  line-height: 1.04;
+  letter-spacing: 0.01em;
+  color: #e9e9e4;
+  word-break: break-word;
+  overflow-wrap: break-word;
+}
+
+.columns.columns28 > div > div:first-child > p:nth-of-type(2) {
+  font-size: 20px;
+  line-height: 1.5;
+  color: #e9e9e4;
+  margin-bottom: 18px;
+  font-weight: 400;
+  opacity: 0.96;
+}
+
+.columns.columns28 > div > div:first-child > p:nth-of-type(3) {
+  font-size: 13px;
+  color: #e9e9e4;
+  opacity: 0.65;
+  margin-bottom: 10px;
+}
+
+.columns.columns28 .button-container {
+  margin-top: 12px;
+}
+
+.columns.columns28 .button-container .button {
+  background: #fff;
+  color: #191919;
+  border: 2px solid #191919;
+  border-radius: 32px;
+  padding: 12px 38px;
+  font-size: 18px;
+  font-weight: 500;
+  margin: 0;
+  box-shadow: none;
+  transition: background 0.15s, color 0.15s;
+  min-width: 130px;
+  text-align: center;
+  line-height: 1.15;
+}
+
+.columns.columns28 .button-container .button:hover,
+.columns.columns28 .button-container .button:focus {
+  background: #191919;
+  color: #fff;
 }
