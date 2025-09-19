@@ -1391,3 +1391,89 @@
     gap: 20px;
   }
 }
+
+
+.cards.cards36.block {
+  background: #000;
+  padding: 48px 0;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  width: 100%;
+}
+
+/* Key change: Use fixed row count, not auto-rows, so all 6 items layout as 2 rows of 3 */
+.cards.cards36.block ul {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  gap: 24px;
+  list-style: none;
+  margin: 0 auto;
+  padding: 0;
+  max-width: 1020px;
+  width: 100%;
+  place-items: stretch stretch;
+  min-height: 0;
+}
+
+/* Card sizing and appearance */
+.cards.cards36.block ul > li {
+  background: transparent;
+  border: none;
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: none;
+  aspect-ratio: 1 / 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: stretch;
+  align-items: stretch;
+  padding: 0;
+  margin: 0;
+  min-width: 0;
+  min-height: 0;
+}
+
+/* Image fill and appearance */
+.cards.cards36.block .cards-card-image {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: stretch;
+  justify-content: stretch;
+  flex: 1 1 auto;
+}
+
+.cards.cards36.block .cards-card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 24px;
+  display: block;
+  aspect-ratio: 1 / 1;
+}
+
+/* Hide captions under images */
+.cards.cards36.block .cards-card-body {
+  display: none;
+}
+
+/* Responsive layout: 2 columns tablet, 1 column mobile */
+@media (width <= 900px) {
+  .cards.cards36.block ul {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: repeat(3, 1fr);
+    max-width: 680px;
+    gap: 18px;
+  }
+}
+
+@media (width <= 600px) {
+  .cards.cards36.block ul {
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(6, 1fr);
+    max-width: 98vw;
+    gap: 12px;
+  }
+}
