@@ -1,8 +1,8 @@
+/* stylelint-disable no-descending-specificity */
 .accordion details {
   border: 1px solid #dadada;
 }
 
-/* stylelint-disable-next-line no-descending-specificity */
 .accordion details + details {
   margin-top: 24px;
 }
@@ -58,4 +58,100 @@
 .accordion details[open] .accordion-item-body {
   border-top: 1px solid #dadada;
   background-color: var(--background-color);
+}
+
+
+.accordion.accordion13 {
+  background: #FAFBF8;
+  padding: 32px 24px;
+  box-sizing: border-box;
+}
+
+.accordion.accordion13 .accordion-item {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  border: none;
+  border-bottom: 1px solid #F7F8F4;
+  padding: 20px 0;
+  margin: 0;
+  width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
+}
+
+.accordion.accordion13 .accordion-item:last-child {
+  border-bottom: none;
+}
+
+.accordion.accordion13 .accordion-item-label {
+  flex: 0 0 40%;
+  color: #F7F8F4;
+  font-size: 22px;
+  font-weight: 300;
+  letter-spacing: 0.8px;
+  margin: 0;
+  padding: 0;
+  background: none;
+  outline: none;
+  user-select: none;
+  cursor: default;
+  display: flex;
+  align-items: flex-start;
+  min-width: 0;
+  border: none;
+}
+
+.accordion.accordion13 .accordion-item-label p {
+  margin: 0;
+}
+
+.accordion.accordion13 details summary::-webkit-details-marker,
+.accordion.accordion13 details summary::marker {
+  display: none;
+}
+
+.accordion.accordion13 details summary {
+  pointer-events: none;
+  background: none;
+  padding: 0;
+  border: none;
+}
+
+.accordion.accordion13 details summary::after {
+  display: none;
+}
+
+.accordion.accordion13 .accordion-item-body {
+    flex: unset;
+    padding: 8px 0 0;
+    font-size: 12px;
+  }
+
+.accordion.accordion13 details[open] .accordion-item-body {
+  display: flex;
+}
+
+.accordion.accordion13 .accordion-item-body p {
+  margin: 0;
+}
+
+@media (width <= 700px) {
+  .accordion.accordion13 .accordion-item {
+    flex-direction: column;
+    padding: 16px 0;
+  }
+
+  .accordion.accordion13 .accordion-item-label {
+    flex: unset;
+    min-width: 0;
+    font-size: 18px;
+    letter-spacing: 0.3px;
+  }
+
+  .accordion.accordion13 .accordion-item-body {
+    flex: unset;
+    padding: 8px 0 0;
+    font-size: 12px;
+  }
 }
