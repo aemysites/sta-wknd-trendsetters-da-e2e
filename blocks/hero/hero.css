@@ -878,7 +878,6 @@
   box-sizing: border-box;
 }
 
-/* Ensure the image container fills the hero */
 .hero.hero29 > div:first-child {
   position: absolute;
   inset: 0;
@@ -901,7 +900,6 @@
   min-height: 100%;
 }
 
-/* Text overlay: perfectly centered and constrained for better balance */
 .hero.hero29 > div:last-child {
   position: absolute;
   inset: 0;
@@ -913,11 +911,8 @@
   height: 100%;
   pointer-events: none;
   text-align: center;
-
-  /* padding: 0 2vw; optionally for mobile */
 }
 
-/* Max width and responsive font for heading */
 .hero.hero29 h1 {
   color: #fff;
   font-size: clamp(2.2rem, 8vw, 5rem);
@@ -929,11 +924,9 @@
   max-width: 80vw;
   text-shadow: 0 2px 16px rgb(0 0 0 / 33%);
   box-sizing: border-box;
-  overflow-wrap: break-word; /* Modern property retained */
+  overflow-wrap: break-word;
   display: inline-block;
 }
-
-/* Remove hero padding and width constraints at wrapper level */
 
 @media (width <= 900px) {
   .hero.hero29 {
@@ -945,5 +938,184 @@
     font-size: clamp(1.5rem, 10vw, 2.8rem);
     max-width: 95vw;
     padding: 0 4vw;
+  }
+}
+
+
+.hero.hero33 {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  padding: 4rem 0;
+  background: var(--background-color);
+  gap: 4rem;
+  width: 100%;
+}
+
+/* Image section: left side */
+.hero.hero33 > div:first-child {
+  flex: 1 1 0;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.hero.hero33 > div:first-child > div {
+  width: 400px;
+  max-width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero.hero33 img {
+  display: block;
+  border-radius: 24px;
+  width: 100%;
+  min-width: 340px;
+  max-width: 400px;
+  height: 300px;
+  object-fit: cover;
+  box-shadow: 0 4px 20px rgb(0 0 0 / 5%);
+  background: transparent;
+}
+
+.hero.hero33 picture {
+  position: static;
+  z-index: auto;
+  inset: unset;
+}
+
+/* Text section: right side */
+.hero.hero33 > div:last-child {
+  flex: 1 1 0;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.hero.hero33 > div:last-child > div {
+  display: flex;
+  flex-direction: column;
+  gap: 1.1rem;
+  min-width: 320px;
+  max-width: 458px;
+  width: 100%;
+  color: #222;
+  margin-left: 0;
+}
+
+/* Top label */
+.hero.hero33 > div:last-child > div > p:first-child {
+  text-transform: uppercase;
+  color: #bebebe;
+  font-size: 1rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  margin: 0 0 0.2em;
+}
+
+/* Pill/badge */
+.hero.hero33 > div:last-child > div > p:nth-child(2) {
+  display: inline-block;
+  background: #f3f3f3;
+  color: #444;
+  border-radius: 1em;
+  font-size: 0.92rem;
+  font-weight: 500;
+  padding: 0.2em 1.1em;
+  margin: 0 0 0.7em 0.7em;
+  align-self: flex-start;
+}
+
+/* Headline */
+.hero.hero33 > div:last-child > div > h2 {
+  color: #222;
+  font-size: 2.5rem;
+  font-weight: 500;
+  letter-spacing: 0.03em;
+  margin: 0 0 0.25em;
+  line-height: 1.08;
+}
+
+/* --- Meta Info Row --- */
+
+/* Group meta info into a flex row using the adjacent p selectors */
+
+.hero.hero33 > div:last-child > div .meta-row {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 0.7em;
+  margin-top: 0.4em;
+  margin-bottom: 0;
+  color: #555;
+  font-size: 1rem;
+  font-weight: 400;
+}
+
+/* If meta info is not grouped, force inline display for those p tags */
+.hero.hero33 > div:last-child > div > p:nth-child(3),
+.hero.hero33 > div:last-child > div > p:nth-child(5),
+.hero.hero33 > div:last-child > div > p:nth-child(7),
+.hero.hero33 > div:last-child > div > p:nth-child(9) {
+  display: inline-block;
+  color: #555;
+  font-size: 1rem;
+  font-weight: 400;
+  margin-right: 0.4em;
+  vertical-align: middle;
+}
+
+.hero.hero33 > div:last-child > div > p:nth-child(4),
+.hero.hero33 > div:last-child > div > p:nth-child(6) {
+  display: inline-block;
+  color: #aaa;
+  font-size: 1.1rem;
+  margin: 0 0.5em;
+  vertical-align: middle;
+}
+
+/* Remove default paragraph margins in hero text block */
+.hero.hero33 > div:last-child > div > p {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+/* Responsive tweaks */
+@media (width <= 900px) {
+  .hero.hero33 {
+    flex-direction: column;
+    gap: 2rem;
+    padding: 2rem 0;
+  }
+
+  .hero.hero33 > div:first-child,
+  .hero.hero33 > div:last-child {
+    min-width: 0;
+    width: 100%;
+    justify-content: center;
+  }
+
+  .hero.hero33 > div:first-child > div {
+    width: 100%;
+    min-width: 0;
+    max-width: 100%;
+    justify-content: center;
+  }
+
+  .hero.hero33 img {
+    width: 100%;
+    min-width: 0;
+    max-width: 100%;
+    height: auto;
+  }
+
+  .hero.hero33 > div:last-child > div {
+    min-width: 0;
+    max-width: 100%;
+    padding: 0 1rem;
+    margin: 0 auto;
   }
 }
