@@ -1,3 +1,4 @@
+/* stylelint-disable no-descending-specificity */
 .hero-container .hero-wrapper {
   max-width: unset;
   padding: 0;
@@ -43,5 +44,176 @@
 @media (width >= 900px) {
   .hero {
     padding: 40px 32px;
+  }
+}
+
+.hero.hero5 {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  min-height: 620px;
+  width: 100%;
+  background: none;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* LEFT: text column, perfectly vertically centered and slightly wider */
+.hero.hero5 > div:nth-child(2) {
+  flex: 1 1 50%;
+  order: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #fff;
+  min-height: 100%;
+  padding-left: 3vw;
+  padding-right: 1vw;
+  box-sizing: border-box;
+}
+
+.hero.hero5 > div:nth-child(2) > div {
+  width: 100%;
+  max-width: 390px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  min-height: 0;
+}
+
+/* Heading: larger and tighter */
+.hero.hero5 h2 {
+  color: #000;
+  font-size: 2.95rem;
+  font-weight: 600;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  margin-bottom: 0.9rem;
+  margin-top: 0;
+  line-height: 1.04;
+}
+
+/* Paragraph: tighter line height, more compact */
+.hero.hero5 p {
+  color: #444;
+  font-size: 0.97rem;
+  line-height: 1.35;
+  margin-bottom: 1.1rem;
+  margin-top: 0;
+  max-width: 33em;
+}
+
+/* Button placement and style */
+.hero.hero5 .button-container {
+  display: flex;
+  gap: 1rem;
+  margin-top: 0.3rem;
+  width: 100%;
+  justify-content: flex-start;
+}
+
+.hero-container > .hero-wrapper > .block.hero .button,
+.hero.hero5 .button {
+  background: #fff;
+  color: #000;
+  border: 2px solid #000;
+  border-radius: 2em;
+  font-size: 1.04rem;
+  font-weight: 600;
+  padding: 0.51em 2em;
+  transition: background 0.15s, color 0.15s, border-color 0.15s;
+  margin: 0;
+  box-shadow: none;
+}
+
+.hero.hero5 .button:hover,
+.hero.hero5 .button:focus {
+  background: #000;
+  color: #fff;
+  border-color: #000;
+  text-decoration: none;
+}
+
+/* RIGHT: image column */
+.hero.hero5 > div:first-child {
+  flex: 1 1 50%;
+  order: 2;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-end;
+  min-width: 0;
+  min-height: 0;
+  padding: 0;
+  background: none;
+}
+
+.hero.hero5 > div:first-child > div,
+.hero.hero5 > div:first-child picture {
+  width: 100%;
+  height: 100%;
+  display: flex;
+}
+
+/* Ensure image crops appropriately */
+.hero.hero5 > div:first-child img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Remove z-index for picture as instructed */
+.hero.hero5 picture {
+  position: static;
+}
+
+/* Responsive adjustments: stack columns on mobile, keep text compact */
+@media (width <= 900px) {
+  .hero.hero5 {
+    flex-direction: column;
+    min-height: 420px;
+  }
+
+  .hero.hero5 > div:first-child,
+  .hero.hero5 > div:nth-child(2) {
+    flex: unset;
+    min-width: 0;
+    min-height: 0;
+    width: 100%;
+    padding: 0;
+  }
+
+  .hero.hero5 > div:first-child {
+    order: 1;
+    height: 230px;
+    min-height: 180px;
+    max-height: 270px;
+    justify-content: center;
+    align-items: stretch;
+  }
+
+  .hero.hero5 > div:first-child > div,
+  .hero.hero5 > div:first-child picture {
+    height: 100%;
+    width: 100%;
+  }
+
+  .hero.hero5 > div:first-child img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+  }
+
+  .hero.hero5 > div:nth-child(2) {
+    order: 2;
+    background: #fff;
+    align-items: flex-start;
+    justify-content: flex-start;
+    padding: 2rem 5vw;
+  }
+
+  .hero.hero5 > div:nth-child(2) > div {
+    max-width: 100%;
   }
 }
