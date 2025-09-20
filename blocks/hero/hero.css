@@ -58,7 +58,6 @@
   box-sizing: border-box;
 }
 
-/* LEFT: text column, perfectly vertically centered and slightly wider */
 .hero.hero5 > div:nth-child(2) {
   flex: 1 1 50%;
   order: 1;
@@ -82,7 +81,6 @@
   min-height: 0;
 }
 
-/* Heading: larger and tighter */
 .hero.hero5 h2 {
   color: #000;
   font-size: 2.95rem;
@@ -94,7 +92,6 @@
   line-height: 1.04;
 }
 
-/* Paragraph: tighter line height, more compact */
 .hero.hero5 p {
   color: #444;
   font-size: 0.97rem;
@@ -104,7 +101,6 @@
   max-width: 33em;
 }
 
-/* Button placement and style */
 .hero.hero5 .button-container {
   display: flex;
   gap: 1rem;
@@ -135,7 +131,6 @@
   text-decoration: none;
 }
 
-/* RIGHT: image column */
 .hero.hero5 > div:first-child {
   flex: 1 1 50%;
   order: 2;
@@ -155,7 +150,6 @@
   display: flex;
 }
 
-/* Ensure image crops appropriately */
 .hero.hero5 > div:first-child img {
   width: 100%;
   height: 100%;
@@ -163,12 +157,10 @@
   display: block;
 }
 
-/* Remove z-index for picture as instructed */
 .hero.hero5 picture {
   position: static;
 }
 
-/* Responsive adjustments: stack columns on mobile, keep text compact */
 @media (width <= 900px) {
   .hero.hero5 {
     flex-direction: column;
@@ -215,5 +207,145 @@
 
   .hero.hero5 > div:nth-child(2) > div {
     max-width: 100%;
+  }
+}
+
+
+.hero-container > .hero-wrapper {
+  max-width: unset;
+  padding: 0;
+}
+
+.hero.hero6 {
+  position: relative;
+  width: 100vw;
+  min-height: 100vh;
+  background: transparent;
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+}
+
+.hero.hero6 > div:first-child {
+  position: absolute;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 1;
+  pointer-events: none;
+  display: flex;
+}
+
+.hero.hero6 picture,
+.hero.hero6 img {
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+  display: block;
+}
+
+/* Overlay panel: top-left, generous padding, near full-height */
+.hero.hero6 > div:last-child {
+  position: relative;
+  z-index: 2;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+
+.hero.hero6 > div:last-child > div {
+  margin: 18px auto 0 18px;
+  background: rgb(27 27 31 / 50%); /* slightly less opaque */
+  border: 2px solid #fff;
+  border-radius: 20px;
+  padding: 54px 48px 38px;    /* more generous padding */
+  max-width: 540px;
+  height: calc(100vh - 36px);      /* extend panel closer to bottom */
+  box-sizing: border-box;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0;
+  backdrop-filter: blur(2px);
+}
+
+/* Headline styling with extra gap below */
+.hero.hero6 h1 {
+  font-size: clamp(2.7rem, 6vw, 4.7rem);
+  font-weight: 400;
+  line-height: 1.05;
+  color: #fff;
+  margin: 0 0 32px;             /* more gap below headline */
+  letter-spacing: 0.02em;
+  text-align: left;
+}
+
+/* Supporting text styling with more breathing room below */
+.hero.hero6 p:not(.button-container) {
+  color: #D4D4D4;
+  font-size: 18px;
+  line-height: 1.5;
+  margin: 0 0 24px;
+  text-align: left;
+}
+
+/* Button row: pushed to bottom of panel with a small gap below */
+.hero.hero6 .button-container {
+  display: flex;
+  flex-direction: row;
+  gap: 16px;
+  width: 100%;
+  justify-content: flex-start;
+  margin-top: auto;
+  margin-bottom: 12px;
+}
+
+.hero.hero6 .button-container .button {
+  background: transparent;
+  border: 2px solid #fff;
+  color: #fff;
+  border-radius: 32px;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 1.25;
+  padding: 10px 28px;
+  margin: 0;
+  box-shadow: none;
+  transition: background 0.2s, color 0.2s;
+  text-align: left;
+}
+
+.hero.hero6 .button-container .button:hover,
+.hero.hero6 .button-container .button:focus {
+  background: #fff;
+  color: #1B1B1F;
+}
+
+/* Responsive: keep panel readable, minimum padding */
+@media (width <= 900px) {
+  .hero.hero6,
+  .hero.hero6 > div:first-child {
+    min-height: 580px;
+    height: 580px;
+    width: 100vw;
+  }
+
+  .hero.hero6 > div:last-child > div {
+    margin: 8px 2px 0;
+    padding: 22px 13px 16px;
+    max-width: 100vw;
+    height: auto;
+  }
+
+  .hero.hero6 h1 {
+    font-size: clamp(1.7rem, 7vw, 2.4rem);
+    margin-bottom: 18px;
+  }
+
+  .hero.hero6 p:not(.button-container) {
+    margin-bottom: 12px;
   }
 }
