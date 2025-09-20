@@ -244,7 +244,6 @@
   display: block;
 }
 
-/* Overlay panel: top-left, generous padding, near full-height */
 .hero.hero6 > div:last-child {
   position: relative;
   z-index: 2;
@@ -257,12 +256,12 @@
 
 .hero.hero6 > div:last-child > div {
   margin: 18px auto 0 18px;
-  background: rgb(27 27 31 / 50%); /* slightly less opaque */
+  background: rgb(27 27 31 / 50%);
   border: 2px solid #fff;
   border-radius: 20px;
-  padding: 54px 48px 38px;    /* more generous padding */
+  padding: 54px 48px 38px;
   max-width: 540px;
-  height: calc(100vh - 36px);      /* extend panel closer to bottom */
+  height: calc(100vh - 36px);
   box-sizing: border-box;
   color: #fff;
   display: flex;
@@ -272,18 +271,16 @@
   backdrop-filter: blur(2px);
 }
 
-/* Headline styling with extra gap below */
 .hero.hero6 h1 {
   font-size: clamp(2.7rem, 6vw, 4.7rem);
   font-weight: 400;
   line-height: 1.05;
   color: #fff;
-  margin: 0 0 32px;             /* more gap below headline */
+  margin: 0 0 32px;
   letter-spacing: 0.02em;
   text-align: left;
 }
 
-/* Supporting text styling with more breathing room below */
 .hero.hero6 p:not(.button-container) {
   color: #D4D4D4;
   font-size: 18px;
@@ -292,7 +289,6 @@
   text-align: left;
 }
 
-/* Button row: pushed to bottom of panel with a small gap below */
 .hero.hero6 .button-container {
   display: flex;
   flex-direction: row;
@@ -324,7 +320,6 @@
   color: #1B1B1F;
 }
 
-/* Responsive: keep panel readable, minimum padding */
 @media (width <= 900px) {
   .hero.hero6,
   .hero.hero6 > div:first-child {
@@ -348,4 +343,213 @@
   .hero.hero6 p:not(.button-container) {
     margin-bottom: 12px;
   }
+}
+
+
+.hero.hero13 {
+  position: relative;
+  width: 100vw;
+  min-height: 540px;
+  background: url('./media_13d1f0f1b23a1f8d3bfa2ef01a8bba8c34ac19d7e.jpg') center center/cover no-repeat;
+  border-radius: 24px;
+  overflow: hidden;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+}
+
+/* Unified overlay card, image + content side by side inside */
+.hero.hero13 > div {
+  position: relative;
+  z-index: 2;
+  background: rgb(18 18 18 / 32%);
+  border-radius: 22px;
+  padding: 52px 56px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  box-sizing: border-box;
+  width: 880px;
+  max-width: 97vw;
+  min-height: 320px;
+  margin: 0 auto;
+  gap: 44px;
+  justify-content: center;
+  box-shadow: 0 6px 32px rgb(18 18 18 / 10%);
+}
+
+/* Keep overlay centered inside hero block */
+@media (width >= 1200px) {
+  .hero.hero13 > div {
+    margin: 64px auto;
+  }
+}
+
+@media (width <= 900px) {
+  .hero.hero13 > div {
+    flex-direction: column;
+    align-items: center;
+    padding: 28px 4vw;
+    width: 96vw;
+    min-width: 0;
+    gap: 28px;
+    margin: 18px auto;
+  }
+}
+
+/* IMAGE: inside overlay, left-aligned */
+.hero.hero13 > div > div:first-child {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+
+.hero.hero13 > div > div:first-child picture {
+  display: block;
+  border-radius: 18px;
+  overflow: hidden;
+  width: 220px;
+  height: 220px;
+  min-width: 140px;
+  min-height: 140px;
+  max-width: 240px;
+  max-height: 240px;
+  box-shadow: 0 4px 18px rgb(18 18 18 / 11%);
+}
+
+.hero.hero13 > div > div:first-child img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* TEXT COLUMN: beside image */
+.hero.hero13 > div > div:last-child {
+  flex: 1 1 0%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  min-width: 0;
+}
+
+.hero.hero13 h2 {
+  color: rgb(18 18 18 / 72%);
+  font-size: 2.7rem;
+  font-weight: 400;
+  line-height: 1.13;
+  letter-spacing: 0.01em;
+  margin: 0 0 32px;
+  max-width: 17ch;
+  word-break: break-all;
+}
+
+.hero.hero13 > div > div:last-child p {
+  display: flex;
+  align-items: center;
+  color: rgb(18 18 18 / 65%);
+  font-size: 1.13rem;
+  font-weight: 400;
+  margin: 0 0 14px;
+  line-height: 1.5;
+  background: none;
+  border: none;
+  max-width: 36em;
+  position: relative;
+  padding-left: 0;
+  padding-bottom: 8px;
+}
+
+.hero.hero13 > div > div:last-child p > img[alt=""] {
+  width: 17px;
+  height: 17px;
+  margin-right: 12px;
+  filter: brightness(0) saturate(100%) invert(15%) sepia(15%) saturate(800%) hue-rotate(180deg) brightness(86%) contrast(97%);
+  opacity: 0.55;
+  flex-shrink: 0;
+}
+
+.hero.hero13 > div > div:last-child p:not(.button-container) {
+  border-bottom: 1px solid rgb(18 18 18 / 12%);
+  margin-bottom: 16px;
+}
+
+.hero.hero13 > div > div:last-child p.button-container {
+  border: none;
+  margin-top: 30px;
+  margin-bottom: 0;
+  padding: 0;
+  display: flex;
+  align-items: center;
+}
+
+/* Remove divider from last text item */
+.hero.hero13 > div > div:last-child p.button-container,
+.hero.hero13 > div > div:last-child p:last-of-type {
+  border-bottom: none;
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+/* BUTTON OVERRIDE */
+.hero-container > .hero-wrapper > .block.hero.hero13 .button,
+.hero.hero13 .button {
+  border: 1.5px solid rgb(18 18 18 / 45%);
+  color: rgb(18 18 18 / 70%);
+  background: transparent;
+  border-radius: 999px;
+  padding: 11px 38px;
+  font-size: 1.08rem;
+  font-weight: 500;
+  box-shadow: 0 2px 12px rgb(18 18 18 / 7%);
+  transition: background 0.15s, color 0.15s, border-color 0.15s;
+  margin: 0;
+  letter-spacing: 0.01em;
+}
+
+.hero.hero13 .button:hover,
+.hero.hero13 .button:focus {
+  background: rgb(18 18 18 / 7%);
+  color: rgb(18 18 18 / 85%);
+  border-color: rgb(18 18 18 / 69%);
+}
+
+/* Responsive: stack on mobile, shrink image */
+@media (width <= 650px) {
+  .hero.hero13 > div {
+    flex-direction: column;
+    align-items: center;
+    padding: 12px 2vw;
+    width: 100vw;
+    gap: 16px;
+  }
+
+  .hero.hero13 > div > div:first-child picture {
+    width: 60vw;
+    height: 60vw;
+    min-width: 80px;
+    min-height: 80px;
+    max-width: 98vw;
+    max-height: 180px;
+    margin: 0 auto 18px;
+  }
+
+  .hero.hero13 h2 {
+    font-size: 1.4rem;
+    margin-bottom: 16px;
+    max-width: 90vw;
+  }
+}
+
+/* Remove unwanted spacing from default styles */
+.hero.hero13 h2,
+.hero.hero13 > div > div:last-child p {
+  margin-left: 0;
+  margin-right: 0;
+  max-width: 100%;
 }
