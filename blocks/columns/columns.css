@@ -632,3 +632,139 @@
     gap: 24px;
   }
 }
+
+
+.columns.columns31 > div {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  max-width: 1200px;
+  margin: 56px auto 0;
+  padding: 0 32px;
+  gap: 110px;
+  position: relative;
+}
+
+/* Responsive: stack vertically on narrow screens */
+@media (width <= 900px) {
+  .columns.columns31 > div {
+    flex-direction: column;
+    gap: 40px;
+    margin: 32px 0 0;
+    padding: 0 16px;
+  }
+}
+
+/* Emulate a vertical stack for author and tags using a flex column */
+.columns.columns31 > div > div:nth-child(1),
+.columns.columns31 > div > div:nth-child(2) {
+  width: 160px;
+  min-width: 0;
+  max-width: 180px;
+  padding: 0;
+  margin: 0;
+}
+
+/* Wrap the first two children in a vertical flex stack using nth-child selector hack */
+
+.columns.columns31 > div > div:nth-child(1) {
+  margin-bottom: 12px;
+}
+
+.columns.columns31 > div > div:nth-child(2) {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  align-items: flex-start;
+  margin: 0;
+  padding: 0;
+}
+
+/* Only nth-child(1) and (2) should be left column on desktop */
+@media (width >= 901px) {
+  .columns.columns31 > div {
+    /* force left "column" to shrink-to-fit */
+    align-items: flex-start;
+  }
+
+  .columns.columns31 > div > div:nth-child(1),
+  .columns.columns31 > div > div:nth-child(2) {
+    flex: 0 0 auto;
+  }
+
+  .columns.columns31 > div > div:nth-child(3) {
+    flex: 1 1 0;
+    min-width: 0;
+    max-width: 600px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin: 0;
+    padding: 0;
+  }
+}
+
+/* Author styles */
+.columns.columns31 > div > div:nth-child(1) p {
+  color: #8c8c8c;
+  font-size: 15px;
+  margin: 0;
+  padding: 0;
+}
+
+/* Tag pills: inline, auto-width, visually compact */
+.columns.columns31 > div > div:nth-child(2) p {
+  display: inline-block;
+  background: #e9e9e9;
+  color: #757575;
+  border-radius: 16px;
+  padding: 7px 18px 6px;
+  font-size: 11px;
+  text-transform: uppercase;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  margin: 0;
+  width: auto;
+  box-sizing: border-box;
+  min-width: 0;
+}
+
+/* --- RIGHT COLUMN: Headline & body --- */
+.columns.columns31 > div > div:nth-child(3) h2 {
+  font-size: 68px;
+  font-weight: 500;
+  letter-spacing: -2px;
+  line-height: 1.03;
+  margin: 0 0 36px;
+  color: #181818;
+  padding: 0;
+}
+
+.columns.columns31 > div > div:nth-child(3) p {
+  font-size: 14px;
+  color: #444;
+  margin: 0 0 16px;
+  line-height: 1.6;
+  max-width: 550px;
+  padding: 0;
+}
+
+/* Responsive headline/body text */
+@media (width <= 900px) {
+  .columns.columns31 > div > div:nth-child(3) h2 {
+    font-size: 34px;
+    margin-bottom: 18px;
+  }
+
+  .columns.columns31 > div > div:nth-child(3) p {
+    font-size: 15px;
+    margin-bottom: 10px;
+    max-width: 100%;
+  }
+
+  .columns.columns31 > div > div:nth-child(1),
+  .columns.columns31 > div > div:nth-child(2) {
+    width: 100%;
+    max-width: 100%;
+  }
+}
