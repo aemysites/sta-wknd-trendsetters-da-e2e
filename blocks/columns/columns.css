@@ -31,3 +31,95 @@
     order: unset;
   }
 }
+
+
+.columns.columns4 > div {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 2vw;
+  width: 100%;
+  max-width: 100%;
+}
+
+/* Responsive stacking for smaller screens */
+@media (width <= 900px) {
+  .columns.columns4 > div {
+    flex-direction: column;
+    gap: 1.2em;
+  }
+}
+
+/* Left column: headline */
+.columns.columns4 > div > div:first-child {
+  flex: 0 1 38vw;
+  min-width: 0;
+  max-width: 38vw;
+}
+
+/* Headline style: wrap to three lines */
+.columns.columns4 > div > div:first-child h2 {
+  font-size: 2.8rem;
+  font-weight: 400;
+  letter-spacing: 0.05em;
+  line-height: 1.08;
+  color: #000;
+  margin: 0 0 0.4em;
+  text-align: left;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  hyphens: auto;
+}
+
+/* Right column: text & button */
+.columns.columns4 > div > div:last-child {
+  flex: 0 1 30vw;
+  min-width: 0;
+  max-width: 30vw;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+/* Paragraph in right column */
+.columns.columns4 > div > div:last-child p {
+  font-size: 1rem;
+  line-height: 1.35;
+  color: #000;
+  text-align: left;
+  margin: 0 0 0.15em;
+}
+
+/* Button container: left-aligned, minimal width */
+.columns.columns4 .button-container {
+  margin: 0;
+  padding: 0;
+  display: block;
+  text-align: left;
+  width: auto;
+}
+
+/* Button styling */
+.columns.columns4 .button-container .button {
+  background: #fff;
+  border: 2px solid #000;
+  color: #000;
+  border-radius: 2em;
+  font-size: 1rem;
+  font-weight: 400;
+  padding: 0.45em 2.2em;
+  margin: 0;
+  min-width: 0;
+  box-shadow: none;
+  display: inline-block;
+  text-align: center;
+  transition: background 0.2s, color 0.2s, border-color 0.2s;
+}
+
+.columns.columns4 .button-container .button:hover,
+.columns.columns4 .button-container .button:focus {
+  background: #f8f8f8;
+  color: #000;
+  border-color: #000;
+}
