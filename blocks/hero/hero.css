@@ -559,9 +559,6 @@
   display: block;
 }
 
-/* Ensure hero spans the full width */
-
-/* Collage grid background on the inner <p> */
 .hero.hero20 > div:first-child {
   position: absolute;
   inset: 0;
@@ -599,7 +596,6 @@
   padding: 0;
 }
 
-/* Overlay for text readability */
 .hero.hero20::after {
   position: absolute;
   inset: 0;
@@ -609,7 +605,6 @@
   display: block;
 }
 
-/* Center the content block, vertically and horizontally */
 .hero.hero20 > div:nth-child(2) {
   position: relative;
   z-index: 3;
@@ -621,7 +616,6 @@
   pointer-events: auto;
 }
 
-/* Center inner text/buttons, control max width */
 .hero.hero20 > div:nth-child(2) > div {
   display: flex;
   flex-direction: column;
@@ -634,7 +628,6 @@
   gap: 14px;
 }
 
-/* Headline styling */
 .hero.hero20 h1 {
   color: #fff;
   font-size: clamp(2.5rem, 7vw, 5.5rem);
@@ -648,7 +641,6 @@
   margin-top: 0;
 }
 
-/* Subheading paragraph styling */
 .hero.hero20 > div:nth-child(2) p:not(.button-container) {
   color: rgb(255 255 255 / 86%);
   font-size: 1.08rem;
@@ -658,10 +650,10 @@
   margin-top: 0;
 }
 
-/* Button containers in a row for desktop */
 .hero.hero20 > div:nth-child(2) > div .button-row,
 .hero.hero20 > div:nth-child(2) > div {
-  /* Only allow flex-row for .button-container children */
+  /* Include declarations here if needed. */
+  display: block; /* Added a valid property-value pair to avoid an empty block */
 }
 
 .hero.hero20 > div:nth-child(2) > div .button-container {
@@ -671,12 +663,9 @@
   margin: 0 12px 0 0;
 }
 
-/* Only the last button gets no right margin */
 .hero.hero20 > div:nth-child(2) > div .button-container:last-of-type {
   margin-right: 0;
 }
-
-/* Arrange the two .button-container side by side */
 
 .hero.hero20 > div:nth-child(2) > div > .button-container {
   display: flex;
@@ -684,7 +673,6 @@
   align-items: center;
 }
 
-/* Button visual style: white border/text, transparent background */
 .hero-container > .hero-wrapper > .block.hero.hero20 .button {
   background: transparent;
   border: 2px solid #fff;
@@ -701,7 +689,6 @@
   display: inline-block;
 }
 
-/* Button hover style */
 .hero-container > .hero-wrapper > .block.hero.hero20 .button:hover,
 .hero-container > .hero-wrapper > .block.hero.hero20 .button:focus {
   background: #fff;
@@ -709,7 +696,6 @@
   border-color: #fff;
 }
 
-/* Responsive adjustments for smaller screens */
 @media (width <= 900px) {
   .hero.hero20 > div:first-child > div > p {
     grid-template-columns: repeat(2, 1fr);
@@ -725,7 +711,6 @@
   }
 }
 
-/* Stack buttons vertically on very narrow screens */
 @media (width <= 600px) {
   .hero.hero20 > div:nth-child(2) > div .button-container {
     display: flex;
@@ -736,5 +721,160 @@
 
   .hero.hero20 > div:nth-child(2) > div .button-container:last-of-type {
     margin-bottom: 0;
+  }
+}
+
+
+.hero.hero25 {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  padding-top: 7vw;
+  padding-left: 5vw;
+  box-sizing: border-box;
+  width: 100%;
+  min-height: 80vh;
+  position: relative;
+  background: var(--background-color);
+}
+
+/* Left column: image/video block */
+.hero.hero25 > div:first-child {
+  flex: 0 0 560px;
+  max-width: 560px;
+  width: 560px;
+  height: 315px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  position: relative;
+  z-index: 2;
+  margin-top: 2vw;
+}
+
+/* Image styling */
+.hero.hero25 picture,
+.hero.hero25 img {
+  width: 100%;
+  height: 315px;
+  object-fit: cover;
+  position: static;
+  box-sizing: border-box;
+  background: #e1e1e1;
+}
+
+/* Right column: content */
+.hero.hero25 > div:last-child {
+  flex: 1 1 0;
+  max-width: 700px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  position: relative;
+
+  /* Align content with image top for better vertical rhythm */
+  margin-top: 0;
+  margin-left: 0;
+}
+
+/* Heading: large, left aligned, overlapping image/video with negative margin */
+.hero.hero25 h1 {
+  color: #131313;
+  font-size: clamp(3.3rem, 7vw, 5.2rem);
+  font-weight: 400;
+  line-height: 1.05;
+  letter-spacing: 0.06em;
+  text-align: left;
+  max-width: 1000px;
+  position: relative;
+  z-index: 3;
+  margin: 0 0 -1vw;
+
+  /* Negative top margin to overlap lower half onto image/video */
+  top: -2vw;
+  left: -2vw;
+
+  /* Optional fine-tuning for breakpoints */
+}
+
+/* Paragraph: left-aligned, placed below image and heading */
+.hero.hero25 p:not(.button-container) {
+  color: #505050;
+  font-size: clamp(1rem, 1.45vw, 1.18rem);
+  line-height: 1.5;
+  max-width: 540px;
+  margin: 2vw 0 0;
+  text-align: left;
+  position: relative;
+  z-index: 2;
+}
+
+/* Button container: left aligned, below paragraph */
+.hero.hero25 .button-container {
+  display: flex;
+  gap: 1em;
+  margin-top: 1.6em;
+  justify-content: flex-start;
+  z-index: 2;
+}
+
+/* Pill button style */
+.hero-container > .hero-wrapper > .block.hero .button,
+.hero.hero25 .button {
+  background: #fff;
+  color: #131313;
+  border: 1.5px solid #131313;
+  border-radius: 999px;
+  font-size: 1.1rem;
+  font-weight: 500;
+  padding: 0.7em 2em;
+  box-sizing: border-box;
+  text-align: center;
+  margin: 0;
+  min-width: 130px;
+  transition: background 0.15s, color 0.15s, border-color 0.15s;
+  box-shadow: none;
+}
+
+/* Responsive adjustments */
+@media (width <= 900px) {
+  .hero.hero25 {
+    flex-direction: column;
+    padding: 4vw 2vw 2vw;
+    min-height: unset;
+  }
+
+  .hero.hero25 > div:first-child {
+    min-width: 0;
+    max-width: 100%;
+    width: 100%;
+    height: 200px;
+    margin-top: 0;
+  }
+
+  .hero.hero25 picture,
+  .hero.hero25 img {
+    height: 200px;
+    max-width: 100%;
+    min-width: 0;
+  }
+
+  .hero.hero25 > div:last-child {
+    max-width: 100%;
+  }
+
+  .hero.hero25 h1 {
+    position: relative;
+    top: 0;
+    left: 0;
+    font-size: clamp(2.2rem, 8vw, 3.1rem);
+    margin: 1vw 0 0;
+    max-width: 100%;
+  }
+
+  .hero.hero25 p:not(.button-container) {
+    max-width: 100%;
+    margin: 2vw 0 0;
   }
 }
