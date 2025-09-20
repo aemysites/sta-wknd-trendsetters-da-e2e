@@ -25,3 +25,151 @@
   aspect-ratio: 4 / 3;
   object-fit: cover;
 }
+
+
+.cards.cards7 {
+  background: #fff;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+}
+
+/* Use grid for two columns, ensure equal heights only based on content + images */
+.cards.cards7 > ul {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  width: 100%;
+  max-width: 1100px;
+  margin: 0;
+  padding: 0;
+  align-items: start;
+}
+
+/* Card styling */
+.cards.cards7 > ul > li {
+  background: #fff;
+  border: none;
+  border-radius: 24px;
+  box-shadow: 0 6px 24px 0 rgb(0 0 0 / 4%);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+
+  /* Remove fixed or stretched height so card grows naturally */
+}
+
+/* Make sure images display at the top and override any main img base styles */
+.cards.cards7 .cards-card-image {
+  width: 100%;
+  display: block;
+  line-height: 0;
+}
+
+.cards.cards7 > ul > li:first-child .cards-card-image img {
+  display: block;
+  width: 100%;
+  height: 340px;
+  object-fit: cover;
+  border-radius: 24px 24px 0 0;
+}
+
+.cards.cards7 > ul > li:not(:first-child) .cards-card-image img {
+  display: block;
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 24px 24px 0 0;
+}
+
+/* Card body, sits directly under image */
+.cards.cards7 .cards-card-body {
+  padding: 2.5rem 2.5rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.8rem;
+  align-items: flex-start;
+  justify-content: flex-start;
+  flex-grow: 0; /* Don't stretch body height */
+}
+
+/* Headings */
+.cards.cards7 > ul > li:first-child .cards-card-body h3 {
+  font-size: 2.6rem;
+  text-transform: uppercase;
+  font-weight: 700;
+  color: #191919;
+  margin-bottom: 1.3rem;
+  line-height: 1.1;
+  letter-spacing: 0.03em;
+  margin-top: 0;
+}
+
+.cards.cards7 > ul > li:not(:first-child) .cards-card-body h3 {
+  font-size: 1.35rem;
+  font-weight: 600;
+  color: #616161;
+  margin-bottom: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  line-height: 1.2;
+  margin-top: 0;
+}
+
+/* Paragraphs */
+.cards.cards7 > ul > li:first-child .cards-card-body p {
+  font-size: 1.25rem;
+  color: #191919;
+  margin-bottom: 1.6rem;
+  line-height: 1.5;
+}
+
+.cards.cards7 > ul > li:not(:first-child) .cards-card-body p {
+  font-size: 1.05rem;
+  color: #191919;
+  margin-bottom: 0;
+  line-height: 1.5;
+}
+
+/* "Read more" button styling */
+.cards.cards7 > ul > li:first-child .cards-card-body p:last-child {
+  display: inline-block;
+  padding: 0.7rem 2rem;
+  border: 2px solid #191919;
+  border-radius: 24px;
+  background: #F3F6EF;
+  color: #191919;
+  font-weight: 500;
+  font-size: 1.1rem;
+  margin-bottom: 0;
+  cursor: pointer;
+  line-height: 1.2;
+}
+
+/* Responsive for mobile: stack cards and reduce image height */
+@media (width <= 900px) {
+  .cards.cards7 {
+    justify-content: flex-start;
+  }
+
+  .cards.cards7 > ul {
+    grid-template-columns: 1fr;
+    gap: 32px;
+    max-width: 100%;
+  }
+
+  .cards.cards7 > ul > li {
+    width: 100%;
+    min-width: 0;
+  }
+
+  .cards.cards7 .cards-card-body {
+    padding: 1.5rem 1.5rem 1rem;
+  }
+
+  .cards.cards7 > ul > li:first-child .cards-card-image img,
+  .cards.cards7 > ul > li:not(:first-child) .cards-card-image img {
+    height: 180px;
+  }
+}
