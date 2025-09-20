@@ -65,7 +65,7 @@
   margin: 0 0 0.4em;
   text-align: left;
   word-break: break-word;
-  overflow-wrap: break-word;
+  overflow-wrap: anywhere;
   hyphens: auto;
 }
 
@@ -176,13 +176,12 @@
   box-sizing: border-box;
 }
 
-/* Flex row for the columns block. Constrain width and center for visual balance */
 .columns.columns15 > div {
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: flex-start;
-  gap: 28px; /* slightly tighter than before for more compact look */
+  gap: 28px;
   max-width: 870px;
   margin: 0 auto;
   width: 100%;
@@ -190,7 +189,6 @@
   box-sizing: border-box;
 }
 
-/* Each direct child div is a column: first two are text, last is button */
 .columns.columns15 > div > div {
   flex: 0 1 270px;
   max-width: 270px;
@@ -202,7 +200,6 @@
   box-sizing: border-box;
 }
 
-/* Text column paragraphs: compact, dark, no default margins */
 .columns.columns15 > div > div > p {
   color: #232323;
   font-size: var(--body-font-size-xs);
@@ -214,16 +211,14 @@
   overflow-wrap: break-word;
 }
 
-/* The last column is the button: shrinkwrap and align right */
 .columns.columns15 > div > div:last-child {
   flex: 0 0 auto;
   max-width: none;
   justify-content: flex-end;
   align-items: center;
-  min-width: 0; /* allow button to hug its content */
+  min-width: 0;
 }
 
-/* Button container: keep button aligned right and centered vertically */
 .columns.columns15 .button-container {
   width: 100%;
   display: flex;
@@ -233,7 +228,6 @@
   padding: 0;
 }
 
-/* Button styles: pill shape, border, yellow shadow, compact text */
 .columns.columns15 .button-container .button {
   background: #fff;
   color: #232323;
@@ -257,7 +251,6 @@
   box-sizing: border-box;
 }
 
-/* Responsive: stack columns vertically on mobile */
 @media (width <= 900px) {
   .columns.columns15 > div {
     flex-direction: column;
@@ -278,3 +271,217 @@
     margin-top: 8px;
   }
 }
+
+
+.columns.columns21 {
+  background: #000;
+  border-bottom: 1px solid #151515;
+  padding: 40px 0 0;
+}
+
+/* Ensure grid has no extra top padding/margin and tighter horizontal gap for closer match */
+.columns.columns21 > div {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  gap: 0 44px;
+  max-width: 1200px;
+  margin: 0 auto;
+  align-items: start;
+  padding: 0 32px 0 16px;
+  margin-top: 0;
+  padding-top: 0;
+  row-gap: 0;
+}
+
+/* Responsive adjustments */
+@media (width <= 1000px) {
+  .columns.columns21 > div {
+    grid-template-columns: 1fr 1fr;
+    gap: 40px 20px;
+    padding: 0 12px;
+  }
+}
+
+@media (width <= 700px) {
+  .columns.columns21 > div {
+    grid-template-columns: 1fr;
+    gap: 32px 0;
+    padding: 0 4px;
+  }
+}
+
+/* --- FIRST COLUMN: BRANDING --- */
+.columns.columns21 > div > div:first-child {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  min-width: 170px;
+  padding-bottom: 12px;
+  height: 100%;
+  place-self: start start;
+  margin-top: 0;
+  padding-top: 0;
+  margin-left: 0;
+  padding-left: 0;
+}
+
+/* Remove any excess margin on branding children */
+.columns.columns21 > div > div:first-child > p,
+.columns.columns21 > div > div:first-child > ul {
+  margin-top: 0;
+  margin-bottom: 0;
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+/* Remove vertical spacing on first branding element */
+.columns.columns21 > div > div:first-child > p:first-child {
+  margin-top: 0;
+  margin-bottom: 0;
+  padding-top: 0;
+  padding-bottom: 0;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+/* If logo is present, align name beside logo */
+
+/* Adjust image size and margin for logo */
+.columns.columns21 > div > div:first-child img {
+  display: inline-block;
+  width: 32px;
+  height: 32px;
+  vertical-align: middle;
+  margin-right: 10px;
+}
+
+/* Site name styling */
+.columns.columns21 > div > div:first-child .button-container {
+  display: inline-block;
+  margin: 0;
+  padding: 0;
+}
+
+.columns.columns21 > div > div:first-child .button {
+  background: none;
+  color: #fff;
+  border: none;
+  border-radius: 0;
+  padding: 0;
+  margin: 0;
+  font-size: 18px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  box-shadow: none;
+  min-width: unset;
+  line-height: 1.2;
+  text-align: left;
+  pointer-events: none;
+  cursor: default;
+}
+
+/* Social icons row directly under logo/title */
+.columns.columns21 > div > div:first-child > ul {
+  display: flex;
+  flex-direction: row;
+  gap: 26px;
+  margin: 18px 0 0;
+  padding: 0;
+}
+
+.columns.columns21 > div > div:first-child ul li {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.columns.columns21 > div > div:first-child ul img {
+  width: 21px;
+  height: 21px;
+  display: block;
+  filter: brightness(0) invert(1);
+}
+
+/* Hide button labels under social icons */
+.columns.columns21 > div > div:first-child ul .button-container {
+  display: none;
+}
+
+/* --- NAVIGATION COLUMNS --- */
+.columns.columns21 > div > div:not(:first-child) {
+  min-width: 120px;
+  padding-bottom: 12px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  margin-top: 0;
+  padding-top: 0;
+}
+
+/* Remove list bullets and default margin/padding */
+.columns.columns21 > div > div:not(:first-child) ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* Section headings */
+.columns.columns21 > div > div:not(:first-child) h2 {
+  color: #666;
+  text-transform: uppercase;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  margin: 0 0 22px;
+  padding: 0;
+  line-height: 1.8;
+  text-align: left;
+}
+
+/* Navigation links */
+.columns.columns21 > div > div:not(:first-child) ul li a {
+  display: block;
+  color: #fff;
+  font-size: 15px;
+  font-weight: 400;
+  margin-bottom: 18px;
+  text-decoration: none;
+  transition: color 0.18s;
+  padding: 0;
+  text-align: left;
+}
+
+.columns.columns21 > div > div:not(:first-child) ul li a:hover,
+.columns.columns21 > div > div:not(:first-child) ul li a:focus {
+  color: #a8a8a8;
+}
+
+/* Remove bullets and excess padding for nav items */
+.columns.columns21 > div > div:not(:first-child) ul li {
+  margin: 0;
+  padding: 0;
+}
+
+/* Responsive tweaks for nav columns */
+@media (width <= 700px) {
+  .columns.columns21 > div > div {
+    min-width: 0;
+    padding-bottom: 0;
+  }
+}
+
+/* Ensure all columns are left and top aligned */
+.columns.columns21 > div > div {
+  text-align: left;
+  place-self: start start;
+}
+
+/* Remove any extra vertical centering from previous experiments */
+
+/* Final fix: Remove potential row gap from grid affecting top alignment */
