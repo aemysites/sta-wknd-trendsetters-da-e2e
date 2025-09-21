@@ -1089,7 +1089,6 @@
   padding: 40px 0;
 }
 
-/* --- Masonry-like grid, 2 columns --- */
 .cards.cards26 > ul {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -1100,7 +1099,6 @@
   grid-auto-flow: row dense;
 }
 
-/* --- Card Styling, remove fixed height, allow natural growth --- */
 .cards.cards26 > ul > li {
   background: #fff;
   border: none;
@@ -1115,7 +1113,6 @@
   height: auto;
 }
 
-/* --- Image container flexible height, fill card --- */
 .cards.cards26 .cards-card-image {
   width: 100%;
   min-height: 200px;
@@ -1135,7 +1132,6 @@
   z-index: 1;
 }
 
-/* --- Overlay: top left, compact, subtle --- */
 .cards.cards26 > ul > li .cards-card-body {
   position: absolute;
   top: 0;
@@ -1153,7 +1149,6 @@
   pointer-events: none;
 }
 
-/* --- Headings & Paragraphs --- */
 .cards.cards26 > ul > li .cards-card-body h3 {
   margin: 0 0 10px;
   font-size: 2rem;
@@ -1171,7 +1166,6 @@
   pointer-events: auto;
 }
 
-/* --- Beach Card: custom overlay color and alignment --- */
 .cards.cards26 > ul > li:nth-child(2) .cards-card-body {
   color: #8aa8b0;
   background: rgb(255 255 255 / 80%);
@@ -1189,12 +1183,10 @@
   color: #333;
 }
 
-/* --- Networking and bottom row cards: hide overlays on image-only cards --- */
 .cards.cards26 > ul > li .cards-card-body:empty {
   display: none;
 }
 
-/* --- Card 4 "Party after dark": wide, spans both columns, larger height --- */
 .cards.cards26 > ul > li:nth-child(4) {
   grid-column: 1 / span 2;
   min-height: 270px;
@@ -1214,12 +1206,10 @@
   font-size: 2.1rem;
 }
 
-/* --- Card 2: make it tall to mimic original --- */
 .cards.cards26 > ul > li:nth-child(2) {
   grid-row: span 2;
 }
 
-/* --- Last row: two cards side by side, equal height --- */
 .cards.cards26 > ul > li:nth-child(5),
 .cards.cards26 > ul > li:nth-child(6) {
   display: flex;
@@ -1235,7 +1225,6 @@
   border-radius: 20px;
 }
 
-/* --- Responsive: stack into one column, overlays remain top-left --- */
 @media (width <= 900px) {
   .cards.cards26 > ul {
     grid-template-columns: 1fr;
@@ -1266,3 +1255,185 @@
     grid-row: auto;
   }
 }
+
+
+.cards.cards34 ul {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 18px;
+  padding: 0;
+  list-style: none;
+}
+
+@media (width <= 900px) {
+  .cards.cards34 ul {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+}
+
+.cards.cards34 ul > li {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 1px 4px rgb(60 60 60 / 3%);
+  padding: 12px 14px 10px 12px;
+  border: none;
+  min-height: unset;
+  gap: 18px;
+  transition: box-shadow 0.2s;
+}
+
+.cards.cards34 ul > li:hover {
+  box-shadow: 0 5px 16px rgb(60 60 60 / 10%);
+}
+
+@media (width <= 900px) {
+  .cards.cards34 ul > li {
+    flex-direction: column;
+    gap: 8px;
+    padding: 8px 2px;
+    border-radius: 6px;
+  }
+}
+
+/* Image styling */
+.cards.cards34 .cards-card-image {
+  flex: 0 0 auto;
+  margin: 0;
+  display: flex;
+  align-items: flex-start;
+}
+
+.cards.cards34 .cards-card-image picture,
+.cards.cards34 .cards-card-image img {
+  display: block;
+  width: 190px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 8px;
+  background: #efefef;
+  margin-top: 0;
+}
+
+@media (width <= 900px) {
+  .cards.cards34 .cards-card-image picture,
+  .cards.cards34 .cards-card-image img {
+    width: 100%;
+    height: 128px;
+    margin-top: 0;
+  }
+}
+
+/* Text Block */
+.cards.cards34 .cards-card-body {
+  flex: 1 1 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  margin: 0;
+  padding-left: 0;
+  min-width: 0;
+  overflow-wrap: break-word;
+}
+
+/* Tag + Read Time: perfect alignment */
+.cards.cards34 .cards-card-body p:first-child,
+.cards.cards34 .cards-card-body p:nth-child(2) {
+  display: inline-block;
+  vertical-align: middle;
+  margin-top: 0;
+  margin-bottom: 0;
+  line-height: 1.4;
+}
+
+.cards.cards34 .cards-card-body p:first-child {
+  background: #f3f3f3;
+  color: #555;
+  font-size: 12px;
+  font-weight: 500;
+  border-radius: 16px;
+  padding: 2px 11px;
+  margin-right: 8px;
+  margin-top: 0;
+}
+
+.cards.cards34 .cards-card-body p:nth-child(2) {
+  color: #888;
+  font-size: 12px;
+  font-weight: 400;
+  margin-top: 0;
+}
+
+/* Remove margin between tag/read time and title */
+.cards.cards34 .cards-card-body p:first-child + p:nth-child(2) {
+  margin-bottom: 0;
+}
+
+.cards.cards34 .cards-card-body h3 {
+  font-size: 20px;
+  color: #232323;
+  font-weight: 600;
+  margin: 1px 0 3px;
+  line-height: 1.05;
+  letter-spacing: 0.02em;
+  overflow-wrap: break-word;
+  padding: 0;
+}
+
+/* Description */
+.cards.cards34 .cards-card-body p:nth-child(4) {
+  font-size: 15px;
+  color: #4A4A4A;
+  margin: 0 0 1px;
+  line-height: 1.4;
+}
+
+/* Read link styles */
+.cards.cards34 .cards-card-body .button-container {
+  margin-top: 0;
+}
+
+.cards.cards34 .cards-card-body .button-container a.button {
+  background: none;
+  color: #3578E5;
+  border: none;
+  padding: 0;
+  font-size: 14px;
+  line-height: 1.3;
+  border-radius: 0;
+  box-shadow: none;
+  font-weight: 500;
+  text-decoration: underline;
+  margin: 0;
+  min-width: unset;
+  white-space: normal;
+  display: inline-block;
+  transition: color 0.15s;
+}
+
+.cards.cards34 .cards-card-body .button-container a.button:hover,
+.cards.cards34 .cards-card-body .button-container a.button:focus {
+  color: #1d3ecf;
+  background: none;
+  box-shadow: none;
+}
+
+/* Remove double margin between stack elements in card body */
+.cards.cards34 .cards-card-body > * {
+  margin-top: 0;
+}
+
+.cards.cards34 .cards-card-body > h3 {
+  margin-bottom: 3px;
+}
+
+.cards.cards34 .cards-card-body > p.button-container {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+/* Make sure text doesn't overflow on small screens */
