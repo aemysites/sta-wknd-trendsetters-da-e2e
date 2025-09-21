@@ -41,17 +41,12 @@
 
 .columns {
   background: #F6F7F4;
-
-  /* Tweak asymmetric padding for closer vertical match */
   padding: 18px 0 62px;
   margin: 0;
   width: 100%;
   box-sizing: border-box;
 }
 
-/* Flex layout for vertical stacking; align container to top */
-
-/* Hide all but the single descriptive paragraph */
 .columns h2,
 .columns p:not(:first-of-type),
 .columns .button-container,
@@ -59,14 +54,12 @@
   display: none;
 }
 
-/* Center the paragraph and maximize line length to avoid wrapping */
 .columns > div > div:first-child {
   width: 100%;
   display: flex;
   justify-content: center;
 }
 
-/* Maximize visible paragraph width and ensure tight vertical spacing */
 .columns > div > div:first-child p:first-of-type {
   margin: 0;
   padding: 0;
@@ -82,7 +75,6 @@
   white-space: normal;
 }
 
-/* Responsive adjustment for smaller screens */
 @media (width <= 900px) {
   .columns {
     padding: 10px 0 30px;
@@ -90,5 +82,135 @@
 
   .columns > div > div:first-child p:first-of-type {
     max-width: 95vw;
+  }
+}
+
+
+.columns.columns4 {
+  background: #fff;
+  padding: 0;
+  margin: 0;
+}
+
+/* Layout: two columns, side by side, vertically centered */
+.columns.columns4 > div {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 220px;
+  padding: 48px 32px;
+  gap: 32px; /* Reduce gap to match original spacing */
+  box-sizing: border-box;
+  background: #fff;
+}
+
+/* Responsive: stack columns on mobile */
+@media (width <= 900px) {
+  .columns.columns4 > div {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 24px;
+    padding: 32px 12px;
+  }
+}
+
+/* Left column: vertical grouping, left alignment */
+.columns.columns4 > div > div:first-child {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  flex: 1 1 0;
+  min-width: 0;
+  text-align: left;
+}
+
+/* Heading: visible, left-aligned, tight spacing */
+.columns.columns4 h2 {
+  display: block;
+  margin: 0 0 1rem; /* Slightly smaller margin for tighter grouping */
+  font-size: 2.3rem;
+  color: #000;
+  font-weight: 400;
+  letter-spacing: 0.03em;
+  line-height: 1.1;
+  text-align: left;
+}
+
+/* Paragraph below heading: left alignment, increased width */
+.columns.columns4 h2 + p,
+.columns.columns4 > div > div:first-child > p {
+  color: #444;
+  font-size: 1rem;
+  margin: 0;
+  line-height: 1.6;
+  max-width: 800px; /* Wider to match original image */
+  text-align: left;
+}
+
+/* Button column: vertical stack, center, spacing */
+.columns.columns4 > div > div:last-child {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-width: 230px;
+  gap: 0.75rem;
+}
+
+/* Inner <p> wraps links, stack buttons */
+.columns.columns4 > div > div:last-child p {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin: 0;
+  text-align: center;
+}
+
+/* Button-like links styling */
+.columns.columns4 > div > div:last-child a {
+  display: block;
+  width: 230px;
+  height: 44px;
+  line-height: 44px;
+  border-radius: 999px;
+  background: #fff;
+  border: 1px solid #000;
+  color: #000;
+  font-size: 1rem;
+  font-weight: 500;
+  text-align: center;
+  text-decoration: none;
+  box-sizing: border-box;
+  margin: 0;
+  transition: border-color 0.2s;
+}
+
+/* Top button: yellow border on top edge */
+.columns.columns4 > div > div:last-child a:first-child {
+  border-top: 2px solid #f9e79f;
+  border-left: 1px solid #000;
+  border-right: 1px solid #000;
+  border-bottom: 1px solid #000;
+}
+
+/* Button hover/focus state */
+.columns.columns4 > div > div:last-child a:hover,
+.columns.columns4 > div > div:last-child a:focus {
+  border-color: #1d3ecf;
+  color: #1d3ecf;
+}
+
+/* Responsive: stretch buttons on mobile */
+@media (width <= 900px) {
+  .columns.columns4 > div > div:last-child,
+  .columns.columns4 > div > div:last-child p {
+    align-items: stretch;
+  }
+
+  .columns.columns4 > div > div:last-child a {
+    width: 100%;
+    min-width: 0;
   }
 }
