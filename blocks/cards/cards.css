@@ -439,7 +439,6 @@
   text-decoration: none;
 }
 
-/* Responsive adjustments */
 @media (width <= 1200px) {
   .cards.cards10 ul {
     grid-template-columns: repeat(2, 1fr);
@@ -465,5 +464,128 @@
     height: 140px;
     min-height: 0;
     max-height: unset;
+  }
+}
+
+
+.cards.cards12 > ul {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 24px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.cards.cards12 > ul > li {
+  background: #fff;
+  border-radius: 24px;
+  box-shadow: 0 2px 8px rgb(34 34 34 / 4%);
+  border: none;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.cards.cards12 .cards-card-image img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  display: block;
+  border-radius: 24px 24px 0 0;
+}
+
+/* --- Card body layout and spacing --- */
+.cards.cards12 .cards-card-body {
+  padding: 8px 20px 12px; /* tighter vertical padding */
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+/* --- Flex row for label/date --- */
+.cards.cards12 .cards-card-body-row {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 100%;
+  margin-bottom: 2px;
+}
+
+/* --- Target first two <p>s as a flex row, using a creative alternative --- */
+.cards.cards12 .cards-card-body > p:first-child,
+.cards.cards12 .cards-card-body > p:nth-child(2) {
+  display: flex;
+  align-items: center;
+  height: 24px;
+  line-height: 24px;
+  margin: 0;
+  padding: 0;
+}
+
+/* --- Pill label styling --- */
+.cards.cards12 .cards-card-body > p:first-child {
+  padding: 2px 7px;
+  background: #F5F5F5;
+  color: #232323;
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  border-radius: 999px;
+  letter-spacing: 0.04em;
+  margin-right: 8px;
+  flex: 0 1 auto;
+}
+
+/* --- Date styling --- */
+.cards.cards12 .cards-card-body > p:nth-child(2) {
+  color: #888;
+  font-size: 12px;
+  font-weight: 400;
+  margin-left: auto;
+  flex: 0 1 auto;
+  margin-bottom: 0;
+}
+
+/* --- Headline tight grouping --- */
+.cards.cards12 .cards-card-body h3 {
+  margin-top: 2px;
+  margin-bottom: 0;
+  font-size: 22px;
+  font-weight: 400;
+  color: #232323;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  line-height: 1.18;
+  text-align: left;
+}
+
+/* --- Remove extra vertical spacing on all <p> tags in card body --- */
+.cards.cards12 .cards-card-body p {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+/* --- Responsive adjustments --- */
+@media (width <= 900px) {
+  .cards.cards12 > ul {
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 18px;
+  }
+}
+
+@media (width <= 600px) {
+  .cards.cards12 > ul {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .cards.cards12 > ul > li {
+    border-radius: 18px;
+  }
+
+  .cards.cards12 .cards-card-image img {
+    border-radius: 18px 18px 0 0;
   }
 }
