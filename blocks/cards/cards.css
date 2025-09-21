@@ -683,7 +683,6 @@
   padding: 56px 0;
 }
 
-/* Editorial grid: maximum left bias and generous row spacing */
 .cards.cards23 > ul {
   display: grid;
   grid-template-columns: 2fr 1fr;
@@ -694,7 +693,6 @@
   padding: 0;
 }
 
-/* FEATURE CARD: Top left, even taller image and more text padding */
 .cards.cards23 > ul > li:first-child {
   grid-column: 1 / 2;
   grid-row: 1 / 2;
@@ -731,7 +729,6 @@
   align-items: flex-start;
 }
 
-/* TEXT-ONLY CARDS: Add even more padding and bigger heading for editorial feel */
 .cards.cards23 > ul > li:nth-child(2),
 .cards.cards23 > ul > li:nth-child(3) {
   background: #fff;
@@ -779,7 +776,6 @@
   margin-bottom: 1.1em;
 }
 
-/* SUPPORTING IMAGE CARD: Even more compact image, tight caption spacing */
 .cards.cards23 > ul > li:nth-child(4) {
   grid-column: 2 / 3;
   grid-row: 2 / 3;
@@ -808,12 +804,10 @@
   display: block;
 }
 
-/* Caption-style body for supporting image card, even tighter padding */
 .cards.cards23 > ul > li:nth-child(4) .cards-card-body {
   padding: 14px 18px 16px;
 }
 
-/* Editorial heading and text styles */
 .cards.cards23 .cards-card-body h3 {
   text-transform: uppercase;
   font-weight: 700;
@@ -836,7 +830,6 @@
   text-align: inherit;
 }
 
-/* Responsive: stack cards, preserve whitespace and rhythm on small screens */
 @media (width <= 900px) {
   .cards.cards23 > ul {
     grid-template-columns: 1fr;
@@ -859,5 +852,246 @@
   .cards.cards23 > ul > li:nth-child(2) .cards-card-body,
   .cards.cards23 > ul > li:nth-child(3) .cards-card-body {
     padding: 42px 16px;
+  }
+}
+
+
+.cards.cards24 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 600px;
+  background: var(--background-color);
+  padding: 56px 0;
+  position: relative;
+}
+
+/* Flex layout: image and card body side by side */
+.cards.cards24 > ul {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: flex-end;
+  width: 100%;
+  gap: 0;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  position: relative;
+}
+
+.cards.cards24 > ul > li {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  background: none;
+  border: none;
+  box-shadow: none;
+  min-width: 560px;
+  max-width: 860px;
+  padding: 0;
+  position: relative;
+  z-index: 1;
+}
+
+/* Main image: large, rotated, with multiple collage layers */
+.cards.cards24 .cards-card-image {
+  flex: 1 1 66%;
+  min-width: 380px;
+  max-width: 560px;
+  aspect-ratio: 1/1;
+  position: relative;
+  z-index: 3;
+  margin-right: -120px;
+  border-radius: 28px;
+  overflow: visible;
+  box-shadow: 0 10px 54px 0 rgb(40 40 60 / 23%);
+  transform: rotate(-3.2deg);
+  border: 2.5px solid rgb(28 28 28 / 11%);
+}
+
+/* Collage accent rectangles: simulate multiple overlapping layers */
+.cards.cards24 .cards-card-image::before,
+.cards.cards24 .cards-card-image::after {
+  display: block;
+  position: absolute;
+  pointer-events: none;
+  background: transparent;
+  border-radius: 30px;
+  z-index: 4;
+}
+
+.cards.cards24 .cards-card-image::before {
+  top: 32px;
+  left: -40px;
+  width: 82%;
+  height: 72%;
+  border: 2.5px solid rgb(30 30 30 / 9%);
+  transform: rotate(-13deg);
+  opacity: 0.74;
+}
+
+.cards.cards24 .cards-card-image::after {
+  bottom: -20px;
+  right: 38px;
+  width: 65%;
+  height: 35%;
+  border: 2.5px solid rgb(30 30 30 / 10%);
+  transform: rotate(17deg);
+  opacity: 0.63;
+}
+
+/* Additional collage accents on li to visually bridge image and card body */
+.cards.cards24 > ul > li::before,
+.cards.cards24 > ul > li::after {
+  display: block;
+  position: absolute;
+  pointer-events: none;
+  background: transparent;
+  border-radius: 24px;
+  z-index: 2;
+}
+
+.cards.cards24 > ul > li::before {
+  top: 34px;
+  left: 22px;
+  width: 70%;
+  height: 54%;
+  border: 2px solid rgb(40 40 40 / 13%);
+  transform: rotate(-9deg);
+  opacity: 0.54;
+  box-shadow: 0 2px 14px 0 rgb(20 20 20 / 9%);
+}
+
+.cards.cards24 > ul > li::after {
+  bottom: 12px;
+  right: -12px;
+  width: 48%;
+  height: 40%;
+  border: 2px solid rgb(40 40 40 / 9%);
+  transform: rotate(19deg);
+  opacity: 0.40;
+  box-shadow: 0 2px 6px 0 rgb(20 20 20 / 5%);
+}
+
+/* Subtle extra layer on li for more visual richness */
+
+/* Image itself */
+.cards.cards24 .cards-card-image picture,
+.cards.cards24 .cards-card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 26px;
+  display: block;
+  box-shadow: 0 2px 32px rgb(40 40 60 / 13%);
+}
+
+/* Card body: rotate opposite, overlap deeply, with collage accent */
+.cards.cards24 .cards-card-body {
+  flex: 1 1 34%;
+  max-width: 320px;
+  min-width: 110px;
+  background: #fff;
+  border-radius: 22px;
+  box-shadow: 0 10px 44px rgb(20 20 20 / 16%);
+  position: relative;
+  z-index: 5;
+  align-self: flex-end;
+  padding: 42px 26px 30px 36px;
+  margin-left: -170px;
+  margin-bottom: 56px;
+  transform: rotate(6deg);
+  border: 1.5px solid rgb(30 30 30 / 7%);
+  display: flex;
+  align-items: flex-end;
+}
+
+/* Collage accents on card body */
+.cards.cards24 .cards-card-body::before,
+.cards.cards24 .cards-card-body::after {
+  display: block;
+  position: absolute;
+  pointer-events: none;
+  border-radius: 24px;
+  background: transparent;
+  z-index: 6;
+}
+
+.cards.cards24 .cards-card-body::before {
+  top: 22px;
+  left: 18px;
+  width: 90%;
+  height: 83%;
+  border: 1.5px solid rgb(30 30 30 / 8%);
+  transform: rotate(-17deg);
+  opacity: 0.64;
+}
+
+.cards.cards24 .cards-card-body::after {
+  bottom: -16px;
+  right: 10px;
+  width: 68%;
+  height: 30%;
+  border: 1.5px solid rgb(30 30 30 / 6%);
+  transform: rotate(24deg);
+  opacity: 0.39;
+}
+
+/* Extra floating accent for editorial collage style */
+
+/* Responsive adjustments for mobile/tablet */
+@media (width <= 900px) {
+  .cards.cards24 {
+    min-height: 0;
+    padding: 18px 0;
+  }
+
+  .cards.cards24 > ul {
+    flex-direction: column;
+    align-items: center;
+    gap: 0;
+  }
+
+  .cards.cards24 > ul > li {
+    flex-direction: column;
+    min-width: 0;
+    max-width: 98vw;
+    padding: 0;
+  }
+
+  .cards.cards24 .cards-card-image {
+    margin: 0;
+    max-width: 98vw;
+    min-width: 0;
+    transform: none;
+    aspect-ratio: 16/10;
+  }
+
+  .cards.cards24 .cards-card-body {
+    margin: -60px auto 0;
+    max-width: 98vw;
+    min-width: 0;
+    transform: none;
+    padding: 22px 10px;
+    box-shadow: 0 2px 12px rgb(20 20 20 / 9%);
+  }
+
+  /* Retain minimal collage accents on mobile for visual richness */
+  .cards.cards24 .cards-card-image::before,
+  .cards.cards24 .cards-card-image::after {
+    opacity: 0.3;
+    width: 55%;
+    height: 32%;
+    inset: 12px auto auto 0;
+    border-width: 1px;
+    transform: rotate(-9deg);
+  }
+
+  .cards.cards24 .cards-card-body::before,
+  .cards.cards24 .cards-card-body::after,
+  .cards.cards24 > ul > li::before,
+  .cards.cards24 > ul > li::after {
+    display: none;
   }
 }
