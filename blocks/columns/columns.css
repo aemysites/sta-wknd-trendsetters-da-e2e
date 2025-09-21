@@ -1,6 +1,12 @@
+/* stylelint-disable no-descending-specificity */
 .columns > div {
   display: flex;
   flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  min-height: 80px;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .columns img {
@@ -29,5 +35,60 @@
   .columns > div > div {
     flex: 1;
     order: unset;
+  }
+}
+
+
+.columns {
+  background: #F6F7F4;
+
+  /* Tweak asymmetric padding for closer vertical match */
+  padding: 18px 0 62px;
+  margin: 0;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* Flex layout for vertical stacking; align container to top */
+
+/* Hide all but the single descriptive paragraph */
+.columns h2,
+.columns p:not(:first-of-type),
+.columns .button-container,
+.columns .columns-img-col {
+  display: none;
+}
+
+/* Center the paragraph and maximize line length to avoid wrapping */
+.columns > div > div:first-child {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+/* Maximize visible paragraph width and ensure tight vertical spacing */
+.columns > div > div:first-child p:first-of-type {
+  margin: 0;
+  padding: 0;
+  color: var(--text-color);
+  font-size: var(--body-font-size-s);
+  font-weight: 400;
+  text-align: center;
+  line-height: 1.5;
+  max-width: 1350px;
+  margin-left: auto;
+  margin-right: auto;
+  word-break: keep-all;
+  white-space: normal;
+}
+
+/* Responsive adjustment for smaller screens */
+@media (width <= 900px) {
+  .columns {
+    padding: 10px 0 30px;
+  }
+
+  .columns > div > div:first-child p:first-of-type {
+    max-width: 95vw;
   }
 }
