@@ -866,7 +866,6 @@
   position: relative;
 }
 
-/* Flex layout: image and card body side by side */
 .cards.cards24 > ul {
   display: flex;
   flex-direction: row;
@@ -894,7 +893,6 @@
   z-index: 1;
 }
 
-/* Main image: large, rotated, with multiple collage layers */
 .cards.cards24 .cards-card-image {
   flex: 1 1 66%;
   min-width: 380px;
@@ -910,7 +908,6 @@
   border: 2.5px solid rgb(28 28 28 / 11%);
 }
 
-/* Collage accent rectangles: simulate multiple overlapping layers */
 .cards.cards24 .cards-card-image::before,
 .cards.cards24 .cards-card-image::after {
   display: block;
@@ -941,7 +938,6 @@
   opacity: 0.63;
 }
 
-/* Additional collage accents on li to visually bridge image and card body */
 .cards.cards24 > ul > li::before,
 .cards.cards24 > ul > li::after {
   display: block;
@@ -974,9 +970,6 @@
   box-shadow: 0 2px 6px 0 rgb(20 20 20 / 5%);
 }
 
-/* Subtle extra layer on li for more visual richness */
-
-/* Image itself */
 .cards.cards24 .cards-card-image picture,
 .cards.cards24 .cards-card-image img {
   width: 100%;
@@ -987,7 +980,6 @@
   box-shadow: 0 2px 32px rgb(40 40 60 / 13%);
 }
 
-/* Card body: rotate opposite, overlap deeply, with collage accent */
 .cards.cards24 .cards-card-body {
   flex: 1 1 34%;
   max-width: 320px;
@@ -1007,7 +999,6 @@
   align-items: flex-end;
 }
 
-/* Collage accents on card body */
 .cards.cards24 .cards-card-body::before,
 .cards.cards24 .cards-card-body::after {
   display: block;
@@ -1038,9 +1029,6 @@
   opacity: 0.39;
 }
 
-/* Extra floating accent for editorial collage style */
-
-/* Responsive adjustments for mobile/tablet */
 @media (width <= 900px) {
   .cards.cards24 {
     min-height: 0;
@@ -1077,7 +1065,6 @@
     box-shadow: 0 2px 12px rgb(20 20 20 / 9%);
   }
 
-  /* Retain minimal collage accents on mobile for visual richness */
   .cards.cards24 .cards-card-image::before,
   .cards.cards24 .cards-card-image::after {
     opacity: 0.3;
@@ -1093,5 +1080,189 @@
   .cards.cards24 > ul > li::before,
   .cards.cards24 > ul > li::after {
     display: none;
+  }
+}
+
+
+.cards.cards26 {
+  background: #fafafa;
+  padding: 40px 0;
+}
+
+/* --- Masonry-like grid, 2 columns --- */
+.cards.cards26 > ul {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px 28px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  grid-auto-flow: row dense;
+}
+
+/* --- Card Styling, remove fixed height, allow natural growth --- */
+.cards.cards26 > ul > li {
+  background: #fff;
+  border: none;
+  border-radius: 20px;
+  box-shadow: 0 2px 16px rgb(0 0 0 / 8%);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  min-height: 120px;
+  align-self: stretch;
+  height: auto;
+}
+
+/* --- Image container flexible height, fill card --- */
+.cards.cards26 .cards-card-image {
+  width: 100%;
+  min-height: 200px;
+  height: auto;
+  position: relative;
+  overflow: hidden;
+  background: none;
+  display: flex;
+}
+
+.cards.cards26 .cards-card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  position: relative;
+  z-index: 1;
+}
+
+/* --- Overlay: top left, compact, subtle --- */
+.cards.cards26 > ul > li .cards-card-body {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: auto;
+  max-width: 80%;
+  padding: 24px 28px 18px 24px;
+  color: #d2d2d2;
+  z-index: 2;
+  background: rgb(34 34 34 / 18%);
+  border-radius: 0 0 28px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  pointer-events: none;
+}
+
+/* --- Headings & Paragraphs --- */
+.cards.cards26 > ul > li .cards-card-body h3 {
+  margin: 0 0 10px;
+  font-size: 2rem;
+  font-weight: 600;
+  line-height: 1.1;
+  letter-spacing: 0.02em;
+  color: #d2d2d2;
+  pointer-events: auto;
+}
+
+.cards.cards26 > ul > li .cards-card-body p {
+  margin: 0;
+  font-size: 1.08rem;
+  color: #fff;
+  pointer-events: auto;
+}
+
+/* --- Beach Card: custom overlay color and alignment --- */
+.cards.cards26 > ul > li:nth-child(2) .cards-card-body {
+  color: #8aa8b0;
+  background: rgb(255 255 255 / 80%);
+  padding-top: 32px;
+  padding-left: 32px;
+  max-width: 88%;
+}
+
+.cards.cards26 > ul > li:nth-child(2) .cards-card-body h3 {
+  color: #8aa8b0;
+  font-size: 2.2rem;
+}
+
+.cards.cards26 > ul > li:nth-child(2) .cards-card-body p {
+  color: #333;
+}
+
+/* --- Networking and bottom row cards: hide overlays on image-only cards --- */
+.cards.cards26 > ul > li .cards-card-body:empty {
+  display: none;
+}
+
+/* --- Card 4 "Party after dark": wide, spans both columns, larger height --- */
+.cards.cards26 > ul > li:nth-child(4) {
+  grid-column: 1 / span 2;
+  min-height: 270px;
+}
+
+.cards.cards26 > ul > li:nth-child(4) .cards-card-image {
+  min-height: 270px;
+}
+
+.cards.cards26 > ul > li:nth-child(4) .cards-card-body {
+  max-width: 65%;
+  background: rgb(34 34 34 / 18%);
+  padding: 28px 36px 22px 32px;
+}
+
+.cards.cards26 > ul > li:nth-child(4) .cards-card-body h3 {
+  font-size: 2.1rem;
+}
+
+/* --- Card 2: make it tall to mimic original --- */
+.cards.cards26 > ul > li:nth-child(2) {
+  grid-row: span 2;
+}
+
+/* --- Last row: two cards side by side, equal height --- */
+.cards.cards26 > ul > li:nth-child(5),
+.cards.cards26 > ul > li:nth-child(6) {
+  display: flex;
+  flex-direction: row;
+  min-height: 150px;
+  align-items: stretch;
+}
+
+.cards.cards26 > ul > li:nth-child(5) .cards-card-image,
+.cards.cards26 > ul > li:nth-child(6) .cards-card-image {
+  width: 100%;
+  min-height: 150px;
+  border-radius: 20px;
+}
+
+/* --- Responsive: stack into one column, overlays remain top-left --- */
+@media (width <= 900px) {
+  .cards.cards26 > ul {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+
+  .cards.cards26 > ul > li {
+    min-height: 110px;
+    height: auto;
+  }
+
+  .cards.cards26 .cards-card-image {
+    min-height: 110px;
+  }
+
+  .cards.cards26 > ul > li .cards-card-body {
+    max-width: 100%;
+    padding: 18px 16px 12px;
+    border-radius: 0 0 20px;
+  }
+
+  .cards.cards26 > ul > li:nth-child(4) {
+    grid-column: auto;
+    min-height: 160px;
+  }
+
+  .cards.cards26 > ul > li:nth-child(2) {
+    grid-row: auto;
   }
 }
