@@ -1,3 +1,4 @@
+/* stylelint-disable no-descending-specificity */
 .cards > ul {
   list-style: none;
   margin: 0;
@@ -24,4 +25,186 @@
   width: 100%;
   aspect-ratio: 4 / 3;
   object-fit: cover;
+}
+
+
+.cards.cards2 {
+  background: #fff;
+  padding: 48px 64px;
+  box-sizing: border-box;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Flex two-column layout, refined proportions */
+.cards.cards2 > ul {
+  display: flex;
+  flex-direction: row;
+  gap: 22px;
+  justify-content: center;
+  align-items: stretch;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  min-height: 640px;
+}
+
+/* Left card: less extreme width, better balance */
+.cards.cards2 > ul > li:first-child {
+  flex: 2.2 1 0;
+  max-width: 58%;
+  min-width: 380px;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+/* Right card: slightly wider */
+.cards.cards2 > ul > li:last-child {
+  flex: 1.3 1 0;
+  max-width: 38%;
+  min-width: 300px;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.cards.cards2 > ul > li {
+  background: #fff;
+  border: none;
+  border-radius: 24px;
+  box-shadow: 0 2px 12px rgb(0 0 0 / 4.5%);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  height: 100%;
+}
+
+/* Feature image aspect ratio and height fine-tuned for the left card */
+.cards.cards2 > ul > li:first-child .cards-card-image {
+  width: 100%;
+  overflow: hidden;
+  border-top-left-radius: 24px;
+  border-top-right-radius: 24px;
+  aspect-ratio: 16/10;
+  min-height: 340px;
+  background: #eaeaea;
+  display: flex;
+  align-items: stretch;
+}
+
+/* Standard image ratio on the right */
+.cards.cards2 > ul > li:last-child .cards-card-image {
+  width: 100%;
+  overflow: hidden;
+  border-top-left-radius: 24px;
+  border-top-right-radius: 24px;
+  aspect-ratio: 4/3;
+  min-height: 240px;
+  background: #eaeaea;
+  display: flex;
+  align-items: stretch;
+}
+
+.cards.cards2 .cards-card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-top-left-radius: 24px;
+  border-top-right-radius: 24px;
+  display: block;
+}
+
+/* Card body padding more compact for visual alignment */
+.cards.cards2 .cards-card-body {
+  padding: 18px 32px;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 auto;
+  justify-content: flex-start;
+  height: 100%;
+}
+
+/* Headline large and bold */
+.cards.cards2 .cards-card-body h3 {
+  font-weight: 700;
+  font-size: 2rem;
+  color: #000;
+  margin: 0 0 14px;
+  letter-spacing: 0.01em;
+  line-height: 1.1;
+}
+
+/* Description styled as plain text for both cards */
+.cards.cards2 .cards-card-body p {
+  font-size: 1.15rem;
+  color: #232323;
+  margin: 0 0 13px;
+  line-height: 1.5;
+  border: none;
+  padding: 0;
+  background: none;
+  border-radius: 0;
+  box-shadow: none;
+}
+
+/* Only style final paragraph (button) of the left/feature card as a button */
+.cards.cards2 > ul > li:first-child .cards-card-body p:last-child {
+  align-self: flex-start;
+  margin-top: 18px;
+  padding: 9px 24px;
+  border: 1.5px solid #222;
+  color: #222;
+  border-radius: 20px;
+  background: #fff;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.2s;
+  box-shadow: none;
+}
+
+/* Remove button styling from right card's last paragraph (description) */
+.cards.cards2 > ul > li:last-child .cards-card-body p:last-child {
+  border: none;
+  padding: 0;
+  margin-top: 0;
+  border-radius: 0;
+  background: none;
+  font-size: 1.15rem;
+  color: #232323;
+  font-weight: 400;
+  cursor: auto;
+  box-shadow: none;
+}
+
+/* Responsive adjustments */
+@media (width <= 1000px) {
+  .cards.cards2 {
+    padding: 28px 8px;
+  }
+
+  .cards.cards2 > ul {
+    flex-direction: column;
+    gap: 32px;
+    min-height: 0;
+  }
+
+  .cards.cards2 > ul > li,
+  .cards.cards2 > ul > li:first-child,
+  .cards.cards2 > ul > li:last-child {
+    max-width: 100%;
+    min-width: 0;
+    height: auto;
+  }
+
+  .cards.cards2 .cards-card-body {
+    padding: 13px 10px;
+  }
+
+  .cards.cards2 .cards-card-image {
+    min-height: 140px;
+  }
 }
