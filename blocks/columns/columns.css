@@ -46,7 +46,7 @@
 
 
 .columns {
-  background: #fff;
+  background: var(--background-color);
   width: 100%;
   min-height: 180px;
   display: flex;
@@ -55,6 +55,7 @@
   align-items: flex-start;
   box-sizing: border-box;
   padding: 0;
+  margin: 0;
 }
 
 .columns h2,
@@ -189,29 +190,33 @@
   }
 }
 
-/* Flex layout for side-by-side images, no gap */
 .columns > .columns {
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
-  align-items: flex-start;
+  align-items: stretch;
   gap: 0;
-  max-width: 1400px;
-  margin: 0 auto;
+  max-width: 100vw;
+  margin: 0;
   width: 100%;
   box-sizing: border-box;
+  min-height: 620px;
+  padding: 0;
 }
 
-/* 2nd level: row flex, no gap */
 .columns > .columns > div {
   display: flex;
   flex-direction: row;
   gap: 0;
   align-items: flex-start;
   width: 100%;
+  flex: 1 1 0%;
+  box-sizing: border-box;
+  min-height: 620px;
+  margin: 0;
+  padding: 0;
 }
 
-/* Left image: much narrower */
 .columns > .columns > div > .columns-img-col:first-child {
   width: 210px;
   max-width: 210px;
@@ -227,7 +232,6 @@
   margin-right: 0;
 }
 
-/* Right image: fills remaining space, no margin */
 .columns > .columns > div > .columns-img-col:last-child {
   flex: 1 1 0%;
   min-width: 260px;
@@ -242,7 +246,6 @@
   margin-left: 0;
 }
 
-/* Images fill container, no extra margin */
 .columns .columns-img-col picture,
 .columns .columns-img-col img {
   width: 100%;
@@ -277,5 +280,148 @@
     min-width: 100px;
     aspect-ratio: 1 / 1;
     border-radius: 12px;
+  }
+}
+
+/* Outermost flex layout: two columns, side by side, no gap */
+
+/* Second-level: ensure both children take up half, flush */
+
+/* Left column (text): only text, vertically centered, no image/card styles */
+.columns > .columns > div > div:first-child {
+  flex: 1 1 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  background: var(--background-color);
+  min-height: 100%;
+  height: 100%;
+  padding: 0 5vw;
+  border-radius: 0;
+  box-shadow: none;
+  margin: 0;
+  overflow: visible;
+}
+
+/* Hide any images in left column */
+.columns > .columns > div > div:first-child > img,
+.columns > .columns > div > div:first-child > picture {
+  display: none;
+}
+
+/* Ensure left column content stacks vertically and is visible */
+.columns > .columns > div > div:first-child > * {
+  display: initial;
+}
+
+/* Right column (image): full-bleed image, no border radius, edge-to-edge */
+.columns > .columns > div > .columns-img-col {
+  flex: 1 1 50%;
+  display: flex;
+  align-items: stretch;
+  justify-content: center;
+  width: 100%;
+  min-height: 100%;
+  background: none;
+  border-radius: 0;
+  box-shadow: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+/* Make image fill right column, edge-to-edge */
+.columns > .columns > div > .columns-img-col picture,
+.columns > .columns > div > .columns-img-col img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 0;
+  margin: 0;
+  display: block;
+}
+
+/* Heading styles (no font-family override) */
+.columns > .columns > div > div:first-child h2 {
+  color: var(--text-color);
+  font-size: clamp(2rem, 4vw, 2.5rem);
+  font-weight: 600;
+  line-height: 1.12;
+  letter-spacing: 0.03em;
+  margin-top: 0;
+  margin-bottom: 0.8em;
+}
+
+/* Paragraph styles */
+.columns > .columns > div > div:first-child p {
+  color: #444;
+  font-size: 1.05rem;
+  line-height: 1.6;
+  margin-bottom: 1.2em;
+  margin-top: 0;
+  max-width: 520px;
+}
+
+/* Button row horizontal arrangement */
+.columns > .columns > div > div:first-child .button-container {
+  display: flex;
+  gap: 24px;
+  margin-top: 2em;
+}
+
+/* Button style */
+.columns > .columns > div > div:first-child .button {
+  background: var(--background-color);
+  color: var(--text-color);
+  border: 2px solid var(--text-color);
+  border-radius: 2em;
+  padding: 0.7em 2.2em;
+  font-size: 1rem;
+  font-weight: 500;
+  line-height: 1.25;
+  text-align: center;
+  text-decoration: none;
+  transition: background 0.18s, color 0.18s;
+}
+
+.columns > .columns > div > div:first-child .button:hover,
+.columns > .columns > div > div:first-child .button:focus {
+  background: var(--text-color);
+  color: var(--background-color);
+}
+
+/* Responsive for narrow screens: stack columns vertically */
+@media (width <= 900px) {
+  .columns > .columns {
+    flex-direction: column;
+    min-height: 0;
+  }
+
+  .columns > .columns > div {
+    flex-direction: column;
+    min-height: 0;
+    height: auto;
+  }
+
+  .columns > .columns > div > div:first-child,
+  .columns > .columns > div > .columns-img-col {
+    flex: 1 1 100%;
+    width: 100%;
+    min-height: 260px;
+    height: auto;
+    padding: 4vw 4vw 0;
+  }
+
+  .columns > .columns > div > .columns-img-col {
+    margin-top: 18px;
+    padding-bottom: 4vw;
+  }
+
+  .columns > .columns > div > .columns-img-col picture,
+  .columns > .columns > div > .columns-img-col img {
+    width: 100%;
+    height: 260px;
+    object-fit: cover;
   }
 }
