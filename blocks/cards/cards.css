@@ -265,7 +265,7 @@
   font-size: 1rem;
   margin: 0;
   line-height: 1.5;
-  word-break: break-word;
+  word-wrap: break-word; /* Updated from deprecated keyword */
   overflow-wrap: break-word;
 }
 
@@ -309,7 +309,6 @@
   padding: 36px 0;
 }
 
-/* Make grid tight and rows perfectly aligned */
 .cards.cards10 > ul {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -334,7 +333,6 @@
   }
 }
 
-/* Card: ensure equal height, no bottom gaps, crisp alignment */
 .cards.cards10 > ul > li {
   display: flex;
   flex-direction: column;
@@ -349,7 +347,6 @@
   align-items: stretch;
 }
 
-/* Image block: visually prominent, slightly taller for balance */
 .cards.cards10 .cards-card-image {
   width: 100%;
   min-height: 232px;
@@ -363,7 +360,6 @@
   align-items: center;
 }
 
-/* Image fills card top entirely */
 .cards.cards10 .cards-card-image img,
 .cards.cards10 .cards-card-image picture {
   width: 100%;
@@ -374,7 +370,6 @@
   display: block;
 }
 
-/* Card body: use flex to distribute content, add bottom padding */
 .cards.cards10 .cards-card-body {
   flex: 1 1 auto;
   display: flex;
@@ -386,7 +381,6 @@
   height: 100%;
 }
 
-/* Category label */
 .cards.cards10 .cards-card-body > p:first-child {
   text-transform: uppercase;
   font-size: 12px;
@@ -398,7 +392,6 @@
   padding: 0;
 }
 
-/* Card title */
 .cards.cards10 .cards-card-body h3 {
   text-transform: uppercase;
   font-size: 20px;
@@ -410,7 +403,6 @@
   padding: 0;
 }
 
-/* Card description */
 .cards.cards10 .cards-card-body > p:last-child {
   font-size: 15px;
   color: #888B91;
@@ -420,16 +412,12 @@
   padding: 0;
 }
 
-/* Remove extra space above and below UL */
-
-/* Remove default UL/LI padding and margin */
 .cards.cards10 > ul,
 .cards.cards10 > ul > li {
   padding: 0;
   margin: 0;
 }
 
-/* For small screens: more compact layout */
 @media (width <= 700px) {
   .cards.cards10 {
     padding: 18px 0;
@@ -443,5 +431,153 @@
     min-height: 130px;
     height: 130px;
     max-height: 130px;
+  }
+}
+
+
+.cards.cards12 {
+  background: #fafafd;
+  padding: 40px 0;
+}
+
+.cards.cards12 > ul {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 16px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.cards.cards12 > ul > li {
+  background: #fff;
+  border-radius: 18px;
+  box-shadow: 0 2px 10px rgb(40 40 40 / 6%);
+  border: none;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  padding: 0;
+  margin-bottom: 4px;
+}
+
+.cards.cards12 .cards-card-image {
+  width: 100%;
+  aspect-ratio: 1 / 1.28;
+  overflow: hidden;
+  border-top-left-radius: 18px;
+  border-top-right-radius: 18px;
+  box-sizing: border-box;
+}
+
+.cards.cards12 .cards-card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  border-top-left-radius: 18px;
+  border-top-right-radius: 18px;
+}
+
+/* -- CARD BODY -- */
+.cards.cards12 .cards-card-body {
+  display: flex;
+  flex-direction: column;
+  padding: 16px 18px 28px;
+  gap: 0;
+  flex: 1;
+  justify-content: flex-start;
+  align-items: stretch;
+  position: relative;
+}
+
+/* Tag & Date: FLEX ROW alignment for first two p's */
+.cards.cards12 .cards-card-body-row,
+.cards.cards12 .cards-card-body > p:nth-child(1),
+.cards.cards12 .cards-card-body > p:nth-child(2) {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  height: 26px;
+  margin: 0;
+  padding: 0;
+  font-size: 12px;
+  line-height: 1.2;
+  box-sizing: border-box;
+}
+
+/* Tag pill styling */
+.cards.cards12 .cards-card-body > p:nth-child(1) {
+  background: #f5f5f5;
+  color: #585858;
+  font-weight: 600;
+  text-transform: uppercase;
+  border-radius: 9px;
+  padding: 0 12px;
+  letter-spacing: 0.07em;
+  margin-right: auto;
+  min-width: 0;
+  align-items: center;
+  height: 26px;
+  justify-content: flex-start;
+}
+
+/* Date styling and right spacing */
+.cards.cards12 .cards-card-body > p:nth-child(2) {
+  color: #7a7a7a;
+  font-weight: 400;
+  background: none;
+  border-radius: 0;
+  margin-left: auto;
+  min-width: 0;
+  align-items: center;
+  height: 26px;
+  justify-content: flex-end;
+  padding-left: 8px;
+  padding-right: 8px;
+}
+
+/* Remove position hacks, let flex do the work */
+.cards.cards12 .cards-card-body > p:nth-child(1) + p:nth-child(2) {
+  position: static;
+  top: auto;
+}
+
+/* Reduce vertical gap between tag/date row and title */
+.cards.cards12 .cards-card-body h3 {
+  font-size: 20px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.11em;
+  color: #222;
+  margin: 14px 0 0;
+  text-align: center;
+  line-height: 1.12;
+  word-break: break-word;
+  overflow-wrap: anywhere;
+}
+
+/* Card bottom margin for shadow/floating effect */
+
+/* Responsive: Stack cards on small screens */
+@media (width <= 700px) {
+  .cards.cards12 > ul {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  .cards.cards12 {
+    padding: 10px 0;
+  }
+
+  .cards.cards12 > ul > li {
+    border-radius: 12px;
+  }
+
+  .cards.cards12 .cards-card-image,
+  .cards.cards12 .cards-card-image img {
+    border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
   }
 }
