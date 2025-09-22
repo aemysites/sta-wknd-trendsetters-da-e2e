@@ -89,7 +89,7 @@
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  padding: 6px 16px 6px 4px; /* Nearly flush left, moderate right */
+  padding: 6px 16px 6px 4px;
   width: 100%;
   min-height: 32px;
   color: #22221F;
@@ -123,7 +123,6 @@
   display: none;
 }
 
-/* Arrow: perfectly centered, spaced from text */
 .accordion.accordion17 summary::after {
   display: flex;
   align-items: center;
@@ -146,7 +145,7 @@
 
 .accordion.accordion17 .accordion-item-body {
   background: #FAFAF7;
-  padding: 6px 16px 6px 4px; /* Match summary padding for flush left */
+  padding: 6px 16px 6px 4px;
   color: #22221F;
   font-size: 15px;
   font-weight: 400;
@@ -163,7 +162,6 @@
   line-height: 1.3;
 }
 
-/* Responsive: adjust width and padding for small screens */
 @media (width <= 700px) {
   .accordion.accordion17 {
     max-width: 100%;
@@ -173,5 +171,133 @@
   .accordion.accordion17 .accordion-item-body {
     padding-left: 2px;
     padding-right: 8px;
+  }
+}
+
+
+.accordion.accordion18 {
+  background: #fff;
+  padding: 0;
+}
+
+/* Layout FAQ row as flex: summary left, body right */
+.accordion.accordion18 details.accordion-item {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  border: none;
+  border-bottom: 1px solid #ccc;
+  margin: 0;
+  padding: 0;
+  min-height: 42px;
+  box-sizing: border-box;
+}
+
+/* Remove border under last row */
+.accordion.accordion18 details.accordion-item:last-child {
+  border-bottom: none;
+}
+
+/* Remove vertical gap between rows */
+.accordion.accordion18 details.accordion-item + details.accordion-item {
+  margin-top: 0;
+}
+
+/* Question (summary, left column) */
+.accordion.accordion18 .accordion-item-label {
+  flex: 1 1 48%;
+  min-width: 0;
+  padding-right: 12px;
+  display: flex;
+  align-items: center;
+  height: 100%;
+  box-sizing: border-box;
+}
+
+.accordion.accordion18 .accordion-item-label p {
+  font-size: 17px;
+  color: #616161;
+  letter-spacing: 0.05em;
+  margin: 0;
+  text-transform: lowercase;
+  font-weight: 400;
+  line-height: 1.3;
+  min-width: 0;
+  overflow-wrap: anywhere;
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+
+/* First question uppercase */
+.accordion.accordion18 details.accordion-item:first-child .accordion-item-label p {
+  text-transform: uppercase;
+}
+
+/* Hide summary marker/arrow, reset summary defaults */
+.accordion.accordion18 details.accordion-item summary {
+  list-style: none;
+  cursor: default;
+  padding: 0;
+  background: none;
+  outline: none;
+  min-width: 0;
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.accordion.accordion18 details.accordion-item summary::-webkit-details-marker,
+.accordion.accordion18 details.accordion-item summary::marker,
+.accordion.accordion18 details.accordion-item summary::after {
+  display: none;
+}
+
+/* Answer (body, right column) */
+.accordion.accordion18 .accordion-item-body {
+  flex: 1 1 52%;
+  min-width: 0;
+  padding-left: 12px;
+  display: flex;
+  align-items: center;
+  height: 100%;
+  box-sizing: border-box;
+}
+
+.accordion.accordion18 .accordion-item-body p {
+  font-size: 13px;
+  color: #393939;
+  margin: 0;
+  font-weight: 400;
+  line-height: 1.4;
+  min-width: 0;
+  overflow-wrap: anywhere;
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+
+/* Remove background/border from open state */
+.accordion.accordion18 details.accordion-item[open] .accordion-item-body,
+.accordion.accordion18 details.accordion-item[open] summary {
+  background: none;
+  border: none;
+}
+
+/* Responsive: stack vertically on small screens */
+@media (width <= 600px) {
+  .accordion.accordion18 details.accordion-item {
+    flex-direction: column;
+    align-items: stretch;
+    min-height: 0;
+  }
+
+  .accordion.accordion18 .accordion-item-label,
+  .accordion.accordion18 .accordion-item-body {
+    padding-left: 0;
+    padding-right: 0;
+    flex-basis: auto;
+    height: auto;
+    justify-content: flex-start;
   }
 }
