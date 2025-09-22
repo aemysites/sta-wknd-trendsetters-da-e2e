@@ -1,3 +1,4 @@
+/* stylelint-disable no-descending-specificity */
 .carousel .carousel-slides-container {
   position: relative;
 }
@@ -99,7 +100,6 @@
   z-index: 1;
 }
 
-/* stylelint-disable-next-line no-descending-specificity */
 .carousel .carousel-navigation-buttons button {
   position: relative;
   width: 44px;
@@ -149,5 +149,105 @@
 
   .carousel .carousel-slide .carousel-slide-content[data-align='justify'] {
     --slide-content-width: auto;
+  }
+}
+
+
+.carousel.carousel16 .carousel-navigation-buttons {
+  display: none;
+}
+
+.carousel.carousel16 .carousel-slide-indicators {
+  display: none;
+}
+
+/* Adjust .carousel-slides for more visible images, extra spacing */
+.carousel.carousel16 .carousel-slides {
+  gap: 48px;
+  justify-content: center;
+  padding: 64px 48px;
+  overflow: visible;
+}
+
+/* Show more images at once by reducing width */
+.carousel.carousel16 .carousel-slide {
+  flex: 0 0 180px;
+  min-width: 140px;
+  max-width: 200px;
+  min-height: 120px;
+  box-shadow: 0 2px 12px rgb(0 0 0 / 8%);
+  border-radius: 8px;
+  background: none;
+  margin: 0;
+  align-items: center;
+  justify-content: flex-start;
+  transition: transform 0.3s cubic-bezier(0.25,0.1,0.25,1);
+}
+
+/* Subtler, more natural rotation for polaroid effect */
+.carousel.carousel16 .carousel-slide:nth-child(1) {
+  transform: rotate(-4deg);
+}
+
+.carousel.carousel16 .carousel-slide:nth-child(2) {
+  transform: rotate(2deg);
+}
+
+.carousel.carousel16 .carousel-slide:nth-child(3) {
+  transform: rotate(-2deg);
+}
+
+.carousel.carousel16 .carousel-slide:nth-child(4) {
+  transform: rotate(3deg);
+}
+
+.carousel.carousel16 .carousel-slide:nth-child(5) {
+  transform: rotate(-3deg);
+}
+
+.carousel.carousel16 .carousel-slide:nth-child(6) {
+  transform: rotate(2deg);
+}
+
+/* Subtle inner card style */
+.carousel.carousel16 .carousel-slide .carousel-slide-image {
+  width: 100%;
+  height: 120px;
+  position: relative;
+  box-shadow: 0 1px 4px rgb(0 0 0 / 6%);
+  border-radius: 6px;
+  overflow: hidden;
+  background: #fff;
+}
+
+.carousel.carousel16 .carousel-slide .carousel-slide-image picture,
+.carousel.carousel16 .carousel-slide .carousel-slide-image img {
+  position: static;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 6px;
+}
+
+/* Hide text/content overlays */
+.carousel.carousel16 .carousel-slide .carousel-slide-content {
+  display: none;
+}
+
+/* Responsive improvement for smaller screens */
+@media (width <= 900px) {
+  .carousel.carousel16 .carousel-slides {
+    gap: 24px;
+    padding: 32px 8px;
+  }
+
+  .carousel.carousel16 .carousel-slide {
+    min-width: 100px;
+    max-width: 140px;
+    flex: 0 0 120px;
+  }
+
+  .carousel.carousel16 .carousel-slide .carousel-slide-image {
+    height: 80px;
   }
 }
