@@ -36,7 +36,6 @@
   margin: 0 auto;
 }
 
-/* Flex two-column layout, refined proportions */
 .cards.cards2 > ul {
   display: flex;
   flex-direction: row;
@@ -49,7 +48,6 @@
   min-height: 640px;
 }
 
-/* Left card: less extreme width, better balance */
 .cards.cards2 > ul > li:first-child {
   flex: 2.2 1 0;
   max-width: 58%;
@@ -59,7 +57,6 @@
   height: 100%;
 }
 
-/* Right card: slightly wider */
 .cards.cards2 > ul > li:last-child {
   flex: 1.3 1 0;
   max-width: 38%;
@@ -81,7 +78,6 @@
   height: 100%;
 }
 
-/* Feature image aspect ratio and height fine-tuned for the left card */
 .cards.cards2 > ul > li:first-child .cards-card-image {
   width: 100%;
   overflow: hidden;
@@ -94,7 +90,6 @@
   align-items: stretch;
 }
 
-/* Standard image ratio on the right */
 .cards.cards2 > ul > li:last-child .cards-card-image {
   width: 100%;
   overflow: hidden;
@@ -116,7 +111,6 @@
   display: block;
 }
 
-/* Card body padding more compact for visual alignment */
 .cards.cards2 .cards-card-body {
   padding: 18px 32px;
   margin: 0;
@@ -127,7 +121,6 @@
   height: 100%;
 }
 
-/* Headline large and bold */
 .cards.cards2 .cards-card-body h3 {
   font-weight: 700;
   font-size: 2rem;
@@ -137,7 +130,6 @@
   line-height: 1.1;
 }
 
-/* Description styled as plain text for both cards */
 .cards.cards2 .cards-card-body p {
   font-size: 1.15rem;
   color: #232323;
@@ -150,7 +142,6 @@
   box-shadow: none;
 }
 
-/* Only style final paragraph (button) of the left/feature card as a button */
 .cards.cards2 > ul > li:first-child .cards-card-body p:last-child {
   align-self: flex-start;
   margin-top: 18px;
@@ -166,7 +157,6 @@
   box-shadow: none;
 }
 
-/* Remove button styling from right card's last paragraph (description) */
 .cards.cards2 > ul > li:last-child .cards-card-body p:last-child {
   border: none;
   padding: 0;
@@ -180,7 +170,6 @@
   box-shadow: none;
 }
 
-/* Responsive adjustments */
 @media (width <= 1000px) {
   .cards.cards2 {
     padding: 28px 8px;
@@ -206,5 +195,115 @@
 
   .cards.cards2 .cards-card-image {
     min-height: 140px;
+  }
+}
+
+
+.cards.cards7 {
+  background: #f8faf7;
+  padding: 40px 0;
+}
+
+/* Grid for cards: slightly narrower, compact gap, centered */
+.cards.cards7 > ul {
+  display: grid;
+  grid-template-columns: repeat(3, 312px);
+  justify-content: center;
+  gap: 20px;
+  margin: 0 auto;
+  max-width: 1100px;
+  padding: 0;
+  list-style: none;
+}
+
+/* Card appearance: subtle shadow, compact width, tight proportions */
+.cards.cards7 > ul > li {
+  background: #fff;
+  border-radius: 26px;
+  box-shadow: 0 1.5px 8px rgb(60 60 60 / 4%);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  min-width: 0;
+  transition: box-shadow 0.18s;
+  border: none;
+  width: 312px;
+  max-width: 100%;
+}
+
+.cards.cards7 > ul > li:hover {
+  box-shadow: 0 10px 24px rgb(60 60 60 / 11%);
+}
+
+/* Image: prominent, fills width, rounded top corners */
+.cards.cards7 .cards-card-image {
+  line-height: 0;
+}
+
+.cards.cards7 > ul > li img {
+  width: 100%;
+  display: block;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  border-radius: 26px 26px 0 0;
+  min-height: 295px;
+  max-height: 355px;
+  background: #ececec;
+}
+
+/* Card body: minimal bottom padding, text close to image and base */
+.cards.cards7 .cards-card-body {
+  flex: 1 1 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 14px 18px 6px;
+  margin: 0;
+  text-align: center;
+  overflow-wrap: break-word;
+}
+
+.cards.cards7 .cards-card-body p {
+  color: #222;
+  font-size: 1rem;
+  margin: 0;
+  line-height: 1.5;
+  word-break: break-word;
+  overflow-wrap: anywhere; /* Updated property value */
+}
+
+/* Responsive: 2 columns then 1 column, compact for mobile */
+@media (width <= 1000px) {
+  .cards.cards7 > ul {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+    max-width: 96vw;
+  }
+
+  .cards.cards7 > ul > li {
+    width: 100%;
+    min-width: 0;
+  }
+}
+
+@media (width <= 650px) {
+  .cards.cards7 > ul {
+    grid-template-columns: 1fr;
+    gap: 14px;
+    max-width: 99vw;
+  }
+
+  .cards.cards7 {
+    padding: 16px 0;
+  }
+
+  .cards.cards7 .cards-card-body {
+    padding: 10px 6px 4px;
+  }
+
+  .cards.cards7 > ul > li img {
+    min-height: 120px;
+    max-height: 170px;
   }
 }
