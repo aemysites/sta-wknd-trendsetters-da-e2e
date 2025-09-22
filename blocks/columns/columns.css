@@ -31,3 +31,118 @@
     order: unset;
   }
 }
+
+
+.columns.columns8 {
+  /* Ensure the outer block uses flex for horizontal layout */
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+  width: 100%;
+  background: #fff;
+  padding: 0;
+  gap: 0; /* Remove gap here, use gap at the next level */
+}
+
+/* The first direct child of .columns.columns8 is a wrapper for both columns */
+.columns.columns8 > div {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  gap: 6vw; /* Horizontal space between columns */
+}
+
+/* Left column (heading) */
+.columns.columns8 > div > div:first-child {
+  flex: 1.15 1 0;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.columns.columns8 h2 {
+  font-size: 3.1rem;
+  font-weight: 600;
+  line-height: 1.07;
+  letter-spacing: 0.01em;
+  color: #222;
+  margin: 0 0 0.09em;
+  padding: 0;
+}
+
+/* Right column (text + button), vertically stacked */
+.columns.columns8 > div > div:last-child {
+  flex: 1.35 1 0;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding-left: 0;
+}
+
+/* Paragraph: left aligned, wider for less text wrap, small gap above button */
+.columns.columns8 > div > div:last-child > p {
+  font-size: 1.08rem;
+  color: #222;
+  line-height: 1.42;
+  margin: 0 0 0.9em;
+  text-align: left;
+  max-width: 600px;
+  width: 100%;
+  align-self: flex-start;
+}
+
+/* Center button horizontally under paragraph */
+.columns.columns8 .button-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-top: 0.2em;
+  padding: 0;
+}
+
+/* Button styling */
+.columns.columns8 .button-container .button {
+  background: #fff;
+  border: 1px solid #222;
+  color: #222;
+  border-radius: 2em;
+  padding: 0.65em 2.7em;
+  font-size: 1.07rem;
+  font-weight: 400;
+  line-height: 1.2;
+  margin: 0;
+  box-shadow: none;
+  text-align: center;
+  min-width: 0;
+  max-width: 100%;
+  transition: background 0.2s, color 0.2s;
+}
+
+.columns.columns8 .button-container .button:hover,
+.columns.columns8 .button-container .button:focus {
+  background: #f2f2f2;
+}
+
+/* Responsive: Stack columns vertically on small screens */
+@media (width <= 700px) {
+  .columns.columns8 {
+    flex-direction: column;
+  }
+
+  .columns.columns8 > div {
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .columns.columns8 > div > div:last-child {
+    align-items: flex-start;
+  }
+
+  .columns.columns8 .button-container {
+    justify-content: flex-start;
+  }
+}
