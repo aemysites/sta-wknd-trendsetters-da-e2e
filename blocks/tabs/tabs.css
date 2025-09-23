@@ -56,3 +56,160 @@
 .tabs .tabs-panel[aria-hidden='true'] {
   display: none;
 }
+
+
+.tabs.tabs22 {
+  background: #000;
+  padding: 72px 0;
+  min-width: 0;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Tabs row: horizontally centered and spaced */
+.tabs.tabs22 .tabs-list {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: flex-end;
+  gap: 84px;
+  width: 100%;
+  max-width: 720px;
+  margin: 0 0 72px;
+  padding: 0;
+  background: none;
+  border: none;
+}
+
+/* Individual tab buttons */
+.tabs.tabs22 .tabs-list button {
+  background: none;
+  border: none;
+  outline: none;
+  color: #555;
+  font-size: 26px;
+  font-weight: 500;
+  line-height: 1.12;
+  letter-spacing: 0.19em;
+  padding: 0 0 10px;
+  margin: 0;
+  border-bottom: 3px solid transparent;
+  border-radius: 0;
+  transition: color 0.2s, border-bottom-color 0.2s;
+  cursor: pointer;
+  min-width: 0;
+  white-space: nowrap;
+  text-align: center;
+}
+
+.tabs.tabs22 .tabs-list button[aria-selected="true"] {
+  color: #fff;
+  border-bottom: 3px solid #fff;
+  cursor: default;
+}
+
+.tabs.tabs22 .tabs-list button:focus-visible {
+  outline: 2px solid #fff;
+  outline-offset: 2px;
+}
+
+.tabs.tabs22 .tabs-list p {
+  margin: 0;
+}
+
+/* Active content panel visible, others hidden */
+.tabs.tabs22 .tabs-panel {
+  border: none;
+  background: none;
+  box-shadow: none;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  max-width: 1020px;
+  display: none;
+}
+
+.tabs.tabs22 .tabs-panel[aria-hidden="false"] {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 52px;
+}
+
+/* Headline styling */
+.tabs.tabs22 .tabs-panel > div > h3 {
+  color: #fff;
+  text-align: center;
+  font-size: 62px;
+  font-weight: 600;
+  letter-spacing: 0.21em;
+  margin: 0 0 56px;
+  line-height: 1.18;
+  text-transform: uppercase;
+  background: none;
+}
+
+/* Image styling */
+.tabs.tabs22 .tabs-panel > div > p > picture > img {
+  display: block;
+  width: 100%;
+  max-width: 920px;
+  border-radius: 38px;
+  margin: 0 auto;
+  box-shadow: none;
+}
+
+/* Remove default paragraph margins for tight vertical alignment */
+.tabs.tabs22 .tabs-panel > div > p {
+  margin: 0;
+}
+
+/* Responsive adjustments */
+@media (width <= 1100px) {
+  .tabs.tabs22 .tabs-panel > div > h3 {
+    font-size: 40px;
+    margin-bottom: 38px;
+  }
+
+  .tabs.tabs22 .tabs-list {
+    gap: 48px;
+    font-size: 18px;
+    max-width: 520px;
+    margin-bottom: 36px;
+  }
+
+  .tabs.tabs22 .tabs-panel > div > p > picture > img {
+    max-width: 100%;
+    border-radius: 22px;
+  }
+
+  .tabs.tabs22 {
+    padding: 32px 0 40px;
+  }
+}
+
+@media (width <= 700px) {
+  .tabs.tabs22 .tabs-list {
+    gap: 18px;
+    font-size: 13px;
+    max-width: none;
+    margin-bottom: 20px;
+  }
+
+  .tabs.tabs22 .tabs-panel > div > h3 {
+    font-size: 16px;
+    letter-spacing: 0.06em;
+    margin-bottom: 8px;
+  }
+
+  .tabs.tabs22 .tabs-panel > div > p > picture > img {
+    border-radius: 10px;
+  }
+
+  .tabs.tabs22 {
+    padding: 8px 0 18px;
+  }
+}
