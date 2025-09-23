@@ -1,3 +1,4 @@
+/* stylelint-disable no-descending-specificity */
 .columns > div {
   display: flex;
   flex-direction: column;
@@ -51,8 +52,6 @@
   align-items: flex-start;
   justify-content: flex-end;
   min-width: 0;
-
-  /* Raise image higher to align with headline center */
   margin-top: 28px;
 }
 
@@ -150,5 +149,184 @@
 
   .columns.columns3 .button-container {
     gap: 10px;
+  }
+}
+
+
+.columns.columns21 {
+  background: #000;
+  border-bottom: 1px solid #fff;
+  padding: 40px 0 36px;
+}
+
+.columns.columns21 > div {
+  display: grid;
+  grid-template-columns: 0.42fr 1fr 1fr 1fr;
+  gap: 68px;
+  align-items: start;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 40px;
+}
+
+/* Responsive grid */
+@media (width <= 1024px) {
+  .columns.columns21 > div {
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+    padding: 0 16px;
+  }
+}
+
+@media (width <= 700px) {
+  .columns.columns21 > div {
+    grid-template-columns: 1fr;
+    gap: 24px;
+    padding: 0 8px;
+  }
+}
+
+/* --- First column: vertical stacking --- */
+.columns.columns21 > div > div:first-child {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 12px;
+  padding-top: 0;
+  margin-top: 0;
+}
+
+/* --- Logo and blog name in a horizontal row --- */
+.columns.columns21 > div > div:first-child .columns-logo-row {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 14px;
+  margin: 0;
+  padding: 0;
+}
+
+/* Visually group logo and blog name using adjacent selectors */
+.columns.columns21 > div > div:first-child > p:first-child,
+.columns.columns21 > div > div:first-child > .button-container {
+  display: inline-flex;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+  vertical-align: middle;
+}
+
+.columns.columns21 > div > div:first-child > p:first-child + .button-container {
+  margin-left: 12px;
+}
+
+.columns.columns21 > div > div:first-child > p:first-child {
+  margin-bottom: 0;
+}
+
+/* Remove default button appearance and spacing */
+.columns.columns21 > div > div:first-child > .button-container .button {
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 1.18rem;
+  font-weight: 700;
+  padding: 0;
+  margin: 0;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  box-shadow: none;
+}
+
+/* --- Social icons row --- */
+.columns.columns21 > div > div:first-child > ul {
+  display: flex;
+  flex-direction: row;
+  gap: 22px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.columns.columns21 > div > div:first-child > ul li {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  align-items: center;
+}
+
+.columns.columns21 > div > div:first-child > ul li img {
+  width: 22px;
+  height: 22px;
+  display: block;
+  filter: brightness(0) invert(1);
+  margin: 0;
+  padding: 0;
+}
+
+/* Hide the social icon text label */
+.columns.columns21 > div > div:first-child > ul li .button-container {
+  display: none;
+}
+
+/* --- Columns 2, 3, 4: links --- */
+.columns.columns21 > div > div:not(:first-child) {
+  display: flex;
+  flex-direction: column;
+  min-width: 140px;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+
+/* Remove bullets from all uls in the block */
+.columns.columns21 ul {
+  list-style: none;
+  padding-left: 0;
+  margin: 0;
+}
+
+/* Headings: small, uppercase, muted gray */
+.columns.columns21 > div > div:not(:first-child) ul li:first-child h2 {
+  font-size: 13px;
+  font-weight: 500;
+  text-transform: uppercase;
+  color: #6e6e6e;
+  letter-spacing: 0.08em;
+  margin: 0 0 13px;
+  line-height: 1.4;
+}
+
+/* Navigation links: white, no bullets */
+.columns.columns21 > div > div:not(:first-child) a {
+  color: #fff;
+  font-size: 15px;
+  font-weight: 400;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.columns.columns21 > div > div:not(:first-child) a:hover {
+  color: #bdbdbd;
+}
+
+.columns.columns21 > div > div:not(:first-child) ul li {
+  list-style: none;
+  margin-bottom: 10px;
+  padding: 0;
+}
+
+/* Responsive: stack columns vertically on small screens */
+@media (width <= 700px) {
+  .columns.columns21 {
+    padding: 24px 0 18px;
+  }
+
+  .columns.columns21 > div > div {
+    min-width: 0;
+  }
+
+  .columns.columns21 > div > div:first-child {
+    align-items: flex-start;
+    gap: 8px;
   }
 }
