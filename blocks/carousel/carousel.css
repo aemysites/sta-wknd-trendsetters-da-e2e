@@ -1,3 +1,4 @@
+/* stylelint-disable no-descending-specificity */
 .carousel .carousel-slides-container {
   position: relative;
 }
@@ -99,7 +100,6 @@
   z-index: 1;
 }
 
-/* stylelint-disable-next-line no-descending-specificity */
 .carousel .carousel-navigation-buttons button {
   position: relative;
   width: 44px;
@@ -150,4 +150,169 @@
   .carousel .carousel-slide .carousel-slide-content[data-align='justify'] {
     --slide-content-width: auto;
   }
+}
+
+
+.carousel.carousel24 {
+  background: #f6f7f5;
+  box-shadow: 0 8px 44px 0 rgb(0 0 0 / 12%);
+  border-radius: 20px;
+  position: relative;
+  overflow: visible;
+  padding: 64px 0 68px;
+}
+
+/* Main angled photo stack */
+.carousel.carousel24 .carousel-slide {
+  position: relative;
+  transform: rotate(-5deg) scale(0.98);
+  box-shadow: 0 6px 24px 2px rgb(0 0 0 / 17%), 0 16px 40px 0 rgb(0 0 0 / 9%);
+  border-radius: 15px;
+  border: 2.2px solid #1a1a1a;
+  margin: 0 0 0 74px;
+  background: #fff;
+  overflow: visible;
+  z-index: 6;
+}
+
+/* Overlapping "polaroids"/frames for collage effect */
+.carousel.carousel24 .carousel-slide::before,
+.carousel.carousel24 .carousel-slide::after {
+  content: "";
+  display: block;
+  position: absolute;
+  pointer-events: none;
+  border-radius: 13px;
+  opacity: 0.7;
+  z-index: 2;
+  background: #fff;
+  box-shadow: 0 2px 14px 0 rgb(0 0 0 / 13%);
+  border: 1.3px solid #232323;
+}
+
+.carousel.carousel24 .carousel-slide::before {
+  width: 105px;
+  height: 86px;
+  left: -90px;
+  top: 34px;
+  transform: rotate(12deg) scale(1.02);
+  z-index: 2;
+}
+
+.carousel.carousel24 .carousel-slide::after {
+  width: 118px;
+  height: 72px;
+  right: -64px;
+  bottom: 60px;
+  transform: rotate(-18deg) scale(1.03);
+  z-index: 2;
+}
+
+/* Additional collage layers (simulated) in corners using pseudo-elements on container */
+.carousel.carousel24::before,
+.carousel.carousel24::after {
+  content: "";
+  display: block;
+  position: absolute;
+  pointer-events: none;
+  opacity: 0.37;
+  z-index: 1;
+}
+
+.carousel.carousel24::before {
+  left: 4vw;
+  top: 38px;
+  width: 98px;
+  height: 74px;
+  border-radius: 11px;
+  background: #fff;
+  border: 1px solid #bcbcbc;
+  box-shadow: 0 1px 8px 0 rgb(0 0 0 / 7%);
+  transform: rotate(-13deg);
+}
+
+.carousel.carousel24::after {
+  right: 3vw;
+  bottom: 38px;
+  width: 86px;
+  height: 54px;
+  border-radius: 12px;
+  background: #fff;
+  border: 1px solid #cfcfcf;
+  box-shadow: 0 0 7px 0 rgb(0 0 0 / 7%);
+  transform: rotate(17deg);
+}
+
+/* Hand-drawn style line accents */
+.carousel.carousel24 .collage-scribble,
+.carousel.carousel24 .collage-scribble2 {
+  position: absolute;
+  pointer-events: none;
+  background: transparent;
+  border-radius: 13px;
+  opacity: 0.55;
+  z-index: 3;
+}
+
+.carousel.carousel24 .collage-scribble {
+  left: 52px;
+  top: 10px;
+  width: 71%;
+  height: 17px;
+  border-bottom: 1.6px solid #222;
+  transform: rotate(-5deg);
+}
+
+.carousel.carousel24 .collage-scribble2 {
+  right: 44px;
+  bottom: 13px;
+  width: 44%;
+  height: 12px;
+  border-bottom: 1.3px solid #222;
+  transform: rotate(11deg);
+}
+
+/* Restore and organically blend the caption overlay, styled like a loose polaroid label */
+.carousel.carousel24 .carousel-slide-content {
+  background: rgb(255 255 255 / 97%);
+  color: #232323;
+  box-shadow: 0 5px 32px 0 rgb(0 0 0 / 12%);
+  margin: 0;
+  padding: 13px 30px 13px 25px;
+  position: absolute;
+  left: 36px;
+  bottom: -34px;
+  width: auto;
+  max-width: 72%;
+  font-size: 1.25em;
+  font-weight: 500;
+  letter-spacing: 0.015em;
+  border-radius: 10px;
+  z-index: 10;
+  transform: rotate(-16deg);
+  border: 1.4px solid #232323;
+  filter: drop-shadow(0 4px 8px rgb(0 0 0 / 10%));
+  line-height: 1.24;
+}
+
+/* Decorative underline for label, faint scribble effect */
+.carousel.carousel24 .carousel-slide-content::after {
+  content: "";
+  display: block;
+  position: absolute;
+  left: 18px;
+  bottom: -12px;
+  width: 72%;
+  height: 4px;
+  border-bottom: 2px solid #ddd;
+  opacity: 0.62;
+  transform: rotate(-6deg);
+  border-radius: 9px;
+  z-index: 1;
+}
+
+/* Hide navigation and indicators */
+.carousel.carousel24 .carousel-navigation-buttons,
+.carousel.carousel24 .carousel-slide-indicators {
+  display: none;
 }
