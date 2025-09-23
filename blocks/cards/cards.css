@@ -765,7 +765,6 @@
   padding: 32px 0;
 }
 
-/* Use CSS Grid for row-wise masonry effect with responsive columns */
 .cards.cards26 > ul {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -795,7 +794,6 @@
   }
 }
 
-/* Card styling */
 .cards.cards26 > ul > li {
   display: flex;
   flex-direction: column;
@@ -814,7 +812,6 @@
   box-shadow: 0 8px 32px 0 rgb(40 60 120 / 10%);
 }
 
-/* Top image area */
 .cards.cards26 .cards-card-image {
   width: 100%;
   line-height: 0;
@@ -831,7 +828,6 @@
   border-radius: 20px 20px 0 0;
 }
 
-/* Card body */
 .cards.cards26 .cards-card-body {
   padding: 28px 28px 24px;
   background: transparent;
@@ -849,7 +845,6 @@
   }
 }
 
-/* Headings and paragraphs */
 .cards.cards26 .cards-card-body h3 {
   font-size: 2rem;
   font-weight: 600;
@@ -864,4 +859,176 @@
   color: #444;
   margin: 0;
   line-height: 1.5;
+}
+
+
+.cards.cards34 {
+  max-width: 990px;
+  margin: 0 auto;
+  padding: 36px 0 32px;
+  background: none;
+}
+
+.cards.cards34 > ul {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px 28px;
+  justify-content: center;
+  width: 100%;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+@media (width <= 900px) {
+  .cards.cards34 > ul {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+}
+
+.cards.cards34 > ul > li {
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 1.5px 8px rgb(0 0 0 / 5%);
+  padding: 0;
+  border: none;
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  min-height: 200px;
+  height: 100%;
+  transition: box-shadow 0.18s;
+}
+
+.cards.cards34 > ul > li:hover {
+  box-shadow: 0 8px 24px rgb(0 0 0 / 10%);
+}
+
+@media (width <= 900px) {
+  .cards.cards34 > ul > li {
+    flex-direction: column;
+    min-height: unset;
+    height: auto;
+  }
+}
+
+.cards.cards34 .cards-card-image {
+  flex: 0 0 46%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 0;
+  height: 100%;
+  margin: 0;
+  padding: 18px 0 18px 18px;
+}
+
+@media (width <= 900px) {
+  .cards.cards34 .cards-card-image {
+    width: 100%;
+    padding: 18px 18px 0;
+  }
+}
+
+.cards.cards34 .cards-card-image img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 4 / 3;
+  border-radius: 10px;
+  object-fit: cover;
+  box-sizing: border-box;
+  background: #fff;
+  display: block;
+}
+
+.cards.cards34 .cards-card-body {
+  flex: 1 1 54%;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-width: 0;
+  padding: 12px 24px 12px 30px;
+}
+
+@media (width <= 900px) {
+  .cards.cards34 .cards-card-body {
+    padding: 18px;
+  }
+}
+
+.cards.cards34 .cards-card-body p {
+  margin: 0;
+}
+
+.cards.cards34 .cards-card-body p:first-child,
+.cards.cards34 .cards-card-body p:nth-child(2) {
+  display: inline-block;
+  font-size: 13px;
+  vertical-align: middle;
+  margin-right: 7px;
+  margin-bottom: 0;
+  margin-top: 0;
+  line-height: 1.2;
+}
+
+.cards.cards34 .cards-card-body p:first-child {
+  background: #ededed;
+  color: #555;
+  border-radius: 11px;
+  padding: 2px 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.045em;
+  margin-right: 8px;
+  margin-top: 2px;
+}
+
+.cards.cards34 .cards-card-body p:nth-child(2) {
+  background: none;
+  color: #555;
+  font-weight: 400;
+  padding: 0;
+  text-transform: none;
+  margin-top: 2px;
+}
+
+.cards.cards34 .cards-card-body h3 {
+  font-size: 23px;
+  font-weight: 700;
+  color: #222;
+  margin: 12px 0 8px;
+  letter-spacing: 0.03em;
+  line-height: 1.18;
+  word-break: break-word;
+  overflow-wrap: break-word;
+}
+
+.cards.cards34 .cards-card-body p:nth-child(4) {
+  font-size: 15px;
+  color: #666;
+  margin: 0 0 10px;
+  line-height: 1.5;
+}
+
+.cards.cards34 .cards-card-body p:last-child {
+  font-size: 13px;
+  font-weight: 600;
+  color: #222;
+  margin: 10px 0 0;
+  cursor: pointer;
+  letter-spacing: 0.01em;
+  line-height: 1.3;
+}
+
+/* Prevent empty image area (if image missing in markup) */
+.cards.cards34 .cards-card-image:empty {
+  display: none;
+}
+
+.cards.cards34 > ul > li:has(.cards-card-image:empty) .cards-card-body {
+  flex: 1 1 100%;
+  padding-left: 30px;
 }
