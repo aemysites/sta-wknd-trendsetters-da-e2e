@@ -111,16 +111,9 @@
 }
 
 .cards.cards2 .cards-card-body h3 {
-  font-size: 2.8rem;
-  font-weight: 700;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  margin: 0 0 28px;
-  color: #111;
-  line-height: 1.08;
-  word-break: break-word;
-  overflow-wrap: anywhere;
-}
+    font-size: 1.15rem;
+    margin-bottom: 10px;
+  }
 
 .cards.cards2 .cards-card-body p {
   font-size: 1.17rem;
@@ -217,5 +210,71 @@
     padding: 7px 12px;
     font-size: 0.90rem;
     border-radius: 9px;
+  }
+}
+
+
+.cards.cards7 > ul {
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+  justify-content: space-between;
+  align-items: stretch;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  box-sizing: border-box;
+}
+
+.cards.cards7 > ul > li {
+  flex: 1 1 0;
+  display: flex;
+  flex-direction: column;
+  background: #fff;
+  border-radius: 28px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgb(0 0 0 / 4%);
+  border: none;
+  min-width: 0;
+  min-height: 0;
+  padding: 0;
+  margin: 0;
+  aspect-ratio: 16/11;
+  height: auto;
+}
+
+.cards.cards7 .cards-card-image {
+  flex: 1 1 auto;
+  width: 100%;
+  height: 100%;
+  display: flex;
+}
+
+.cards.cards7 .cards-card-image picture,
+.cards.cards7 .cards-card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 28px;
+  display: block;
+}
+
+.cards.cards7 .cards-card-body {
+  display: none;
+}
+
+@media (width <= 900px) {
+  .cards.cards7 > ul {
+    flex-direction: column;
+    gap: 16px;
+    padding: 0 5vw;
+  }
+
+  .cards.cards7 > ul > li {
+    width: 100%;
+    max-width: 420px;
+    margin: 0 auto;
+    aspect-ratio: 16/11;
   }
 }
