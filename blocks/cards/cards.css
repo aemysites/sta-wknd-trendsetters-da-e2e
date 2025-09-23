@@ -565,7 +565,6 @@
   max-width: none;
 }
 
-/* Responsive grid for smaller screens */
 @media (width <= 900px) {
   .cards.cards19 > ul {
     grid-template-columns: repeat(2, 220px);
@@ -596,13 +595,11 @@
   list-style: none;
 }
 
-/* Remove extra spacing from card body */
 .cards.cards19 .cards-card-body {
   margin: 0;
   padding: 0;
 }
 
-/* Icon container: align to text top */
 .cards.cards19 > ul > li > .cards-card-body:first-child {
   display: flex;
   align-items: flex-start;
@@ -611,7 +608,6 @@
   margin-right: 8px;
 }
 
-/* Icon size */
 .cards.cards19 > ul > li > .cards-card-body:first-child img {
   width: 24px;
   height: 24px;
@@ -623,7 +619,6 @@
   display: block;
 }
 
-/* Text container: flexible width, align to top */
 .cards.cards19 > ul > li > .cards-card-body:last-child {
   flex: 1 1 0%;
   display: flex;
@@ -632,7 +627,6 @@
   overflow-wrap: break-word;
 }
 
-/* Description text style */
 .cards.cards19 > ul > li > .cards-card-body:last-child p {
   color: #333;
   font-size: 13px;
@@ -643,11 +637,124 @@
   overflow-wrap: break-word;
 }
 
-/* Remove unwanted spacing from icon and text container paragraphs */
 .cards.cards19 > ul > li > .cards-card-body:first-child p,
 .cards.cards19 > ul > li > .cards-card-body:last-child p {
   margin: 0;
   padding: 0;
 }
 
-/* Remove bullet style on li if any browser default remains */
+
+.cards.cards23 > ul {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 40px;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  width: 100%;
+  place-items: stretch stretch;
+}
+
+.cards.cards23 > ul > li {
+  display: flex;
+  flex-direction: column;
+  background: #fff;
+  border: 2px solid #eaeaea;
+  border-radius: 24px;
+  overflow: hidden;
+  min-height: 400px;
+  box-shadow: 0 2px 8px 0 rgb(60 60 60 / 3%);
+  transition: box-shadow 0.2s;
+}
+
+.cards.cards23 > ul > li:hover {
+  box-shadow: 0 8px 32px 0 rgb(60 60 60 / 10%);
+}
+
+.cards.cards23 .cards-card-image:empty {
+  display: none;
+}
+
+.cards.cards23 .cards-card-image {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  background: #eaeaea;
+  display: flex;
+  align-items: stretch;
+  justify-content: stretch;
+  border-radius: 24px 24px 0 0;
+  overflow: hidden;
+}
+
+.cards.cards23 > ul > li img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 24px 24px 0 0;
+  display: block;
+}
+
+.cards.cards23 .cards-card-body {
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding: 32px 32px 28px;
+  gap: 14px;
+  min-height: 0;
+}
+
+.cards.cards23 .cards-card-body h3 {
+  margin-top: 0;
+  margin-bottom: 12px;
+  font-size: 1.65rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: #232323;
+  line-height: 1.18;
+}
+
+.cards.cards23 .cards-card-body p {
+  margin: 0 0 10px;
+  font-size: 1.08rem;
+  color: #454545;
+  line-height: 1.55;
+}
+
+@media (width <= 900px) {
+  .cards.cards23 > ul {
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(4, 1fr);
+    gap: 24px;
+  }
+
+  .cards.cards23 > ul > li {
+    min-height: 240px;
+    border-radius: 20px;
+  }
+
+  .cards.cards23 .cards-card-image {
+    border-radius: 20px 20px 0 0;
+  }
+
+  .cards.cards23 > ul > li img {
+    border-radius: 20px 20px 0 0;
+  }
+
+  .cards.cards23 .cards-card-body {
+    padding: 20px 14px 14px;
+    gap: 10px;
+  }
+
+  .cards.cards23 .cards-card-body h3 {
+    font-size: 1.22rem;
+    margin-bottom: 8px;
+  }
+
+  .cards.cards23 .cards-card-body p {
+    font-size: 0.98rem;
+    margin-bottom: 7px;
+  }
+}
