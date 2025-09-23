@@ -169,7 +169,6 @@
   padding: 0 40px;
 }
 
-/* Responsive grid */
 @media (width <= 1024px) {
   .columns.columns21 > div {
     grid-template-columns: 1fr 1fr;
@@ -186,7 +185,6 @@
   }
 }
 
-/* --- First column: vertical stacking --- */
 .columns.columns21 > div > div:first-child {
   display: flex;
   flex-direction: column;
@@ -196,7 +194,6 @@
   margin-top: 0;
 }
 
-/* --- Logo and blog name in a horizontal row --- */
 .columns.columns21 > div > div:first-child .columns-logo-row {
   display: flex;
   flex-direction: row;
@@ -206,7 +203,6 @@
   padding: 0;
 }
 
-/* Visually group logo and blog name using adjacent selectors */
 .columns.columns21 > div > div:first-child > p:first-child,
 .columns.columns21 > div > div:first-child > .button-container {
   display: inline-flex;
@@ -224,7 +220,6 @@
   margin-bottom: 0;
 }
 
-/* Remove default button appearance and spacing */
 .columns.columns21 > div > div:first-child > .button-container .button {
   background: none;
   border: none;
@@ -238,7 +233,6 @@
   box-shadow: none;
 }
 
-/* --- Social icons row --- */
 .columns.columns21 > div > div:first-child > ul {
   display: flex;
   flex-direction: row;
@@ -264,12 +258,10 @@
   padding: 0;
 }
 
-/* Hide the social icon text label */
 .columns.columns21 > div > div:first-child > ul li .button-container {
   display: none;
 }
 
-/* --- Columns 2, 3, 4: links --- */
 .columns.columns21 > div > div:not(:first-child) {
   display: flex;
   flex-direction: column;
@@ -278,14 +270,12 @@
   justify-content: flex-start;
 }
 
-/* Remove bullets from all uls in the block */
 .columns.columns21 ul {
   list-style: none;
   padding-left: 0;
   margin: 0;
 }
 
-/* Headings: small, uppercase, muted gray */
 .columns.columns21 > div > div:not(:first-child) ul li:first-child h2 {
   font-size: 13px;
   font-weight: 500;
@@ -296,7 +286,6 @@
   line-height: 1.4;
 }
 
-/* Navigation links: white, no bullets */
 .columns.columns21 > div > div:not(:first-child) a {
   color: #fff;
   font-size: 15px;
@@ -315,7 +304,6 @@
   padding: 0;
 }
 
-/* Responsive: stack columns vertically on small screens */
 @media (width <= 700px) {
   .columns.columns21 {
     padding: 24px 0 18px;
@@ -328,5 +316,47 @@
   .columns.columns21 > div > div:first-child {
     align-items: flex-start;
     gap: 8px;
+  }
+}
+
+
+.columns.columns30 > div {
+  display: flex;
+  flex-direction: row;
+  gap: 32px;
+  align-items: stretch;
+  justify-content: stretch;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.columns.columns30 .columns-img-col {
+  flex: 1 1 0;
+  display: flex;
+  align-items: stretch;
+  min-width: 0;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+}
+
+.columns.columns30 .columns-img-col picture,
+.columns.columns30 .columns-img-col img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  border-radius: 24px;
+}
+
+@media (width <= 900px) {
+  .columns.columns30 > div {
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  .columns.columns30 .columns-img-col {
+    aspect-ratio: auto;
   }
 }
