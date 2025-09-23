@@ -31,3 +31,124 @@
     order: unset;
   }
 }
+
+
+.columns.columns3 > div {
+  display: flex;
+  flex-direction: row;
+  gap: 48px;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 64px 48px;
+  background: #fafaf6;
+  border-radius: 32px;
+  box-sizing: border-box;
+}
+
+.columns.columns3 .columns-img-col {
+  flex: 0 1 36%;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-end;
+  min-width: 0;
+
+  /* Raise image higher to align with headline center */
+  margin-top: 28px;
+}
+
+.columns.columns3 .columns-img-col img {
+  width: 100%;
+  max-width: 300px;
+  height: auto;
+  border-radius: 24px;
+  box-shadow: 0 4px 24px rgb(0 0 0 / 8%);
+  object-fit: cover;
+  display: block;
+}
+
+.columns.columns3 .columns-img-col + div {
+  flex: 1 1 64%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  min-width: 0;
+  gap: 0;
+}
+
+.columns.columns3 .columns-img-col + div h1 {
+  font-size: 3.1rem;
+  font-weight: 400;
+  letter-spacing: 0.03em;
+  color: #161616;
+  margin: 0 0 36px;
+  line-height: 1.08;
+}
+
+.columns.columns3 .columns-img-col + div p:not(.button-container) {
+  font-size: 1rem;
+  color: #5c5c5c;
+  margin: 0 0 28px;
+  max-width: 520px;
+  line-height: 1.5;
+}
+
+.columns.columns3 .button-container {
+  display: flex;
+  gap: 16px;
+  margin-top: 0;
+}
+
+.columns.columns3 .button-container .button {
+  background: #fafaf6;
+  border: 1.5px solid #161616;
+  color: #161616;
+  border-radius: 24px;
+  padding: 14px 36px;
+  font-size: 1rem;
+  box-shadow: none;
+  margin: 0;
+  transition: background 0.2s, color 0.2s;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.columns.columns3 .button-container .button:hover,
+.columns.columns3 .button-container .button:focus {
+  background: #161616;
+  color: #fafaf6;
+}
+
+@media (width <= 900px) {
+  .columns.columns3 > div {
+    flex-direction: column;
+    gap: 28px;
+    padding: 24px 10px;
+    border-radius: 18px;
+  }
+
+  .columns.columns3 .columns-img-col,
+  .columns.columns3 .columns-img-col + div {
+    flex: 1 1 100%;
+    max-width: 100%;
+    margin-top: 0;
+  }
+
+  .columns.columns3 .columns-img-col img {
+    max-width: 100%;
+  }
+
+  .columns.columns3 .columns-img-col + div h1 {
+    font-size: 2rem;
+    margin-bottom: 18px;
+  }
+
+  .columns.columns3 .columns-img-col + div p:not(.button-container) {
+    margin-bottom: 18px;
+    max-width: 100%;
+  }
+
+  .columns.columns3 .button-container {
+    gap: 10px;
+  }
+}
