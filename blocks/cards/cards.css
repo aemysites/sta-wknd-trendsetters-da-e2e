@@ -550,3 +550,104 @@
     padding: 6px 7px 0;
   }
 }
+
+
+.cards.cards19 > ul {
+  display: grid;
+  grid-template-columns: repeat(4, 220px);
+  gap: 16px 24px;
+  justify-content: center;
+  align-items: start;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  max-width: none;
+}
+
+/* Responsive grid for smaller screens */
+@media (width <= 900px) {
+  .cards.cards19 > ul {
+    grid-template-columns: repeat(2, 220px);
+    gap: 20px 16px;
+  }
+}
+
+@media (width <= 600px) {
+  .cards.cards19 > ul {
+    grid-template-columns: 1fr;
+    gap: 16px 0;
+    justify-content: start;
+  }
+}
+
+.cards.cards19 > ul > li {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  max-width: 220px;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  border: none;
+  background: none;
+  justify-self: start;
+  list-style: none;
+}
+
+/* Remove extra spacing from card body */
+.cards.cards19 .cards-card-body {
+  margin: 0;
+  padding: 0;
+}
+
+/* Icon container: align to text top */
+.cards.cards19 > ul > li > .cards-card-body:first-child {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  min-width: 28px;
+  margin-right: 8px;
+}
+
+/* Icon size */
+.cards.cards19 > ul > li > .cards-card-body:first-child img {
+  width: 24px;
+  height: 24px;
+  min-width: 24px;
+  min-height: 24px;
+  max-width: 24px;
+  max-height: 24px;
+  object-fit: contain;
+  display: block;
+}
+
+/* Text container: flexible width, align to top */
+.cards.cards19 > ul > li > .cards-card-body:last-child {
+  flex: 1 1 0%;
+  display: flex;
+  align-items: flex-start;
+  min-width: 0;
+  overflow-wrap: break-word;
+}
+
+/* Description text style */
+.cards.cards19 > ul > li > .cards-card-body:last-child p {
+  color: #333;
+  font-size: 13px;
+  line-height: 1.4;
+  margin: 0;
+  padding: 0;
+  text-align: left;
+  overflow-wrap: break-word;
+}
+
+/* Remove unwanted spacing from icon and text container paragraphs */
+.cards.cards19 > ul > li > .cards-card-body:first-child p,
+.cards.cards19 > ul > li > .cards-card-body:last-child p {
+  margin: 0;
+  padding: 0;
+}
+
+/* Remove bullet style on li if any browser default remains */
