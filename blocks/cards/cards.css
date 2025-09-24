@@ -378,10 +378,164 @@
   margin-top: 0;
   display: inline;
   line-height: inherit;
-  word-break: break-word;
+  word-break: break-all;
 }
 
 .cards.cards10 .cards-card-body > p strong + br,
 .cards.cards10 .cards-card-body > p br {
   display: none;
+}
+
+
+.cards.cards14 .cards-card-body {
+  /* Increased horizontal padding for more airy feel */
+  padding: 32px 36px 28px;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  flex: 1;
+}
+
+/* Label bar: force first two p's into a flex row, left/right aligned */
+.cards.cards14 .cards-card-body > p:first-of-type + p:nth-of-type(2) {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  margin: 0 0 18px;
+  gap: 16px;
+}
+
+/* Remove spacing and reset display on the individual p's */
+.cards.cards14 .cards-card-body > p:first-of-type,
+.cards.cards14 .cards-card-body > p:nth-of-type(2) {
+  margin: 0;
+  padding: 0;
+  background: none;
+  border-radius: 0;
+  box-shadow: none;
+  display: block;
+}
+
+/* Styling for the left-aligned pill label */
+.cards.cards14 .cards-card-body > p:first-of-type {
+  background: #e5e5e5;
+  color: #232323;
+  border-radius: 16px;
+  text-transform: uppercase;
+  font-weight: 600;
+  font-size: 13px;
+  padding: 6px 20px;
+  letter-spacing: 1px;
+  min-width: 0;
+  display: inline-block;
+}
+
+/* Styling for the right-aligned date */
+.cards.cards14 .cards-card-body > p:nth-of-type(2) {
+  color: #a3a3a3;
+  font-size: 13px;
+  font-weight: 500;
+  display: inline-block;
+  min-width: 0;
+  text-align: right;
+}
+
+/* Ensure label/date bar is always at the top of the card body */
+.cards.cards14 .cards-card-body > h3 {
+  margin: 36px 0 0;
+  color: #232323;
+  font-size: 28px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  line-height: 1.22;
+  text-align: left;
+  word-break: normal;
+  overflow-wrap: break-word;
+  hyphens: auto;
+}
+
+/* Card list and card sizing as in previous version, but allow for wider padding */
+.cards.cards14 > ul {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 40px;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  width: 100%;
+  overflow-x: auto;
+}
+
+.cards.cards14 > ul > li {
+  background: #fff;
+  border-radius: 22px;
+  box-shadow: 0 6px 28px rgb(0 0 0 / 15%);
+  border: none;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  min-width: 305px;
+  max-width: 305px;
+  flex: 0 0 305px;
+  transition: box-shadow 0.2s;
+}
+
+/* Card image remains unchanged */
+.cards.cards14 .cards-card-image img,
+.cards.cards14 .cards-card-image picture {
+  border-radius: 22px 22px 0 0;
+  width: 100%;
+  height: 240px;
+  object-fit: cover;
+  display: block;
+}
+
+/* Responsive: stack cards and adjust padding/gap on smaller screens */
+@media (width <= 1300px) {
+  .cards.cards14 > ul {
+    gap: 28px;
+  }
+
+  .cards.cards14 > ul > li {
+    min-width: 260px;
+    max-width: 260px;
+    flex: 0 0 260px;
+  }
+
+  .cards.cards14 .cards-card-image img,
+  .cards.cards14 .cards-card-image picture {
+    height: 180px;
+  }
+
+  .cards.cards14 .cards-card-body {
+    padding: 20px 14px 18px;
+  }
+}
+
+@media (width <= 900px) {
+  .cards.cards14 > ul {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 24px;
+  }
+
+  .cards.cards14 > ul > li {
+    min-width: 95vw;
+    max-width: 95vw;
+    flex: 1 1 95vw;
+  }
+
+  .cards.cards14 .cards-card-body {
+    padding: 18px 7vw 16px;
+  }
+
+  .cards.cards14 .cards-card-image img,
+  .cards.cards14 .cards-card-image picture {
+    height: 160px;
+  }
 }
