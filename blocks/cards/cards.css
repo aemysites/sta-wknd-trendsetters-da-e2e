@@ -388,7 +388,6 @@
 
 
 .cards.cards14 .cards-card-body {
-  /* Increased horizontal padding for more airy feel */
   padding: 32px 36px 28px;
   display: flex;
   flex-direction: column;
@@ -397,7 +396,6 @@
   flex: 1;
 }
 
-/* Label bar: force first two p's into a flex row, left/right aligned */
 .cards.cards14 .cards-card-body > p:first-of-type + p:nth-of-type(2) {
   display: flex;
   flex-direction: row;
@@ -408,7 +406,6 @@
   gap: 16px;
 }
 
-/* Remove spacing and reset display on the individual p's */
 .cards.cards14 .cards-card-body > p:first-of-type,
 .cards.cards14 .cards-card-body > p:nth-of-type(2) {
   margin: 0;
@@ -419,7 +416,6 @@
   display: block;
 }
 
-/* Styling for the left-aligned pill label */
 .cards.cards14 .cards-card-body > p:first-of-type {
   background: #e5e5e5;
   color: #232323;
@@ -433,7 +429,6 @@
   display: inline-block;
 }
 
-/* Styling for the right-aligned date */
 .cards.cards14 .cards-card-body > p:nth-of-type(2) {
   color: #a3a3a3;
   font-size: 13px;
@@ -443,7 +438,6 @@
   text-align: right;
 }
 
-/* Ensure label/date bar is always at the top of the card body */
 .cards.cards14 .cards-card-body > h3 {
   margin: 36px 0 0;
   color: #232323;
@@ -457,7 +451,6 @@
   hyphens: auto;
 }
 
-/* Card list and card sizing as in previous version, but allow for wider padding */
 .cards.cards14 > ul {
   display: flex;
   flex-flow: row nowrap;
@@ -485,7 +478,6 @@
   transition: box-shadow 0.2s;
 }
 
-/* Card image remains unchanged */
 .cards.cards14 .cards-card-image img,
 .cards.cards14 .cards-card-image picture {
   border-radius: 22px 22px 0 0;
@@ -495,7 +487,6 @@
   display: block;
 }
 
-/* Responsive: stack cards and adjust padding/gap on smaller screens */
 @media (width <= 1300px) {
   .cards.cards14 > ul {
     gap: 28px;
@@ -537,5 +528,114 @@
   .cards.cards14 .cards-card-image img,
   .cards.cards14 .cards-card-image picture {
     height: 160px;
+  }
+}
+
+
+.cards.cards18 {
+  background: #fafafa;
+  padding: 36px 0;
+}
+
+/* --- GRID LAYOUT --- */
+.cards.cards18 > ul {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 40px 32px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+/* CARD STYLING */
+.cards.cards18 > ul > li {
+  background: #fff;
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: none;
+  border: 2px solid transparent;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  min-height: 340px;
+}
+
+/* Borders only on right-column cards (2 & 4) */
+.cards.cards18 > ul > li:nth-child(2),
+.cards.cards18 > ul > li:nth-child(4) {
+  border: 2px solid #171717;
+}
+
+/* --- IMAGE STYLING --- */
+.cards.cards18 .cards-card-image {
+  line-height: 0;
+}
+
+.cards.cards18 > ul > li img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  border-radius: 18px 18px 0 0;
+  display: block;
+}
+
+/* --- CARD BODY --- */
+.cards.cards18 .cards-card-body {
+  padding: 20px 32px 44px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-start;
+  gap: 12px;
+  flex: 1 1 auto;
+}
+
+.cards.cards18 > ul > li:nth-child(2) .cards-card-body,
+.cards.cards18 > ul > li:nth-child(4) .cards-card-body {
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 56px 32px;
+}
+
+/* --- TYPOGRAPHY --- */
+.cards.cards18 .cards-card-body h3 {
+  font-size: 1.22rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #171717;
+  letter-spacing: 1.3px;
+  margin-bottom: 18px;
+  margin-top: 0;
+  line-height: 1.2;
+}
+
+.cards.cards18 .cards-card-body p {
+  font-size: 1.01rem;
+  font-weight: 400;
+  color: #636363;
+  margin: 0;
+}
+
+/* --- RESPONSIVE --- */
+@media (width <= 900px) {
+  .cards.cards18 > ul {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+    gap: 28px;
+  }
+
+  .cards.cards18 > ul > li {
+    min-height: 220px;
+  }
+
+  .cards.cards18 .cards-card-body,
+  .cards.cards18 > ul > li:nth-child(2) .cards-card-body,
+  .cards.cards18 > ul > li:nth-child(4) .cards-card-body {
+    padding: 24px 16px 20px;
+    justify-content: flex-end;
+    align-items: flex-start;
+    text-align: left;
   }
 }
