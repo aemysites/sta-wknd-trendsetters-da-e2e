@@ -1,10 +1,10 @@
 /* stylelint-disable no-descending-specificity */
 .columns > div {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   width: 100%;
-  justify-content: center;
-  align-items: stretch;
+  justify-content: flex-start;
+  align-items: flex-start;
   box-sizing: border-box;
   grid-column: 1 / 2;
   grid-row: 1 / 2;
@@ -13,9 +13,11 @@
   background: var(--background-color);
   z-index: 2;
   position: relative;
-  gap: 0;
+  gap: 1.5rem;
   max-width: 1400px;
   margin: 0;
+  flex: 1 1 0;
+  min-width: 0;
 }
 
 .columns img {
@@ -74,20 +76,20 @@
 }
 
 .columns {
-  background: var(--background-color);
+  background: #fff;
   width: 100%;
-  min-height: 100vh;
+  min-height: 540px;
   display: flex;
   grid-template-columns: 1fr 1fr;
-  align-items: stretch;
-  justify-content: center;
+  align-items: flex-start;
+  justify-content: flex-start;
   box-sizing: border-box;
   position: relative;
   overflow: hidden;
-  padding: 0;
+  padding: 3rem 2.5rem;
   margin: 0;
   flex-direction: row;
-  gap: 0;
+  gap: 3rem;
 }
 
 .columns h2,
@@ -97,13 +99,14 @@
 }
 
 .columns p {
-  color: #181818;
-  font-size: 18px;
+  color: #767676;
+  font-size: 1.13rem;
   font-weight: 400;
-  text-align: center;
-  margin: 0 auto;
+  text-align: left;
+  margin: 0 0 1.4rem;
   padding: 0;
-  max-width: 1100px;
+  max-width: 96%;
+  line-height: 1.57;
 }
 
 @media (width <= 900px) {
@@ -173,29 +176,30 @@
 }
 
 .columns .button-container {
-  margin-top: 0.5rem;
+  margin-top: 0.2rem;
   display: flex;
   flex-direction: row;
-  gap: 1.25rem;
+  gap: 1rem;
   padding: 0;
 }
 
 .columns .button-container .button {
-  padding: 0.75em 2.5em;
-  border: 2px solid #222;
+  padding: 0.75em 2em;
+  border: none;
   border-radius: 2em;
-  background: transparent;
-  color: #222;
+  background: #222;
+  color: #fff;
   font-size: 1rem;
-  font-weight: 500;
+  font-weight: 600;
   margin: 0;
   box-shadow: none;
-  transition: background 0.2s, color 0.2s, border-color 0.2s;
+  transition: background 0.2s, color 0.2s;
+  letter-spacing: 0.05em;
 }
 
 .columns .button-container .button:hover,
 .columns .button-container .button:focus {
-  background: #222;
+  background: #505050;
   color: #fff;
   border-color: #222;
 }
@@ -465,18 +469,10 @@
   }
 }
 
-
-/* Root: side-by-side layout for two main columns */
-
-/* Main content row: only show first two columns, fill space equally */
-
-/* Only show first two columns; make both fill half the space */
-
 .columns > div > div:nth-child(n+3) {
   display: none;
 }
 
-/* Left column: Vertically center button and any direct children */
 .columns > div > div:first-child {
   justify-content: center;
   align-items: flex-start;
@@ -486,7 +482,6 @@
   box-sizing: border-box;
 }
 
-/* Center the button in the column, add spacing below if needed */
 .columns > div > div:first-child .button-container {
   margin: 0;
   padding: 0;
@@ -496,7 +491,6 @@
   width: 100%;
 }
 
-/* Button styling for hero block */
 .columns > div > div:first-child .button-container .button {
   font-size: 1.14rem;
   border-radius: 2em;
@@ -510,9 +504,6 @@
   transition: background 0.2s, color 0.2s, border-color 0.2s;
 }
 
-/* Remove default paragraph spacing */
-
-/* Right column: image is centered and fills vertical space */
 .columns > div > div:nth-child(2) {
   justify-content: center;
   align-items: center;
@@ -522,7 +513,6 @@
   box-sizing: border-box;
 }
 
-/* Image: large, rounded corners, soft shadow, center in column */
 .columns > div > div:nth-child(2) img {
   width: 100%;
   max-width: 420px;
@@ -535,7 +525,6 @@
   display: block;
 }
 
-/* Responsive stacking for mobile screens */
 @media (width <= 900px) {
   .columns {
     flex-direction: column;
@@ -576,8 +565,117 @@
   }
 }
 
-/* Hide any nav links or extra columns if present */
 .columns > div > div:first-child ul,
 .columns > div > div:first-child li {
   display: none;
+}
+
+/* Ensure both columns are visible and occupy space */
+
+/* Left column: image or image placeholder */
+.columns > div:first-child {
+  flex-basis: 48%;
+  max-width: 700px;
+  margin: 0;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+
+/* Image container: ensure it is visible and sized */
+.columns > div:first-child > div:first-child {
+  width: 100%;
+  aspect-ratio: 4/3;
+  min-height: 340px;
+  border-radius: 20px;
+  margin-bottom: 0;
+  overflow: hidden;
+  box-shadow: 0 8px 28px 0 rgb(40 40 40 / 10%);
+  background: #e7ecf3;
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-start;
+  position: relative;
+}
+
+/* Right column: text content */
+.columns > div:last-child {
+  flex-basis: 52%;
+  max-width: 700px;
+  align-items: flex-start;
+  justify-content: flex-start;
+  margin: 0;
+  gap: 1.2rem;
+  padding-top: 0.1rem;
+}
+
+.columns > div:last-child > div {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 1.2rem;
+}
+
+/* Headline styles */
+.columns h2 {
+  color: #222;
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 2.1rem;
+  letter-spacing: 0.01em;
+  line-height: 1.08;
+  margin: 0 0 1rem;
+  padding: 0;
+  text-align: left;
+}
+
+/* Supporting text styles */
+
+/* Button styles (override base) */
+
+/* Remove any placeholder backgrounds in right/content column */
+.columns > div:last-child > div:first-child {
+  background: none;
+  box-shadow: none;
+  border-radius: 0;
+}
+
+/* Responsive adjustments for tablet/mobile */
+@media (width <= 900px) {
+  .columns {
+    flex-direction: column;
+    gap: 2rem;
+    padding: 2rem 0.7rem;
+    min-height: unset;
+  }
+
+  .columns > div,
+  .columns > div:first-child,
+  .columns > div:last-child {
+    max-width: 100%;
+    margin: 0;
+    flex: unset;
+  }
+
+  .columns > div:last-child > div {
+    gap: 0.8rem;
+  }
+
+  .columns > div:first-child > div:first-child {
+    min-height: 160px;
+    border-radius: 12px;
+    margin-bottom: 0;
+  }
+
+  .columns h2 {
+    font-size: 1.3rem;
+    margin-bottom: 0.6rem;
+  }
+
+  .columns p {
+    font-size: 1rem;
+    margin-bottom: 1rem;
+    max-width: 100%;
+  }
 }
