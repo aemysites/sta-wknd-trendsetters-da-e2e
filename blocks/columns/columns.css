@@ -1,4 +1,3 @@
-/* stylelint-disable no-descending-specificity */
 .columns > div {
   display: flex;
   flex-direction: row;
@@ -38,9 +37,6 @@
     order: unset;
   }
 }
-
-
-/* Use this rule ONLY if the block should be edge-to-edge */
 .columns-container > .columns-wrapper {
   max-width: unset;
   padding: 0;
@@ -73,7 +69,7 @@
   text-align: center;
   margin: 0 auto;
   padding: 0;
-  max-width: 1100px; /* Wider to match original image's wrapping */
+  max-width: 1100px;
 }
 
 @media (width <= 900px) {
@@ -87,4 +83,153 @@
     padding-left: 16px;
     padding-right: 16px;
   }
+}
+
+
+.columns {
+  /* Use Grid to create a 2-column layout for desktop, with a fixed image column */
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  min-height: 100vh;
+  width: 100vw;
+  background: var(--background-color);
+  position: relative;
+  padding: 0;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+@media (max-width: 900px) {
+  .columns {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto;
+    min-height: unset;
+    width: 100vw;
+  }
+}
+
+/* Left column: content wrapper */
+.columns > div {
+  grid-column: 1 / 2;
+  grid-row: 1 / 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;     /* Center content vertically */
+  align-items: flex-start;     /* Left align content */
+  padding: 0 6vw;
+  min-height: 100vh;
+  background: var(--background-color);
+  z-index: 2;
+}
+
+@media (max-width: 900px) {
+  .columns > div {
+    min-height: unset;
+    padding: 10vw 6vw 6vw 6vw;
+  }
+}
+
+/* Responsive typography & hierarchy */
+.columns > div > div:first-child p {
+  font-size: 2.5rem;
+  font-weight: 600;
+  color: #222;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  line-height: 1.07;
+  text-align: left;
+  margin: 0 0 2.5rem 0;
+  max-width: 36vw;
+}
+
+@media (max-width: 900px) {
+  .columns > div > div:first-child p {
+    font-size: 2rem;
+    max-width: 90vw;
+  }
+}
+
+.columns > div > div:nth-child(2) p {
+  font-size: 1.08rem;
+  color: #666;
+  margin: 0 0 2.5rem 0;
+  text-align: left;
+  line-height: 1.5;
+  max-width: 36vw;
+}
+
+@media (max-width: 900px) {
+  .columns > div > div:nth-child(2) p {
+    font-size: 1rem;
+    max-width: 90vw;
+    margin-bottom: 2rem;
+  }
+}
+
+/* Button container styling */
+.columns .button-container {
+  margin-top: 0.5rem;
+  display: flex;
+  flex-direction: row;
+  gap: 1.25rem;
+  padding: 0;
+}
+
+.columns .button-container .button {
+  padding: 0.75em 2.5em;
+  border: 2px solid #222;
+  border-radius: 2em;
+  background: transparent;
+  color: #222;
+  font-size: 1rem;
+  font-weight: 500;
+  margin: 0;
+  box-shadow: none;
+  transition: background 0.2s, color 0.2s, border-color 0.2s;
+}
+
+.columns .button-container .button:hover,
+.columns .button-container .button:focus {
+  background: #222;
+  color: #fff;
+  border-color: #222;
+}
+
+/* Right column: background image (as a grid-area, no content) */
+.columns::after {
+  /* Use ::after so it doesn't clash with content, covers right column only */
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 50vw;
+  height: 100vh;
+  background: url('https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=cover&w=800&q=80') center center/cover no-repeat;
+  z-index: 1;
+  display: block;
+  content: "";
+  grid-column: 2 / 3;
+  grid-row: 1 / 2;
+}
+
+@media (max-width: 900px) {
+  .columns::after {
+    width: 100vw;
+    height: 50vw;
+    left: 0;
+    right: 0;
+    top: unset;
+    bottom: 0;
+  }
+}
+
+/* Ensure left column is above image overlay */
+.columns > div {
+  position: relative;
+  z-index: 2;
+  background: var(--background-color);
+}
+
+/* Remove excess vertical whitespace at the top on desktop */
+.columns {
+  margin-top: 0;
 }
