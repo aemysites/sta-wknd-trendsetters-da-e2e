@@ -1,14 +1,28 @@
+/* stylelint-disable no-descending-specificity */
 .columns > div {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   width: 100%;
   justify-content: center;
   align-items: flex-start;
   box-sizing: border-box;
+  grid-column: 1 / 2;
+  grid-row: 1 / 2;
+  padding: 0 6vw;
+  min-height: 100vh;
+  background: var(--background-color);
+  z-index: 2;
+  position: relative;
 }
 
 .columns img {
-  width: 100%;
+  width: 170px;
+  display: block;
+  height: 120px;
+  object-fit: cover;
+  margin: 0;
+  vertical-align: middle;
+  transition: transform 0.3s;
 }
 
 .columns > div > div {
@@ -37,6 +51,7 @@
     order: unset;
   }
 }
+
 .columns-container > .columns-wrapper {
   max-width: unset;
   padding: 0;
@@ -44,16 +59,19 @@
 }
 
 .columns {
-  background: #F6F7F3;
-  width: 100%;
-  min-height: 100px;
+  background: #fff;
+  width: 100vw;
+  min-height: 60vh;
   display: flex;
   flex-direction: column;
-  align-items: stretch;
-  justify-content: flex-start;
-  padding-top: 32px;
-  padding-bottom: 0;
+  align-items: center;
+  justify-content: center;
   box-sizing: border-box;
+  grid-template-columns: 1fr 1fr;
+  position: relative;
+  overflow: hidden;
+  padding: 0;
+  margin: 0;
 }
 
 .columns h2,
@@ -85,21 +103,7 @@
   }
 }
 
-
-.columns {
-  /* Use Grid to create a 2-column layout for desktop, with a fixed image column */
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  min-height: 100vh;
-  width: 100vw;
-  background: var(--background-color);
-  position: relative;
-  padding: 0;
-  box-sizing: border-box;
-  overflow: hidden;
-}
-
-@media (max-width: 900px) {
+@media (width <= 900px) {
   .columns {
     grid-template-columns: 1fr;
     grid-template-rows: auto auto;
@@ -108,28 +112,13 @@
   }
 }
 
-/* Left column: content wrapper */
-.columns > div {
-  grid-column: 1 / 2;
-  grid-row: 1 / 2;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;     /* Center content vertically */
-  align-items: flex-start;     /* Left align content */
-  padding: 0 6vw;
-  min-height: 100vh;
-  background: var(--background-color);
-  z-index: 2;
-}
-
-@media (max-width: 900px) {
+@media (width <= 900px) {
   .columns > div {
     min-height: unset;
-    padding: 10vw 6vw 6vw 6vw;
+    padding: 10vw 6vw 6vw;
   }
 }
 
-/* Responsive typography & hierarchy */
 .columns > div > div:first-child p {
   font-size: 2.5rem;
   font-weight: 600;
@@ -138,11 +127,11 @@
   letter-spacing: 0.03em;
   line-height: 1.07;
   text-align: left;
-  margin: 0 0 2.5rem 0;
+  margin: 0 0 2.5rem;
   max-width: 36vw;
 }
 
-@media (max-width: 900px) {
+@media (width <= 900px) {
   .columns > div > div:first-child p {
     font-size: 2rem;
     max-width: 90vw;
@@ -152,13 +141,13 @@
 .columns > div > div:nth-child(2) p {
   font-size: 1.08rem;
   color: #666;
-  margin: 0 0 2.5rem 0;
+  margin: 0 0 2.5rem;
   text-align: left;
   line-height: 1.5;
   max-width: 36vw;
 }
 
-@media (max-width: 900px) {
+@media (width <= 900px) {
   .columns > div > div:nth-child(2) p {
     font-size: 1rem;
     max-width: 90vw;
@@ -166,7 +155,6 @@
   }
 }
 
-/* Button container styling */
 .columns .button-container {
   margin-top: 0.5rem;
   display: flex;
@@ -195,9 +183,7 @@
   border-color: #222;
 }
 
-/* Right column: background image (as a grid-area, no content) */
 .columns::after {
-  /* Use ::after so it doesn't clash with content, covers right column only */
   position: absolute;
   top: 0;
   right: 0;
@@ -211,7 +197,7 @@
   grid-row: 1 / 2;
 }
 
-@media (max-width: 900px) {
+@media (width <= 900px) {
   .columns::after {
     width: 100vw;
     height: 50vw;
@@ -222,14 +208,63 @@
   }
 }
 
-/* Ensure left column is above image overlay */
-.columns > div {
-  position: relative;
-  z-index: 2;
-  background: var(--background-color);
+/* Remove bullets and default spacing in all lists within columns */
+.columns ul,
+.columns li {
+  list-style: none;
+  margin: 0;
+  padding: 0;
 }
 
-/* Remove excess vertical whitespace at the top on desktop */
-.columns {
-  margin-top: 0;
+/* Hide all non-image content, but keep wrappers for images visible */
+.columns h2,
+.columns .button-container,
+.columns p:not(:has(img)),
+.columns a:not(:has(img)),
+.columns ul:not(:has(img)),
+.columns li:not(:has(img)) {
+  display: none;
+}
+
+/* Force all image containers to lay out their children side by side */
+.columns > div,
+.columns > div > div,
+.columns > div > div > ul {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 32px;
+  padding: 0;
+  margin: 0;
+}
+
+/* Display all images side by side, spaced and tilted */
+
+/* Tilt each image for playful effect */
+.columns img:nth-of-type(1) { transform: rotate(-8deg); }
+.columns img:nth-of-type(2) { transform: rotate(7deg); }
+.columns img:nth-of-type(3) { transform: rotate(-5deg); }
+.columns img:nth-of-type(4) { transform: rotate(5deg); }
+.columns img:nth-of-type(5) { transform: rotate(-6deg); }
+.columns img:nth-of-type(6) { transform: rotate(4deg); }
+
+/* Responsive: wrap images and adjust size */
+@media (width <= 900px) {
+  .columns {
+    min-height: 35vh;
+    padding: 0;
+  }
+
+  .columns > div,
+  .columns > div > div,
+  .columns > div > div > ul {
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+
+  .columns img {
+    width: 44vw;
+    height: 28vw;
+  }
 }
