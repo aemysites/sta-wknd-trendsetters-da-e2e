@@ -3,8 +3,8 @@
   display: flex;
   flex-direction: row;
   width: 100%;
-  justify-content: flex-start;
-  align-items: center;
+  justify-content: center;
+  align-items: stretch;
   box-sizing: border-box;
   grid-column: 1 / 2;
   grid-row: 1 / 2;
@@ -13,7 +13,7 @@
   background: var(--background-color);
   z-index: 2;
   position: relative;
-  gap: 0;
+  gap: 2vw;
   max-width: 1400px;
   margin: 0 auto;
   flex: 1 1 0;
@@ -36,10 +36,10 @@
   display: flex;
   flex: 1 1 0;
   flex-direction: column;
-  align-items: stretch;
+  align-items: center;
   min-width: 0;
   background: none;
-  border-radius: 0;
+  border-radius: 24px;
   box-shadow: none;
   padding: 0;
   box-sizing: border-box;
@@ -76,12 +76,12 @@
 }
 
 .columns {
-  background: var(--light-color);
+  background: #fff;
   width: 100%;
-  min-height: 680px;
+  min-height: 440px;
   display: flex;
   grid-template-columns: 1fr 1fr;
-  align-items: center;
+  align-items: stretch;
   justify-content: center;
   box-sizing: border-box;
   position: relative;
@@ -89,7 +89,7 @@
   padding: 0;
   margin: 0;
   flex-direction: row;
-  gap: 3rem;
+  gap: 2vw;
 }
 
 .columns h2,
@@ -345,12 +345,15 @@
 }
 
 .columns > div > div img {
-  width: 36px;
-  height: 36px;
+  width: 100%;
+  height: auto;
   object-fit: cover;
-  border-radius: 8px;
+  border-radius: 24px;
   box-shadow: none;
   margin: 0;
+  display: block;
+  max-width: 320px;
+  aspect-ratio: 1/1;
 }
 
 .columns > div > div > p > img {
@@ -528,8 +531,8 @@
 
 .columns > div > div:nth-child(2) img {
   width: 100%;
-  max-width: 420px;
-  aspect-ratio: 3/4;
+  max-width: 400px;
+  aspect-ratio: 4/3;
   min-height: 320px;
   object-fit: cover;
   border-radius: 32px;
@@ -681,19 +684,11 @@
   }
 }
 
-/* Main horizontal split of columns area */
-
-/* Left column content: vertically center, keep stack, add more top margin for balance */
-
-/* Hide navigation lists in left column and all but the first button */
 .columns > div > div:first-child ul,
 .columns > div > div:first-child li:not(:first-child) {
   display: none;
 }
 
-/* Adjust button positioning: center vertically and align horizontally */
-
-/* Style left column button */
 .columns > div > div:first-child .button {
   border: 2px solid var(--text-color);
   background: var(--background-color);
@@ -708,7 +703,6 @@
   min-width: 180px;
 }
 
-/* Right column: cards in a row, center vertically */
 .columns > div > div:not(:first-child) {
   flex: 1 1 56%;
   display: flex;
@@ -722,7 +716,6 @@
   position: relative;
 }
 
-/* Each card styling */
 .columns > div > div:not(:first-child) > ul {
   background: var(--background-color);
   border-radius: 32px;
@@ -742,12 +735,10 @@
   position: relative;
 }
 
-/* Hide headers in cards */
 .columns > div > div:not(:first-child) > ul > li:first-child {
   display: none;
 }
 
-/* Navigation items in cards */
 .columns > div > div:not(:first-child) > ul > li {
   font-size: 1.13rem;
   color: var(--text-color);
@@ -761,7 +752,6 @@
   margin-bottom: 0;
 }
 
-/* Responsive: stack on smaller screens */
 @media (width <= 1100px) {
   .columns {
     flex-direction: column;
@@ -807,7 +797,6 @@
   }
 }
 
-/* Further adjust card spacing for small screens */
 @media (width <= 800px) {
   .columns {
     padding: 0 0 12vw;
@@ -824,5 +813,42 @@
   .columns > div > div:not(:first-child) > ul {
     padding: 28px 5vw;
     border-radius: 14px;
+  }
+}
+
+/* Center block slightly larger for visual balance */
+
+/* Hide all lists and buttons for a pure image layout */
+.columns > div > div > ul,
+.columns ul,
+.columns h2,
+.columns p,
+.columns .button-container,
+.columns > div > div > .button-container,
+.columns > div > div > ul,
+.columns > div > div > h2,
+.columns > div > div > p {
+  display: none;
+}
+
+@media (width <= 900px) {
+  .columns {
+    flex-direction: column;
+    gap: 4vw;
+    min-height: unset;
+    width: 100vw;
+    align-items: center;
+  }
+  
+  .columns > div {
+    flex-direction: column;
+    gap: 4vw;
+    width: 100%;
+    align-items: center;
+  }
+
+  .columns > div > div img {
+    max-width: 96vw;
+    border-radius: 18px;
   }
 }
