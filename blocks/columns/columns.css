@@ -1,6 +1,11 @@
+/* stylelint-disable no-descending-specificity */
 .columns > div {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  width: 100%;
+  justify-content: center;
+  align-items: flex-start;
+  box-sizing: border-box;
 }
 
 .columns img {
@@ -9,6 +14,8 @@
 
 .columns > div > div {
   order: 1;
+  width: 100%;
+  display: block;
 }
 
 .columns > div > .columns-img-col {
@@ -29,5 +36,55 @@
   .columns > div > div {
     flex: 1;
     order: unset;
+  }
+}
+
+
+/* Use this rule ONLY if the block should be edge-to-edge */
+.columns-container > .columns-wrapper {
+  max-width: unset;
+  padding: 0;
+  margin: 0;
+}
+
+.columns {
+  background: #F6F7F3;
+  width: 100%;
+  min-height: 100px;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  padding-top: 32px;
+  padding-bottom: 0;
+  box-sizing: border-box;
+}
+
+.columns h2,
+.columns .button-container,
+.columns p:not(:first-child) {
+  display: none;
+}
+
+.columns p {
+  color: #181818;
+  font-size: 18px;
+  font-weight: 400;
+  text-align: center;
+  margin: 0 auto;
+  padding: 0;
+  max-width: 1100px; /* Wider to match original image's wrapping */
+}
+
+@media (width <= 900px) {
+  .columns > div {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .columns p {
+    max-width: 100vw;
+    padding-left: 16px;
+    padding-right: 16px;
   }
 }
