@@ -690,14 +690,12 @@
   box-sizing: border-box;
 }
 
-/* Minimal left spacer */
 .hero.hero38 > div:first-child {
   flex: 0 0 6%;
   min-width: 30px;
   max-width: 110px;
 }
 
-/* Main content area: horizontally align text block and button */
 .hero.hero38 > div:last-child {
   flex: 1 1 0%;
   display: flex;
@@ -706,16 +704,14 @@
   min-width: 0;
 }
 
-/* Force side-by-side: text block (vertical stack) and button */
 .hero.hero38 > div:last-child > div {
   display: flex;
   flex-direction: row;
   align-items: center;
-  gap: 60px; /* match visual spacing between text and button */
+  gap: 60px;
   width: 100%;
 }
 
-/* Group heading and subheading into a vertical stack */
 .hero.hero38 > div:last-child > div > h2,
 .hero.hero38 > div:last-child > div > p:not(.button-container) {
   display: block;
@@ -723,7 +719,6 @@
   margin-right: 0;
 }
 
-/* Optional: "text stack" as first flex child */
 .hero.hero38 > div:last-child > div > h2 {
   color: var(--text-color);
   font-size: 2.5rem;
@@ -741,7 +736,6 @@
   margin-bottom: 12px;
 }
 
-/* Button column: right side, vertically centered next to text block */
 .hero.hero38 > div:last-child > div > .button-container,
 .hero.hero38 > div:last-child > div > p.button-container {
   display: flex;
@@ -753,7 +747,6 @@
   margin: 0;
 }
 
-/* Button appearance override */
 .hero.hero38 .button-container .button,
 .hero.hero38 .button-container a.button {
   width: 100%;
@@ -773,7 +766,6 @@
   font-weight: 400;
 }
 
-/* Responsive stacking for mobile/tablet */
 @media (width <= 900px) {
   .hero.hero38 {
     flex-direction: column;
@@ -802,5 +794,168 @@
     min-width: 200px;
     max-width: 100%;
     justify-content: center;
+  }
+}
+
+
+.hero.hero41 {
+  position: relative;
+  display: block;
+  width: 100vw;
+  min-height: 100vh;
+  border-radius: 20px;
+  overflow: hidden;
+  isolation: isolate;
+  background: none;
+  padding: 0;
+}
+
+/* Ensure hero can span the full width */
+
+/* Image as background, absolute */
+.hero.hero41 > div:first-child {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  pointer-events: none;
+  display: flex;
+}
+
+.hero.hero41 > div:first-child picture,
+.hero.hero41 > div:first-child img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Gradient overlay: quickly fades to transparent past text area */
+.hero.hero41::before {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: linear-gradient(90deg, rgb(0 0 0 / 70%) 0%, rgb(0 0 0 / 27%) 13%, rgb(0 0 0 / 8%) 27%, rgb(0 0 0 / 0%) 38%);
+  pointer-events: none;
+}
+
+/* Text container: almost flush to top/left, extremely compact width */
+.hero.hero41 > div:last-child {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  min-height: 100vh;
+  padding: 0.5vh 0 0 0.3vw;
+  max-width: 15vw;
+  width: 100%;
+}
+
+.hero.hero41 > div:last-child > div {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  width: 100%;
+}
+
+/* Headline: very compact, tight wrapping */
+.hero.hero41 h1 {
+  font-size: clamp(2.2rem, 4.5vw, 3.7rem);
+  font-weight: 400;
+  color: #fff;
+  line-height: 1.05;
+  margin: 0 0 0.4rem;
+  letter-spacing: 0.01em;
+  max-width: 11ch;
+  text-align: left;
+  text-shadow: 0 2px 8px rgb(0 0 0 / 11%);
+}
+
+/* Supporting text: narrow, tight grouping */
+.hero.hero41 p:not(.button-container) {
+  color: #e0e0e0;
+  font-size: 0.97rem;
+  line-height: 1.3;
+  max-width: 14ch;
+  margin: 0 0 0.3rem;
+  text-align: left;
+  text-shadow: 0 1px 4px rgb(0 0 0 / 9%);
+}
+
+/* Button: outlined, minimal gap below, flush left */
+.hero.hero41 .button-container {
+  margin: 0;
+  text-align: left;
+}
+
+.hero.hero41 .button {
+  background: transparent;
+  color: #fff;
+  border: 1.5px solid #fff;
+  border-radius: 2em;
+  padding: 0.55em 1.8em;
+  font-size: 1rem;
+  font-weight: 500;
+  transition: background 0.14s, color 0.14s, border-color 0.14s;
+  box-shadow: 0 1px 6px rgb(0 0 0 / 6%);
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.hero.hero41 .button:hover,
+.hero.hero41 .button:focus {
+  background: rgb(255 255 255 / 8%);
+  color: #fff;
+  border-color: #fff;
+  text-decoration: none;
+}
+
+/* Responsive: ensure compact, edge-aligned layout */
+@media (width <= 900px) {
+  .hero.hero41 {
+    min-height: 70vh;
+    border-radius: 0;
+  }
+
+  .hero.hero41 > div:last-child {
+    min-height: 70vh;
+    max-width: 98vw;
+    padding-left: 2vw;
+    padding-top: 1.6vw;
+  }
+
+  .hero.hero41 h1 {
+    font-size: clamp(1.2rem, 8vw, 2.1rem);
+    max-width: 99vw;
+  }
+
+  .hero.hero41 p:not(.button-container) {
+    max-width: 80vw;
+  }
+}
+
+@media (width <= 600px) {
+  .hero.hero41 {
+    min-height: 60vh;
+    border-radius: 0;
+  }
+
+  .hero.hero41 > div:last-child {
+    min-height: 60vh;
+    max-width: 100vw;
+    padding-left: 1vw;
+    padding-top: 0.8vw;
+  }
+
+  .hero.hero41 > div:last-child > div {
+    gap: 0.23rem;
+  }
+
+  .hero.hero41 h1 {
+    font-size: clamp(0.9rem, 9vw, 1.2rem);
+    max-width: 99vw;
   }
 }
