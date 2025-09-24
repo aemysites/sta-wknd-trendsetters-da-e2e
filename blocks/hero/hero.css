@@ -457,7 +457,6 @@
   overflow: visible;
 }
 
-/* Headline/text column */
 .hero.hero25 > div:last-child {
   flex: 1 1 0;
   max-width: 47vw;
@@ -472,7 +471,6 @@
   position: relative;
 }
 
-/* Headline */
 .hero.hero25 h1 {
   font-size: 5.1rem;
   font-weight: 400;
@@ -481,13 +479,11 @@
   letter-spacing: 0.01em;
   margin: 0 0 2.1rem;
   max-width: 100%;
-  word-break: break-word;
   overflow-wrap: break-word;
   position: relative;
   z-index: 2;
 }
 
-/* Paragraph */
 .hero.hero25 p {
   color: #4d4d4d;
   font-size: 1.13rem;
@@ -498,7 +494,6 @@
   font-weight: 400;
 }
 
-/* Button container */
 .hero.hero25 .button-container {
   display: flex;
   gap: 1.1rem;
@@ -506,7 +501,6 @@
   margin-top: 1.2rem;
 }
 
-/* Outlined pill button */
 .hero.hero25 .button {
   border: 2px solid #1a1a1a;
   background: transparent;
@@ -527,7 +521,6 @@
   border-color: #1a1a1a;
 }
 
-/* Image column - use absolute for overlap effect */
 .hero.hero25 > div:first-child {
   flex: 0 1 53vw;
   min-width: 310px;
@@ -538,21 +531,18 @@
   justify-content: flex-end;
   position: relative;
   z-index: 1;
-
-  /* Remove margin-left, use absolute on child for overlap */
 }
 
 .hero.hero25 > div:first-child > div {
   position: absolute;
-  top: 13vw; /* This controls how far down the image starts & its overlap. Increase to create more overlap. */
-  right: -3vw; /* Negative moves image slightly into left column for more overlap. Adjust as needed. */
+  top: 13vw;
+  right: -3vw;
   width: 100%;
   max-width: 560px;
   z-index: 1;
   pointer-events: auto;
 }
 
-/* Image styling */
 .hero.hero25 picture {
   display: block;
   width: 100%;
@@ -568,7 +558,6 @@
   display: block;
 }
 
-/* Responsive: Stack vertically and remove overlap on smaller screens */
 @media (width <= 1000px) {
   .hero.hero25 {
     flex-direction: column;
@@ -608,5 +597,81 @@
   .hero.hero25 .button-container {
     gap: 0.7rem;
     margin-top: 0.7rem;
+  }
+}
+
+.hero.hero29 {
+  position: relative;
+  width: 100vw;
+  min-height: 56vw;
+  min-height: 500px;
+  height: 56vw;
+  height: 500px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+.hero.hero29 > div:first-child {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  pointer-events: none;
+  display: flex;
+}
+
+.hero.hero29 picture,
+.hero.hero29 img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.hero.hero29 img {
+  filter: brightness(0.72);
+}
+
+.hero.hero29 > div:last-child {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+}
+
+.hero.hero29 h1 {
+  color: #fff;
+  text-align: center;
+  line-height: 1.08;
+  font-size: clamp(2.8rem, 8vw, 6.5rem);
+  font-weight: 300;
+  margin: 0;
+  text-shadow: 0 3px 18px rgb(0 0 0 / 42%);
+  letter-spacing: 0.01em;
+  max-width: 95vw;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 0;
+}
+
+@media (width <= 700px) {
+  .hero.hero29 {
+    min-height: 340px;
+    height: 340px;
+  }
+
+  .hero.hero29 h1 {
+    font-size: clamp(1.2rem, 11vw, 2.6rem);
+    padding-left: 2vw;
+    padding-right: 2vw;
   }
 }
