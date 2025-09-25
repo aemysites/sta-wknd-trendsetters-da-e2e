@@ -416,16 +416,14 @@
   box-sizing: border-box;
 }
 
-/* Layout row for all items, tighter gap */
 .columns.columns15 > div {
   display: flex;
   flex-direction: row;
   align-items: center;
-  gap: 1.1rem; /* Reduce gap for a more compact layout */
+  gap: 1.1rem;
   width: 100%;
 }
 
-/* First two columns: allow wrapping, but visually group them tighter */
 .columns.columns15 > div > div:nth-child(1),
 .columns.columns15 > div > div:nth-child(2) {
   flex: 0 1 auto;
@@ -435,12 +433,10 @@
   align-items: center;
 }
 
-/* Optionally, bring button closer to text */
 .columns.columns15 > div > div:nth-child(2) {
   margin-right: 0.8rem;
 }
 
-/* Paragraph styles for visibility and alignment */
 .columns.columns15 > div > div:nth-child(1) p,
 .columns.columns15 > div > div:nth-child(2) p {
   font-size: 12px;
@@ -451,7 +447,6 @@
   overflow-wrap: anywhere;
 }
 
-/* Button container and button style */
 .columns.columns15 .button-container {
   display: flex;
   align-items: center;
@@ -475,7 +470,6 @@
   white-space: nowrap;
 }
 
-/* Responsive stacking for mobile */
 @media (width <= 900px) {
   .columns.columns15 > div {
     flex-direction: column;
@@ -484,5 +478,171 @@
 
   .columns.columns15 .button-container {
     justify-content: flex-start;
+  }
+}
+
+
+.columns.columns21 {
+  background: #000;
+  color: #fff;
+  padding: 0;
+}
+
+/* Main columns: 4 side-by-side, top aligned, generous gap */
+.columns.columns21 > div {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr 1fr 1fr;
+  gap: 80px;
+  align-items: start;
+  width: 100%;
+  padding: 40px 0 30px;
+  box-sizing: border-box;
+}
+
+@media (width <= 900px) {
+  .columns.columns21 > div {
+    grid-template-columns: 1fr;
+    gap: 32px;
+    padding: 32px 0 24px;
+  }
+}
+
+/* --- First column: logo/title row and social icon row --- */
+.columns.columns21 > div > div:first-child {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 0;
+  padding-top: 0;
+}
+
+/* --- Logo and title should be inline (horizontal flex) --- */
+.columns.columns21 > div > div:first-child > p:first-child,
+.columns.columns21 > div > div:first-child > p.button-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+}
+
+/* --- Logo image style --- */
+.columns.columns21 > div > div:first-child > p:first-child img {
+  width: 36px;
+  height: 36px;
+  margin-right: 12px;
+  display: inline-block;
+  vertical-align: middle;
+  opacity: 1;
+}
+
+/* --- "Fashion Blog" text style --- */
+.columns.columns21 > div > div:first-child > p.button-container .button {
+  background: none;
+  color: #fff;
+  font-size: 18px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  border: none;
+  box-shadow: none;
+  padding: 0;
+  margin: 0;
+  cursor: default;
+  pointer-events: none;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+/* --- Social icons row: must be visible, horizontal, tightly spaced below logo/title --- */
+.columns.columns21 > div > div:first-child ul {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 18px;
+  margin: 24px 0 0;
+  padding: 0;
+  list-style: none;
+  opacity: 1;
+  height: auto;
+}
+
+.columns.columns21 > div > div:first-child ul li {
+  margin: 0;
+  padding: 0;
+}
+
+.columns.columns21 > div > div:first-child ul li img {
+  width: 20px;
+  height: 20px;
+  display: block;
+  opacity: 1;
+  filter: none;
+}
+
+.columns.columns21 > div > div:first-child ul li .button-container {
+  display: none;
+}
+
+/* --- Navigation columns (columns 2-4) --- */
+.columns.columns21 > div > div:not(:first-child) {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+/* Remove bullets and extra spacing on ul */
+.columns.columns21 > div > div ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+/* Section headings */
+.columns.columns21 > div > div ul li:first-child h2 {
+  color: #666;
+  text-transform: uppercase;
+  font-size: 12px;
+  letter-spacing: 0.12em;
+  font-weight: 500;
+  margin: 0 0 12px;
+}
+
+/* Navigation links */
+.columns.columns21 > div > div ul li:not(:first-child) a {
+  color: #fff;
+  font-size: 14px;
+  text-decoration: none;
+  font-weight: 400;
+  line-height: 2;
+  display: inline-block;
+  margin-bottom: 2px;
+  transition: color 0.2s;
+}
+
+.columns.columns21 > div > div ul li:not(:first-child) a:hover {
+  color: #aaa;
+}
+
+/* Remove unwanted vertical spacing on all columns */
+.columns.columns21 > div > div {
+  margin-top: 0;
+  margin-bottom: 0;
+  min-width: 0;
+}
+
+/* Responsive: logo/icon size and spacing for smaller screens */
+@media (width <= 900px) {
+  .columns.columns21 > div > div:first-child > p:first-child img {
+    width: 28px;
+    height: 28px;
+  }
+
+  .columns.columns21 > div > div:first-child ul {
+    margin-top: 18px;
+  }
+
+  .columns.columns21 > div > div ul li:not(:first-child) a {
+    font-size: 15px;
   }
 }
