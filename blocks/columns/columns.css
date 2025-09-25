@@ -764,7 +764,7 @@
 .columns.columns32 > div {
   display: flex;
   flex-direction: row;
-  align-items: center; /* Vertically center both columns */
+  align-items: center;
   justify-content: center;
   gap: 5vw;
   max-width: 1200px;
@@ -772,25 +772,20 @@
   padding: 3rem 0;
 }
 
-/* --- LEFT COLUMN: Vertically center content in parent row --- */
 .columns.columns32 > div > div:not(.columns-img-col) {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   justify-content: center;
-  align-self: center; /* <-- ensure vertical centering in row */
+  align-self: center;
   min-width: 0;
   height: auto;
-
-  /* Remove any unintended top margin from flex/column */
 }
 
-/* Hide SVG chevron/icon in breadcrumbs area */
 .columns.columns32 > div > div:not(.columns-img-col) picture {
   display: none;
 }
 
-/* Breadcrumbs: compact, tight, uppercase */
 .columns.columns32 > div > div:not(.columns-img-col) .button-container {
   display: block;
   margin: 0 0 0.01em;
@@ -817,12 +812,10 @@
   margin-bottom: 0.01em;
 }
 
-/* Reduce space between breadcrumbs and headline */
 .columns.columns32 > div > div:not(.columns-img-col) .button-container:last-of-type {
   margin-bottom: 0.09em;
 }
 
-/* Headline: large, multi-line, tight, less margin below */
 .columns.columns32 > div > div:not(.columns-img-col) h2 {
   color: #222;
   font-size: 2.8rem;
@@ -835,9 +828,6 @@
   padding: 0;
 }
 
-/* --- BYLINE AND META: group into two lines tightly --- */
-
-/* Byline row: "By Taylor Brooks" */
 .columns.columns32 > div > div:not(.columns-img-col) p:nth-of-type(5),
 .columns.columns32 > div > div:not(.columns-img-col) p:nth-of-type(6) {
   display: inline;
@@ -849,12 +839,10 @@
   line-height: 1.2;
 }
 
-/* Make these two share a single line and break after */
 .columns.columns32 > div > div:not(.columns-img-col) p:nth-of-type(6)::after {
   display: block;
 }
 
-/* Metadata row: "June 7, 2024 • 4 min read" */
 .columns.columns32 > div > div:not(.columns-img-col) p:nth-of-type(7),
 .columns.columns32 > div > div:not(.columns-img-col) p:nth-of-type(8),
 .columns.columns32 > div > div:not(.columns-img-col) p:nth-of-type(9) {
@@ -871,13 +859,11 @@
   margin-right: 0;
 }
 
-/* Add minimal spacing below meta group */
 .columns.columns32 > div > div:not(.columns-img-col) p:nth-of-type(9)::after {
   display: block;
   margin-bottom: 0.2em;
 }
 
-/* Remove extra space between byline/meta and social icons */
 .columns.columns32 > div > div:not(.columns-img-col) ul {
   margin-top: 0;
   display: flex;
@@ -887,8 +873,6 @@
   list-style: none;
   align-items: center;
 }
-
-/* --- SOCIAL ICONS ROW --- */
 
 .columns.columns32 > div > div:not(.columns-img-col) ul li {
   display: flex;
@@ -911,7 +895,6 @@
   border-radius: 0.35em;
 }
 
-/* Remove list bullets */
 .columns.columns32 > div > div:not(.columns-img-col) ul,
 .columns.columns32 > div > div:not(.columns-img-col) ul li {
   list-style: none;
@@ -919,7 +902,6 @@
   padding-left: 0;
 }
 
-/* --- RIGHT COLUMN: IMAGE --- */
 .columns.columns32 > div > .columns-img-col {
   display: flex;
   align-items: center;
@@ -940,7 +922,6 @@
   background: transparent;
 }
 
-/* --- RESPONSIVENESS --- */
 @media (width <= 899px) {
   .columns.columns32 > div {
     flex-direction: column;
@@ -964,8 +945,182 @@
   }
 }
 
-/* General wrapper alignment */
 .columns.columns32 {
   background: #fff;
   padding: 0;
+}
+
+
+.columns.columns37 {
+  background: #fff;
+  padding: 0 0 3rem;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+/* Layout: three columns, side-by-side, top-aligned */
+.columns.columns37 > div {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 5.5rem;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* Responsive: stack vertically */
+@media (width <= 900px) {
+  .columns.columns37 {
+    padding: 1.5rem 0.7rem;
+  }
+
+  .columns.columns37 > div {
+    flex-direction: column;
+    gap: 2.4rem;
+  }
+
+  .columns.columns37 > div > div {
+    flex: 1 1 100%;
+    max-width: 100%;
+  }
+}
+
+/* Column widths for desktop */
+.columns.columns37 > div > div:nth-child(1) {
+  flex: 0 1 49%;
+  max-width: 49%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.columns.columns37 > div > div:nth-child(2) {
+  flex: 0 1 23%;
+  max-width: 23%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.columns.columns37 > div > div:nth-child(3) {
+  flex: 0 1 28%;
+  max-width: 28%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 3.3rem;
+  width: 100%;
+}
+
+/* Main image styling */
+.columns.columns37 > div > div:nth-child(1) picture img {
+  width: 100%;
+  display: block;
+  border-radius: 23px;
+  margin-bottom: 1.5rem;
+  object-fit: cover;
+}
+
+/* Left column: badge/tag, headline, description */
+.columns.columns37 > div > div:nth-child(1) p:nth-of-type(2) {
+  display: inline-block;
+  background: #f1f1f1;
+  color: #222;
+  font-size: 0.91rem;
+  padding: 0.11em 1em 0.09em;
+  border-radius: 4px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  margin-bottom: 0.30rem;
+}
+
+.columns.columns37 > div > div:nth-child(1) h3 {
+  font-size: 2.73rem;
+  color: #222;
+  font-weight: 700;
+  letter-spacing: 0.045em;
+  margin-bottom: 0.62rem;
+  line-height: 1.04;
+}
+
+.columns.columns37 > div > div:nth-child(1) p:nth-of-type(3) {
+  font-size: 1.01rem;
+  color: #444;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+/* Second column: image/card styling */
+.columns.columns37 > div > div:nth-child(2) picture img {
+  width: 100%;
+  display: block;
+  border-radius: 13px;
+  margin-bottom: 1.1rem;
+  object-fit: cover;
+}
+
+.columns.columns37 > div > div:nth-child(2) p:nth-of-type(2) {
+  display: inline-block;
+  background: #f1f1f1;
+  color: #222;
+  font-size: 0.84rem;
+  padding: 0.10em 0.95em 0.07em;
+  border-radius: 4px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  margin-bottom: 0.28rem;
+}
+
+.columns.columns37 > div > div:nth-child(2) h3 {
+  font-size: 1.13rem;
+  color: #222;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  margin-bottom: 0.22rem;
+  line-height: 1.1;
+}
+
+.columns.columns37 > div > div:nth-child(2) p:nth-of-type(3) {
+  font-size: 0.98rem;
+  color: #444;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+/* Third column: stacked card list */
+
+.columns.columns37 > div > div:nth-child(3) h3 {
+  font-size: 1.08rem;
+  color: #222;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  margin-bottom: 0.18rem;
+  line-height: 1.13;
+}
+
+.columns.columns37 > div > div:nth-child(3) p {
+  font-size: 0.99rem;
+  color: #444;
+  margin-top: 0;
+  margin-bottom: 0;
+  padding-bottom: 2.2rem;
+}
+
+/* Divider between stacked items except last */
+.columns.columns37 > div > div:nth-child(3) p:not(:last-of-type) {
+  border-bottom: 1px solid #dadada;
+}
+
+.columns.columns37 > div > div:nth-child(3) p:last-of-type {
+  border-bottom: none;
+}
+
+/* Remove excess margin below columns */
+.columns.columns37 > div > div {
+  margin-bottom: 0;
 }
