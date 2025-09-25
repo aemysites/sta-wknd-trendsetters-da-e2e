@@ -488,7 +488,6 @@
   padding: 0;
 }
 
-/* Main columns: 4 side-by-side, top aligned, generous gap */
 .columns.columns21 > div {
   display: grid;
   grid-template-columns: 1.5fr 1fr 1fr 1fr;
@@ -507,7 +506,6 @@
   }
 }
 
-/* --- First column: logo/title row and social icon row --- */
 .columns.columns21 > div > div:first-child {
   display: flex;
   flex-direction: column;
@@ -517,7 +515,6 @@
   padding-top: 0;
 }
 
-/* --- Logo and title should be inline (horizontal flex) --- */
 .columns.columns21 > div > div:first-child > p:first-child,
 .columns.columns21 > div > div:first-child > p.button-container {
   display: flex;
@@ -527,7 +524,6 @@
   padding: 0;
 }
 
-/* --- Logo image style --- */
 .columns.columns21 > div > div:first-child > p:first-child img {
   width: 36px;
   height: 36px;
@@ -537,7 +533,6 @@
   opacity: 1;
 }
 
-/* --- "Fashion Blog" text style --- */
 .columns.columns21 > div > div:first-child > p.button-container .button {
   background: none;
   color: #fff;
@@ -554,7 +549,6 @@
   vertical-align: middle;
 }
 
-/* --- Social icons row: must be visible, horizontal, tightly spaced below logo/title --- */
 .columns.columns21 > div > div:first-child ul {
   display: flex;
   flex-direction: row;
@@ -584,21 +578,18 @@
   display: none;
 }
 
-/* --- Navigation columns (columns 2-4) --- */
 .columns.columns21 > div > div:not(:first-child) {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
 }
 
-/* Remove bullets and extra spacing on ul */
 .columns.columns21 > div > div ul {
   list-style: none;
   padding: 0;
   margin: 0;
 }
 
-/* Section headings */
 .columns.columns21 > div > div ul li:first-child h2 {
   color: #666;
   text-transform: uppercase;
@@ -608,7 +599,6 @@
   margin: 0 0 12px;
 }
 
-/* Navigation links */
 .columns.columns21 > div > div ul li:not(:first-child) a {
   color: #fff;
   font-size: 14px;
@@ -624,14 +614,12 @@
   color: #aaa;
 }
 
-/* Remove unwanted vertical spacing on all columns */
 .columns.columns21 > div > div {
   margin-top: 0;
   margin-bottom: 0;
   min-width: 0;
 }
 
-/* Responsive: logo/icon size and spacing for smaller screens */
 @media (width <= 900px) {
   .columns.columns21 > div > div:first-child > p:first-child img {
     width: 28px;
@@ -644,5 +632,142 @@
 
   .columns.columns21 > div > div ul li:not(:first-child) a {
     font-size: 15px;
+  }
+}
+
+
+.columns.columns27 {
+  background: #fafbf8;
+  padding: 48px 64px;
+  box-sizing: border-box;
+}
+
+.columns.columns27 > div {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: start;
+  grid-gap: 0 64px;
+  position: relative;
+  min-height: 320px;
+}
+
+/* Responsive stacking for smaller screens */
+@media (width <= 900px) {
+  .columns.columns27 {
+    padding: 28px 16px;
+  }
+
+  .columns.columns27 > div {
+    grid-template-columns: 1fr;
+    grid-row-gap: 32px;
+    min-height: unset;
+  }
+}
+
+/* Left column layout */
+.columns.columns27 > div > div:first-child {
+  display: grid;
+  grid-template-rows: auto auto auto auto;
+  align-items: start;
+  row-gap: 16px;
+}
+
+/* Heading styles */
+.columns.columns27 > div > div:first-child > p:first-child {
+  font-size: 2.6rem;
+  font-weight: 500;
+  line-height: 1.1;
+  color: #232323;
+  margin: 0 0 16px;
+  letter-spacing: 0.01em;
+  text-transform: none;
+}
+
+/* Author avatar and info arrangement */
+.columns.columns27 > div > div:first-child > p:nth-child(2) {
+  margin: 0;
+  display: flex;
+  align-items: center;
+}
+
+.columns.columns27 > div > div:first-child picture img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-right: 16px;
+  vertical-align: middle;
+}
+
+/* Author name styling */
+.columns.columns27 > div > div:first-child > p:nth-child(3) {
+  font-weight: 600;
+  color: #232323;
+  font-size: 1rem;
+  margin: 2px 0 0;
+}
+
+/* Author subtitle styling */
+.columns.columns27 > div > div:first-child > p:nth-child(4) {
+  font-size: 0.95rem;
+  color: #757575;
+  margin: 2px 0 0;
+}
+
+/* Right column layout */
+.columns.columns27 > div > div:last-child {
+  display: grid;
+  grid-template-rows: auto auto;
+  align-items: start;
+  row-gap: 24px;
+}
+
+/* Quote styling */
+.columns.columns27 > div > div:last-child > p:first-child {
+  font-size: 1rem;
+  color: #232323;
+  line-height: 1.6;
+  margin: 0 0 24px;
+}
+
+/* Logo row alignment */
+.columns.columns27 > div > div:last-child > p:last-child {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  margin: 0;
+  min-height: 40px;
+}
+
+/* Logo image size */
+.columns.columns27 > div > div:last-child > p:last-child img {
+  height: 28px;
+  width: auto;
+  display: inline-block;
+}
+
+/* Divider line between sections */
+.columns.columns27 > div::before {
+  display: block;
+  width: 100%;
+  height: 1px;
+  background: #e6e6e6;
+  position: absolute;
+  left: 0;
+  top: 56%;
+  z-index: 1;
+  content: "";
+}
+
+/* Adjust spacing for bottom rows on mobile */
+@media (width <= 900px) {
+  .columns.columns27 > div::before {
+    top: 59%;
+  }
+
+  .columns.columns27 > div > div,
+  .columns.columns27 > div > div:first-child,
+  .columns.columns27 > div > div:last-child {
+    row-gap: 12px;
   }
 }
