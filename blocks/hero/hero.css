@@ -347,9 +347,6 @@
   background: transparent;
 }
 
-/* Remove space around the block for true full-bleed */
-
-/* --- IMAGE GRID AS BACKGROUND --- */
 .hero.hero20 > div:first-child {
   position: absolute;
   inset: 0;
@@ -386,7 +383,6 @@
   display: block;
 }
 
-/* Overlay for readability */
 .hero.hero20 > div:first-child::after {
   display: block;
   position: absolute;
@@ -395,7 +391,6 @@
   z-index: 2;
 }
 
-/* --- TRUE VERTICAL CENTERING OF OVERLAY --- */
 .hero.hero20 > div:last-child {
   position: absolute;
   inset: 0;
@@ -404,7 +399,7 @@
   z-index: 3;
   display: flex;
   flex-direction: column;
-  justify-content: center;  /* TRUE vertical centering */
+  justify-content: center;
   align-items: center;
   pointer-events: auto;
   padding-top: 0;
@@ -422,7 +417,6 @@
   max-width: 100vw;
 }
 
-/* --- TYPOGRAPHY --- */
 .hero.hero20 h1 {
   font-size: clamp(36px, 6.2vw, 80px);
   color: #fff;
@@ -450,7 +444,6 @@
   padding: 0 0.3vw;
 }
 
-/* --- BUTTON COLUMN --- */
 .hero.hero20 .button-container {
   display: flex;
   flex-direction: column;
@@ -482,7 +475,6 @@
   text-decoration: none;
 }
 
-/* --- RESPONSIVENESS --- */
 @media (width <= 900px) {
   .hero.hero20 > div:first-child > div > p {
     grid-template-columns: repeat(2, 1fr);
@@ -528,4 +520,156 @@
 .hero.hero20 > div {
   margin: 0;
   padding: 0;
+}
+
+
+.hero.hero25 {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 4vw;
+  background: #f9f9f7;
+  box-sizing: border-box;
+  padding: 7vw 3vw 7vw 5vw;
+  width: 100%;
+  min-height: 570px;
+  position: relative;
+}
+
+/* Left column: visual block (image/video) should be visible and sized */
+.hero.hero25 > div:first-child {
+  flex: 0 0 44vw;
+  max-width: 560px;
+  min-width: 340px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-end;
+  margin: 0;
+  position: relative;
+  z-index: 1;
+}
+
+/* Ensure image is not stretched and fills its container */
+.hero.hero25 > div:first-child picture,
+.hero.hero25 > div:first-child img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  display: block;
+}
+
+/* Right column: text block (headline, supporting text, button) */
+.hero.hero25 > div:last-child {
+  flex: 1 1 50vw;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  min-width: 340px;
+  max-width: 700px;
+  margin-top: 0;
+  margin-left: -4vw; /* Overlap headline and visual for integration */
+  position: relative;
+  z-index: 2;
+  padding-left: 0;
+}
+
+/* Headline: large and aligned with top of visual block */
+.hero.hero25 h1 {
+  margin: 0 0 0.23em;
+  font-size: clamp(2.6rem, 8vw, 6rem);
+  font-weight: 400;
+  letter-spacing: 0.06em;
+  color: #000;
+  line-height: 1.05;
+  text-align: left;
+  max-width: 100%;
+  position: relative;
+  z-index: 2;
+}
+
+/* Subtitle: large, below headline */
+.hero.hero25 h1 + p {
+  margin: 0 0 1.2em;
+  font-size: clamp(1.5rem, 2.8vw, 2.7rem);
+  color: #000;
+  line-height: 1.13;
+  text-align: left;
+}
+
+/* Supporting text: smaller, gray, limited width */
+.hero.hero25 h1 + p + p {
+  margin: 0 0 3.2em;
+  font-size: 1.07rem;
+  color: #5d5d5d;
+  max-width: 410px;
+  line-height: 1.6;
+  text-align: left;
+}
+
+/* Button container: right-aligned, with whitespace below */
+.hero.hero25 .button-container {
+  display: flex;
+  flex-direction: row;
+  gap: 1.2em;
+  width: 100%;
+  justify-content: flex-end;
+  margin-top: 2.7em;
+  margin-bottom: 0;
+  padding-right: 1vw;
+}
+
+/* Button: pill-shaped, outlined, black text */
+.hero.hero25 .button {
+  background: #fff;
+  color: #000;
+  border: 1.5px solid #000;
+  border-radius: 9999px;
+  padding: 0.7em 2.6em;
+  font-size: 1.13em;
+  font-weight: 400;
+  line-height: 1.25;
+  box-shadow: none;
+  transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+}
+
+.hero.hero25 .button:hover,
+.hero.hero25 .button:focus {
+  background: #000;
+  color: #fff;
+  box-shadow: 0 2px 12px rgb(40 40 40 / 8%);
+}
+
+/* Responsive: stack columns, spacing, and alignment for mobile */
+@media (width <= 900px) {
+  .hero.hero25 {
+    flex-direction: column;
+    gap: 2vw;
+    padding: 9vw 4vw 8vw;
+    min-height: unset;
+  }
+
+  .hero.hero25 > div:first-child,
+  .hero.hero25 > div:last-child {
+    min-width: 0;
+    max-width: 100vw;
+    width: 100%;
+    margin-left: 0;
+    margin-top: 0;
+    padding-left: 0;
+  }
+
+  .hero.hero25 h1 {
+    font-size: clamp(2.1rem, 8vw, 3.6rem);
+  }
+
+  .hero.hero25 h1 + p {
+    font-size: clamp(1.15rem, 4vw, 1.7rem);
+  }
+
+  .hero.hero25 .button-container {
+    justify-content: flex-start;
+    margin-top: 2em;
+    padding-right: 0;
+  }
 }
