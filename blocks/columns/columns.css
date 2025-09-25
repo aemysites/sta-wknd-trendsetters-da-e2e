@@ -31,3 +31,132 @@
     order: unset;
   }
 }
+
+
+.columns.columns3 > div {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 4rem;
+  padding: 3.5rem 0;
+}
+
+.columns.columns3 > div > .columns-img-col,
+.columns.columns3 > div > div {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+
+  /* Ensure no accidental vertical offset */
+  margin-top: 0;
+  padding-top: 0;
+}
+
+/* Image column */
+.columns.columns3 .columns-img-col img,
+.columns.columns3 .columns-img-col picture {
+  width: 350px;
+  height: 350px;
+  object-fit: cover;
+  border-radius: 24px;
+  display: block;
+  box-shadow: 0 4px 24px rgb(0 0 0 / 6%);
+}
+
+/* Text column */
+.columns.columns3 .columns-img-col + div {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 0.22rem;
+  max-width: 520px;
+  margin-top: 0;
+  padding-top: 0;
+}
+
+.columns.columns3 .columns-img-col + div h1 {
+  color: #232323;
+  font-size: 3rem;
+  font-weight: 700;
+  line-height: 1.1;
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+  letter-spacing: 0.01em;
+  text-align: left;
+}
+
+.columns.columns3 .columns-img-col + div p {
+  font-size: 1.15rem;
+  color: #555;
+  margin-top: 0.3rem;
+  margin-bottom: 0.3rem;
+  line-height: 1.5;
+  text-align: left;
+}
+
+.columns.columns3 .columns-img-col + div .button-container {
+  display: flex;
+  gap: 1rem;
+  margin-top: 0.12rem;
+  justify-content: flex-start;
+  width: 100%;
+}
+
+.columns.columns3 .columns-img-col + div .button-container .button,
+.columns.columns3 .columns-img-col + div .button-container a.button {
+  background: #fff;
+  color: #232323;
+  border: 1.5px solid #232323;
+  border-radius: 24px;
+  padding: 0.65em 1.8em;
+  font-size: 1rem;
+  font-weight: 500;
+  transition: background 0.2s, color 0.2s;
+  box-shadow: none;
+  outline: none;
+}
+
+.columns.columns3 .columns-img-col + div .button-container .button:hover,
+.columns.columns3 .columns-img-col + div .button-container a.button:hover {
+  background: #232323;
+  color: #fff;
+}
+
+@media (width <= 900px) {
+  .columns.columns3 > div {
+    flex-direction: column;
+    gap: 2rem;
+    padding: 2rem 0;
+  }
+
+  .columns.columns3 .columns-img-col img,
+  .columns.columns3 .columns-img-col picture {
+    width: 100%;
+    max-width: 350px;
+    height: auto;
+    border-radius: 20px;
+    margin: 0 auto;
+  }
+
+  .columns.columns3 .columns-img-col + div {
+    max-width: 100%;
+  }
+
+  .columns.columns3 .columns-img-col + div h1 {
+    font-size: 2.2rem;
+    margin-bottom: 0.7rem;
+  }
+
+  .columns.columns3 .columns-img-col + div .button-container {
+    flex-direction: column;
+    gap: 0.75rem;
+    width: 100%;
+  }
+
+  .columns.columns3 .columns-img-col + div .button-container .button,
+  .columns.columns3 .columns-img-col + div .button-container a.button {
+    width: 100%;
+  }
+}
