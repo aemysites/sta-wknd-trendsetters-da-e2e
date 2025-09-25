@@ -1296,3 +1296,76 @@
     grid-template-columns: 1fr;
   }
 }
+
+
+.cards.cards36 {
+  margin: 0 auto;
+  width: 100%;
+  max-width: 1200px;
+  box-sizing: border-box;
+}
+
+/* Use grid with only columns specified so rows are auto-created as needed. No empty cells. */
+.cards.cards36 > ul {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  place-items: stretch stretch;
+}
+
+/* Card styling for visual consistency and alignment */
+.cards.cards36 > ul > li {
+  background: var(--background-color);
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgb(0 0 0 / 4%);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  min-width: 0;
+  margin: 0;
+  border: none;
+  height: 100%;
+}
+
+/* Ensure images fill their container but maintain aspect ratio for compact grid */
+.cards.cards36 .cards-card-image {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  border-radius: 16px;
+  line-height: 0;
+}
+
+.cards.cards36 .cards-card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 16px;
+  display: block;
+  background: var(--background-color);
+}
+
+/* Hide card body as per design */
+.cards.cards36 .cards-card-body {
+  display: none;
+}
+
+/* Responsive: 2 columns for tablets */
+@media (width <= 900px) {
+  .cards.cards36 > ul {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+  }
+}
+
+/* Responsive: 1 column for mobile */
+@media (width <= 600px) {
+  .cards.cards36 > ul {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+}
