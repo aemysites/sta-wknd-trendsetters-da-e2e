@@ -1,3 +1,4 @@
+/* stylelint-disable no-descending-specificity */
 .columns > div {
   display: flex;
   flex-direction: column;
@@ -47,13 +48,10 @@
   flex-direction: column;
   justify-content: flex-start;
   align-items: flex-start;
-
-  /* Ensure no accidental vertical offset */
   margin-top: 0;
   padding-top: 0;
 }
 
-/* Image column */
 .columns.columns3 .columns-img-col img,
 .columns.columns3 .columns-img-col picture {
   width: 350px;
@@ -64,7 +62,6 @@
   box-shadow: 0 4px 24px rgb(0 0 0 / 6%);
 }
 
-/* Text column */
 .columns.columns3 .columns-img-col + div {
   display: flex;
   flex-direction: column;
@@ -158,5 +155,117 @@
   .columns.columns3 .columns-img-col + div .button-container .button,
   .columns.columns3 .columns-img-col + div .button-container a.button {
     width: 100%;
+  }
+}
+
+
+.columns.columns8 > div {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  gap: 48px;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  min-height: 140px;
+}
+
+.columns.columns8 > div > div:first-child {
+  flex: 0 1 62%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  min-width: 0;
+}
+
+.columns.columns8 > div > div:last-child {
+  flex: 0 1 38%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;  /* vertical centering in parent */
+  align-items: center;      /* horizontal centering for content */
+  min-width: 0;
+  min-height: 0;
+  height: 100%; /* ensure fills parent's height for centering */
+}
+
+.columns.columns8 h2 {
+  font-size: 48px;
+  font-weight: 400;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  color: #000;
+  line-height: 1.05;
+  margin: 0;
+  padding: 0;
+  word-break: break-word;
+}
+
+.columns.columns8 > div > div:last-child > p:not(.button-container) {
+  font-size: 13px;
+  color: #111;
+  line-height: 1.4;
+  margin: 0 0 24px;
+  padding: 0;
+  text-align: left;
+  align-self: flex-start;
+}
+
+.columns.columns8 .button-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin: 0;
+  padding: 0;
+}
+
+.columns.columns8 .button-container .button {
+  background: #fff;
+  border: 1.5px solid #111;
+  color: #111;
+  border-radius: 30px;
+  font-size: 13px;
+  font-weight: 400;
+  padding: 6px 28px;
+  min-width: 0;
+  margin: 0;
+  line-height: 1.3;
+  transition: background 0.2s;
+}
+
+.columns.columns8 .button-container .button:hover,
+.columns.columns8 .button-container .button:focus {
+  background: #f4f4f4;
+  color: #111;
+  border-color: #111;
+  text-decoration: none;
+}
+
+/* Responsive: stack columns vertically on small screens */
+@media (width <= 700px) {
+  .columns.columns8 > div {
+    flex-direction: column;
+    gap: 24px;
+    min-height: 0;
+    height: auto;
+  }
+
+  .columns.columns8 > div > div:first-child,
+  .columns.columns8 > div > div:last-child {
+    flex: 1 1 100%;
+    width: 100%;
+    min-width: 0;
+    align-self: auto;
+    height: auto;
+  }
+
+  .columns.columns8 > div > div:last-child {
+    justify-content: flex-start;
+    align-items: flex-start;
+  }
+
+  .columns.columns8 .button-container {
+    justify-content: flex-start;
   }
 }
