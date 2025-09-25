@@ -36,7 +36,6 @@
   padding: 0;
 }
 
-/* Restore visibility for the block and its children */
 .cards.cards2 > ul {
   display: flex;
   flex-direction: row;
@@ -51,7 +50,6 @@
   list-style: none;
 }
 
-/* Responsive: Stack vertically on mobile */
 @media (width <= 900px) {
   .cards.cards2 > ul {
     flex-direction: column;
@@ -60,7 +58,6 @@
   }
 }
 
-/* Feature card (left) */
 .cards.cards2 > ul > li:first-child {
   background: #fff;
   border: none;
@@ -75,7 +72,6 @@
   padding: 0;
 }
 
-/* Feature card image: restore actual image display with proper fit */
 .cards.cards2 > ul > li:first-child .cards-card-image {
   margin: 0;
   width: 100%;
@@ -101,7 +97,6 @@
   left: 0;
 }
 
-/* Feature card body */
 .cards.cards2 > ul > li:first-child .cards-card-body {
   padding: 36px 38px 32px;
   background: #fff;
@@ -111,7 +106,6 @@
   justify-content: flex-start;
 }
 
-/* Feature card heading */
 .cards.cards2 > ul > li:first-child .cards-card-body h3 {
   font-size: 2.2rem;
   font-weight: 600;
@@ -123,7 +117,6 @@
   line-height: 1.08;
 }
 
-/* Feature card paragraph */
 .cards.cards2 > ul > li:first-child .cards-card-body p {
   font-size: 1.08rem;
   color: #181818;
@@ -132,7 +125,6 @@
   line-height: 1.5;
 }
 
-/* "Read more" button */
 .cards.cards2 > ul > li:first-child .cards-card-body p:last-child {
   margin-top: 24px;
   margin-bottom: 0;
@@ -155,7 +147,6 @@
   color: #fff;
 }
 
-/* Right card styling */
 .cards.cards2 > ul > li:not(:first-child) {
   background: #fff;
   border: none;
@@ -170,7 +161,6 @@
   padding: 0;
 }
 
-/* Right card image: restore actual image display with proper fit */
 .cards.cards2 > ul > li:not(:first-child) .cards-card-image {
   margin: 0;
   width: 100%;
@@ -196,7 +186,6 @@
   left: 0;
 }
 
-/* Right card body */
 .cards.cards2 > ul > li:not(:first-child) .cards-card-body {
   padding: 22px 22px 18px;
   background: #fff;
@@ -206,7 +195,6 @@
   justify-content: flex-start;
 }
 
-/* Right card heading */
 .cards.cards2 > ul > li:not(:first-child) .cards-card-body h3 {
   font-size: 1.15rem;
   font-weight: 600;
@@ -218,7 +206,6 @@
   text-transform: none;
 }
 
-/* Right card paragraph */
 .cards.cards2 > ul > li:not(:first-child) .cards-card-body p {
   font-size: 0.99rem;
   color: #5f5f5f;
@@ -226,7 +213,6 @@
   line-height: 1.45;
 }
 
-/* Remove any border from all cards */
 .cards.cards2 > ul > li {
   border: none;
 }
@@ -257,5 +243,66 @@
   .cards.cards2 > ul > li:first-child .cards-card-body,
   .cards.cards2 > ul > li:not(:first-child) .cards-card-body {
     padding: 18px 12px 16px;
+  }
+}
+
+
+.cards.cards7 > ul {
+  display: flex;
+  flex-direction: row;
+  justify-content: stretch;
+  align-items: stretch;
+  gap: 12px; /* Tighter gap for a more compact look */
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.cards.cards7 > ul > li {
+  flex: 1 1 0;
+  display: flex;
+  flex-direction: column;
+  border: none;
+  border-radius: 24px; /* Slightly taller radius for a smoother look */
+  overflow: hidden;
+  background: #fff;
+  padding: 0;
+  min-width: 0;
+  max-width: 100%;
+}
+
+.cards.cards7 .cards-card-body {
+  display: none;
+}
+
+.cards.cards7 .cards-card-image {
+  flex: 1 1 auto;
+  width: 100%;
+  height: 100%;
+  border-radius: 24px;
+  overflow: hidden;
+  display: flex;
+  background: #fff;
+}
+
+.cards.cards7 .cards-card-image img {
+  width: 100%;
+  height: 100%;
+  aspect-ratio: 4 / 3; /* Slightly taller for a more balanced card */
+  object-fit: cover;
+  display: block;
+  border-radius: 24px;
+}
+
+/* Responsive stacking for narrow screens */
+@media (width <= 900px) {
+  .cards.cards7 > ul {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .cards.cards7 > ul > li {
+    max-width: 100%;
   }
 }
