@@ -651,7 +651,6 @@
   min-height: 320px;
 }
 
-/* Responsive stacking for smaller screens */
 @media (width <= 900px) {
   .columns.columns27 {
     padding: 28px 16px;
@@ -664,7 +663,6 @@
   }
 }
 
-/* Left column layout */
 .columns.columns27 > div > div:first-child {
   display: grid;
   grid-template-rows: auto auto auto auto;
@@ -672,7 +670,6 @@
   row-gap: 16px;
 }
 
-/* Heading styles */
 .columns.columns27 > div > div:first-child > p:first-child {
   font-size: 2.6rem;
   font-weight: 500;
@@ -683,7 +680,6 @@
   text-transform: none;
 }
 
-/* Author avatar and info arrangement */
 .columns.columns27 > div > div:first-child > p:nth-child(2) {
   margin: 0;
   display: flex;
@@ -699,7 +695,6 @@
   vertical-align: middle;
 }
 
-/* Author name styling */
 .columns.columns27 > div > div:first-child > p:nth-child(3) {
   font-weight: 600;
   color: #232323;
@@ -707,14 +702,12 @@
   margin: 2px 0 0;
 }
 
-/* Author subtitle styling */
 .columns.columns27 > div > div:first-child > p:nth-child(4) {
   font-size: 0.95rem;
   color: #757575;
   margin: 2px 0 0;
 }
 
-/* Right column layout */
 .columns.columns27 > div > div:last-child {
   display: grid;
   grid-template-rows: auto auto;
@@ -722,7 +715,6 @@
   row-gap: 24px;
 }
 
-/* Quote styling */
 .columns.columns27 > div > div:last-child > p:first-child {
   font-size: 1rem;
   color: #232323;
@@ -730,7 +722,6 @@
   margin: 0 0 24px;
 }
 
-/* Logo row alignment */
 .columns.columns27 > div > div:last-child > p:last-child {
   display: flex;
   align-items: center;
@@ -739,14 +730,12 @@
   min-height: 40px;
 }
 
-/* Logo image size */
 .columns.columns27 > div > div:last-child > p:last-child img {
   height: 28px;
   width: auto;
   display: inline-block;
 }
 
-/* Divider line between sections */
 .columns.columns27 > div::before {
   display: block;
   width: 100%;
@@ -759,7 +748,6 @@
   content: "";
 }
 
-/* Adjust spacing for bottom rows on mobile */
 @media (width <= 900px) {
   .columns.columns27 > div::before {
     top: 59%;
@@ -770,4 +758,214 @@
   .columns.columns27 > div > div:last-child {
     row-gap: 12px;
   }
+}
+
+
+.columns.columns32 > div {
+  display: flex;
+  flex-direction: row;
+  align-items: center; /* Vertically center both columns */
+  justify-content: center;
+  gap: 5vw;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 3rem 0;
+}
+
+/* --- LEFT COLUMN: Vertically center content in parent row --- */
+.columns.columns32 > div > div:not(.columns-img-col) {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  align-self: center; /* <-- ensure vertical centering in row */
+  min-width: 0;
+  height: auto;
+
+  /* Remove any unintended top margin from flex/column */
+}
+
+/* Hide SVG chevron/icon in breadcrumbs area */
+.columns.columns32 > div > div:not(.columns-img-col) picture {
+  display: none;
+}
+
+/* Breadcrumbs: compact, tight, uppercase */
+.columns.columns32 > div > div:not(.columns-img-col) .button-container {
+  display: block;
+  margin: 0 0 0.01em;
+  line-height: 1.13;
+}
+
+.columns.columns32 > div > div:not(.columns-img-col) .button-container a.button {
+  background: none;
+  color: #222;
+  font-size: 0.89rem;
+  text-transform: uppercase;
+  font-weight: 400;
+  border: none;
+  box-shadow: none;
+  padding: 0;
+  margin: 0;
+  letter-spacing: 0.11em;
+  min-width: unset;
+  border-radius: 0;
+  display: inline;
+}
+
+.columns.columns32 > div > div:not(.columns-img-col) .button-container:not(:last-of-type) a.button {
+  margin-bottom: 0.01em;
+}
+
+/* Reduce space between breadcrumbs and headline */
+.columns.columns32 > div > div:not(.columns-img-col) .button-container:last-of-type {
+  margin-bottom: 0.09em;
+}
+
+/* Headline: large, multi-line, tight, less margin below */
+.columns.columns32 > div > div:not(.columns-img-col) h2 {
+  color: #222;
+  font-size: 2.8rem;
+  font-weight: 400;
+  letter-spacing: 0.02em;
+  line-height: 1.04;
+  margin: 0.32em 0 0.6em;
+  text-align: left;
+  max-width: 20ch;
+  padding: 0;
+}
+
+/* --- BYLINE AND META: group into two lines tightly --- */
+
+/* Byline row: "By Taylor Brooks" */
+.columns.columns32 > div > div:not(.columns-img-col) p:nth-of-type(5),
+.columns.columns32 > div > div:not(.columns-img-col) p:nth-of-type(6) {
+  display: inline;
+  margin-right: 0.4em;
+  margin-bottom: 0;
+  color: #222;
+  font-weight: 400;
+  font-size: 1.1rem;
+  line-height: 1.2;
+}
+
+/* Make these two share a single line and break after */
+.columns.columns32 > div > div:not(.columns-img-col) p:nth-of-type(6)::after {
+  display: block;
+}
+
+/* Metadata row: "June 7, 2024 • 4 min read" */
+.columns.columns32 > div > div:not(.columns-img-col) p:nth-of-type(7),
+.columns.columns32 > div > div:not(.columns-img-col) p:nth-of-type(8),
+.columns.columns32 > div > div:not(.columns-img-col) p:nth-of-type(9) {
+  display: inline;
+  margin-right: 0.3em;
+  color: #888;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.2;
+  margin-bottom: 0;
+}
+
+.columns.columns32 > div > div:not(.columns-img-col) p:nth-of-type(9) {
+  margin-right: 0;
+}
+
+/* Add minimal spacing below meta group */
+.columns.columns32 > div > div:not(.columns-img-col) p:nth-of-type(9)::after {
+  display: block;
+  margin-bottom: 0.2em;
+}
+
+/* Remove extra space between byline/meta and social icons */
+.columns.columns32 > div > div:not(.columns-img-col) ul {
+  margin-top: 0;
+  display: flex;
+  flex-direction: row;
+  gap: 1.1rem;
+  padding: 0;
+  list-style: none;
+  align-items: center;
+}
+
+/* --- SOCIAL ICONS ROW --- */
+
+.columns.columns32 > div > div:not(.columns-img-col) ul li {
+  display: flex;
+  align-items: center;
+  gap: 0.14em;
+  margin: 0;
+  padding: 0;
+}
+
+.columns.columns32 > div > div:not(.columns-img-col) ul li .button-container {
+  display: none;
+}
+
+.columns.columns32 > div > div:not(.columns-img-col) ul li img {
+  width: 1.14rem;
+  height: 1.14rem;
+  display: block;
+  filter: grayscale(100%) brightness(0.2);
+  background: transparent;
+  border-radius: 0.35em;
+}
+
+/* Remove list bullets */
+.columns.columns32 > div > div:not(.columns-img-col) ul,
+.columns.columns32 > div > div:not(.columns-img-col) ul li {
+  list-style: none;
+  margin-left: 0;
+  padding-left: 0;
+}
+
+/* --- RIGHT COLUMN: IMAGE --- */
+.columns.columns32 > div > .columns-img-col {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  height: 100%;
+}
+
+.columns.columns32 > div > .columns-img-col picture,
+.columns.columns32 > div > .columns-img-col img {
+  display: block;
+  width: 420px;
+  max-width: 100%;
+  height: auto;
+  border-radius: 24px;
+  box-shadow: none;
+  margin: 0;
+  background: transparent;
+}
+
+/* --- RESPONSIVENESS --- */
+@media (width <= 899px) {
+  .columns.columns32 > div {
+    flex-direction: column;
+    gap: 2rem;
+    padding: 2rem 0;
+    align-items: stretch;
+  }
+
+  .columns.columns32 > div > .columns-img-col picture,
+  .columns.columns32 > div > .columns-img-col img {
+    width: 100%;
+    max-width: 95vw;
+    border-radius: 18px;
+  }
+
+  .columns.columns32 > div > div:not(.columns-img-col) h2 {
+    font-size: 2rem;
+    margin-top: 1.2rem;
+    margin-bottom: 0.7rem;
+    max-width: 100%;
+  }
+}
+
+/* General wrapper alignment */
+.columns.columns32 {
+  background: #fff;
+  padding: 0;
 }
