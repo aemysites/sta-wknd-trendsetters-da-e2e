@@ -1,8 +1,8 @@
+/* stylelint-disable no-descending-specificity */
 .accordion details {
   border: 1px solid #dadada;
 }
 
-/* stylelint-disable-next-line no-descending-specificity */
 .accordion details + details {
   margin-top: 24px;
 }
@@ -58,4 +58,117 @@
 .accordion details[open] .accordion-item-body {
   border-top: 1px solid #dadada;
   background-color: var(--background-color);
+}
+
+
+.accordion.accordion17 {
+  background: #f7f7f5;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+  margin: 0;
+}
+
+.accordion.accordion17 details {
+  border: none;
+  border-bottom: 0.5px solid #e0e0dc;
+  margin: 0;
+  background: transparent;
+  width: 100%;
+}
+
+.accordion.accordion17 details:last-child {
+  border-bottom: none;
+}
+
+/* Flex row, truly minimal left padding for flush alignment */
+.accordion.accordion17 summary {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  min-height: 40px;
+  padding-left: 0;
+  padding-right: 4px;
+  cursor: pointer;
+  outline: none;
+  background: transparent;
+  border: none;
+  font-size: 14px;
+  color: #232323;
+  font-weight: 400;
+  margin: 0;
+  width: 100%;
+  position: relative;
+  box-sizing: border-box;
+  margin-left: 0;
+}
+
+/* Remove browser's default arrow */
+.accordion.accordion17 summary::-webkit-details-marker {
+  display: none;
+}
+
+/* Remove any margin from question text and force it flush left */
+.accordion.accordion17 summary > p {
+  margin: 0;
+  margin-left: 0;
+  padding: 0;
+  flex: 1 1 auto;
+  text-align: left;
+  font-size: 14px;
+  color: #232323;
+  font-weight: 400;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* Chevron: absolutely positioned, perfectly right and vertically centered, slight right gap */
+.accordion.accordion17 summary::after {
+  position: absolute;
+  top: 50%;
+  right: 4px;
+  transform: translateY(-50%) rotate(45deg);
+  width: 12px;
+  height: 12px;
+  border-right: 2px solid #232323;
+  border-bottom: 2px solid #232323;
+  vertical-align: middle;
+  box-sizing: border-box;
+  flex-shrink: 0;
+}
+
+/* Chevron rotates on open */
+.accordion.accordion17 details[open] summary::after {
+  transform: translateY(-50%) rotate(-135deg);
+}
+
+/* Accordion body: minimal left/right padding */
+.accordion.accordion17 details > div {
+  padding: 0 4px 16px 0;
+  font-size: 14px;
+  color: #232323;
+  background: transparent;
+}
+
+/* Responsive: adjust paddings/chevron for small screens */
+@media (width <= 600px) {
+  .accordion.accordion17 summary {
+    padding-left: 0;
+    padding-right: 2px;
+    font-size: 13px;
+    min-height: 36px;
+  }
+
+  .accordion.accordion17 summary::after {
+    right: 2px;
+    width: 10px;
+    height: 10px;
+  }
+
+  .accordion.accordion17 details > div {
+    padding: 0 2px 12px 0;
+    font-size: 13px;
+  }
 }
