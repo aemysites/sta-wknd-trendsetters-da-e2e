@@ -1,3 +1,5 @@
+/* stylelint-disable no-descending-specificity */
+
 .table.block {
   width: 100%;
   overflow-x: auto;
@@ -50,18 +52,205 @@
   margin-top: 0.25em;
 }
 
-/* no header variant */
-.table.block.no-header table tbody tr {
-  border-top: 1px solid;
-}
-
-/* striped variant */
 .table.block.striped tbody tr:nth-child(odd) {
   background-color: var(--overlay-background-color);
 }
 
-/* bordered variant */
 .table.block.bordered table th,
 .table.block.bordered table td {
   border: 1px solid;
 }
+
+/* --- EDS Foundation --- */
+header nav {
+  display: flex;
+  max-width: 1264px;
+  width: 100%;
+  margin: 0 auto;
+  background: #fff;
+  align-items: stretch;
+  justify-content: center;
+  min-height: 0;
+  box-sizing: border-box;
+}
+
+header { display: flex; }
+.header-wrapper .nav-wrapper { justify-content: center; align-items: center; }
+header nav .nav-hamburger { display: none; visibility: hidden; }
+
+/* --- FAQ Header Layout, Visuals, Responsiveness --- */
+
+/* Brand logo (left) */
+header nav .nav-brand {
+  order: 1;
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+  padding: 0 32px 0 0;
+  min-width: 32px;
+}
+
+header nav .nav-brand img,
+header nav .nav-brand picture img {
+  height: 32px;
+  width: 32px;
+  object-fit: contain;
+  display: block;
+  margin: 0;
+  background: #fff;
+}
+
+/* Main FAQ grid (nav-sections) */
+header nav .nav-sections {
+  order: 2;
+  flex: 1 1 0;
+  display: flex;
+  align-items: stretch;
+  justify-content: center;
+  padding: 0;
+  width: 100%;
+  min-width: 0;
+}
+
+header nav .nav-sections .default-content-wrapper {
+  width: 100%;
+  padding: 0;
+  min-width: 0;
+}
+
+header nav .nav-sections ul {
+  display: grid;
+  grid-template-columns: 2fr 5fr;
+  gap: 0;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  background: #fff;
+  min-width: 0;
+}
+
+header nav .nav-sections ul > li {
+  display: contents;
+}
+
+/* FAQ question (left column) */
+header nav .nav-sections ul > li > p {
+  font-family: Syncopate, 'Syncopate Fallback', sans-serif;
+  text-transform: lowercase;
+  font-size: 14px;
+  letter-spacing: .04em;
+  color: #505050;
+  border-bottom: 1px solid #505050;
+  margin: 0;
+  padding: 13px 16px 13px 0;
+  line-height: 1.13;
+  white-space: nowrap;
+  background: #fff;
+  box-sizing: border-box;
+}
+
+/* FAQ answer (right column) */
+header nav .nav-sections ul > li > p + p {
+  font-family: var(--body-font-family);
+  font-size: 11px;
+  color: #131313;
+  border-bottom: 1px solid #505050;
+  margin: 0;
+  padding: 13px 16px 13px 0;
+  line-height: 1.24;
+  white-space: normal;
+  background: #fff;
+  box-sizing: border-box;
+}
+
+/* Remove border for last row */
+header nav .nav-sections ul > li:last-child > p,
+header nav .nav-sections ul > li:last-child > p + p {
+  border-bottom: none;
+}
+
+/* Clean up inner elements, preserve text */
+header nav .nav-sections p,
+header nav .nav-sections strong {
+  margin: 0; padding: 0;
+}
+
+header nav .nav-sections .button,
+header nav .nav-sections .button.primary,
+header nav .nav-sections .button-container {
+  background: none; border: none; box-shadow: none;
+  padding: 0; margin: 0;
+  color: inherit; font: inherit;
+  min-width: unset; min-height: unset; display: inline;
+}
+
+header nav .nav-sections a {
+  color: inherit; background: none;
+  text-decoration: none; pointer-events: none; cursor: default;
+}
+
+header nav .nav-sections img,
+header nav .nav-sections picture,
+header nav .nav-sections svg {
+  display: none;
+}
+
+/* Tool section: hidden for FAQ block layout */
+header nav .nav-tools {
+  order: 3;
+  flex: 0 0 auto;
+  display: none;
+}
+
+/* --- Responsive: mobile stacking --- */
+@media (width <= 899px) {
+  .header-wrapper .nav-wrapper { position: static; box-shadow: none; }
+  header nav { flex-direction: column; align-items: stretch; max-width: 100%; min-width: 0; padding: 0; min-height: 0; }
+  header nav .nav-brand { order: 1; padding: 10px 10px 0; justify-content: flex-start; min-width: 0; width: 100%; border-bottom: none; }
+  header nav .nav-sections { order: 2; width: 100%; padding: 0; }
+  header nav .nav-sections .default-content-wrapper { padding: 0; }
+header nav .nav-sections ul {
+  display: block;
+  width: 100%;
+  background: #fff;
+  min-width: 0;
+}
+  header nav .nav-sections ul > li { display: grid; grid-template-columns: 1.13fr 2fr; width: 100%; min-width: 0; }
+
+header nav .nav-sections ul > li > p,
+  header nav .nav-sections ul > li > p + p {
+    display: block;
+    padding: 11px 8px 11px 0;
+    border-bottom: 1px solid #505050;
+    font-size: 11px;
+    min-height: 44px;
+    line-height: 1.13;
+    background: #fff;
+    word-break: break-word;
+    white-space: normal;
+    box-sizing: border-box;
+  }
+  header nav .nav-sections ul > li > p:first-child { border-bottom: none; padding-bottom: 0; }
+
+  header nav .nav-sections ul > li:last-child > p,
+  header nav .nav-sections ul > li:last-child > p + p { border-bottom: none; }
+  header nav .nav-tools { display: none; }
+}
+
+/* --- Touch targets min 44px --- */
+header nav .nav-sections ul > li > p,
+header nav .nav-sections ul > li > p + p { min-height: 44px; }
+
+/* --- Remove all focus/hover outlines for non-interactive FAQ --- */
+header nav .nav-sections ul > li > p:focus,
+header nav .nav-sections ul > li > p:hover,
+header nav .nav-sections ul > li > p + p:focus,
+header nav .nav-sections ul > li > p + p:hover {
+  outline: none;
+  text-decoration: none;
+  background: #fff;
+}
+
+/* --- Header background --- */
+header nav, .header-wrapper .nav-wrapper { background: #fff; }
