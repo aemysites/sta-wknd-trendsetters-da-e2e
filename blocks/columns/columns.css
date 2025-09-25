@@ -1,6 +1,12 @@
+/* stylelint-disable no-descending-specificity */
 .columns > div {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  width: 100%;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 0;
+  margin: 0;
 }
 
 .columns img {
@@ -29,5 +35,56 @@
   .columns > div > div {
     flex: 1;
     order: unset;
+  }
+}
+
+
+.columns {
+  background: #f6f7f4;
+  width: 100%;
+  min-height: 220px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: flex-start;
+  box-sizing: border-box;
+  padding: 0;
+}
+
+/* Use flex for one-dimensional row layout, with content aligned to the top */
+
+/* Hide all columns except the first one */
+.columns > div > div:not(:first-child) {
+  display: none;
+}
+
+/* Hide all children of the first column except the last paragraph */
+.columns > div > div:first-child > *:not(p:last-of-type) {
+  display: none;
+}
+
+/* Style the visible paragraph: anchor very close to the top, center horizontally, generous space below */
+.columns > div > div:first-child > p:last-of-type {
+  margin: 24px auto 0;
+  text-align: center;
+  font-size: var(--body-font-size-s);
+  font-weight: 400;
+  color: #222;
+  line-height: 1.4;
+  background: transparent;
+  max-width: 900px;
+  width: 100%;
+}
+
+/* Responsive adjustments for larger screens */
+@media (width >= 900px) {
+  .columns {
+    min-height: 260px;
+  }
+
+  .columns > div > div:first-child > p:last-of-type {
+    margin-top: 36px;
+    font-size: var(--body-font-size-m);
+    max-width: 1000px;
   }
 }
