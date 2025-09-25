@@ -803,7 +803,6 @@
   width: 100%;
 }
 
-/* Main image + collage layering effect */
 .cards.cards24 .cards-card-image {
   position: relative;
   width: 940px;
@@ -859,7 +858,6 @@
   z-index: 3;
 }
 
-/* Text card: tighter overlap, stronger outline, more compact */
 .cards.cards24 .cards-card-body {
   position: absolute;
   left: 47%;
@@ -906,7 +904,6 @@
   line-height: 1.48;
 }
 
-/* Responsive adjustments for smaller screens */
 @media (width <= 1200px) {
   .cards.cards24 .cards-card-image {
     width: 99vw;
@@ -954,5 +951,148 @@
 
   .cards.cards24 .cards-card-body::before {
     border-radius: 6vw;
+  }
+}
+
+
+.cards.cards26 {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0;
+}
+
+/* Layout: Use grid for two columns, left column stacked, right column tall */
+.cards.cards26 > ul {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 32px;
+  height: 80vh; /* Ensures proportional size, adjust if needed for perfect alignment */
+  min-height: 700px; /* fallback for tall screens */
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  align-items: stretch;
+}
+
+/* Card placement for editorial layout */
+.cards.cards26 > ul > li:nth-child(1) {
+  grid-column: 1;
+  grid-row: 1;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.cards.cards26 > ul > li:nth-child(2) {
+  grid-column: 2;
+  grid-row: 1 / span 2;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.cards.cards26 > ul > li:nth-child(3) {
+  grid-column: 1;
+  grid-row: 2;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+/* Card styling with visible image backgrounds */
+.cards.cards26 > ul > li {
+  position: relative;
+  border: none;
+  background: transparent;
+  border-radius: 24px;
+  box-shadow: 0 8px 32px rgb(0 0 0 / 12%);
+  overflow: hidden;
+  min-height: 0;
+  padding: 0;
+}
+
+/* Card-image fills the card and is fully visible */
+.cards.cards26 .cards-card-image {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+.cards.cards26 .cards-card-image picture,
+.cards.cards26 .cards-card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  display: block;
+  border-radius: 24px;
+}
+
+/* Subtle overlay for text legibility only */
+.cards.cards26 .cards-card-image::after {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 2;
+  background: linear-gradient(180deg, rgb(0 0 0 / 4%) 0%, rgb(0 0 0 / 8%) 100%);
+}
+
+/* Card body overlays the card image */
+.cards.cards26 .cards-card-body {
+  position: relative;
+  z-index: 3;
+  padding: 36px 32px 28px;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  height: 100%;
+  background: none;
+  margin: 0;
+  text-shadow: 0 2px 6px rgb(0 0 0 / 19%);
+  box-sizing: border-box;
+}
+
+/* Headings and text styling for overlay */
+.cards.cards26 .cards-card-body h3 {
+  color: #fff;
+  font-size: 2.2rem;
+  font-weight: 600;
+  line-height: 1.16;
+  margin-bottom: 1.1rem;
+  letter-spacing: 0.01em;
+  text-shadow: 0 2px 6px rgb(0 0 0 / 22%);
+  margin-top: 0;
+}
+
+.cards.cards26 .cards-card-body p {
+  color: #fff;
+  font-size: 1.02rem;
+  font-weight: 400;
+  line-height: 1.58;
+  margin: 0;
+  text-shadow: 0 1px 4px rgb(0 0 0 / 18%);
+}
+
+/* Responsive: Stack cards vertically on small screens, keep images filling the space */
+@media (width <= 900px) {
+  .cards.cards26 > ul {
+    grid-template-columns: 1fr;
+    grid-template-rows: none;
+    height: auto;
+    min-height: 0;
+  }
+
+  .cards.cards26 > ul > li {
+    height: 340px;
+    min-height: 0;
+    margin-bottom: 24px;
+  }
+
+  .cards.cards26 .cards-card-body {
+    padding: 22px 12px;
   }
 }
