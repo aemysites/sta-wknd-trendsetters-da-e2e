@@ -140,7 +140,7 @@
   line-height: 1.1;
   text-align: left;
   max-width: 99%;
-  word-wrap: break-word; /* Replaced deprecated 'break-word' */
+  word-wrap: break-word;
 }
 
 .hero.hero5 p {
@@ -231,7 +231,6 @@
   display: block;
 }
 
-/* Full background image */
 .hero.hero6 > div:first-child {
   position: absolute;
   inset: 0;
@@ -249,7 +248,6 @@
   display: block;
 }
 
-/* Overlay container */
 .hero.hero6 > div:last-child {
   position: relative;
   z-index: 2;
@@ -259,17 +257,16 @@
   justify-content: flex-start;
 }
 
-/* Overlay box for text and button */
 .hero.hero6 > div:last-child > div {
-  background: rgb(24 28 36 / 19%); /* slightly less transparent for better contrast */
+  background: rgb(24 28 36 / 19%);
   border: 1px solid #fff;
   border-radius: 28px;
   box-shadow: 0 2px 24px 0 rgb(24 28 36 / 5%);
   box-sizing: border-box;
-  padding: 48px 40px 48px 48px; /* less vertical/horizontal padding for tighter fit */
+  padding: 48px 40px 48px 48px;
   max-width: 445px;
-  margin-top: 60px;   /* bring overlay closer to top */
-  margin-left: 54px;  /* bring overlay closer to left */
+  margin-top: 60px;
+  margin-left: 54px;
   display: flex;
   flex-direction: column;
   gap: 30px;
@@ -278,7 +275,6 @@
   justify-content: center;
 }
 
-/* Headline: increase size, tweak width for line breaks */
 .hero.hero6 h1 {
   color: #fff;
   font-size: 2.1rem;
@@ -288,10 +284,9 @@
   margin: 0 0 22px;
   text-transform: uppercase;
   max-width: 360px;
-  word-wrap: break-word; /* Replaced deprecated 'break-word' */
+  word-wrap: break-word;
 }
 
-/* Paragraph: slightly larger and lighter, adjust width */
 .hero.hero6 p:not(.button-container) {
   color: #F7F7F7;
   font-size: 1.08rem;
@@ -301,7 +296,6 @@
   max-width: 360px;
 }
 
-/* Button container: add space above, less below */
 .hero.hero6 .button-container {
   display: flex;
   flex-direction: row;
@@ -312,7 +306,6 @@
   margin-bottom: 0;
 }
 
-/* Single button styling: compact, horizontally centered in overlay */
 .hero-container > .hero-wrapper > .block.hero .button {
   background: #fff;
   color: #222;
@@ -328,7 +321,6 @@
   text-align: center;
 }
 
-/* Responsive: adjust overlay size/padding/margin for mobile */
 @media (width <= 900px) {
   .hero.hero6 > div:last-child > div {
     max-width: 98vw;
@@ -365,8 +357,157 @@
   }
 }
 
-/* Ensure hero spans full width of viewport */
 .hero-container > .hero-wrapper {
   max-width: unset;
   padding: 0;
+}
+
+
+.hero.hero13 {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  min-height: 540px;
+  width: 100vw;
+  max-width: 100%;
+  background-color: transparent;
+  border-radius: 24px;
+  overflow: hidden;
+  box-sizing: border-box;
+  margin: 0 auto;
+  padding: 0;
+}
+
+.hero.hero13 > div {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  background: rgb(24 24 24 / 28%);
+  border: 1.5px solid rgb(36 36 36 / 24%);
+  border-radius: 24px;
+  box-shadow: 0 6px 32px 0 rgb(12 16 24 / 13%);
+  padding: 56px;
+  gap: 56px;
+}
+
+.hero.hero13 > div > div:first-child {
+  flex: 0 0 340px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero.hero13 > div > div:first-child picture,
+.hero.hero13 > div > div:first-child img {
+  width: 100%;
+  max-width: 320px;
+  aspect-ratio: 1/1;
+  height: auto;
+  border-radius: 18px;
+  object-fit: cover;
+  box-shadow: 0 2px 12px 0 rgb(40 44 52 / 8%);
+  position: static;
+}
+
+.hero.hero13 > div > div:last-child {
+  flex: 1 1 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 24px;
+  min-width: 0;
+}
+
+.hero.hero13 h1,
+.hero.hero13 h2,
+.hero.hero13 h3 {
+  color: #232323;
+  font-size: 2.7rem;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  line-height: 1.08;
+  margin-bottom: 28px;
+}
+
+.hero.hero13 p,
+.hero.hero13 ul,
+.hero.hero13 ol {
+  color: #444;
+  font-size: 1.15rem;
+  margin-bottom: 14px;
+}
+
+.hero.hero13 a.button,
+.hero.hero13 button {
+  border-radius: 999em;
+  border: 1.5px solid #222;
+  background: rgb(255 255 255 / 82%);
+  color: #222;
+  font-size: 1.08rem;
+  font-weight: 500;
+  padding: 14px 36px;
+  margin-top: 18px;
+  min-width: 170px;
+  max-width: 250px;
+  box-shadow: none;
+  text-align: center;
+  transition: background 0.2s;
+}
+
+.hero.hero13 a.button:hover,
+.hero.hero13 button:hover {
+  background: #ededed;
+  color: #000;
+  border-color: #333;
+}
+
+@media (width <= 900px) {
+  .hero.hero13 {
+    flex-direction: column;
+    min-height: 360px;
+    border-radius: 0;
+  }
+
+  .hero.hero13 > div {
+    flex-direction: column;
+    align-items: stretch;
+    padding: 28px 4vw;
+    border-radius: 16px;
+    gap: 24px;
+  }
+
+  .hero.hero13 > div > div:first-child {
+    max-width: 180px;
+    margin: 0 auto 18px;
+  }
+
+  .hero.hero13 > div > div:first-child picture,
+  .hero.hero13 > div > div:first-child img {
+    max-width: 140px;
+    border-radius: 11px;
+  }
+
+  .hero.hero13 > div > div:last-child {
+    align-items: flex-start;
+    gap: 16px;
+  }
+
+  .hero.hero13 h1,
+  .hero.hero13 h2,
+  .hero.hero13 h3 {
+    font-size: 1.35rem;
+    margin-bottom: 14px;
+  }
+}
+
+.hero.hero13 picture {
+  z-index: unset;
 }
