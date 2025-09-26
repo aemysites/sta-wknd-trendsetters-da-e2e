@@ -304,7 +304,6 @@
   padding: 48px 0;
 }
 
-/* Desktop: 4 columns, cards a bit wider and less gap */
 .cards.cards12 > ul {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -316,7 +315,6 @@
   place-items: stretch center;
 }
 
-/* Card container: wider, more compact, subtler rounding */
 .cards.cards12 > ul > li {
   background: #fff;
   border: none;
@@ -333,7 +331,6 @@
   height: 100%;
 }
 
-/* Image: slightly less rounded, fills card, taller ratio */
 .cards.cards12 .cards-card-image {
   margin: 0 auto;
   width: 100%;
@@ -349,7 +346,6 @@
   display: block;
 }
 
-/* Meta row: pill and date side by side, perfectly aligned */
 .cards.cards12 .cards-card-body {
   margin: 0;
   margin-top: 12px;
@@ -359,7 +355,6 @@
   gap: 0;
 }
 
-/* Pill styling: compact, less vertical padding */
 .cards.cards12 .cards-card-body p:first-child {
   background: #eaeaea;
   color: #333;
@@ -385,7 +380,6 @@
   align-items: center;
 }
 
-/* Title: tighter above, larger, compact */
 .cards.cards12 .cards-card-body h3 {
   margin-top: 12px;
   margin-bottom: 0;
@@ -398,7 +392,6 @@
   width: 100%;
 }
 
-/* Responsive: 2 columns on medium screens, 1 column on mobile */
 @media (width <= 1200px) {
   .cards.cards12 > ul {
     grid-template-columns: repeat(2, 1fr);
@@ -431,4 +424,91 @@
   .cards.cards12 .cards-card-image img {
     height: 120px;
   }
+}
+
+
+.cards.cards19 {
+  background: #fff;
+}
+
+/* Grid: match tighter original gap */
+.cards.cards19 ul {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-auto-rows: minmax(0, auto);
+  gap: 16px 32px; /* vertical gap 16px, horizontal gap 32px for closer match */
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+@media (width <= 900px) {
+  .cards.cards19 ul {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (width <= 600px) {
+  .cards.cards19 ul {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Each card: icon left, text right, top-aligned, no border/background */
+.cards.cards19 ul > li {
+  display: flex;
+  flex-direction: row; /* icon left, text right */
+  align-items: flex-start; /* top align icon and text */
+  border: none;
+  background: none;
+  box-shadow: none;
+  padding: 0;
+  min-width: 0;
+}
+
+/* Both card-body containers: remove extra box-model noise */
+.cards.cards19 .cards-card-body {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+/* Icon wrapper: shrink-wrap and align to top */
+.cards.cards19 .cards-card-body:first-child {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  flex: 0 0 auto;
+  min-width: 0;
+}
+
+/* Icon image: compact spacing and size */
+.cards.cards19 .cards-card-body:first-child img {
+  width: 24px;
+  height: 24px;
+  margin-right: 8px;
+  margin-top: 0;
+  display: block;
+  object-fit: contain;
+}
+
+/* Text wrapper: allow wrapping */
+.cards.cards19 .cards-card-body:last-child {
+  flex: 1 1 auto;
+  min-width: 0;
+  display: flex;
+  align-items: flex-start;
+  padding: 0;
+  margin: 0;
+}
+
+/* Text styling for correct look */
+.cards.cards19 .cards-card-body:last-child p {
+  margin: 0;
+  font-size: 13px;
+  color: #222;
+  line-height: 1.4;
+  font-weight: 400;
+  text-align: left;
+  overflow-wrap: break-word;
 }
