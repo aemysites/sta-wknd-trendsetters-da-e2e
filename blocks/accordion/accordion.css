@@ -1,3 +1,4 @@
+/* stylelint-disable no-descending-specificity */
 .accordion details {
   border: 1px solid #dadada;
 }
@@ -65,7 +66,6 @@
   padding: 0;
 }
 
-/* Accordion item structure and divider */
 .accordion.accordion17 details {
   border: none;
   border-bottom: 1px solid #e0e0dc;
@@ -77,13 +77,12 @@
   border-bottom: none;
 }
 
-/* Flex row for summary, with fine-tuned vertical padding and alignment */
 .accordion.accordion17 details > summary {
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  padding: 14px 32px 13px; /* Subtle vertical padding adjustment for closer match */
+  padding: 14px 32px 13px;
   min-height: 48px;
   cursor: pointer;
   background: none;
@@ -95,15 +94,13 @@
   box-shadow: none;
   transition: background 0.2s;
   line-height: 1.35;
-  gap: 10px; /* Space between text and chevron for better breathing room */
+  gap: 10px;
 }
 
-/* Remove browser marker */
 .accordion.accordion17 details > summary::-webkit-details-marker {
   display: none;
 }
 
-/* Label paragraph: align, spacing, and clear right-side margin for chevron */
 .accordion.accordion17 details > summary > p {
   margin: 0;
   color: #22221c;
@@ -116,21 +113,157 @@
   overflow-wrap: break-word;
 }
 
-/* Accordion body spacing to match summary horizontal padding */
 .accordion.accordion17 details .accordion-item-body {
   padding: 0 32px;
   border: none;
   background: none;
 }
 
-/* Subtle divider for open state */
 .accordion.accordion17 details[open] .accordion-item-body {
   border-top: 1px solid #e0e0dc;
   background: none;
 }
 
-/* Optional: fine-tune chevron pseudo-element or inline SVG vertical alignment */
 .accordion.accordion17 details > summary::after {
   vertical-align: middle;
   margin-left: auto;
+}
+
+
+.accordion.accordion18 {
+  background: #fff;
+  border: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* Remove default marker/arrows, make summary non-clickable and fully left-aligned */
+.accordion.accordion18 summary.accordion-item-label {
+  cursor: default;
+  pointer-events: none;
+  user-select: text;
+  list-style: none;
+  background: none;
+  border: none;
+  outline: none;
+  box-shadow: none;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 0;
+  margin: 0;
+}
+
+.accordion.accordion18 summary.accordion-item-label::-webkit-details-marker,
+.accordion.accordion18 summary.accordion-item-label::marker,
+.accordion.accordion18 summary.accordion-item-label::after {
+  display: none;
+}
+
+/* FAQ row: visually side by side columns using flex */
+.accordion.accordion18 .accordion-item {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  border-bottom: 1px solid #ccc;
+  min-height: 56px;
+  margin: 0;
+  padding: 0 20px;
+  background: #fff;
+  box-sizing: border-box;
+}
+
+.accordion.accordion18 .accordion-item:last-of-type {
+  border-bottom: none;
+}
+
+.accordion.accordion18 details {
+  border: none;
+  margin: 0;
+  padding: 0;
+  background: #fff;
+  box-shadow: none;
+}
+
+/* Question (left column) */
+.accordion.accordion18 .accordion-item-label {
+  flex: 0 0 40%;
+  max-width: 40%;
+  min-width: 120px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  color: #666;
+  font-size: 20px;
+  letter-spacing: 0.09em;
+  text-transform: lowercase;
+  font-weight: 400;
+  min-height: 44px;
+  margin: 0;
+  padding: 0;
+  background: none;
+  overflow-wrap: break-word;
+}
+
+.accordion.accordion18 .accordion-item-label p {
+  margin: 0;
+  padding: 0;
+  line-height: 1.2;
+}
+
+/* Answer (right column): force visible if possible, correct spacing and alignment */
+.accordion.accordion18 .accordion-item-body {
+  flex: 1 1 60%;
+  max-width: 60%;
+  min-width: 160px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  color: #444;
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 1.4;
+  padding: 0 0 0 32px;
+  background: none;
+  min-height: 44px;
+  margin: 0;
+  border: none;
+  overflow-wrap: break-word;
+}
+
+.accordion.accordion18 details .accordion-item-body {
+  display: flex;
+}
+
+.accordion.accordion18 .accordion-item-body p {
+  margin: 0;
+  padding: 0;
+  line-height: 1.3;
+}
+
+/* Responsive: stack Q/A vertically, reduce spacing */
+@media (width <= 700px) {
+  .accordion.accordion18 .accordion-item {
+    flex-direction: column;
+    align-items: stretch;
+    padding: 14px 6px;
+    min-height: unset;
+  }
+
+  .accordion.accordion18 .accordion-item-label,
+  .accordion.accordion18 .accordion-item-body {
+    flex: unset;
+    width: 100%;
+    max-width: unset;
+    min-width: unset;
+    min-height: unset;
+    font-size: 16px;
+    letter-spacing: 0.05em;
+    padding: 0;
+  }
+
+  .accordion.accordion18 .accordion-item-body {
+    padding-top: 8px;
+    font-size: 13px;
+  }
 }
