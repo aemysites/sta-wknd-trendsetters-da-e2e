@@ -765,13 +765,9 @@
   justify-content: center;
   align-items: center;
 }
-
-/* Show only the first inner div (where the images/socials are), hide the rest */
 .columns > div > div:not(:first-child) {
   display: none;
 }
-
-/* Make the ul with social icons/images a horizontal flex row */
 .columns > div > div:first-child > ul {
   display: flex;
   flex-direction: row;
@@ -784,8 +780,6 @@
   width: 100%;
   height: 180px;
 }
-
-/* Each li is a flex column, centered */
 .columns > div > div:first-child > ul > li {
   display: flex;
   flex-direction: column;
@@ -794,8 +788,6 @@
   padding: 0;
   margin: 0;
 }
-
-/* Only show p that contains an img inside the li, hide other p */
 .columns > div > div:first-child > ul > li > p {
   display: none;
 }
@@ -806,24 +798,16 @@
   margin: 0;
   padding: 0;
 }
-
-/* Hide all buttons */
 .columns .button,
 .columns .button-container {
   display: none;
 }
-
-/* Hide all headers */
 .columns h2 {
   display: none;
 }
-
-/* Hide anchor text unless it wraps an image */
 .columns a:not(:has(img)) {
   display: none;
 }
-
-/* Style images for consistent size and playful rotation */
 .columns > div > div:first-child > ul > li > p > a > img,
 .columns > div > div:first-child > ul > li > p > img {
   display: block;
@@ -835,16 +819,12 @@
   margin: 0;
   background: none;
 }
-
-/* Playful alternating image rotation */
 .columns > div > div:first-child > ul > li:nth-child(1) img { transform: rotate(-5deg);}
 .columns > div > div:first-child > ul > li:nth-child(2) img { transform: rotate(4deg);}
 .columns > div > div:first-child > ul > li:nth-child(3) img { transform: rotate(-3deg);}
 .columns > div > div:first-child > ul > li:nth-child(4) img { transform: rotate(6deg);}
 .columns > div > div:first-child > ul > li:nth-child(5) img { transform: rotate(-4deg);}
 .columns > div > div:first-child > ul > li:nth-child(6) img { transform: rotate(3deg);}
-
-/* Responsive: stack images vertically on small screens, keep centered */
 @media (max-width: 900px) {
   .columns > div > div:first-child > ul {
     flex-direction: column;
@@ -865,4 +845,192 @@
     padding-bottom: 20px;
     padding-top: 20px;
   }
+}
+
+
+/* Root columns block layout */
+.columns {
+  background: #fff;
+  margin: 0;
+  padding: 0;
+  min-height: 600px;
+  width: 100vw;
+  box-sizing: border-box;
+  display: block;
+}
+
+/* Top-level: two columns side by side using flex */
+.columns > div {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 80px;
+  width: 100vw;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 80px 0 0 0;
+  box-sizing: border-box;
+  min-height: 480px;
+}
+
+/* Responsive: stack columns vertically on mobile */
+@media (max-width: 900px) {
+  .columns > div {
+    flex-direction: column;
+    gap: 40px;
+    padding: 32px 0 0 0;
+    max-width: 100vw;
+    min-height: 0;
+  }
+}
+
+/* --- LEFT COLUMN --- */
+.columns > div > div:first-child {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  min-width: 220px;
+  max-width: 320px;
+  box-sizing: border-box;
+}
+
+/* Top intro line */
+.columns > div > div:first-child > p:nth-child(1) {
+  color: #8b8b8b;
+  font-size: 16px;
+  margin: 0 0 36px 0;
+  font-weight: 400;
+  letter-spacing: 0.02em;
+}
+
+/* Portrait image */
+.columns > div > div:first-child > p:nth-child(2) {
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  margin: 0 0 36px 0;
+  padding: 0;
+}
+
+.columns > div > div:first-child picture img {
+  width: 88px;
+  height: 88px;
+  object-fit: cover;
+  border-radius: 50%;
+  box-shadow: 0 2px 18px rgb(0 0 0 / 7%);
+  border: 2px solid #eee;
+  background: #fff;
+  display: block;
+}
+
+/* Author name and role grouped */
+.columns > div > div:first-child > p:nth-child(3),
+.columns > div > div:first-child > p:nth-child(4) {
+  color: #8b8b8b;
+  font-size: 13px;
+  margin: 0 0 10px 0;
+  line-height: 1.35;
+  font-weight: 400;
+}
+
+.columns > div > div:first-child > p:nth-child(4) {
+  margin-bottom: 24px;
+}
+
+/* --- RIGHT COLUMN --- */
+.columns > div > div:last-child {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  min-width: 0;
+  max-width: 760px;
+  box-sizing: border-box;
+  background: #fff;
+  padding: 0;
+}
+
+/* Headline */
+.columns > div > div:last-child > p:nth-child(1) {
+  font-size: 56px;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  line-height: 1.1;
+  color: #131313;
+  margin: 0 0 34px 0;
+  max-width: 700px;
+  text-align: left;
+  word-break: break-word;
+}
+
+/* Responsive headline */
+@media (max-width: 900px) {
+  .columns > div > div:last-child > p:nth-child(1) {
+    font-size: 33px;
+    margin-bottom: 16px;
+    max-width: 98vw;
+  }
+}
+
+/* Body text under headline */
+.columns > div > div:last-child > p:nth-child(n+2) {
+  font-size: 16px;
+  color: #444;
+  font-weight: 400;
+  line-height: 1.66;
+  margin: 0 0 16px 0;
+  max-width: 600px;
+  text-align: left;
+}
+
+/* SVG or icon at bottom (if present) */
+.columns > div > div:last-child > p img,
+.columns > div > div:last-child > p svg {
+  width: 54px;
+  height: auto;
+  opacity: 0.18;
+  margin-top: 24px;
+  display: block;
+}
+
+/* --- GENERAL RESPONSIVENESS --- */
+@media (max-width: 600px) {
+  .columns > div {
+    padding: 10px 0 0 0;
+    gap: 20px;
+  }
+  .columns > div > div:last-child > p:nth-child(1) {
+    font-size: 20px;
+    margin-bottom: 8px;
+  }
+  .columns > div > div:last-child > p:nth-child(n+2) {
+    font-size: 14px;
+    max-width: 94vw;
+  }
+}
+
+/* Remove default list styles for pills/ul if present */
+.columns > div > div:first-child ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  gap: 10px;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Generic pills appearance */
+.columns > div > div:first-child ul > * {
+  background: #eaeaea;
+  color: #8b8b8b;
+  border-radius: 99px;
+  font-size: 13px;
+  padding: 7px 20px;
+  margin: 0;
+  display: inline-block;
+  font-weight: 400;
+  letter-spacing: 0.03em;
 }
