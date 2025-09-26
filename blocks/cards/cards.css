@@ -25,3 +25,186 @@
   aspect-ratio: 4 / 3;
   object-fit: cover;
 }
+
+
+.cards.cards2 {
+  background: #F7F9F6;
+  border-radius: 32px;
+  padding: 48px;
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  display: block;
+}
+
+/* Two columns, tight vertical alignment, visually balanced widths */
+.cards.cards2 > ul {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 40px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+}
+
+/* Left column stacking: image directly above text, minimal gap */
+.cards.cards2 > ul > li:first-child {
+  flex: 1.2 1 0;
+  max-width: 600px;
+  min-width: 340px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 10px; /* tighter for headline + body */
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  margin: 0;
+}
+
+/* Right card: compact width, top-aligned, visually balanced */
+.cards.cards2 > ul > li:last-child {
+  flex: 0.8 1 0;
+  max-width: 410px;
+  min-width: 315px;
+  background: #fff;
+  border-radius: 24px;
+  box-shadow: 0 4px 24px 0 rgb(34 37 43 / 7%);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-self: flex-start;
+  margin: 0;
+}
+
+/* Large image box: aspect ratio, fills width, slightly taller */
+.cards.cards2 > ul > li:first-child .cards-card-image {
+  width: 100%;
+  border-radius: 24px 0 24px 24px;
+  overflow: hidden;
+  aspect-ratio: 4 / 3;
+  min-height: 380px;
+  max-height: 50vw;
+  margin: 0;
+  background: #fff;
+  display: flex;
+  align-items: stretch;
+}
+
+/* Right card image: standard aspect and rounded top */
+.cards.cards2 > ul > li:last-child .cards-card-image {
+  width: 100%;
+  border-radius: 24px 24px 0 0;
+  overflow: hidden;
+  aspect-ratio: 4 / 3;
+  min-height: 170px;
+  background: #fff;
+  display: flex;
+  align-items: stretch;
+  margin: 0;
+}
+
+/* Image element styling */
+.cards.cards2 .cards-card-image img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+}
+
+/* Card body spacing, minimal gap between headline, body, button */
+.cards.cards2 > ul > li .cards-card-body {
+  margin: 0;
+  padding: 0;
+}
+
+/* Right card body: slightly tighter padding for balance */
+.cards.cards2 > ul > li:last-child .cards-card-body {
+  padding: 22px 22px 18px;
+}
+
+/* Headline styles - left strong, right slightly smaller */
+.cards.cards2 > ul > li:first-child h3 {
+  font-size: 2.4rem;
+  text-transform: uppercase;
+  color: #111;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+  margin: 0 0 12px;
+  line-height: 1.07;
+}
+
+.cards.cards2 > ul > li:last-child h3 {
+  font-size: 1.2rem;
+  text-transform: uppercase;
+  color: #222;
+  font-weight: 600;
+  margin: 0 0 10px;
+  letter-spacing: 0.025em;
+  line-height: 1.17;
+}
+
+/* Paragraphs */
+.cards.cards2 > ul > li:first-child .cards-card-body p {
+  font-size: 1.06rem;
+  color: #444;
+  margin: 0 0 8px;
+  line-height: 1.47;
+}
+
+.cards.cards2 > ul > li:last-child .cards-card-body p {
+  font-size: 0.97rem;
+  color: #666;
+  margin: 0;
+  line-height: 1.48;
+}
+
+/* Pill button for left "Read more" */
+.cards.cards2 > ul > li:first-child .cards-card-body p:last-child {
+  display: inline-block;
+  padding: 10px 32px;
+  border: 2px solid #222;
+  border-radius: 32px;
+  background: #fff;
+  color: #222;
+  font-size: 1rem;
+  font-weight: 500;
+  margin-bottom: 0;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+/* Responsive: stack vertically on small screens */
+@media (width <= 900px) {
+  .cards.cards2 {
+    padding: 24px;
+    border-radius: 20px;
+  }
+
+  .cards.cards2 > ul {
+    flex-direction: column;
+    gap: 32px;
+  }
+
+  .cards.cards2 > ul > li,
+  .cards.cards2 > ul > li:first-child,
+  .cards.cards2 > ul > li:last-child {
+    max-width: 100%;
+    min-width: 0;
+    flex: 1 1 100%;
+  }
+
+  .cards.cards2 > ul > li:last-child .cards-card-body {
+    padding: 18px 12px 12px;
+  }
+
+  .cards.cards2 > ul > li:first-child .cards-card-image,
+  .cards.cards2 > ul > li:last-child .cards-card-image {
+    border-radius: 12px;
+  }
+}
