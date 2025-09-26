@@ -1167,9 +1167,6 @@
   margin-top: 0;
   margin-bottom: 0;
 }
-
-
-/* Main columns: two columns side by side */
 .columns {
   background: var(--background-color);
   border-radius: 28px;
@@ -1179,8 +1176,6 @@
   max-width: 1320px;
   display: block;
 }
-
-/* Layout: two columns — left content, right stack */
 .columns > div {
   display: grid;
   grid-template-columns: 1.15fr 0.85fr;
@@ -1189,8 +1184,6 @@
   width: 100%;
   box-sizing: border-box;
 }
-
-/* Responsive: stack on small screens */
 @media (max-width: 900px) {
   .columns {
     padding: 18px 6px;
@@ -1202,19 +1195,15 @@
     gap: 24px;
   }
 }
-
-/* --- Left Column --- */
 .columns > div > div:first-child {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: 10px; /* Reduced gap for tighter grouping */
+  gap: 10px;
   min-width: 0;
   max-width: 680px;
   box-sizing: border-box;
 }
-
-/* Top image */
 .columns > div > div:first-child img {
   width: 100%;
   aspect-ratio: 16/9;
@@ -1224,16 +1213,12 @@
   margin: 0 0 4px 0;
   display: block;
 }
-
-/* Button/label under image */
 .columns > div > div:first-child .button-container {
   margin: 0 0 3px 0;
   padding: 0;
   align-self: flex-start;
   display: block;
 }
-
-/* Button: pill style */
 .columns > div > div:first-child .button {
   background: #f0f0f0;
   color: #232323;
@@ -1248,8 +1233,6 @@
   box-shadow: none;
   margin: 0;
 }
-
-/* Horizontal icon row */
 .columns > div > div:first-child ul {
   list-style: none;
   padding: 0;
@@ -1279,14 +1262,10 @@
   background: transparent;
   margin: 0;
 }
-
-/* --- Right Column: make it a vertical stack of three blocks, visually grouped --- */
 .columns > div > div:not(:first-child) {
   padding: 0;
   margin: 0;
 }
-
-/* Group all right column blocks as a single vertical flex column with minimal gap */
 .columns > div > div:nth-child(2),
 .columns > div > div:nth-child(3),
 .columns > div > div:nth-child(4) {
@@ -1294,24 +1273,17 @@
   max-width: 480px;
   margin: 0 auto;
 }
-
-/* The stack: parent container for the right 3 blocks (not the grid!), creates the unified stack */
 .columns > div {
-  /* Already grid, but we need to stack the right column's children: */
 }
 .columns > div > div:not(:first-child) {
   display: flex;
   flex-direction: column;
   align-items: stretch;
-  gap: 0; /* Remove vertical gap between the blocks */
+  gap: 0;
 }
-
-/* To visually connect the three right blocks, remove extra margin/padding from the top/bottom of each */
 .columns > div > div:not(:first-child):not(:last-child) {
   margin-bottom: 0;
 }
-
-/* Each list group: white box with shadow and radius, but less vertical margin */
 .columns > div > div:not(:first-child) > ul {
   background: #fff;
   border-radius: 16px;
@@ -1335,8 +1307,6 @@
     padding: 8px 6px 4px 6px;
   }
 }
-
-/* List items: vertical stack, divider lines */
 .columns > div > div:not(:first-child) ul li {
   padding: 12px 0;
   border-bottom: 1px solid #eaeaea;
@@ -1347,8 +1317,6 @@
 .columns > div > div:not(:first-child) ul li:last-child {
   border-bottom: none;
 }
-
-/* Section header in list group: bigger title, more spacing above */
 .columns > div > div:not(:first-child) ul li h2 {
   color: #232323;
   font-size: var(--heading-font-size-l);
@@ -1358,8 +1326,6 @@
   margin: 0 0 10px 0;
   text-align: left;
 }
-
-/* List links styling */
 .columns > div > div:not(:first-child) ul li a {
   color: #3b3b3b;
   font-size: var(--body-font-size-s);
@@ -1375,10 +1341,142 @@
 .columns > div > div:not(:first-child) ul li a:hover {
   color: #757575;
 }
-
-/* Remove excessive vertical whitespace at bottom of blocks */
 .columns > div > div:first-child,
 .columns > div > div:not(:first-child) {
   margin-bottom: 0;
   padding-bottom: 0;
+}
+
+
+.columns {
+  background: #fff;
+  box-sizing: border-box;
+  border-radius: 0;
+  margin: 0 auto;
+  width: 100vw;
+  min-height: 440px;
+  padding: 0;
+  display: block;
+}
+
+/* Main row: flexbox for side-by-side columns, full height for vertical centering */
+.columns > div {
+  display: flex;
+  flex-direction: row;
+  align-items: center; /* Vertically center columns within the block */
+  justify-content: center; /* Center columns horizontally within the block */
+  gap: 90px;
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  box-sizing: border-box;
+  min-height: 70vh;
+  padding: 0;
+}
+
+@media (max-width: 900px) {
+  .columns > div {
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: flex-start;
+    gap: 36px;
+    max-width: 100vw;
+    min-height: 0;
+    padding: 0;
+  }
+  .columns {
+    min-height: 0;
+    padding: 18px 0;
+  }
+}
+
+.columns > div > div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Vertically center content in column */
+  align-items: flex-start;
+  width: 100%;
+  max-width: 540px;
+  min-width: 0;
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  gap: 0;
+}
+
+.columns > div > div:nth-child(2) {
+  align-items: center; /* Center button horizontally in column */
+  max-width: 520px;
+}
+
+/* Headline styling */
+.columns > div > div:first-child > p:nth-child(1) {
+  font-size: 2.1rem;
+  font-weight: 400;
+  color: #000;
+  letter-spacing: 0.04em;
+  line-height: 1.12;
+  text-align: left;
+  margin: 0 0 16px 0;
+  padding: 0;
+  align-self: flex-start;
+}
+
+/* Name and title: grouped tightly beneath headline */
+.columns > div > div:first-child > p:nth-child(3),
+.columns > div > div:first-child > p:nth-child(4) {
+  font-size: 0.92rem;
+  color: #888;
+  margin: 0 0 4px 0;
+  padding: 0;
+  align-self: flex-start;
+}
+
+/* Tighten lower margin after last caption */
+.columns > div > div:first-child > p:nth-child(4) {
+  margin-bottom: 0;
+}
+
+/* Hide image/circle if present */
+.columns > div > div:first-child img,
+.columns > div > div:first-child picture {
+  display: none;
+}
+
+/* Hide all but the last p (button) in right column */
+.columns > div > div:nth-child(2) > p:not(:last-child) {
+  display: none;
+}
+
+/* Pill-shaped button styling, centered */
+.columns > div > div:nth-child(2) > p:last-child {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 390px;
+  height: 46px;
+  background: #fff;
+  border: 1.5px solid #000;
+  border-radius: 999px;
+  box-shadow: 0 2px 0 0 #eee000;
+  font-size: 1rem;
+  color: #000;
+  text-align: center;
+  line-height: 44px;
+  cursor: pointer;
+  padding: 0;
+  margin: 0 auto;
+}
+
+@media (max-width: 900px) {
+  .columns > div > div,
+  .columns > div > div:nth-child(2) {
+    max-width: 100vw;
+  }
+
+  .columns > div > div:nth-child(2) > p:last-child {
+    width: 100%;
+    min-width: 0;
+    max-width: 94vw;
+  }
 }
