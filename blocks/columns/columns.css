@@ -532,8 +532,6 @@
   box-sizing: border-box;
   margin: 0 auto;
 }
-
-/* Use grid for direct column layout */
 .columns > div {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -541,8 +539,6 @@
   align-items: start;
   width: 100%;
 }
-
-/* RESPONSIVE: 2 columns on medium, 1 on small */
 @media (max-width: 1100px) {
   .columns > div {
     grid-template-columns: repeat(2, 1fr);
@@ -558,8 +554,6 @@
     padding: 20px 8px;
   }
 }
-
-/* Make inner columns flex vertical stack */
 .columns > div > div {
   display: flex;
   flex-direction: column;
@@ -573,8 +567,6 @@
   box-shadow: none;
   margin: 0;
 }
-
-/* CRITICAL: Ensure all children are visible (fixes hidden content) */
 .columns > div > div > * {
   display: revert;
   visibility: visible;
@@ -582,8 +574,6 @@
   padding: 0;
   box-sizing: border-box;
 }
-
-/* Headings in columns */
 .columns > div > div h2 {
   color: #222;
   font-size: 1.4rem;
@@ -593,8 +583,6 @@
   text-align: left;
   line-height: 1.2;
 }
-
-/* Remove bullet points for lists */
 .columns > div > div ul {
   list-style: none;
   margin: 0;
@@ -603,8 +591,6 @@
 .columns > div > div ul li {
   margin-bottom: 8px;
 }
-
-/* Navigation/section links */
 .columns > div > div ul li a {
   color: #222;
   font-size: 1rem;
@@ -617,8 +603,6 @@
 .columns > div > div ul li a:hover {
   color: #757575;
 }
-
-/* Social icon images */
 .columns > div > div ul li > p > a > img {
   width: 40px;
   height: 40px;
@@ -630,8 +614,6 @@
   margin-right: 8px;
   vertical-align: middle;
 }
-
-/* Button styling in columns */
 .columns .button-container {
   margin-top: 6px;
 }
@@ -656,8 +638,6 @@
   color: #fff;
   border-color: #222;
 }
-
-/* Images inside columns */
 .columns img {
   border-radius: 24px;
   display: block;
@@ -666,13 +646,126 @@
   box-shadow: 0 2px 24px rgb(0 0 0 / 7%);
   margin: 8px 0;
 }
-
-/* Remove extra margin from first column */
 .columns > div > div:first-child {
   margin-top: 0;
 }
-
-/* Bottom margin for separation */
 .columns-wrapper {
   margin-bottom: 40px;
+}
+
+
+.columns {
+  background: #fafaf7;
+  border-radius: 18px;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Use flexbox for two main columns: content and button */
+.columns > div {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 48px;
+  width: 100%;
+  min-height: 64px;
+  padding: 0 32px;
+  box-sizing: border-box;
+}
+
+/* Group all text content in one column, stack vertically inside */
+.columns > div > div:first-child {
+  flex: 1 1 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 8px;
+  padding: 0;
+  background: transparent;
+}
+
+/* Hide any second column (image or other), only show first column */
+.columns > div > div:not(:first-child) {
+  display: none;
+}
+
+/* Style all visible content blocks inside the content column */
+.columns > div > div:first-child > p,
+.columns > div > div:first-child > h2,
+.columns > div > div:first-child > h3,
+.columns > div > div:first-child > .button-container {
+  display: block;
+  margin: 0;
+  padding: 0;
+  color: #232323;
+  font-size: 13px;
+  line-height: 1.5;
+  background: transparent;
+}
+
+/* Headings (if present) a bit larger */
+.columns > div > div:first-child > h2,
+.columns > div > div:first-child > h3 {
+  font-size: 15px;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+/* Button should be to the right, in its own flex column */
+.columns > div > div:first-child .button-container {
+  align-self: flex-end;
+  margin-top: 0;
+  margin-left: 40px;
+  display: flex;
+  align-items: center;
+}
+
+/* Scoped button styling */
+.columns-container > .columns-wrapper > .block.columns .button,
+.columns .button {
+  background: #fff;
+  border: 1px solid #232323;
+  border-radius: 999px;
+  color: #232323;
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 1.2;
+  padding: 7px 22px;
+  box-shadow: 0 2px 0 0 #f7f780;
+  text-align: center;
+  margin: 0;
+  display: inline-block;
+  cursor: pointer;
+}
+
+/* Button hover/focus effect */
+.columns-container > .columns-wrapper > .block.columns .button:hover,
+.columns .button:hover,
+.columns-container > .columns-wrapper > .block.columns .button:focus,
+.columns .button:focus {
+  background: #f7f780;
+  color: #232323;
+  border-color: #232323;
+}
+
+/* Responsive: stack vertically on small screens */
+@media (max-width: 700px) {
+  .columns > div {
+    flex-direction: column;
+    gap: 18px;
+    padding: 0 8px;
+    align-items: stretch;
+    min-height: 0;
+  }
+  .columns > div > div:first-child {
+    align-items: stretch;
+    gap: 14px;
+  }
+  .columns > div > div:first-child .button-container {
+    align-self: flex-start;
+    margin-left: 0;
+    margin-top: 16px;
+  }
 }
