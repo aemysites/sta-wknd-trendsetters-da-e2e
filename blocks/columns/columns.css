@@ -1,6 +1,11 @@
+/* stylelint-disable no-descending-specificity */
 .columns > div {
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  width: 100%;
+  padding: 0;
 }
 
 .columns img {
@@ -9,6 +14,12 @@
 
 .columns > div > div {
   order: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100%;
+  padding: 0;
 }
 
 .columns > div > .columns-img-col {
@@ -29,5 +40,51 @@
   .columns > div > div {
     flex: 1;
     order: unset;
+  }
+}
+
+
+.columns {
+  background: #F7F8F5;
+  width: 100%;
+  min-height: 120px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 40px 0;
+  box-sizing: border-box;
+}
+
+/* Only display the first direct child div of .columns > div, hide the rest */
+
+/* Center the single column's content vertically and horizontally */
+
+/* Only show the first paragraph, hide all other child elements of the column */
+.columns > div > div > *:not(p:first-of-type) {
+  display: none;
+}
+
+/* Style the visible paragraph to match the original block */
+.columns > div > div > p:first-of-type {
+  color: #212121;
+  font-size: 18px;
+  text-align: center;
+  margin-top: 40px;
+  margin-bottom: 40px;
+  line-height: 1.5;
+  width: 100%;
+  padding: 0;
+}
+
+/* Responsive adjustment for smaller screens */
+@media (width <= 600px) {
+  .columns {
+    padding: 28px 0;
+  }
+
+  .columns > div > div > p:first-of-type {
+    margin-top: 28px;
+    margin-bottom: 28px;
+    font-size: 16px;
   }
 }
