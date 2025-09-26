@@ -2,7 +2,6 @@
   border: 1px solid #dadada;
 }
 
-/* stylelint-disable-next-line no-descending-specificity */
 .accordion details + details {
   margin-top: 24px;
 }
@@ -58,4 +57,80 @@
 .accordion details[open] .accordion-item-body {
   border-top: 1px solid #dadada;
   background-color: var(--background-color);
+}
+
+
+.accordion.accordion17 {
+  background: #f7f7f3;
+  padding: 0;
+}
+
+/* Accordion item structure and divider */
+.accordion.accordion17 details {
+  border: none;
+  border-bottom: 1px solid #e0e0dc;
+  margin: 0;
+  background: none;
+}
+
+.accordion.accordion17 details:last-child {
+  border-bottom: none;
+}
+
+/* Flex row for summary, with fine-tuned vertical padding and alignment */
+.accordion.accordion17 details > summary {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 32px 13px; /* Subtle vertical padding adjustment for closer match */
+  min-height: 48px;
+  cursor: pointer;
+  background: none;
+  color: #22221c;
+  font-size: 16px;
+  font-weight: 400;
+  border: none;
+  outline: none;
+  box-shadow: none;
+  transition: background 0.2s;
+  line-height: 1.35;
+  gap: 10px; /* Space between text and chevron for better breathing room */
+}
+
+/* Remove browser marker */
+.accordion.accordion17 details > summary::-webkit-details-marker {
+  display: none;
+}
+
+/* Label paragraph: align, spacing, and clear right-side margin for chevron */
+.accordion.accordion17 details > summary > p {
+  margin: 0;
+  color: #22221c;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.35;
+  display: block;
+  flex: 1 1 auto;
+  padding-right: 10px;
+  overflow-wrap: break-word;
+}
+
+/* Accordion body spacing to match summary horizontal padding */
+.accordion.accordion17 details .accordion-item-body {
+  padding: 0 32px;
+  border: none;
+  background: none;
+}
+
+/* Subtle divider for open state */
+.accordion.accordion17 details[open] .accordion-item-body {
+  border-top: 1px solid #e0e0dc;
+  background: none;
+}
+
+/* Optional: fine-tune chevron pseudo-element or inline SVG vertical alignment */
+.accordion.accordion17 details > summary::after {
+  vertical-align: middle;
+  margin-left: auto;
 }
