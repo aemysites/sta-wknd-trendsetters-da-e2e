@@ -1,4 +1,3 @@
-/* stylelint-disable no-descending-specificity */
 .columns > div {
   display: flex;
   flex-direction: row;
@@ -373,12 +372,6 @@
     gap: 12px;
   }
 }
-
-/* Horizontal row layout for cards, top-aligned, tight gap */
-
-/* Make all three cards exactly equal in size and top-aligned */
-
-/* Background images for each card */
 .columns > div > div:nth-child(1) {
   background-image: url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=320&q=80');
 }
@@ -390,18 +383,12 @@
 .columns > div > div:nth-child(3) {
   background-image: url('https://images.unsplash.com/photo-1465101046530-73398c7f28ca?auto=format&fit=crop&w=320&q=80');
 }
-
-/* Hide any additional columns beyond the third */
 .columns > div > div:nth-child(n+4) {
   display: none;
 }
-
-/* Hide all child content within the cards */
 .columns > div > div > * {
   display: none;
 }
-
-/* Responsive: stack cards vertically on small screens, maintain card width and equal height */
 @media (width <= 900px) {
   .columns > div {
     flex-direction: column;
@@ -413,5 +400,153 @@
     max-width: 98vw;
     width: 100%;
     height: 180px;
+  }
+}
+
+
+/* Unhide ALL descendants in the first two columns, defeating any previous display:none */
+.columns > div > div:first-child,
+.columns > div > div:first-child * ,
+.columns > div > div:nth-child(2),
+.columns > div > div:nth-child(2) * {
+  display: revert;
+  visibility: visible;
+}
+
+/* Main block background and row layout */
+.columns {
+  background: #fff;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Two-column Flexbox layout for the row */
+.columns > div {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 54px;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+/* Only show the first 2 columns, hide others */
+.columns > div > div:nth-child(n+3) {
+  display: none;
+}
+
+/* Headline column: give it more width and left/top alignment */
+.columns > div > div:first-child {
+  flex: 1 1 60%;
+  max-width: 60%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  min-width: 0;
+  margin: 0;
+  padding: 0;
+}
+
+/* Headline styling: big, bold, left and top aligned */
+.columns > div > div:first-child > p {
+  font-size: 2.3rem;
+  font-weight: 400;
+  color: #000;
+  letter-spacing: 0.05em;
+  line-height: 1.08;
+  text-align: left;
+  margin: 0 0 0.6em 0;
+  padding: 0;
+  align-self: flex-start;
+}
+
+/* Right column: slightly less width, stack content at top left */
+.columns > div > div:nth-child(2) {
+  flex: 1 1 40%;
+  max-width: 40%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  min-width: 0;
+  margin: 0;
+  padding: 0;
+}
+
+/* First paragraph in right column: smaller, muted, stacked above the button */
+.columns > div > div:nth-child(2) > p {
+  font-size: 1rem;
+  color: #232323;
+  font-weight: 400;
+  line-height: 1.45;
+  margin: 0 0 18px 0;
+  padding: 0;
+  text-align: left;
+}
+
+/* Button container spacing */
+.columns > div > div:nth-child(2) .button-container {
+  margin: 0;
+  padding: 0;
+}
+
+/* Button styling: pill shape, border, hover effect */
+.columns > div > div:nth-child(2) .button {
+  border: 1.5px solid #232323;
+  background: #fff;
+  color: #232323;
+  font-size: 1rem;
+  font-weight: 400;
+  padding: 7px 28px;
+  border-radius: 999px;
+  text-align: center;
+  margin: 0;
+  box-shadow: none;
+  transition: background 0.2s, color 0.2s, border-color 0.2s;
+  outline: none;
+  cursor: pointer;
+  display: inline-block;
+}
+
+.columns > div > div:nth-child(2) .button:hover,
+.columns > div > div:nth-child(2) .button:focus {
+  background: #232323;
+  color: #fff;
+  border-color: #232323;
+}
+
+/* Remove backgrounds, borders, and radius from all columns */
+.columns > div > div {
+  background: none;
+  border-radius: 0;
+  box-shadow: none;
+  padding: 0;
+  margin: 0;
+  min-width: 0;
+  max-width: 100%;
+  height: auto;
+  overflow: visible;
+}
+
+/* Hide images in columns block */
+.columns > div > div img {
+  display: none;
+}
+
+/* Responsive: stack columns vertically on small screens, reset widths */
+@media (max-width: 700px) {
+  .columns > div {
+    flex-direction: column;
+    gap: 32px;
+  }
+  .columns > div > div:first-child,
+  .columns > div > div:nth-child(2) {
+    max-width: 100%;
+    flex-basis: 100%;
   }
 }
