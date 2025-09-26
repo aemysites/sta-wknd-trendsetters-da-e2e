@@ -2,12 +2,13 @@
 .columns > div {
   display: flex;
   flex-direction: row;
-  justify-content: center;
-  align-items: center;
+  justify-content: flex-start;
+  align-items: flex-start;
   width: 100%;
   padding: 0;
-  gap: 64px;
-  min-height: 680px;
+  gap: 14px;
+  min-height: 0;
+  margin: 0;
 }
 
 .columns img {
@@ -16,7 +17,7 @@
 
 .columns > div > div {
   order: 1;
-  display: flex;
+  display: block;
   flex-direction: column;
   justify-content: center;
   align-items: center;
@@ -24,6 +25,16 @@
   padding: 0;
   flex: 1 1 0;
   min-width: 0;
+  max-width: 320px;
+  height: 256px;
+  border-radius: 22px;
+  overflow: hidden;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  margin: 0;
+  box-sizing: border-box;
+  align-self: flex-start;
 }
 
 .columns > div > .columns-img-col {
@@ -55,8 +66,9 @@
   display: flex;
   align-items: flex-start;
   justify-content: center;
-  padding: 64px 0;
+  padding: 0;
   box-sizing: border-box;
+  background-color: #f8f8f4;
 }
 
 .columns > div > div > *:not(p:first-of-type) {
@@ -210,22 +222,18 @@
   }
 }
 
-
-/* Make the columns block fill the viewport horizontally */
 .columns-container > .columns-wrapper {
   max-width: unset;
   padding: 0;
   margin: 0;
 }
 
-/* Remove default margin from all relevant containers for a flush white block */
 .columns,
 .columns > .columns30.block.columns-2-cols,
 .columns > .columns30.block.columns-2-cols > div {
   margin: 0;
 }
 
-/* Main row: two columns side by side, fill height and width, anchor content to edges */
 .columns > .columns30.block.columns-2-cols > div {
   display: flex;
   flex-direction: row;
@@ -238,7 +246,6 @@
   gap: 0;
 }
 
-/* Responsive: stack columns vertically, restore normal padding */
 @media (width <= 900px) {
   .columns > .columns30.block.columns-2-cols > div {
     flex-direction: column;
@@ -248,7 +255,6 @@
   }
 }
 
-/* Left column: large left padding, left-align content */
 .columns > .columns30.block.columns-2-cols > div > .columns-img-col:first-child {
   flex: 1 1 0;
   min-width: 0;
@@ -262,7 +268,6 @@
   box-sizing: border-box;
 }
 
-/* Right column: large right padding, right-align content */
 .columns > .columns30.block.columns-2-cols > div > .columns-img-col:last-child {
   flex: 1 1 0;
   min-width: 0;
@@ -276,7 +281,6 @@
   box-sizing: border-box;
 }
 
-/* Responsive: columns go full width and left align on mobile */
 @media (width <= 900px) {
   .columns > .columns30.block.columns-2-cols > div > .columns-img-col,
   .columns > .columns30.block.columns-2-cols > div > .columns-img-col:last-child {
@@ -287,7 +291,6 @@
   }
 }
 
-/* Headline: first element of left column */
 .columns > .columns30.block.columns-2-cols > div > .columns-img-col:first-child > *:first-child {
   font-size: 2.4rem;
   font-weight: 400;
@@ -307,7 +310,6 @@
   }
 }
 
-/* Supporting text: second element of left column */
 .columns > .columns30.block.columns-2-cols > div > .columns-img-col:first-child > *:nth-child(2) {
   font-size: 1.05rem;
   color: #555;
@@ -318,7 +320,6 @@
   text-align: left;
 }
 
-/* Right column: stack children (e.g. buttons) vertically, align to end */
 .columns > .columns30.block.columns-2-cols > div > .columns-img-col:last-child > * {
   display: flex;
   flex-direction: column;
@@ -327,7 +328,6 @@
   justify-content: center;
 }
 
-/* Pill button styles: fixed width, rounded, border, white bg */
 .columns > .columns30.block.columns-2-cols > div > .columns-img-col:last-child button,
 .columns > .columns30.block.columns-2-cols > div > .columns-img-col:last-child a {
   display: block;
@@ -347,7 +347,6 @@
   position: relative;
 }
 
-/* Top button accent (yellow box-shadow to mimic yellow border) */
 .columns > .columns30.block.columns-2-cols > div > .columns-img-col:last-child button:first-child,
 .columns > .columns30.block.columns-2-cols > div > .columns-img-col:last-child a:first-child {
   border-color: #232323;
@@ -360,7 +359,6 @@
   box-shadow: none;
 }
 
-/* Responsive: button width and spacing */
 @media (width <= 600px) {
   .columns > .columns30.block.columns-2-cols > div > .columns-img-col:last-child button,
   .columns > .columns30.block.columns-2-cols > div > .columns-img-col:last-child a {
@@ -373,5 +371,47 @@
   .columns > .columns30.block.columns-2-cols > div > .columns-img-col:last-child > * {
     align-items: stretch;
     gap: 12px;
+  }
+}
+
+/* Horizontal row layout for cards, top-aligned, tight gap */
+
+/* Make all three cards exactly equal in size and top-aligned */
+
+/* Background images for each card */
+.columns > div > div:nth-child(1) {
+  background-image: url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=320&q=80');
+}
+
+.columns > div > div:nth-child(2) {
+  background-image: url('https://images.unsplash.com/photo-1519125323398-675f0ddb6308?auto=format&fit=crop&w=320&q=80');
+}
+
+.columns > div > div:nth-child(3) {
+  background-image: url('https://images.unsplash.com/photo-1465101046530-73398c7f28ca?auto=format&fit=crop&w=320&q=80');
+}
+
+/* Hide any additional columns beyond the third */
+.columns > div > div:nth-child(n+4) {
+  display: none;
+}
+
+/* Hide all child content within the cards */
+.columns > div > div > * {
+  display: none;
+}
+
+/* Responsive: stack cards vertically on small screens, maintain card width and equal height */
+@media (width <= 900px) {
+  .columns > div {
+    flex-direction: column;
+    gap: 14px;
+    align-items: center;
+  }
+
+  .columns > div > div {
+    max-width: 98vw;
+    width: 100%;
+    height: 180px;
   }
 }
