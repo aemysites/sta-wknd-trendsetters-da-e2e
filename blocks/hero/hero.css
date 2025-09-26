@@ -73,7 +73,6 @@
   box-sizing: border-box;
 }
 
-/* Left (text) column */
 .hero.hero5 > div:last-child {
   order: 1;
   background: #fff;
@@ -85,7 +84,6 @@
   align-items: flex-start;
 }
 
-/* Vertically center text block within text column */
 .hero.hero5 > div:last-child > div {
   display: flex;
   flex-direction: column;
@@ -93,14 +91,11 @@
   align-items: flex-start;
   width: 100%;
   max-width: 480px;
-
-  /* Use flex-grow/min-height for vertical centering insurance */
   flex-grow: 1;
   min-height: 0;
   margin: 0;
 }
 
-/* Right (image) column */
 .hero.hero5 > div:first-child {
   order: 2;
   background: none;
@@ -145,7 +140,7 @@
   line-height: 1.1;
   text-align: left;
   max-width: 99%;
-  word-break: break-word;
+  word-wrap: break-word; /* Replaced deprecated 'break-word' */
 }
 
 .hero.hero5 p {
@@ -223,4 +218,155 @@
   .hero.hero5 h2 {
     font-size: 2rem;
   }
+}
+
+
+.hero.hero6 {
+  position: relative;
+  width: 100vw;
+  min-height: 600px;
+  border-radius: 28px;
+  overflow: hidden;
+  padding: 0;
+  display: block;
+}
+
+/* Full background image */
+.hero.hero6 > div:first-child {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.hero.hero6 picture,
+.hero.hero6 img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Overlay container */
+.hero.hero6 > div:last-child {
+  position: relative;
+  z-index: 2;
+  height: 100%;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+
+/* Overlay box for text and button */
+.hero.hero6 > div:last-child > div {
+  background: rgb(24 28 36 / 19%); /* slightly less transparent for better contrast */
+  border: 1px solid #fff;
+  border-radius: 28px;
+  box-shadow: 0 2px 24px 0 rgb(24 28 36 / 5%);
+  box-sizing: border-box;
+  padding: 48px 40px 48px 48px; /* less vertical/horizontal padding for tighter fit */
+  max-width: 445px;
+  margin-top: 60px;   /* bring overlay closer to top */
+  margin-left: 54px;  /* bring overlay closer to left */
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  align-items: flex-start;
+  min-height: 385px;
+  justify-content: center;
+}
+
+/* Headline: increase size, tweak width for line breaks */
+.hero.hero6 h1 {
+  color: #fff;
+  font-size: 2.1rem;
+  font-weight: 400;
+  line-height: 1.13;
+  letter-spacing: 0.04em;
+  margin: 0 0 22px;
+  text-transform: uppercase;
+  max-width: 360px;
+  word-wrap: break-word; /* Replaced deprecated 'break-word' */
+}
+
+/* Paragraph: slightly larger and lighter, adjust width */
+.hero.hero6 p:not(.button-container) {
+  color: #F7F7F7;
+  font-size: 1.08rem;
+  line-height: 1.56;
+  margin-bottom: 26px;
+  margin-top: 0;
+  max-width: 360px;
+}
+
+/* Button container: add space above, less below */
+.hero.hero6 .button-container {
+  display: flex;
+  flex-direction: row;
+  gap: 16px;
+  width: 100%;
+  justify-content: flex-start;
+  margin-top: 18px;
+  margin-bottom: 0;
+}
+
+/* Single button styling: compact, horizontally centered in overlay */
+.hero-container > .hero-wrapper > .block.hero .button {
+  background: #fff;
+  color: #222;
+  border: 1px solid #fff;
+  border-radius: 2em;
+  padding: 9px 28px;
+  font-size: 1.05rem;
+  font-weight: 500;
+  margin: 0 auto;
+  box-shadow: 0 2px 12px 0 rgb(40 44 52 / 4%);
+  min-width: 155px;
+  max-width: 210px;
+  text-align: center;
+}
+
+/* Responsive: adjust overlay size/padding/margin for mobile */
+@media (width <= 900px) {
+  .hero.hero6 > div:last-child > div {
+    max-width: 98vw;
+    padding: 16px 7px;
+    margin: 8px 0 0 2vw;
+    border-radius: 18px;
+    gap: 14px;
+    min-height: 200px;
+  }
+
+  .hero.hero6 h1 {
+    font-size: 1.01rem;
+    max-width: 92vw;
+    margin-bottom: 12px;
+  }
+
+  .hero.hero6 p:not(.button-container) {
+    font-size: 0.92rem;
+    max-width: 93vw;
+    margin-bottom: 12px;
+  }
+
+  .hero.hero6 .button-container {
+    gap: 8px;
+    margin-top: 8px;
+    margin-bottom: 0;
+  }
+
+  .hero-container > .hero-wrapper > .block.hero .button {
+    padding: 7px 12px;
+    min-width: 80px;
+    max-width: 120px;
+    font-size: 0.90rem;
+  }
+}
+
+/* Ensure hero spans full width of viewport */
+.hero-container > .hero-wrapper {
+  max-width: unset;
+  padding: 0;
 }
