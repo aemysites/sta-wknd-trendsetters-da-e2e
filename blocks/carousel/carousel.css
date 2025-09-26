@@ -1,3 +1,4 @@
+/* stylelint-disable no-descending-specificity */
 .carousel .carousel-slides-container {
   position: relative;
 }
@@ -99,7 +100,6 @@
   z-index: 1;
 }
 
-/* stylelint-disable-next-line no-descending-specificity */
 .carousel .carousel-navigation-buttons button {
   position: relative;
   width: 44px;
@@ -150,4 +150,151 @@
   .carousel .carousel-slide .carousel-slide-content[data-align='justify'] {
     --slide-content-width: auto;
   }
+}
+
+
+.carousel.carousel24 {
+  /* Push in a bit more for collage framing and depth */
+  padding-left: 44px;
+  padding-right: 44px;
+  background: #f7f8f5;
+  position: relative;
+  overflow: visible;
+}
+
+/* Main image: keep strong skew, more "cut" corners */
+.carousel.carousel24 .carousel-slide .carousel-slide-image picture > img {
+  transform: rotate(-3.5deg) scale(1.06) skewY(-4deg);
+  box-shadow: 0 12px 42px rgb(0 0 0 / 17%), 0 0 0 11px #fff;
+  border-radius: 36px 18px 40px 10px / 20px 36px 10px 44px;
+  border-left: 7px solid #fff;
+  border-top: 3px solid #fff;
+  border-bottom: 6px solid #fff;
+  border-right: none;
+}
+
+/* More varied collage layers and shapes, including bottom right */
+.carousel.carousel24 .carousel-slide::before,
+.carousel.carousel24 .carousel-slide::after,
+.carousel.carousel24 .carousel-slide .carousel-slide-image::before,
+.carousel.carousel24 .carousel-slide .carousel-slide-image::after,
+.carousel.carousel24 .carousel-slide .carousel-slide-content::before,
+.carousel.carousel24 .carousel-slide .carousel-slide-content::after {
+  content: '';
+  position: absolute;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.carousel.carousel24 .carousel-slide::before {
+  bottom: -40px;
+  right: -75px;
+  width: 200px;
+  height: 90px;
+  background: #fff;
+  border-radius: 22px 40px 20px 8px;
+  box-shadow: 0 16px 32px rgb(0 0 0 / 10%);
+  transform: rotate(13deg) skewY(-8deg);
+  opacity: 0.85;
+  z-index: 1;
+}
+
+.carousel.carousel24 .carousel-slide::after {
+  top: -16px;
+  left: 36px;
+  width: 270px;
+  height: 1.5px;
+  background: #2d2d2d;
+  border-radius: 18px 6px 15px 16px;
+  transform: rotate(-17deg);
+  opacity: 0.6;
+  z-index: 3;
+  position: absolute;
+  content: '';
+}
+
+.carousel.carousel24 .carousel-slide .carousel-slide-image::before {
+  top: 0;
+  left: 26px;
+  width: 2px;
+  height: 96%;
+  background: #151515;
+  border-radius: 13px 29px 14px 7px;
+  box-shadow: 0 8px 24px rgb(0 0 0 / 11%);
+  opacity: 0.22;
+  transform: rotate(-5deg);
+  z-index: 3;
+  content: '';
+}
+
+.carousel.carousel24 .carousel-slide .carousel-slide-image::after {
+  bottom: 10px;
+  right: 62px;
+  width: 140px;
+  height: 2px;
+  background: #232323;
+  border-radius: 8px 22px 8px 18px;
+  transform: rotate(24deg);
+  opacity: 0.34;
+  left: unset;
+  z-index: 3;
+  content: '';
+}
+
+/* Extra, layered shape to increase collage feel, bottom left */
+.carousel.carousel24 .carousel-slide .carousel-slide-content::before {
+  bottom: -30px;
+  left: -50px;
+  width: 120px;
+  height: 35px;
+  background: #fff;
+  border-radius: 15px 11px 18px 10px;
+  box-shadow: 0 6px 18px rgb(0 0 0 / 8%);
+  transform: rotate(-17deg) skewY(-7deg);
+  opacity: 0.47;
+  z-index: 1;
+}
+
+/* Even more line accents, varied angles, collage-style */
+
+.carousel.carousel24 .carousel-slide .carousel-slide-content::after {
+  /* diagonal line over text */
+  top: 44px;
+  left: -54px;
+  width: 170px;
+  height: 2px;
+  background: #222;
+  opacity: 0.48;
+  transform: rotate(-13deg);
+  z-index: 4;
+}
+
+/* Add scrapbook lines bottom right for asymmetry */
+
+/* Headline: Restrict width to force natural line breaks (2-3 lines), more balanced placement */
+.carousel.carousel24 .carousel-slide .carousel-slide-content {
+  background: none;
+  color: #fff;
+  text-shadow: 0 2px 12px rgb(0 0 0 / 32%);
+  margin: 0;
+  padding: 0;
+  max-width: 325px;
+  position: absolute;
+  top: 60px;
+  left: 72px;
+  z-index: 10;
+}
+
+.carousel.carousel24 .carousel-slide .carousel-slide-content h2 {
+  font-size: 2.15rem;
+  font-weight: 700;
+  line-height: 1.13;
+  letter-spacing: 0.01em;
+  margin: 0;
+  text-align: left;
+  position: relative;
+  z-index: 10;
+  word-break: normal;
+  white-space: normal;
+  hyphens: auto;
 }
