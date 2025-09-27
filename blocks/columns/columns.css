@@ -1,6 +1,13 @@
+/* stylelint-disable no-descending-specificity */
 .columns > div {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 1.8rem;
+  max-width: 900px;
+  width: 100%;
+  background: none;
+  box-sizing: border-box;
 }
 
 .columns img {
@@ -9,6 +16,10 @@
 
 .columns > div > div {
   order: 1;
+  flex: 1 1 0;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
 }
 
 .columns > div > .columns-img-col {
@@ -29,5 +40,116 @@
   .columns > div > div {
     flex: 1;
     order: unset;
+  }
+}
+
+
+.columns {
+  background: #FAFAF6;
+  min-height: 100vh;
+  width: 100vw;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding-top: 64px;
+  padding-bottom: 64px;
+}
+
+.columns > div > div:first-child {
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding-top: 0;
+  gap: 1.2rem; /* reduce vertical gap in left column */
+}
+
+.columns > div > div:first-child p:first-child {
+  font-size: 3.8rem; /* larger, even more prominent headline */
+  font-weight: 400;
+  color: #171717;
+  line-height: 1.04;
+  letter-spacing: 0.01em;
+  margin-bottom: 0.7rem;
+  margin-top: 0;
+  text-align: left;
+  max-width: 99%;
+}
+
+.columns > div > div:first-child p:nth-child(2) {
+  font-size: 1rem;
+  color: #5C5C5C;
+  margin: 0 0 0.2rem;
+  text-align: left;
+  max-width: 30em; /* encourage earlier wrapping for blocky look */
+}
+
+.columns > div > div:last-child {
+  align-items: center;
+  justify-content: flex-start;
+  gap: 0.35rem; /* tighter vertical stack for name/subtitle/icon */
+  padding-top: 0;
+}
+
+.columns > div > div:last-child picture,
+.columns > div > div:last-child img {
+  width: 320px;
+  height: 320px;
+  object-fit: cover;
+  border-radius: 32px;
+  display: block;
+  margin-bottom: 1.1rem; /* slightly reduced margin */
+  background: #EAEAEA;
+  box-shadow: none;
+}
+
+.columns > div > div:last-child p {
+  text-align: center;
+  font-size: 1rem;
+  color: #353535;
+  margin: 0.15rem 0;
+}
+
+.columns > div > div:last-child p:last-child img {
+  width: 120px;
+  height: 24px;
+  margin-top: 0.3rem;
+  object-fit: contain;
+  display: inline-block;
+}
+
+/* Responsive stacking for smaller screens */
+@media (width <= 900px) {
+  .columns {
+    padding-top: 40px;
+    padding-bottom: 40px;
+  }
+
+  .columns > div {
+    flex-direction: column;
+    gap: 2rem;
+    align-items: center;
+    max-width: 100%;
+  }
+
+  .columns > div > div,
+  .columns > div > div:first-child {
+    align-items: center;
+    text-align: center;
+  }
+
+  .columns > div > div:first-child p:first-child {
+    font-size: 2.2rem;
+    text-align: center;
+    max-width: 100%;
+  }
+
+  .columns > div > div:first-child p:nth-child(2) {
+    text-align: center;
+  }
+
+  .columns > div > div:last-child picture,
+  .columns > div > div:last-child img {
+    width: 220px;
+    height: 220px;
   }
 }
