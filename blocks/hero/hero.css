@@ -824,8 +824,6 @@
   max-width: 67vw;
   text-shadow: 0 2px 7px rgb(0 0 0 / 37%);
   box-sizing: border-box;
-
-  /* Subtly move headline down for perfect visual centering */
   transform: translateY(10%);
 }
 
@@ -839,3 +837,122 @@
     max-width: 44vw;
   }
 }
+
+
+.hero.hero41 {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  min-height: 600px;
+  border-radius: 32px;
+  overflow: hidden;
+  width: 100%;
+  background: transparent;
+}
+
+.hero.hero41 > div:first-child {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.hero.hero41 > div:first-child picture,
+.hero.hero41 > div:first-child img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  min-width: 100%;
+  min-height: 100%;
+}
+
+/* Text content container: improved vertical and left positioning */
+.hero.hero41 > div:last-child {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: 44px 0 140px 48px;   /* Lower & more left for natural block centering */
+  max-width: 464px;
+  width: 100%;
+  min-height: 100%;
+  background: none;
+}
+
+/* Responsive: stack text, reduce padding and width on small screens */
+@media (width <= 900px) {
+  .hero.hero41 {
+    min-height: 360px;
+    border-radius: 0;
+  }
+
+  .hero.hero41 > div:last-child {
+    padding: 26px 8px 56px 12px;
+    max-width: 98vw;
+  }
+}
+
+/* Heading: large, white, tight line-height, balanced wrapping */
+.hero.hero41 h1 {
+  color: #fff;
+  font-size: clamp(2.1rem, 5vw, 3.5rem);
+  font-weight: 400;
+  letter-spacing: 0.012em;
+  line-height: 1.04;
+  margin: 0 0 28px;
+  text-align: left;
+  max-width: 464px;
+  text-shadow: 0 3px 36px rgb(0 0 0 / 34%), 0 1px 2px rgb(0 0 0 / 21%);
+}
+
+/* Paragraph: lighter white, readable, left-aligned, stronger shadow for contrast */
+.hero.hero41 p {
+  color: #ececec;
+  font-size: 1.06rem;
+  line-height: 1.6;
+  margin: 0;
+  max-width: 420px;
+  text-align: left;
+  text-shadow: 0 2px 14px rgb(0 0 0 / 22%);
+}
+
+.hero.hero41 p.button-container {
+  margin-top: 44px;
+  margin-bottom: 0;
+  width: 100%;
+}
+
+/* Button: transparent, white outline, round, left-aligned */
+.hero-container > .hero-wrapper > .block.hero .button,
+.hero.hero41 .button {
+  background: transparent;
+  color: #fff;
+  border: 2px solid #fff;
+  border-radius: 999px;
+  padding: 13px 34px;
+  font-size: 1.05rem;
+  font-weight: 400;
+  box-shadow: 0 2px 8px rgb(0 0 0 / 11%);
+  text-decoration: none;
+  transition: background 0.2s, color 0.2s, border-color 0.2s;
+  display: inline-block;
+  margin: 0;
+}
+
+.hero-container > .hero-wrapper > .block.hero .button:hover,
+.hero.hero41 .button:hover,
+.hero-container > .hero-wrapper > .block.hero .button:focus,
+.hero.hero41 .button:focus {
+  background: #fff;
+  color: #191919;
+  border-color: #fff;
+  text-decoration: none;
+}
+
+/* Make the hero span the full page width */
