@@ -1,6 +1,8 @@
+/* stylelint-disable no-descending-specificity */
 .accordion details {
   border: 1px solid #dadada;
 }
+
 .accordion details + details {
   margin-top: 24px;
 }
@@ -65,7 +67,6 @@
   padding: 0;
 }
 
-/* Make sure each details is block and flush */
 .accordion.accordion17 details {
   display: block;
   background: #f7f7f3;
@@ -74,18 +75,16 @@
   box-sizing: border-box;
 }
 
-/* Divider: only thin bottom border between rows */
 .accordion.accordion17 details:not(:last-child) {
   border-bottom: 1px solid #e0e0e0;
 }
 
-/* Summary row: flex layout, minimal left padding, more right padding for chevron */
 .accordion.accordion17 details summary {
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  padding: 13px 18px 13px 0; /* nearly flush left, chevron spaced from right */
+  padding: 13px 18px 13px 0;
   cursor: pointer;
   background: #f7f7f3;
   color: #222;
@@ -101,12 +100,10 @@
   gap: 0;
 }
 
-/* Remove default marker for summary */
 .accordion.accordion17 details summary::-webkit-details-marker {
   display: none;
 }
 
-/* Summary paragraph: flush left, single line, ellipsis overflow */
 .accordion.accordion17 details summary p {
   flex: 1 1 auto;
   margin: 0;
@@ -120,7 +117,6 @@
   white-space: nowrap;
 }
 
-/* Chevron arrow: slightly larger, lighter color, spaced from right edge */
 .accordion.accordion17 details summary::after {
   flex: 0 0 auto;
   margin-left: 10px;
@@ -129,7 +125,7 @@
   height: 15px;
   border-right: 2px solid #aaa;
   border-bottom: 2px solid #aaa;
-  border-radius: 0 0 2px 0;
+  border-radius: 0 0 2px;
   transform: rotate(45deg);
   transition: transform 0.2s;
   display: block;
@@ -139,12 +135,10 @@
   align-self: center;
 }
 
-/* Rotate chevron when open */
 .accordion.accordion17 details[open] summary::after {
   transform: rotate(-135deg);
 }
 
-/* Accordion body: minimal left padding for flush content */
 .accordion.accordion17 details .accordion-item-body {
   padding: 0 18px 11px 0;
   color: #222;
@@ -154,11 +148,132 @@
   box-sizing: border-box;
 }
 
-/* Responsive: minimal horizontal padding for small screens */
-@media (max-width: 600px) {
+@media (width <= 600px) {
   .accordion.accordion17 details summary,
   .accordion.accordion17 details .accordion-item-body {
     padding-left: 0;
     padding-right: 8px;
+  }
+}
+
+
+.accordion.accordion18 {
+  background: #fff;
+  padding: 0;
+}
+
+/* Use flexbox for each details row for best cross-browser support */
+.accordion.accordion18 details {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  border: none;
+  border-bottom: 1px solid #AAA;
+  margin: 0;
+  padding: 0;
+  min-height: 48px;
+  width: 100%;
+}
+
+/* Remove border from last row */
+.accordion.accordion18 details:last-child {
+  border-bottom: none;
+}
+
+/* Remove spacing between rows */
+.accordion.accordion18 details + details {
+  margin-top: 0;
+}
+
+/* Left column: summary/question */
+.accordion.accordion18 summary {
+  flex: 0 0 40%;
+  align-self: flex-start;
+  display: flex;
+  align-items: flex-start;
+  padding: 0;
+  margin: 0;
+  background: none;
+  border: none;
+  cursor: default;
+  outline: none;
+  list-style: none;
+  pointer-events: none;
+  min-height: 48px;
+}
+
+/* Remove default marker arrow */
+.accordion.accordion18 summary::-webkit-details-marker,
+.accordion.accordion18 summary::marker {
+  display: none;
+}
+
+/* Style question text */
+.accordion.accordion18 .accordion-item-label p {
+  margin: 0;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-size: 18px;
+  color: #757575;
+  font-weight: 400;
+  line-height: 1.2;
+  overflow-wrap: break-word;
+}
+
+/* Last summary row lowercase */
+.accordion.accordion18 details:last-child .accordion-item-label p {
+  text-transform: lowercase;
+}
+
+/* Right column: answer */
+.accordion.accordion18 .accordion-item-body {
+  flex: 1 1 60%;
+  align-self: flex-start;
+  display: flex;
+  align-items: flex-start;
+  padding-left: 20px;
+  margin: 0;
+  max-width: 100%;
+  min-height: 48px;
+  overflow-wrap: break-word;
+}
+
+/* Style answer text */
+.accordion.accordion18 .accordion-item-body p {
+  margin: 0;
+  font-size: 14px;
+  color: #494949;
+  font-weight: 400;
+  line-height: 1.4;
+  overflow-wrap: break-word;
+}
+
+/* Always show answers (override default if details is open/closed) */
+.accordion.accordion18 details .accordion-item-body {
+  display: flex;
+}
+
+/* Hide any expand/collapse arrow if present */
+.accordion.accordion18 summary::after {
+  display: none;
+}
+
+/* Responsive: stack columns on small screens */
+@media (width <= 700px) {
+  .accordion.accordion18 details {
+    flex-direction: column;
+    min-height: 0;
+  }
+
+  .accordion.accordion18 summary,
+  .accordion.accordion18 .accordion-item-body {
+    flex-basis: 100%;
+    width: 100%;
+    padding-left: 0;
+    min-height: unset;
+  }
+
+  .accordion.accordion18 .accordion-item-body {
+    margin-top: 8px;
   }
 }
