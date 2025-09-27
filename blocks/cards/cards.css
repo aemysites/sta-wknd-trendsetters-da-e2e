@@ -25,3 +25,170 @@
   aspect-ratio: 4 / 3;
   object-fit: cover;
 }
+
+
+.cards.cards2 {
+  background: #f9f9f6;
+  padding: 56px 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 0;
+  box-sizing: border-box;
+}
+
+.cards.cards2 > ul {
+  display: grid;
+  grid-template-columns: 1.55fr 1fr;
+  gap: 38px;
+  padding: 0;
+  margin: 0 auto;
+  max-width: 1100px;
+  list-style: none;
+  width: 100%;
+  align-items: start;
+}
+
+/* Align the first and second card tops */
+.cards.cards2 > ul > li {
+  background: #fff;
+  border: none;
+  border-radius: 28px;
+  box-shadow: 0 6px 40px 0 rgba(77,60,0,0.07);
+  overflow: hidden;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  min-height: 0;
+  align-self: start;
+  /* Ensure both cards align at the top */
+}
+
+.cards.cards2 > ul > li .cards-card-image {
+  width: 100%;
+  margin: 0;
+  line-height: 0;
+  flex-shrink: 0;
+  display: block;
+}
+
+/* Feature card image: taller, more prominent, aligns top */
+.cards.cards2 > ul > li:first-child .cards-card-image img {
+  width: 100%;
+  max-width: 100%;
+  min-height: 310px;
+  height: 320px;
+  aspect-ratio: unset;
+  object-fit: cover;
+  border-radius: 28px 28px 0 0;
+  background: #ececec;
+  display: block;
+}
+
+/* Right card image: ensure same top alignment, use fixed height */
+.cards.cards2 > ul > li:not(:first-child) .cards-card-image img {
+  width: 100%;
+  max-width: 100%;
+  min-height: 310px;
+  height: 320px;
+  aspect-ratio: unset;
+  object-fit: cover;
+  border-radius: 28px 28px 0 0;
+  background: #ececec;
+  display: block;
+}
+
+.cards.cards2 > ul > li .cards-card-body {
+  padding: 48px 44px 36px 44px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0;
+  justify-content: flex-start;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* Right card body: slightly smaller padding */
+.cards.cards2 > ul > li:not(:first-child) .cards-card-body {
+  padding: 36px 32px 32px 32px;
+}
+
+.cards.cards2 > ul > li .cards-card-body h3 {
+  margin: 0 0 20px 0;
+  font-size: 2.15rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.01em;
+  color: #111;
+  line-height: 1.13;
+  text-align: left;
+}
+
+.cards.cards2 > ul > li:not(:first-child) .cards-card-body h3 {
+  font-size: 1.5rem;
+  margin-bottom: 18px;
+}
+
+/* Body copy */
+.cards.cards2 > ul > li .cards-card-body p {
+  font-size: 1.02rem;
+  color: #222;
+  margin: 0 0 18px 0;
+  line-height: 1.55;
+  text-align: left;
+}
+
+/* Only style the last p as button if it is a CTA */
+.cards.cards2 > ul > li .cards-card-body p:last-child {
+  margin-top: 18px;
+  margin-bottom: 0;
+  display: inline-block;
+  padding: 10px 28px;
+  border-radius: 24px;
+  border: 1.4px solid #222;
+  background: #fff;
+  color: #222;
+  font-size: 1rem;
+  font-weight: 500;
+  line-height: 1.4;
+  box-shadow: none;
+  width: fit-content;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+
+/* Responsiveness: stack cards on smaller screens, adjust aspect ratios */
+@media (max-width: 900px) {
+  .cards.cards2 {
+    flex-direction: column;
+    gap: 0;
+    padding: 28px 0;
+    align-items: center;
+  }
+  .cards.cards2 > ul {
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+    max-width: 100%;
+  }
+  .cards.cards2 > ul > li,
+  .cards.cards2 > ul > li:first-child,
+  .cards.cards2 > ul > li:not(:first-child) {
+    border-radius: 18px;
+  }
+  .cards.cards2 > ul > li .cards-card-image img {
+    min-height: 120px;
+    height: 160px;
+    border-radius: 18px 18px 0 0;
+    aspect-ratio: 16 / 10;
+  }
+  .cards.cards2 > ul > li .cards-card-body {
+    padding: 20px 16px 18px 16px;
+  }
+  .cards.cards2 > ul > li .cards-card-body h3 {
+    font-size: 1.2rem;
+  }
+}
