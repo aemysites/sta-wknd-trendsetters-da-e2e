@@ -367,7 +367,6 @@
   place-items: start center;
 }
 
-/* Card styling and container */
 .cards.cards12 > ul > li {
   background: #fff;
   border: none;
@@ -387,7 +386,6 @@
   box-shadow: 0 8px 32px 0 rgb(0 0 0 / 11%);
 }
 
-/* Image block with overlay positioning */
 .cards.cards12 .cards-card-image {
   position: relative;
   width: 100%;
@@ -400,7 +398,6 @@
   justify-content: center;
 }
 
-/* Ensure image fills, rounded corners */
 .cards.cards12 .cards-card-image img {
   width: 100%;
   height: 100%;
@@ -414,7 +411,6 @@
   transform: scale(1.04);
 }
 
-/* Overlay the tag/date inside image, at bottom */
 .cards.cards12 .cards-card-body {
   position: absolute;
   left: 0;
@@ -460,7 +456,6 @@
   pointer-events: none;
 }
 
-/* Card content: push up closer to image */
 .cards.cards12 > ul > li > .cards-card-body {
   position: static;
   display: block;
@@ -468,12 +463,10 @@
   margin-top: 0.7rem;
 }
 
-/* Hide duplicated tag/date that might be rendered below image */
 .cards.cards12 > ul > li > .cards-card-body p {
   display: none;
 }
 
-/* Card title styling, spacing improved */
 .cards.cards12 > ul > li > .cards-card-body h3 {
   font-size: 1.35rem;
   color: #232323;
@@ -487,7 +480,6 @@
   border: none;
 }
 
-/* Responsive: tighter images/cards on small screens */
 @media (width <= 900px) {
   .cards.cards12 > ul {
     grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
@@ -527,4 +519,99 @@
     bottom: 0.5rem;
     padding: 0 0.3rem;
   }
+}
+
+
+.cards.cards19 {
+  background: #fff;
+  padding: 0;
+}
+
+/* Use CSS Grid for the block layout: 4 columns x 2 rows, responsive */
+.cards.cards19 > ul {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(2, auto);
+  gap: 32px 40px;
+  margin: 0;
+  padding: 0 20px;
+  list-style: none;
+}
+
+/* Responsive columns */
+@media (width <= 900px) {
+  .cards.cards19 > ul {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+    padding: 0 8px;
+  }
+}
+
+@media (width <= 600px) {
+  .cards.cards19 > ul {
+    grid-template-columns: 1fr;
+    gap: 16px 0;
+    padding: 0 4px;
+  }
+}
+
+.cards.cards19 > ul > li {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  min-width: 0;
+  background: #fff;
+  border: none;
+  box-shadow: none;
+  padding: 8px 0;
+
+  /* Prevent text from crowding the edges */
+}
+
+/* Icon container: flex, center, prevent collapse */
+.cards.cards19 > ul > li > .cards-card-body:first-child {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+  height: 28px;
+}
+
+/* Icon SVG/image: match visual prominence and spacing */
+.cards.cards19 > ul > li > .cards-card-body:first-child img {
+  width: 24px;
+  height: 24px;
+  margin-right: 18px;
+  display: inline-block;
+  vertical-align: middle;
+
+  /* Increase size and gap for visual matching */
+}
+
+/* Text body: allow shrink/grow, prevent overflow */
+.cards.cards19 > ul > li > .cards-card-body:last-child {
+  flex: 1 1 0;
+  min-width: 0;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  align-items: center;
+}
+
+/* Text style: match design */
+.cards.cards19 > ul > li > .cards-card-body:last-child p {
+  font-size: 12px;
+  line-height: 16px;
+  color: #222;
+  margin: 0;
+  text-align: left;
+  overflow-wrap: anywhere;
+
+  /* Truncate if needed */
+}
+
+.cards.cards19 .cards-card-body {
+  margin: 0;
+  padding: 0;
 }
