@@ -654,7 +654,6 @@
   position: relative;
 }
 
-/* Video placeholder: larger, less rounded, sits lower */
 .hero.hero25 > div:first-child {
   flex: 0 1 46vw;
   display: flex;
@@ -679,7 +678,6 @@
   position: relative;
 }
 
-/* "Video" button inside placeholder */
 .hero.hero25 > div:first-child .button {
   background: #fff;
   color: #191919;
@@ -696,7 +694,6 @@
   font-weight: 500;
 }
 
-/* Text column: shifted up, left-aligned, closer to video */
 .hero.hero25 > div:last-child {
   flex: 1 1 35vw;
   display: flex;
@@ -773,5 +770,72 @@
   .hero.hero25 p {
     font-size: 3vw;
     max-width: 100%;
+  }
+}
+
+.hero.hero29 {
+  position: relative;
+  width: 100vw;
+  min-height: 60vw;
+  max-width: 100vw;
+  overflow: hidden;
+  display: block;
+  background: #111;
+}
+
+.hero.hero29 > div:first-child {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.hero.hero29 picture,
+.hero.hero29 img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.hero.hero29 > div:nth-child(2) {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+}
+
+.hero.hero29 h1 {
+  margin: 0;
+  color: #fff;
+  text-align: center;
+  text-transform: uppercase;
+  font-size: clamp(2.4rem, 7.7vw, 7.1rem);
+  line-height: 1;
+  letter-spacing: 0.045em;
+  font-weight: 400;
+  max-width: 67vw;
+  text-shadow: 0 2px 7px rgb(0 0 0 / 37%);
+  box-sizing: border-box;
+
+  /* Subtly move headline down for perfect visual centering */
+  transform: translateY(10%);
+}
+
+@media (width >= 900px) {
+  .hero.hero29 {
+    min-height: 700px;
+  }
+
+  .hero.hero29 h1 {
+    font-size: clamp(3.2rem, 6.5vw, 8rem);
+    max-width: 44vw;
   }
 }
