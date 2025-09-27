@@ -31,3 +31,72 @@
     order: unset;
   }
 }
+
+
+.columns.columns1 {
+  background-color: #F6F7F4;
+
+  /* Ensure block is visually separated from previous/next blocks if needed */
+  padding: 48px 0;
+  box-sizing: border-box;
+}
+
+/* Ensure the inner container uses the full width and doesn't allow color "leakage" */
+.columns.columns1 > div {
+  width: 100%;
+  min-height: 56px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: flex-start;
+  background: transparent;
+  box-sizing: border-box;
+
+  /* Remove any accidental background set by parent/child */
+}
+
+/* Hide only the image columns */
+.columns.columns1 .columns-img-col {
+  display: none;
+}
+
+/* Prevent accidental background override from children (including .section-2 etc) */
+.columns.columns1 > div > * {
+  background: transparent;
+  box-shadow: none;
+  border: none;
+}
+
+/* If any non-image column direct child is present (e.g. a text node), center and style it */
+.columns.columns1 > div > *:not(.columns-img-col) {
+  margin: 0;
+  padding: 0;
+  color: #131313;
+  font-size: var(--body-font-size-s);
+  text-align: center;
+  width: 100%;
+  max-width: 900px;
+  line-height: 1.5;
+  align-self: flex-start;
+  background: transparent;
+  box-shadow: none;
+  border: none;
+}
+
+/* Remove button appearance if any accidental .button styling is present */
+.columns.columns1 .button,
+.columns.columns1 a.button {
+  background: none;
+  border: none;
+  border-radius: 0;
+  color: #131313;
+  box-shadow: none;
+  padding: 0;
+  margin: 0;
+  font-size: var(--body-font-size-s);
+  text-align: center;
+  display: inline;
+  white-space: normal;
+  pointer-events: none;
+  cursor: default;
+}
