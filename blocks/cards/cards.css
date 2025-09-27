@@ -527,7 +527,6 @@
   padding: 0;
 }
 
-/* Use CSS Grid for the block layout: 4 columns x 2 rows, responsive */
 .cards.cards19 > ul {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -538,7 +537,6 @@
   list-style: none;
 }
 
-/* Responsive columns */
 @media (width <= 900px) {
   .cards.cards19 > ul {
     grid-template-columns: repeat(2, 1fr);
@@ -564,11 +562,8 @@
   border: none;
   box-shadow: none;
   padding: 8px 0;
-
-  /* Prevent text from crowding the edges */
 }
 
-/* Icon container: flex, center, prevent collapse */
 .cards.cards19 > ul > li > .cards-card-body:first-child {
   flex: 0 0 auto;
   display: flex;
@@ -578,18 +573,14 @@
   height: 28px;
 }
 
-/* Icon SVG/image: match visual prominence and spacing */
 .cards.cards19 > ul > li > .cards-card-body:first-child img {
   width: 24px;
   height: 24px;
   margin-right: 18px;
   display: inline-block;
   vertical-align: middle;
-
-  /* Increase size and gap for visual matching */
 }
 
-/* Text body: allow shrink/grow, prevent overflow */
 .cards.cards19 > ul > li > .cards-card-body:last-child {
   flex: 1 1 0;
   min-width: 0;
@@ -599,7 +590,6 @@
   align-items: center;
 }
 
-/* Text style: match design */
 .cards.cards19 > ul > li > .cards-card-body:last-child p {
   font-size: 12px;
   line-height: 16px;
@@ -607,11 +597,128 @@
   margin: 0;
   text-align: left;
   overflow-wrap: anywhere;
-
-  /* Truncate if needed */
 }
 
 .cards.cards19 .cards-card-body {
   margin: 0;
   padding: 0;
+}
+
+
+.cards.cards23 {
+  background: #F7F7F7;
+  padding: 32px;
+  border-radius: 24px;
+}
+
+.cards.cards23 > ul {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 24px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.cards.cards23 > ul > li {
+  background: #fff;
+  border: 1px solid #D4D4D4;
+  border-radius: 24px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  min-height: 340px;
+  height: 100%;
+}
+
+/* Ensure image always fills the image area and shows above body */
+.cards.cards23 .cards-card-image {
+  width: 100%;
+  height: 180px;
+  min-height: 180px;
+  background: #e1e1e1;
+  border-top-left-radius: 24px;
+  border-top-right-radius: 24px;
+  overflow: hidden;
+  display: flex;
+  align-items: stretch;
+  justify-content: stretch;
+  position: relative;
+  flex-shrink: 0;
+}
+
+/* Only show fallback color if there is no image */
+.cards.cards23 .cards-card-image img,
+.cards.cards23 .cards-card-image picture {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-top-left-radius: 24px;
+  border-top-right-radius: 24px;
+  display: block;
+  background: none;
+  position: static;
+}
+
+.cards.cards23 .cards-card-image:not(:empty) {
+  background: none;
+}
+
+/* Body padding and vertical stacking */
+.cards.cards23 .cards-card-body {
+  padding: 24px;
+  margin: 0;
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  min-height: 100px;
+}
+
+/* Heading style */
+.cards.cards23 .cards-card-body h3 {
+  text-transform: uppercase;
+  letter-spacing: 0.09em;
+  color: #323232;
+  font-size: 1.3em;
+  font-weight: 600;
+  margin-top: 0;
+  margin-bottom: 8px;
+  line-height: 1.15;
+}
+
+/* Description style */
+.cards.cards23 .cards-card-body p {
+  font-size: 0.9em;
+  color: #444;
+  margin: 0;
+}
+
+/* Responsive stacking */
+@media (width <= 900px) {
+  .cards.cards23 {
+    padding: 16px;
+  }
+
+  .cards.cards23 > ul {
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(4, 1fr);
+    gap: 16px;
+  }
+
+  .cards.cards23 > ul > li {
+    min-height: 220px;
+  }
+
+  .cards.cards23 .cards-card-image {
+    height: 120px;
+    min-height: 90px;
+  }
+
+  .cards.cards23 .cards-card-body {
+    padding: 16px;
+  }
 }
