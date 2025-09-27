@@ -1,3 +1,4 @@
+/* stylelint-disable no-descending-specificity */
 .tabs .tabs-list {
   display: flex;
   gap: 0.5ch;
@@ -55,4 +56,190 @@
 
 .tabs .tabs-panel[aria-hidden='true'] {
   display: none;
+}
+
+
+.tabs.tabs22 {
+  background: #000;
+  margin: 0;
+  padding: 0;
+  min-width: 0;
+  width: 100vw;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Tabs Row: center, contained width, minimal top margin */
+.tabs.tabs22 .tabs-list {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: flex-end;
+  gap: 52px;
+  width: 100%;
+  max-width: 740px;
+  margin: 0 auto;
+  padding-top: 8px;
+  padding-bottom: 0;
+  border-bottom: 1px solid #444;
+  box-sizing: border-box;
+}
+
+/* Tab Buttons */
+.tabs.tabs22 .tabs-list .tabs-tab {
+  background: transparent;
+  border: none;
+  color: #fff;
+  font-size: 1.32rem;
+  font-weight: 400;
+  padding: 0 0 14px;
+  margin: 0;
+  position: relative;
+  text-align: center;
+  min-width: 100px;
+  transition: color 0.15s;
+  outline: none;
+  box-shadow: none;
+  cursor: pointer;
+  border-radius: 0;
+  line-height: 1.1;
+}
+
+.tabs.tabs22 .tabs-list .tabs-tab[aria-selected="true"] {
+  font-weight: 600;
+}
+
+.tabs.tabs22 .tabs-list .tabs-tab[aria-selected="true"]::after {
+  display: block;
+  width: 70%;
+  height: 2.5px;
+  background: #fff;
+  border-radius: 1px;
+  position: absolute;
+  left: 15%;
+  bottom: -2px;
+  right: 15%;
+  content: "";
+}
+
+.tabs.tabs22 .tabs-list .tabs-tab p {
+  margin: 0;
+  color: inherit;
+  font-size: inherit;
+  font-weight: inherit;
+  text-align: center;
+}
+
+.tabs.tabs22 .tabs-list .tabs-tab:focus {
+  outline: 2px solid #3b63fb;
+}
+
+/* Panel container: same max-width as tabs list and image, align center */
+.tabs.tabs22 .tabs-panel {
+  background: transparent;
+  border: none;
+  margin: 0 auto;
+  padding: 0;
+  overflow: visible;
+  max-width: 740px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* Hide inactive panels */
+.tabs.tabs22 .tabs-panel[aria-hidden='true'] {
+  display: none;
+}
+
+/* Panel content: vertical stack, center, tight spacing */
+.tabs.tabs22 .tabs-panel > div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 28px;
+  width: 100%;
+  padding-top: 32px;
+  padding-bottom: 0;
+  box-sizing: border-box;
+}
+
+/* Headline: center, large, spaced, contained */
+.tabs.tabs22 .tabs-panel > div > h3 {
+  color: #fff;
+  font-size: 2.15rem;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 0.11em;
+  font-weight: 400;
+  margin: 0;
+  line-height: 1.13;
+  max-width: 700px;
+  width: 100%;
+  white-space: normal;
+  overflow-wrap: break-word;
+  hyphens: auto;
+  padding: 0 8px;
+}
+
+/* Responsive headline for mobile */
+@media (width <= 700px) {
+  .tabs.tabs22 .tabs-panel > div > h3 {
+    font-size: 1.1rem;
+    letter-spacing: 0.08em;
+    max-width: 96vw;
+    padding: 0 4px;
+  }
+
+  .tabs.tabs22 .tabs-list {
+    gap: 18px;
+    padding-top: 7px;
+    max-width: 99vw;
+  }
+
+  .tabs.tabs22 .tabs-panel > div {
+    gap: 10px;
+    padding-top: 12px;
+  }
+}
+
+/* Center image, style with rounded corners, same container width */
+.tabs.tabs22 .tabs-panel picture,
+.tabs.tabs22 .tabs-panel p {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.tabs.tabs22 .tabs-panel img {
+  display: block;
+  border-radius: 20px;
+  box-shadow: 0 2px 18px 0 rgb(0 0 0 / 13%);
+  width: 100%;
+  max-width: 740px;
+  height: auto;
+  background: #eee;
+  margin: 0 auto;
+}
+
+/* Responsive image for small screens */
+@media (width <= 700px) {
+  .tabs.tabs22 .tabs-panel img {
+    border-radius: 10px;
+    max-width: 98vw;
+  }
+}
+
+/* Remove excess padding, borders, and center everything */
+.tabs.tabs22,
+.tabs.tabs22 .tabs-list,
+.tabs.tabs22 .tabs-panel,
+.tabs.tabs22 .tabs-panel > div {
+  box-sizing: border-box;
 }
