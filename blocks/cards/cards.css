@@ -1,3 +1,4 @@
+/* stylelint-disable no-descending-specificity */
 .cards > ul {
   list-style: none;
   margin: 0;
@@ -35,7 +36,6 @@
   padding: 0;
 }
 
-/* Two side-by-side columns, align at top */
 .cards.cards2 > ul {
   display: flex;
   flex-direction: row;
@@ -47,7 +47,6 @@
   margin: 0;
 }
 
-/* Each li: vertical stack, fill height, keep image and text together */
 .cards.cards2 > ul > li {
   display: flex;
   flex-direction: column;
@@ -63,7 +62,6 @@
   height: 100%;
 }
 
-/* Card image: large, rounded, tightly grouped with text */
 .cards.cards2 .cards-card-image {
   width: 100%;
   aspect-ratio: 1.1 / 1;
@@ -83,7 +81,6 @@
   box-shadow: none;
 }
 
-/* Card body: tightly grouped to image, eliminates excess space */
 .cards.cards2 .cards-card-body {
   margin: 0;
   padding: 0;
@@ -93,7 +90,6 @@
   gap: 0.5rem;
 }
 
-/* Headline left column (first li) */
 .cards.cards2 > ul > li:first-child .cards-card-body h3 {
   font-size: 2.4rem;
   font-weight: 700;
@@ -104,7 +100,6 @@
   line-height: 1.13;
 }
 
-/* Headline right column (second li) */
 .cards.cards2 > ul > li:nth-child(2) .cards-card-body h3 {
   font-size: 1.2rem;
   font-weight: 600;
@@ -115,7 +110,6 @@
   line-height: 1.2;
 }
 
-/* Body text left column */
 .cards.cards2 > ul > li:first-child .cards-card-body p {
   font-size: 1.09rem;
   color: #222;
@@ -124,7 +118,6 @@
   line-height: 1.5;
 }
 
-/* Body text right column */
 .cards.cards2 > ul > li:nth-child(2) .cards-card-body p {
   font-size: 1rem;
   color: #222;
@@ -133,7 +126,6 @@
   margin: 0 0 0.1rem;
 }
 
-/* "Read more" button styling */
 .cards.cards2 > ul > li:first-child .cards-card-body p:last-child {
   display: inline-block;
   border: 1.5px solid #000;
@@ -151,7 +143,6 @@
   background: #f3f4f2;
 }
 
-/* Responsive: Stack columns vertically on small screens */
 @media (width <= 900px) {
   .cards.cards2 > ul {
     flex-direction: column;
@@ -163,7 +154,74 @@
   }
 }
 
-/* Remove extra margin below last card */
 .cards.cards2 > ul > li:only-child {
   margin-bottom: 0;
+}
+
+
+.cards.cards7 > ul {
+  display: flex;
+  flex-direction: row;
+  justify-content: stretch;
+  align-items: stretch;
+  gap: 16px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* Each card: strictly square, fills available space, no border */
+.cards.cards7 > ul > li {
+  flex: 1 1 0;
+  aspect-ratio: 1 / 1;
+  background: #fff;
+  border: none;
+  border-radius: 28px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 2px 8px rgb(0 0 0 / 7%);
+  min-width: 0;
+  max-width: 100%;
+}
+
+/* Image container fills card and is square */
+.cards.cards7 .cards-card-image {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  border-radius: 28px;
+  overflow: hidden;
+  align-items: stretch;
+  justify-content: stretch;
+}
+
+/* Images fill and clip to rounded corners */
+.cards.cards7 .cards-card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 28px;
+  display: block;
+}
+
+/* Remove text under images */
+.cards.cards7 .cards-card-body {
+  display: none;
+}
+
+/* Responsive: stack cards vertically on small screens, stretch to width */
+@media (width <= 900px) {
+  .cards.cards7 > ul {
+    flex-direction: column;
+    gap: 16px;
+    align-items: stretch;
+  }
+
+  .cards.cards7 > ul > li {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+  }
 }
