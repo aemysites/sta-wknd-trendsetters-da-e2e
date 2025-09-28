@@ -2,7 +2,6 @@
   border: 1px solid #dadada;
 }
 
-/* stylelint-disable-next-line no-descending-specificity */
 .accordion details + details {
   margin-top: 24px;
 }
@@ -58,4 +57,101 @@
 .accordion details[open] .accordion-item-body {
   border-top: 1px solid #dadada;
   background-color: var(--background-color);
+}
+
+
+.accordion.accordion17 {
+  background: #FAFAF6;
+  box-sizing: border-box;
+  width: 100%;
+  padding: 0;
+  display: block;
+}
+
+/* Vertical stacking and divider */
+.accordion.accordion17 > details {
+  margin: 0;
+  padding: 0;
+  border: none;
+  background: none;
+  display: block;
+  border-bottom: 1px solid #E5E5E0;
+  box-sizing: border-box;
+}
+
+.accordion.accordion17 > details:last-child {
+  border-bottom: none;
+}
+
+/* Row: left text, right chevron, fine-tuned padding for match */
+.accordion.accordion17 > details > summary {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  min-height: 38px;
+  padding: 15px 18px 15px 22px;
+  border: none;
+  background: none;
+  outline: none;
+  cursor: pointer;
+  transition: background 0.2s;
+  box-sizing: border-box;
+}
+
+.accordion.accordion17 > details > summary::-webkit-details-marker,
+.accordion.accordion17 > details > summary::marker {
+  display: none;
+}
+
+/* Text: tight left alignment, allow wrap, don't overflow, flex for space */
+.accordion.accordion17 > details > summary > p {
+  color: #373737;
+  font-size: 14px;
+  font-weight: 400;
+  margin: 0;
+  padding: 0;
+  flex: 1 1 0%;
+  line-height: 1.38;
+  white-space: normal;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Chevron: slightly larger, flush right, centered */
+.accordion.accordion17 > details > summary::after {
+  width: 12px;
+  height: 12px;
+  display: block;
+  border: solid #373737;
+  border-width: 0 2px 2px 0;
+  transition: transform 0.2s;
+  align-self: center;
+  margin-left: 0;
+}
+
+/* Chevron direction */
+.accordion.accordion17 > details[open] > summary::after {
+  transform: rotate(-135deg);
+}
+
+.accordion.accordion17 > details:not([open]) > summary::after {
+  transform: rotate(45deg);
+}
+
+/* Accordion body: match summary's left/right padding, compact vertical rhythm */
+.accordion.accordion17 > details > .accordion-item-body {
+  display: block;
+  box-sizing: border-box;
+  padding: 0 22px 15px;
+}
+
+.accordion.accordion17 > details > .accordion-item-body > p {
+  color: #373737;
+  font-size: 14px;
+  font-weight: 400;
+  margin: 0;
+  padding: 0;
+  line-height: 1.38;
 }
