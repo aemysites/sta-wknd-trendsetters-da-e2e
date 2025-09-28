@@ -1,3 +1,4 @@
+/* stylelint-disable no-descending-specificity */
 .tabs .tabs-list {
   display: flex;
   gap: 0.5ch;
@@ -55,4 +56,201 @@
 
 .tabs .tabs-panel[aria-hidden='true'] {
   display: none;
+}
+
+
+/* Ensure correct black background and centered block */
+.section.section-1 .tabs.tabs22,
+.section.section-2 .tabs.tabs22,
+.tabs.tabs22 {
+  background: #000;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 0 0 48px;
+  box-sizing: border-box;
+}
+
+/* Tabs navigation row: reduce gap, subtle divider */
+.tabs.tabs22 > .tabs-list {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: flex-end;
+  gap: 28px;
+  border-bottom: 1px solid rgb(34 34 34 / 50%);
+  margin: 0 auto 24px;
+  width: 100%;
+  max-width: 700px;
+  box-sizing: border-box;
+  background: transparent;
+  position: relative;
+}
+
+/* Tab buttons */
+.tabs.tabs22 > .tabs-list > .tabs-tab {
+  background: transparent;
+  border: none;
+  outline: none;
+  color: #8E8E8E;
+  text-transform: uppercase;
+  font-weight: 500;
+  font-size: 18px;
+  letter-spacing: 0.09em;
+  padding: 0 0 12px;
+  position: relative;
+  cursor: pointer;
+  border-radius: 0;
+  margin: 0;
+  box-shadow: none;
+  line-height: 1.1;
+  transition: color 0.2s;
+  text-align: center;
+  min-width: 0;
+  width: auto;
+}
+
+/* Active tab underline: match text width only */
+.tabs.tabs22 > .tabs-list > .tabs-tab[aria-selected="true"] {
+  color: #FFF;
+  font-weight: 700;
+}
+
+.tabs.tabs22 > .tabs-list > .tabs-tab[aria-selected="true"]::after {
+  display: block;
+  height: 2px;
+  background: #FFF;
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -2px;
+  border-radius: 1px;
+}
+
+/* Inactive tab styling */
+.tabs.tabs22 > .tabs-list > .tabs-tab[aria-selected="false"] {
+  color: #8E8E8E;
+}
+
+/* Tab button text */
+.tabs.tabs22 > .tabs-list > .tabs-tab p {
+  margin: 0;
+  color: inherit;
+  font: inherit;
+}
+
+/* Tabs panel */
+.tabs.tabs22 > .tabs-panel {
+  border: none;
+  background: none;
+  box-shadow: none;
+  margin-top: 0;
+  padding: 0;
+  display: none;
+  width: 100%;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+  box-sizing: border-box;
+}
+
+/* Show only active panel */
+.tabs.tabs22 > .tabs-panel[aria-hidden="false"] {
+  display: block;
+}
+
+/* Panel content column */
+.tabs.tabs22 > .tabs-panel > div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  margin-top: 36px;
+  box-sizing: border-box;
+}
+
+/* Heading styling: constrain width, centered */
+.tabs.tabs22 > .tabs-panel h3 {
+  color: #FFF;
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 40px;
+  font-weight: 400;
+  letter-spacing: 0.13em;
+  line-height: 1.1;
+  margin: 0 0 48px;
+  width: 100%;
+  max-width: 480px;
+  margin-left: auto;
+  margin-right: auto;
+  box-sizing: border-box;
+}
+
+/* Image alignment and style */
+.tabs.tabs22 > .tabs-panel p {
+  margin: 0;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.tabs.tabs22 > .tabs-panel picture img {
+  display: block;
+  width: 100%;
+  max-width: 700px;
+  height: auto;
+  border-radius: 20px;
+  margin: 40px auto 0;
+  box-shadow: none;
+}
+
+/* Responsive tweaks */
+@media (width <= 900px) {
+  .tabs.tabs22 {
+    max-width: 100vw;
+    padding: 0 0 32px;
+  }
+
+  .tabs.tabs22 > .tabs-list {
+    gap: 20px;
+    margin-bottom: 18px;
+    max-width: 100%;
+  }
+
+  .tabs.tabs22 > .tabs-panel,
+  .tabs.tabs22 > .tabs-panel > div {
+    max-width: 100vw;
+  }
+
+  .tabs.tabs22 > .tabs-panel h3 {
+    font-size: 28px;
+    margin-bottom: 28px;
+    max-width: 90vw;
+  }
+
+  .tabs.tabs22 > .tabs-panel picture img {
+    max-width: 100vw;
+  }
+}
+
+@media (width <= 600px) {
+  .tabs.tabs22 > .tabs-list {
+    gap: 10px;
+    padding-top: 12px;
+    margin-bottom: 8px;
+  }
+
+  .tabs.tabs22 > .tabs-panel h3 {
+    font-size: 18px;
+    margin-bottom: 14px;
+    max-width: 95vw;
+  }
+
+  .tabs.tabs22 > .tabs-panel picture img {
+    max-width: 100vw;
+  }
 }
