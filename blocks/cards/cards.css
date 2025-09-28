@@ -228,7 +228,7 @@
   padding: 0 20px;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 14px 17px; /* 14px row gap, 17px column gap for a tight vertical grid */
+  gap: 14px 17px;
   list-style: none;
   align-items: stretch;
 }
@@ -352,4 +352,137 @@
   background: #292929;
   color: #fff;
   text-decoration: none;
+}
+
+
+.cards.cards14 {
+  padding: 0;
+  background: none;
+}
+
+/* Grid layout with tighter gap */
+.cards.cards14 > ul {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 14px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+/* Card appearance, round corners, shadow */
+.cards.cards14 > ul > li {
+  background: #fff;
+  border: none;
+  border-radius: 24px;
+  box-shadow: 0 4px 18px rgb(0 0 0 / 10%);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding: 0 0 20px;
+  min-width: 0;
+}
+
+/* Image appearance */
+.cards.cards14 .cards-card-image {
+  border-radius: 24px 24px 0 0;
+  overflow: hidden;
+}
+
+.cards.cards14 > ul > li img {
+  display: block;
+  width: 100%;
+  height: 260px;
+  object-fit: cover;
+  border-radius: 24px 24px 0 0;
+}
+
+/* Card body: center content for pills and headline, less vertical space */
+.cards.cards14 .cards-card-body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0 18px;
+  margin: 0;
+  margin-top: 18px;
+  width: 100%;
+}
+
+/* Pills: stack vertically, center, natural pill width, compact gap */
+.cards.cards14 .cards-card-body p:nth-of-type(1),
+.cards.cards14 .cards-card-body p:nth-of-type(2) {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 6px 18px;
+  border-radius: 999px;
+  background: #f2f2f2;
+  font-size: 13px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  line-height: 1.2;
+  color: #222;
+  margin: 0;
+  width: auto;
+  min-width: 0;
+  box-sizing: border-box;
+}
+
+.cards.cards14 .cards-card-body p:nth-of-type(1) {
+  margin-bottom: 4px;
+}
+
+.cards.cards14 .cards-card-body p:nth-of-type(2) {
+  color: #888;
+  font-weight: 400;
+}
+
+/* Hide any extra <p> except first two */
+.cards.cards14 .cards-card-body p:nth-of-type(n+3) {
+  display: none;
+}
+
+/* Headline: center, slightly larger, less margin above, more compact */
+.cards.cards14 .cards-card-body h3 {
+  margin: 8px 0 0;
+  padding: 0;
+  line-height: 1.12;
+  font-weight: 600;
+  font-size: 1.32rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #222;
+  text-align: center;
+  width: 100%;
+  word-break: break-word;
+}
+
+/* Responsive stacking for mobile */
+@media (width <= 900px) {
+  .cards.cards14 > ul {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+
+  .cards.cards14 > ul > li {
+    padding-bottom: 12px;
+  }
+
+  .cards.cards14 .cards-card-body {
+    padding: 0 7px;
+    margin-top: 10px;
+  }
+
+  .cards.cards14 > ul > li img {
+    height: 140px;
+  }
+}
+
+/* Remove bullets from ul */
+
+/* Remove unwanted spacing for pills and p tags */
+.cards.cards14 .cards-card-body p {
+  margin: 0;
+  padding-bottom: 0;
 }
