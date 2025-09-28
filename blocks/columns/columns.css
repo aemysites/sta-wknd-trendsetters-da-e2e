@@ -1,3 +1,4 @@
+/* stylelint-disable no-descending-specificity */
 .columns > div {
   display: flex;
   flex-direction: column;
@@ -29,5 +30,78 @@
   .columns > div > div {
     flex: 1;
     order: unset;
+  }
+}
+
+
+.columns.columns1 {
+  background: #f7f8f5;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+/* Layout: Only apply flex row if there's more than one column, otherwise treat as single centered block */
+.columns.columns1 > div {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: flex-start;
+  width: 100%;
+  padding-top: 40px;
+  padding-bottom: 0;
+  margin: 0;
+  box-sizing: border-box;
+  min-height: 120px; /* Ensures vertical spacing even if empty */
+}
+
+/* If there's only one column, make it centered and constrain its width */
+.columns.columns1 > div > div:only-child {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 800px;
+  width: 100%;
+  text-align: center;
+  color: #222221;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 1.6;
+  background: transparent;
+  border: none;
+  padding: 0;
+}
+
+/* For multi-column, ensure columns are evenly spaced and fill available width */
+.columns.columns1 > div > div {
+  flex: 1 1 0;
+  min-width: 0;
+  box-sizing: border-box;
+  margin: 0;
+  background: none;
+  border: none;
+  padding: 0;
+}
+
+/* Images: Fill columns, no extra styling */
+.columns.columns1 img {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  border-radius: 0;
+  box-shadow: none;
+}
+
+/* Responsive: Stack columns vertically on small screens */
+@media (width <= 900px) {
+  .columns.columns1 > div {
+    flex-direction: column;
+    padding-top: 24px;
+    min-height: 80px;
+    gap: 24px;
+  }
+
+  .columns.columns1 > div > div {
+    width: 100%;
   }
 }
