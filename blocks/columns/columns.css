@@ -41,7 +41,6 @@
   padding: 0;
 }
 
-/* Layout: Only apply flex row if there's more than one column, otherwise treat as single centered block */
 .columns.columns1 > div {
   display: flex;
   flex-direction: row;
@@ -52,10 +51,9 @@
   padding-bottom: 0;
   margin: 0;
   box-sizing: border-box;
-  min-height: 120px; /* Ensures vertical spacing even if empty */
+  min-height: 120px;
 }
 
-/* If there's only one column, make it centered and constrain its width */
 .columns.columns1 > div > div:only-child {
   margin-left: auto;
   margin-right: auto;
@@ -71,7 +69,6 @@
   padding: 0;
 }
 
-/* For multi-column, ensure columns are evenly spaced and fill available width */
 .columns.columns1 > div > div {
   flex: 1 1 0;
   min-width: 0;
@@ -82,7 +79,6 @@
   padding: 0;
 }
 
-/* Images: Fill columns, no extra styling */
 .columns.columns1 img {
   display: block;
   width: 100%;
@@ -92,7 +88,6 @@
   box-shadow: none;
 }
 
-/* Responsive: Stack columns vertically on small screens */
 @media (width <= 900px) {
   .columns.columns1 > div {
     flex-direction: column;
@@ -103,5 +98,152 @@
 
   .columns.columns1 > div > div {
     width: 100%;
+  }
+}
+
+
+.columns.columns3 {
+  background: #FAFAF6;
+  padding: 5rem 0;
+}
+
+.columns.columns3 > div {
+  display: flex;
+  flex-direction: row;
+  align-items: center; /* Vertically center the image and text columns */
+  justify-content: center;
+  gap: 5rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  min-height: 540px;
+}
+
+.columns.columns3 .columns-img-col {
+  flex: 0 0 420px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 320px;
+  max-width: 420px;
+  height: auto;
+}
+
+.columns.columns3 .columns-img-col img,
+.columns.columns3 .columns-img-col picture {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  border-radius: 24px;
+  display: block;
+}
+
+.columns.columns3 > div > div:not(.columns-img-col) {
+  flex: 1 1 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Vertically center text, paragraph, and button group */
+  align-items: flex-start;
+  max-width: 620px;
+  min-width: 280px;
+  height: 100%;
+}
+
+.columns.columns3 h1 {
+  font-size: 4rem;
+  font-weight: 400;
+  line-height: 1.1;
+  color: #161616;
+  letter-spacing: 0.01em;
+  margin: 0 0 2rem;
+  text-align: left;
+}
+
+.columns.columns3 p {
+  margin: 0 0 2rem;
+  font-size: 1.06rem;
+  color: #555;
+  line-height: 1.6;
+  letter-spacing: 0.01em;
+  text-align: left;
+}
+
+.columns.columns3 .button-container {
+  display: flex;
+  gap: 1.2rem;
+  margin: 0;
+  flex-wrap: wrap;
+  width: 100%;
+  justify-content: flex-start;
+}
+
+.columns.columns3 .button-container .button {
+  background: #fff;
+  color: #161616;
+  border: 1.5px solid #161616;
+  border-radius: 22px;
+  padding: 0.6em 1.8em;
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 500;
+  box-shadow: none;
+  transition: background 0.15s, color 0.15s, border-color 0.15s;
+  text-align: center;
+}
+
+.columns.columns3 .button-container .button:hover,
+.columns.columns3 .button-container .button:focus {
+  background: #161616;
+  color: #fff;
+  border-color: #161616;
+  text-decoration: none;
+}
+
+@media (width <= 900px) {
+  .columns.columns3 {
+    padding: 2.2rem 0.5rem;
+  }
+
+  .columns.columns3 > div {
+    flex-direction: column;
+    align-items: center;
+    gap: 2.2rem;
+    max-width: 100%;
+    min-height: unset;
+  }
+
+  .columns.columns3 .columns-img-col {
+    max-width: 100%;
+    min-width: 180px;
+  }
+
+  .columns.columns3 .columns-img-col img,
+  .columns.columns3 .columns-img-col picture {
+    aspect-ratio: auto;
+    border-radius: 16px;
+    max-width: 100%;
+  }
+
+  .columns.columns3 > div > div:not(.columns-img-col) {
+    align-items: center;
+    max-width: 100%;
+    height: auto;
+    justify-content: center;
+  }
+
+  .columns.columns3 h1 {
+    font-size: 2.1rem;
+    margin-bottom: 1.1rem;
+    text-align: center;
+  }
+
+  .columns.columns3 p {
+    font-size: 0.97rem;
+    margin-bottom: 1.1rem;
+    text-align: center;
+  }
+
+  .columns.columns3 .button-container {
+    justify-content: center;
+    gap: 0.7rem;
   }
 }
