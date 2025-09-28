@@ -360,7 +360,6 @@
   background: none;
 }
 
-/* Grid layout with tighter gap */
 .cards.cards14 > ul {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
@@ -370,7 +369,6 @@
   list-style: none;
 }
 
-/* Card appearance, round corners, shadow */
 .cards.cards14 > ul > li {
   background: #fff;
   border: none;
@@ -383,7 +381,6 @@
   min-width: 0;
 }
 
-/* Image appearance */
 .cards.cards14 .cards-card-image {
   border-radius: 24px 24px 0 0;
   overflow: hidden;
@@ -397,7 +394,6 @@
   border-radius: 24px 24px 0 0;
 }
 
-/* Card body: center content for pills and headline, less vertical space */
 .cards.cards14 .cards-card-body {
   display: flex;
   flex-direction: column;
@@ -408,7 +404,6 @@
   width: 100%;
 }
 
-/* Pills: stack vertically, center, natural pill width, compact gap */
 .cards.cards14 .cards-card-body p:nth-of-type(1),
 .cards.cards14 .cards-card-body p:nth-of-type(2) {
   display: flex;
@@ -438,12 +433,10 @@
   font-weight: 400;
 }
 
-/* Hide any extra <p> except first two */
 .cards.cards14 .cards-card-body p:nth-of-type(n+3) {
   display: none;
 }
 
-/* Headline: center, slightly larger, less margin above, more compact */
 .cards.cards14 .cards-card-body h3 {
   margin: 8px 0 0;
   padding: 0;
@@ -456,9 +449,9 @@
   text-align: center;
   width: 100%;
   word-break: break-word;
+  overflow-wrap: break-word;
 }
 
-/* Responsive stacking for mobile */
 @media (width <= 900px) {
   .cards.cards14 > ul {
     grid-template-columns: 1fr;
@@ -479,10 +472,204 @@
   }
 }
 
-/* Remove bullets from ul */
-
-/* Remove unwanted spacing for pills and p tags */
 .cards.cards14 .cards-card-body p {
   margin: 0;
   padding-bottom: 0;
+}
+
+
+.cards.cards18 {
+  background: var(--light-color);
+  padding: 40px 0;
+}
+
+/* Layout: 2 columns top row, 3 columns bottom row for 5 cards */
+.cards.cards18 > ul {
+  display: grid;
+  grid-template: "feature side side" auto "bottom1 bottom2 bottom3" auto / 2.2fr 1.1fr 1.1fr;
+  gap: 32px 28px;
+  list-style: none;
+  margin: 0 auto;
+  padding: 0;
+  max-width: 1160px;
+}
+
+/* Assign areas to each li based on position */
+.cards.cards18 > ul > li:nth-child(1) { grid-area: feature;
+  box-shadow: 0 4px 24px rgb(30 30 40 / 7%);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  height: 100%; }
+
+.cards.cards18 > ul > li:nth-child(2) { grid-area: side;
+  border: 1.5px solid #222;
+  background: #fff;
+  box-shadow: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: stretch; }
+.cards.cards18 > ul > li:nth-child(3) { grid-area: bottom1; }
+.cards.cards18 > ul > li:nth-child(4) { grid-area: bottom2; }
+.cards.cards18 > ul > li:nth-child(5) { grid-area: bottom3; }
+
+.cards.cards18 > ul > li {
+  border-radius: 20px;
+  box-shadow: 0 2px 10px rgb(30 30 40 / 7%);
+  background: #fff;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  min-height: 220px;
+  border: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* Feature card (large, left, top row) */
+
+.cards.cards18 > ul > li:nth-child(1) .cards-card-image picture,
+.cards.cards18 > ul > li:nth-child(1) .cards-card-image img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 3 / 2;
+  object-fit: cover;
+  border-radius: 20px 20px 0 0;
+}
+
+.cards.cards18 > ul > li:nth-child(1) .cards-card-body {
+  padding: 28px 32px;
+}
+
+.cards.cards18 > ul > li:nth-child(1) .cards-card-body h3:not(:first-of-type),
+.cards.cards18 > ul > li:nth-child(1) .cards-card-body p:not(:first-of-type) {
+  display: none;
+}
+
+.cards.cards18 > ul > li:nth-child(1) .cards-card-body h3 {
+  font-size: 1.38rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: #222;
+  margin: 0 0 6px;
+  font-weight: 600;
+}
+
+.cards.cards18 > ul > li:nth-child(1) .cards-card-body p {
+  color: #464646;
+  font-size: 1rem;
+  margin: 0;
+}
+
+/* Side card (top right, text only) */
+
+.cards.cards18 > ul > li:nth-child(2) .cards-card-image {
+  display: none;
+}
+
+.cards.cards18 > ul > li:nth-child(2) .cards-card-body {
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  padding: 48px 28px;
+}
+
+.cards.cards18 > ul > li:nth-child(2) .cards-card-body h3:not(:first-of-type),
+.cards.cards18 > ul > li:nth-child(2) .cards-card-body p:not(:first-of-type) {
+  display: none;
+}
+
+.cards.cards18 > ul > li:nth-child(2) .cards-card-body h3 {
+  font-size: 1.16rem;
+  text-transform: uppercase;
+  color: #222;
+  letter-spacing: 0.05em;
+  margin: 0 0 10px;
+  font-weight: 600;
+  text-align: center;
+}
+
+.cards.cards18 > ul > li:nth-child(2) .cards-card-body p {
+  color: #464646;
+  font-size: 1rem;
+  margin: 0;
+  text-align: center;
+}
+
+/* Bottom row cards: 3 side-by-side */
+.cards.cards18 > ul > li:nth-child(n+3):nth-child(-n+5) {
+  min-width: 0;
+  min-height: 220px;
+  border-radius: 20px;
+  box-shadow: 0 2px 10px rgb(30 30 40 / 7%);
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+/* Bottom images and body */
+.cards.cards18 > ul > li:nth-child(n+3):nth-child(-n+5) .cards-card-image picture,
+.cards.cards18 > ul > li:nth-child(n+3):nth-child(-n+5) .cards-card-image img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 3 / 2;
+  object-fit: cover;
+  border-radius: 20px 20px 0 0;
+}
+
+.cards.cards18 > ul > li:nth-child(n+3):nth-child(-n+5) .cards-card-body {
+  padding: 20px 22px;
+}
+
+.cards.cards18 > ul > li:nth-child(n+3):nth-child(-n+5) .cards-card-body h3:not(:first-of-type),
+.cards.cards18 > ul > li:nth-child(n+3):nth-child(-n+5) .cards-card-body p:not(:first-of-type) {
+  display: none;
+}
+
+.cards.cards18 > ul > li:nth-child(n+3):nth-child(-n+5) .cards-card-body h3 {
+  font-size: 1rem;
+  text-transform: uppercase;
+  color: #F6C9C9;
+  letter-spacing: 0.06em;
+  margin: 0 0 5px;
+  font-weight: 600;
+  text-align: left;
+}
+
+.cards.cards18 > ul > li:nth-child(n+3):nth-child(-n+5) .cards-card-body p {
+  color: #464646;
+  font-size: 0.93rem;
+  margin: 0;
+  text-align: left;
+}
+
+/* Hide any extra cards beyond the first 5 */
+.cards.cards18 > ul > li:nth-child(n+6) {
+  display: none;
+}
+
+/* Responsive: stack all cards vertically on small screens */
+@media (width <= 900px) {
+  .cards.cards18 > ul {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    max-width: 100%;
+  }
+
+  .cards.cards18 > ul > li,
+  .cards.cards18 > ul > li:nth-child(3),
+  .cards.cards18 > ul > li:nth-child(4),
+  .cards.cards18 > ul > li:nth-child(5) {
+    width: 100%;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+  }
 }
