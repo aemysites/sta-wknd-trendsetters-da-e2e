@@ -619,7 +619,6 @@
   gap: 0;
 }
 
-/* Image column: left side */
 .hero.hero25 > div:first-child {
   flex: 0 0 560px;
   min-width: 400px;
@@ -633,7 +632,6 @@
   margin-top: 60px;
 }
 
-/* Image styling */
 .hero.hero25 picture,
 .hero.hero25 picture img {
   display: block;
@@ -647,7 +645,6 @@
   z-index: 2;
 }
 
-/* Right column: text block */
 .hero.hero25 > div:last-child {
   flex: 1 1 510px;
   min-width: 380px;
@@ -658,12 +655,11 @@
   align-items: flex-start;
   position: relative;
   z-index: 3;
-  margin-left: -160px; /* allows headline to overlap image slightly */
+  margin-left: -160px;
   margin-top: 0;
   padding-top: 20px;
 }
 
-/* Headline: large, left-aligned, overlapping lower part of image */
 .hero.hero25 > div:last-child > div > p:first-child {
   font-size: 88px;
   line-height: 1.02;
@@ -678,7 +674,6 @@
   margin-top: 0;
 }
 
-/* Supporting text: left-aligned, below headline, outside image */
 .hero.hero25 > div:last-child > div > p:nth-child(2) {
   font-size: 17px;
   color: #757575;
@@ -690,7 +685,6 @@
   z-index: 3;
 }
 
-/* Buttons: left-aligned, outside image, below supporting text */
 .hero.hero25 .button-container {
   display: flex;
   flex-direction: row;
@@ -720,12 +714,10 @@
   text-decoration: none;
 }
 
-/* Hide unrelated h1 in the block */
 .hero.hero25 h1 {
   display: none;
 }
 
-/* Responsive: stack on mobile, remove overlap for clarity */
 @media (width <= 1100px) {
   .hero.hero25 {
     flex-direction: column;
@@ -777,5 +769,88 @@
     width: 100%;
     height: auto;
     margin-bottom: 18px;
+  }
+}
+
+
+.hero.hero29 {
+  position: relative;
+  width: 100vw;
+  min-height: 600px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  padding: 0;
+}
+
+.hero.hero29 > div:first-child {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.hero.hero29 picture,
+.hero.hero29 img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.hero.hero29::after {
+  position: absolute;
+  inset: 0;
+  background: rgb(0 0 0 / 34%);
+  z-index: 2;
+  pointer-events: none;
+}
+
+/* Main content vertical centering */
+.hero.hero29 > div:last-child {
+  position: relative;
+  z-index: 3;
+  width: 100%;
+  height: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Inner layout for the text: Use grid for tightest vertical compaction */
+.hero.hero29 > div:last-child > div {
+  display: grid;
+  place-items: center center;
+  gap: 0;
+  row-gap: 0;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+/* Heading styles: maximize width, minimize vertical space */
+.hero.hero29 h1 {
+  color: #fff;
+  font-size: clamp(4.1rem, 8.8vw, 7.1rem);
+  font-weight: 300;
+  letter-spacing: 0.001em;
+  margin: 0;
+  line-height: 0.97;
+  max-width: 1280px;
+  text-align: center;
+  padding: 0;
+}
+
+@media (width <= 700px) {
+  .hero.hero29 {
+    min-height: 320px;
+  }
+
+  .hero.hero29 h1 {
+    font-size: clamp(2rem, 10vw, 4rem);
+    max-width: 98vw;
   }
 }
