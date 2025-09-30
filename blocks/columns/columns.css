@@ -1,3 +1,4 @@
+/* stylelint-disable no-descending-specificity */
 .columns > div {
   display: flex;
   flex-direction: column;
@@ -88,7 +89,6 @@
   margin: 0;
 }
 
-/* Responsive: stack vertically and allow wrapping on small screens */
 @media (width <= 800px) {
   .columns.columns15 > div {
     flex-direction: column;
@@ -98,5 +98,182 @@
 
   .columns.columns15 > div > div > p {
     white-space: normal;
+  }
+}
+
+
+.columns.columns27 {
+  background: #F7F8F5;
+  padding: 0;
+}
+
+/* Main grid: two columns */
+.columns.columns27 > div {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0 48px;
+  align-items: start;
+  padding: 48px 5vw 32px;
+  position: relative;
+}
+
+/* Responsive: stack columns vertically */
+@media (width <= 900px) {
+  .columns.columns27 > div {
+    grid-template-columns: 1fr;
+    gap: 32px 0;
+    padding: 32px 4vw;
+  }
+}
+
+/* --------------------------------
+   LEFT COLUMN: HEADLINE + AVATAR ROW
+---------------------------------- */
+
+/* Remove all images in left column except the first (avatar), 
+   forcibly hide large portrait by default for all but the first image in the second <p> */
+.columns.columns27 > div > div:first-child > div > p:nth-child(2) img:not(:first-child) {
+  display: none;
+}
+
+/* Visually force all images in the avatar p (should be only one avatar) to be small and circular */
+.columns.columns27 > div > div:first-child > div > p:nth-child(2) img,
+.columns.columns27 > div > div:first-child > div > p:nth-child(2) picture {
+  width: 40px !important;
+  height: 40px !important;
+  max-width: 40px !important;
+  max-height: 40px !important;
+  border-radius: 50%;
+  object-fit: cover;
+  display: inline-block;
+  margin-right: 12px;
+  margin-bottom: 0;
+  vertical-align: middle;
+}
+
+/* Headline styling */
+.columns.columns27 > div > div:first-child > div > p:first-child {
+  font-size: 2.2rem;
+  line-height: 1.1;
+  letter-spacing: 0.03em;
+  color: #222320;
+  font-weight: 300;
+  margin: 0 0 20px;
+}
+
+/* Group avatar, name, and role into a single flex row directly under headline */
+.columns.columns27 > div > div:first-child > div {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 16px;
+  margin: 0;
+  padding: 0;
+}
+
+/* Name and role: Remove extra vertical space and style horizontally */
+.columns.columns27 > div > div:first-child > div > p:nth-child(3),
+.columns.columns27 > div > div:first-child > div > p:nth-child(4) {
+  margin: 0;
+  padding: 0;
+  display: inline-block;
+  vertical-align: middle;
+  min-width: 0;
+  white-space: nowrap;
+}
+
+.columns.columns27 > div > div:first-child > div > p:nth-child(3) {
+  font-size: 1rem;
+  color: #222320;
+  font-weight: 500;
+  margin-right: 6px;
+}
+
+.columns.columns27 > div > div:first-child > div > p:nth-child(4) {
+  font-size: 1rem;
+  color: #222320;
+  opacity: 0.8;
+  font-weight: 400;
+}
+
+/* Remove any extra margin on grouped row */
+.columns.columns27 > div > div:first-child > div > p {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+/* --------------------------------
+   DIVIDER 
+---------------------------------- */
+.columns.columns27 > div::after {
+  display: block;
+  width: 100%;
+  height: 1px;
+  background: #DEDED9;
+  position: absolute;
+  left: 0;
+  right: 0;
+
+  /* Position below headline and avatar/name/role row */
+  top: 78px;
+  z-index: 1;
+  content: "";
+}
+
+@media (width <= 900px) {
+  .columns.columns27 > div::after {
+    top: 120px;
+  }
+}
+
+/* --------------------------------
+   RIGHT COLUMN: TESTIMONIAL + LOGO
+---------------------------------- */
+.columns.columns27 > div > div:last-child {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  padding-top: 0;
+}
+
+/* Testimonial styling */
+.columns.columns27 > div > div:last-child > div > p:first-child {
+  font-size: 1rem;
+  line-height: 1.5;
+  color: #222320;
+  max-width: 540px;
+  margin: 0 0 18px;
+  text-align: left;
+}
+
+/* Logo styling: right-aligned under testimonial with minimal gap */
+.columns.columns27 > div > div:last-child > div > p:last-child {
+  margin: 0;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.columns.columns27 > div > div:last-child > div > p:last-child img {
+  width: 120px;
+  height: auto;
+  display: block;
+  margin-top: 0;
+  margin-left: 0;
+  align-self: flex-end;
+}
+
+/* --------------------------------
+   RESPONSIVE ADJUSTMENTS
+---------------------------------- */
+@media (width <= 600px) {
+  .columns.columns27 > div > div:first-child > div {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+    margin-top: 12px;
+  }
+
+  .columns.columns27 > div > div:last-child > div > p:last-child img {
+    margin-top: 16px;
   }
 }
