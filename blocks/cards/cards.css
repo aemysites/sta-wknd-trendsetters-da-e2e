@@ -183,7 +183,7 @@
   flex-direction: row;
   justify-content: stretch;
   align-items: flex-start;
-  gap: 2px; /* Nearly seamless, tightly grouped cards */
+  gap: 2px;
   margin: 0;
   padding: 0;
   list-style: none;
@@ -195,7 +195,7 @@
   border: none;
   margin: 0;
   padding: 0;
-  border-radius: 32px; /* Slightly increased for a soft, modern feel */
+  border-radius: 32px;
   overflow: hidden;
   display: flex;
   flex: 1 1 0;
@@ -206,7 +206,6 @@
   height: auto;
 }
 
-/* Ensure image fills card, covers, and is perfectly square with rounded corners */
 .cards.cards7 .cards-card-image {
   width: 100%;
   aspect-ratio: 1 / 1;
@@ -242,4 +241,136 @@
     max-width: 100%;
     min-width: 0;
   }
+}
+
+
+.cards.cards10 > ul {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* Desktop */
+.cards.cards10 .cards-card-image {
+  width: 100%;
+  height: 148px;
+  min-height: 148px;
+  max-height: 148px;
+  overflow: hidden;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  background: #f3f3f3;
+  display: flex;
+  align-items: stretch;
+  justify-content: center;
+  margin: 0;
+  padding: 0;
+}
+
+.cards.cards10 .cards-card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  display: block;
+}
+
+.cards.cards10 > ul > li {
+  background: #fff;
+  border: 1px solid #e0e0e0;
+  border-radius: 20px;
+  box-shadow: 0 2px 8px rgb(0 0 0 / 2%);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  height: auto;
+  box-sizing: border-box;
+  padding: 0;
+}
+
+.cards.cards10 .cards-card-body {
+  padding: 6px 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  flex: 0 0 auto;
+  justify-content: flex-start;
+}
+
+/* Pill styles */
+.cards.cards10 .cards-card-body p:first-child {
+  background: #f3f3f3;
+  color: #444;
+  text-transform: uppercase;
+  font-size: 15px;
+  font-weight: 800;
+  letter-spacing: 1px;
+  display: inline-block;
+  padding: 8px 18px;
+  border-radius: 15px;
+  margin: 0 0 2px;
+  line-height: 1.05;
+}
+
+/* Title styles */
+.cards.cards10 .cards-card-body h3 {
+  color: #232323;
+  font-size: 25px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin: 0 0 2px;
+  line-height: 1.05;
+}
+
+/* Description styles */
+.cards.cards10 .cards-card-body p:last-child {
+  color: #232323;
+  opacity: 0.75;
+  font-size: 15px;
+  font-weight: 400;
+  margin: 0;
+  line-height: 1.4;
+  padding-bottom: 0;
+}
+
+/* Responsive tweaks */
+@media (width <= 1100px) {
+  .cards.cards10 > ul {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+  }
+
+  .cards.cards10 .cards-card-image {
+    height: 108px;
+    min-height: 108px;
+    max-height: 108px;
+  }
+
+  .cards.cards10 .cards-card-body {
+    padding: 6px 12px;
+  }
+}
+
+@media (width <= 700px) {
+  .cards.cards10 > ul {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+.cards.cards10 .cards-card-image {
+    height: 90px;
+    min-height: 90px;
+    max-height: 90px;
+  }
+}
+
+/* Ensure wrapping of long words in all body text */
+.cards.cards10 .cards-card-body p,
+.cards.cards10 .cards-card-body h3 {
+  overflow-wrap: break-word;
 }
