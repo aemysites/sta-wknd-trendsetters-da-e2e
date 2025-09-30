@@ -459,7 +459,7 @@
   letter-spacing: 0.05em;
   line-height: 1.18;
   word-break: break-word;
-  overflow-wrap: anywhere;
+  overflow-wrap: break-word;
 }
 
 @media (width <= 900px) {
@@ -978,7 +978,7 @@
   line-height: 1.13;
   text-transform: none;
   word-break: break-word;
-  overflow-wrap: anywhere;
+  overflow-wrap: break-word;
 }
 
 .cards.cards34 .cards-card-body > p:not(:first-child, .button-container) {
@@ -1125,4 +1125,207 @@
   border-radius: 0;
   margin: 0;
   background: #fff;
+}
+
+
+.cards.cards36 {
+  padding: 2vw 1vw;
+  background: #fafbfa;
+}
+
+/* 3-column grid. Right column is a flex column containing all li:nth-child(n+3) stacked tightly */
+.cards.cards36 > ul {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr 1fr;
+  gap: 3.5rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  align-items: start;
+  min-height: 80vh;
+  position: relative;
+}
+
+/* Left column: main card */
+.cards.cards36 > ul > li:first-child {
+  grid-column: 1 / 2;
+  grid-row: 1 / 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+/* Middle column: single card */
+.cards.cards36 > ul > li:nth-child(2) {
+  grid-column: 2 / 3;
+  grid-row: 1 / 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+/* --- Right column vertical stack --- */
+
+/* Place all right-column cards into a flex column container using a wrapper hack */
+
+.cards.cards36 > ul > li:nth-child(n+3) {
+  grid-column: 3 / 4;
+  grid-row: 1 / 2;
+  position: relative;
+
+  /* Offset each li down the column by its index so they stack tightly */
+  margin-top: calc((var(--card-index, 0) - 3) * 6.2em);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  background: none;
+  border: none;
+  box-shadow: none;
+  padding: 0;
+  min-width: 0;
+}
+.cards.cards36 > ul > li:nth-child(3) { --card-index: 3; }
+.cards.cards36 > ul > li:nth-child(4) { --card-index: 4; }
+.cards.cards36 > ul > li:nth-child(5) { --card-index: 5; }
+.cards.cards36 > ul > li:nth-child(6) { --card-index: 6; }
+.cards.cards36 > ul > li:nth-child(7) { --card-index: 7; }
+.cards.cards36 > ul > li:nth-child(8) { --card-index: 8; }
+
+/* Only horizontal separators, tight stack for right column */
+.cards.cards36 > ul > li:nth-child(n+3) .cards-card-body {
+  border-bottom: 1px solid #c4c4c4;
+  padding: 0.7em 0;
+  margin: 0;
+}
+
+.cards.cards36 > ul > li:last-child .cards-card-body {
+  border-bottom: none;
+}
+
+/* Remove all default li backgrounds/borders */
+.cards.cards36 > ul > li {
+  background: none;
+  border: none;
+  box-shadow: none;
+  padding: 0;
+  margin: 0;
+}
+
+/* Main image styling */
+.cards.cards36 > ul > li:first-child .cards-card-image img {
+  width: 100%;
+  border-radius: 22px;
+  aspect-ratio: 1.1/1;
+  object-fit: cover;
+  margin-bottom: 2.4rem;
+  display: block;
+}
+
+/* Middle image styling */
+.cards.cards36 > ul > li:nth-child(2) .cards-card-image img {
+  width: 100%;
+  border-radius: 18px;
+  aspect-ratio: 3/2;
+  object-fit: cover;
+  margin-bottom: 1em;
+  display: block;
+}
+
+/* Label tags */
+.cards.cards36 > ul > li:first-child .cards-card-body p:first-child,
+.cards.cards36 > ul > li:nth-child(2) .cards-card-body p:first-child {
+  display: inline-block;
+  background: #f3f3f3;
+  color: #232323;
+  font-size: 0.82em;
+  text-transform: uppercase;
+  border-radius: 999px;
+  padding: 0.25em 1em;
+  margin-bottom: 1em;
+  font-weight: 600;
+  letter-spacing: 0.07em;
+  margin-top: 0;
+}
+
+/* Main headline, left column */
+.cards.cards36 > ul > li:first-child .cards-card-body h3 {
+  font-size: 2.2em;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #232323;
+  margin: 0 0 0.6em;
+  letter-spacing: 0.01em;
+  line-height: 1.1;
+}
+
+/* Description, left column */
+.cards.cards36 > ul > li:first-child .cards-card-body p:last-child {
+  color: #232323;
+  font-size: 1em;
+  margin: 0;
+  line-height: 1.6;
+}
+
+/* Middle column headline */
+.cards.cards36 > ul > li:nth-child(2) .cards-card-body h3 {
+  font-size: 1.25em;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #232323;
+  margin: 0 0 0.4em;
+  line-height: 1.15;
+}
+
+/* Middle column description */
+.cards.cards36 > ul > li:nth-child(2) .cards-card-body p:last-child {
+  color: #232323;
+  font-size: 1em;
+  margin: 0;
+  line-height: 1.5;
+}
+
+/* Right column headline */
+.cards.cards36 > ul > li:nth-child(n+3) .cards-card-body h3 {
+  font-size: 1.05em;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: #232323;
+  margin: 0 0 0.3em;
+  letter-spacing: 0.04em;
+  line-height: 1.15;
+}
+
+/* Right column description */
+.cards.cards36 > ul > li:nth-child(n+3) .cards-card-body p {
+  color: #232323;
+  margin: 0;
+  font-size: 0.98em;
+  line-height: 1.6;
+}
+
+.cards.cards36 .cards-card-image {
+  line-height: 0;
+}
+
+.cards.cards36 .cards-card-body {
+  margin: 0;
+  padding: 0;
+}
+
+/* Responsive: stack vertically on mobile */
+@media (width <= 900px) {
+  .cards.cards36 > ul {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    min-height: unset;
+  }
+
+  .cards.cards36 > ul > li {
+    grid-column: auto;
+    margin-top: 0;
+  }
+
+  .cards.cards36 > ul > li:nth-child(n+3) .cards-card-body {
+    border-bottom: 1px solid #c4c4c4;
+  }
 }
