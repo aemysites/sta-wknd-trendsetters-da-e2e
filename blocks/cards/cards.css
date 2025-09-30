@@ -766,7 +766,6 @@
   margin: 0;
 }
 
-/* Top row */
 .cards.cards26 > ul > li:nth-child(1) {
   grid-column: 1 / span 1;
   grid-row: 1 / span 1;
@@ -777,8 +776,6 @@
   grid-row: 1 / span 1;
 }
 
-/* Collage middle:
-   Card 3 is tall on the left, cards 4 and 5 stacked middle, card 6 tall right */
 .cards.cards26 > ul > li:nth-child(3) {
   grid-column: 1 / span 1;
   grid-row: 2 / span 2;
@@ -815,7 +812,6 @@
   flex-direction: column;
 }
 
-/* Card appearance */
 .cards.cards26 > ul > li {
   position: relative;
   background: var(--background-color);
@@ -826,7 +822,6 @@
   transition: box-shadow 0.3s;
 }
 
-/* Card image styling: force visible images */
 .cards.cards26 .cards-card-image {
   position: relative;
   width: 100%;
@@ -846,7 +841,6 @@
   display: block;
 }
 
-/* Card body overlay: ensure on top but not covering image entirely */
 .cards.cards26 .cards-card-body {
   position: absolute;
   top: 0;
@@ -881,9 +875,6 @@
   text-shadow: 0 1px 6px rgb(255 255 255 / 10%);
 }
 
-/* Remove default list styling */
-
-/* Responsive adjustments for smaller screens */
 @media (width <= 900px) {
   .cards.cards26 > ul {
     grid-template-columns: 1fr;
@@ -908,4 +899,157 @@
   .cards.cards26 .cards-card-body p {
     font-size: 0.92rem;
   }
+}
+
+
+.cards.cards34 > ul {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(2, auto);
+  gap: 36px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.cards.cards34 > ul > li {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  background: #fff;
+  border-radius: 18px;
+  box-shadow: 0 2px 12px rgb(51 51 51 / 13%);
+  padding: 40px;
+  border: none;
+  min-height: 270px;
+  width: 100%;
+  box-sizing: border-box;
+  transition: box-shadow 0.15s;
+}
+
+/* Image section: scale as flex 0 0 40% for proportional layout */
+.cards.cards34 .cards-card-image {
+  flex: 0 0 40%;
+  max-width: 225px;
+  min-width: 140px;
+  margin-right: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 110px;
+}
+
+.cards.cards34 .cards-card-image picture,
+.cards.cards34 .cards-card-image img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  border-radius: 13px;
+  display: block;
+}
+
+/* Text section: take the remaining space */
+.cards.cards34 .cards-card-body {
+  flex: 1 1 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  min-width: 0;
+  margin: 0;
+}
+
+.cards.cards34 .cards-card-body > p:first-child {
+  font-size: 13px;
+  color: #888;
+  font-weight: 600;
+  margin: 0 0 6px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  letter-spacing: 0.02em;
+}
+
+.cards.cards34 .cards-card-body h3 {
+  font-size: 23px;
+  font-weight: 700;
+  color: #222;
+  margin: 10px 0;
+  letter-spacing: 0.01em;
+  line-height: 1.13;
+  text-transform: none;
+  word-break: break-word;
+  overflow-wrap: anywhere;
+}
+
+.cards.cards34 .cards-card-body > p:not(:first-child, .button-container) {
+  font-size: 16px;
+  color: #555;
+  font-weight: 400;
+  margin-bottom: 18px;
+  margin-top: 0;
+  line-height: 1.5;
+}
+
+.cards.cards34 .cards-card-body > * {
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.cards.cards34 .cards-card-body .button-container {
+  margin-top: auto;
+  margin-bottom: 0;
+}
+
+.cards.cards34 .cards-card-body .button-container .button {
+  background: none;
+  color: #07F;
+  font-size: 15px;
+  text-decoration: underline;
+  border: none;
+  box-shadow: none;
+  padding: 0;
+  font-weight: 500;
+  display: inline;
+  border-radius: 0;
+  line-height: 1.2;
+  margin: 0;
+  min-width: 0;
+  max-width: 100%;
+}
+
+/* Responsive adjustments */
+@media (width <= 900px) {
+  .cards.cards34 > ul {
+    grid-template-columns: 1fr;
+    grid-template-rows: none;
+    gap: 28px;
+  }
+
+  .cards.cards34 > ul > li {
+    flex-direction: column;
+    min-height: 170px;
+    padding: 20px;
+    align-items: flex-start;
+  }
+
+  .cards.cards34 .cards-card-image {
+    margin-right: 0;
+    margin-bottom: 16px;
+    max-width: 100%;
+    width: 100%;
+    justify-content: flex-start;
+  }
+
+  .cards.cards34 .cards-card-image picture,
+  .cards.cards34 .cards-card-image img {
+    max-width: 100%;
+    width: 100%;
+  }
+}
+
+/* Hide image section if it is empty (no img or source elements) */
+.cards.cards34 .cards-card-image:empty {
+  display: none;
 }
