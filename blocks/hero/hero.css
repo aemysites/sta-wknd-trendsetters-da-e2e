@@ -45,3 +45,169 @@
     padding: 40px 32px;
   }
 }
+
+.hero.hero6 {
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  width: 100vw;
+  min-height: 560px;
+  border-radius: 28px;
+  overflow: hidden;
+  background: none;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+/* Background image absolutely positioned beneath overlay */
+.hero.hero6 > div:first-child {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.hero.hero6 picture,
+.hero.hero6 img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  min-height: 100%;
+  display: block;
+}
+
+/* Overlay area for card, occupying full height */
+.hero.hero6 > div:last-child {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+/* Card: more offset from top, narrower, slightly more opaque for text contrast */
+.hero.hero6 > div:last-child > div {
+  background: rgb(32 32 32 / 19%);
+  border: 2px solid #fff;
+  border-radius: 28px;
+  box-shadow: 0 8px 32px rgb(0 0 0 / 13%);
+  padding: 34px 36px 16px;
+  margin: 100px 0 0 55px;
+  max-width: 330px;
+  min-width: 0;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  pointer-events: auto;
+}
+
+.hero.hero6 h1 {
+  color: #fff;
+  font-size: clamp(2.1rem, 4.6vw, 3.7rem);
+  font-weight: 400;
+  letter-spacing: 0.01em;
+  line-height: 1.03;
+  text-transform: uppercase;
+  margin: 0 0 22px;
+  max-width: 97%;
+}
+
+.hero.hero6 p {
+  color: #e0e0e0;
+  font-size: 1.02rem;
+  line-height: 1.44;
+  margin: 0 0 24px;
+  max-width: 97%;
+}
+
+.hero.hero6 .button-container {
+  display: flex;
+  gap: 14px;
+  margin-top: 14px;
+}
+
+/* Button: more compact for original look */
+.hero-container > .hero-wrapper > .block.hero .button,
+.hero.hero6 .button-container a.button {
+  border-radius: 100px;
+  padding: 8px 26px;
+  font-size: 1rem;
+  font-weight: 500;
+  border: 2px solid #fff;
+  color: #fff;
+  background: transparent;
+  transition: background 0.18s, color 0.18s, border 0.18s, box-shadow 0.18s;
+  margin-right: 0;
+  text-align: left;
+  pointer-events: auto;
+  box-shadow: none;
+}
+
+.hero-container > .hero-wrapper > .block.hero .button:hover,
+.hero.hero6 .button-container a.button:hover {
+  background: #fff;
+  color: #181818;
+  border-color: #fff;
+}
+
+/* Responsive adjustments */
+@media (width <= 1200px) {
+  .hero.hero6 > div:last-child > div {
+    margin: 54px 0 0 12px;
+    padding: 13px 10px 10px;
+    max-width: 260px;
+  }
+}
+
+@media (width <= 900px) {
+  .hero.hero6 {
+    min-height: 320px;
+    border-radius: 16px;
+  }
+
+  .hero.hero6 > div:last-child > div {
+    margin: 22px 0 0 2vw;
+    padding: 5vw 4vw 3vw;
+    min-width: 0;
+    max-width: 93vw;
+  }
+
+  .hero.hero6 h1 {
+    font-size: clamp(1.25rem, 8vw, 2.15rem);
+  }
+}
+
+@media (width <= 600px) {
+  .hero.hero6 {
+    min-height: 140px;
+    border-radius: 0;
+  }
+
+  .hero.hero6 > div:last-child > div {
+    margin: 3vw 0 0;
+    padding: 5vw 2vw 2vw;
+    border-radius: 0 0 12px;
+    max-width: 99vw;
+  }
+
+  .hero.hero6 h1 {
+    font-size: clamp(0.95rem, 11vw, 1.05rem);
+    margin-bottom: 8px;
+  }
+
+  .hero.hero6 p {
+    font-size: 0.91rem;
+    margin-bottom: 8px;
+  }
+}
+
+.hero-container > .hero-wrapper {
+  max-width: unset;
+  padding: 0;
+}
