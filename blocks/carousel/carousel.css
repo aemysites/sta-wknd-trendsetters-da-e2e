@@ -1,3 +1,4 @@
+/* stylelint-disable no-descending-specificity */
 .carousel .carousel-slides-container {
   position: relative;
 }
@@ -99,7 +100,6 @@
   z-index: 1;
 }
 
-/* stylelint-disable-next-line no-descending-specificity */
 .carousel .carousel-navigation-buttons button {
   position: relative;
   width: 44px;
@@ -150,4 +150,87 @@
   .carousel .carousel-slide .carousel-slide-content[data-align='justify'] {
     --slide-content-width: auto;
   }
+}
+
+
+.carousel.carousel16 {
+  position: relative;
+  background: transparent;
+}
+
+/* Hide navigation and indicators for minimal look */
+.carousel.carousel16 .carousel-navigation-buttons,
+.carousel.carousel16 .carousel-slide-indicators {
+  display: none;
+}
+
+/* Show all slides in a single centered row */
+.carousel.carousel16 .carousel-slides {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  gap: 32px;
+  overflow: visible;
+  padding: 64px 0 0;
+  width: auto;
+}
+
+/* Remove unwanted sizing/min-height from slide containers */
+.carousel.carousel16 .carousel-slide {
+  flex: none;
+  width: 220px;
+  height: 160px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  box-shadow: none;
+  margin: 0;
+  min-height: unset;
+}
+
+/* Slight random rotation for collage effect */
+.carousel.carousel16 .carousel-slide:nth-child(1) .carousel-slide-image { transform: rotate(-6deg); }
+.carousel.carousel16 .carousel-slide:nth-child(2) .carousel-slide-image { transform: rotate(5deg); }
+.carousel.carousel16 .carousel-slide:nth-child(3) .carousel-slide-image { transform: rotate(-3deg); }
+.carousel.carousel16 .carousel-slide:nth-child(4) .carousel-slide-image { transform: rotate(7deg); }
+.carousel.carousel16 .carousel-slide:nth-child(5) .carousel-slide-image { transform: rotate(-4deg); }
+.carousel.carousel16 .carousel-slide:nth-child(6) .carousel-slide-image { transform: rotate(3deg); }
+
+/* Visibly show image content, fix previous blank issue */
+.carousel.carousel16 .carousel-slide-image {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  box-shadow: 0 4px 24px 0 rgb(0 0 0 / 8%);
+  border-radius: 15px;
+  background: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  overflow: hidden;
+}
+
+/* Remove all flex/size tricks on picture, just let img fill correctly */
+.carousel.carousel16 .carousel-slide-image picture {
+  position: static;
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.carousel.carousel16 .carousel-slide-image picture > img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 15px;
+  background: #fff; /* fallback in case of slow loads */
+  box-shadow: none;
+}
+
+/* Hide all overlay content boxes */
+.carousel.carousel16 .carousel-slide-content {
+  display: none;
 }
