@@ -386,7 +386,7 @@
 .columns.columns37 > div {
   display: grid;
   grid-template-columns: 1fr 420px;
-  align-items: center; /* Ensures both columns centered as vertical groups */
+  align-items: center;
   background: var(--background-color);
   padding: 5vw 6vw;
   border-bottom: 2px solid #000;
@@ -394,7 +394,6 @@
   box-sizing: border-box;
 }
 
-/* Responsive: Stack columns vertically on small screens */
 @media (width <= 900px) {
   .columns.columns37 > div {
     display: flex;
@@ -411,14 +410,12 @@
   }
 }
 
-/* Ensure both columns' content is centered vertically as a block */
 .columns.columns37 > div > div {
   display: flex;
   flex-direction: column;
   justify-content: center;
 }
 
-/* Headline styling */
 .columns.columns37 h2 {
   font-size: clamp(2.5rem, 6vw, var(--heading-font-size-xl));
   font-weight: 400;
@@ -428,7 +425,6 @@
   margin: 0 0 10px;
 }
 
-/* Subheadline styling */
 .columns.columns37 > div > div:first-child p:not(.button-container) {
   font-size: 1rem;
   color: #333;
@@ -436,7 +432,6 @@
   margin: 0;
 }
 
-/* Button container adjustment */
 .columns.columns37 .button-container {
   margin: 0;
   display: flex;
@@ -444,7 +439,6 @@
   align-items: center;
 }
 
-/* Button styling override */
 .columns.columns37 .button {
   min-width: 320px;
   max-width: 420px;
@@ -473,5 +467,139 @@
   .columns.columns37 .button {
     min-width: 100%;
     max-width: 100%;
+  }
+}
+
+
+.columns.columns38 {
+  background: #FAFAF6;
+  padding: 48px 0;
+}
+
+/* Main row: text and images side by side, top-aligned, tight gap */
+.columns.columns38 > div {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 12px; /* Even tighter gap for visual unity */
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* Text column: tightly grouped elements */
+.columns.columns38 > div > div:first-child {
+  flex: 1 1 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  min-width: 0;
+  gap: 6px; /* Tighter grouping */
+}
+
+/* Headline */
+.columns.columns38 h1 {
+  font-size: 4rem;
+  font-weight: 400;
+  line-height: 1.05;
+  letter-spacing: 0.025em;
+  color: #000;
+  margin: 0 0 4px; /* Minimal spacing below headline */
+  max-width: 480px;
+  word-break: break-word; /* Changed to valid alternative */
+  align-self: flex-start;
+}
+
+/* Description */
+.columns.columns38 > div > div:first-child > p:not(.button-container) {
+  font-size: 1.1rem;
+  color: #555;
+  margin: 0 0 2px; /* Extremely tight spacing below description */
+  max-width: 90%;
+}
+
+/* Button container */
+.columns.columns38 .button-container {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin: 0;
+  padding: 0;
+}
+
+/* Button style and spacing */
+.columns.columns38 .button-container .button {
+  border-radius: 2.4em;
+  padding: 0.9em 2em;
+  font-size: 1rem;
+  font-weight: 500;
+  margin-left: 0;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+/* Images column: images align to top of text block */
+.columns.columns38 .columns-img-col {
+  flex: 1 1 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  min-width: 0;
+  width: 100%;
+}
+
+/* Arrange images side by side in a row with horizontal gap, top-aligned */
+.columns.columns38 .columns-img-col > p {
+  display: flex;
+  flex-direction: row;
+  gap: 16px; /* Tighter horizontal gap between images */
+  align-items: flex-start;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}
+
+.columns.columns38 .columns-img-col picture {
+  display: block;
+  width: 100%;
+  max-width: 260px;
+  min-width: 0;
+  flex: 1 1 0;
+}
+
+.columns.columns38 .columns-img-col img {
+  width: 100%;
+  height: 420px;
+  object-fit: cover;
+  border-radius: 24px;
+  box-shadow: 0 2px 16px rgb(0 0 0 / 4%);
+  display: block;
+}
+
+/* Responsive adjustments: stack vertically on small screens */
+@media (width <= 900px) {
+  .columns.columns38 > div {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 24px;
+    max-width: 100%;
+  }
+
+  .columns.columns38 .columns-img-col {
+    align-items: stretch;
+  }
+
+  .columns.columns38 .columns-img-col > p {
+    flex-direction: column;
+    gap: 12px;
+    align-items: stretch;
+  }
+
+  .columns.columns38 .columns-img-col picture,
+  .columns.columns38 .columns-img-col img {
+    max-width: 100%;
+    height: 160px;
   }
 }
