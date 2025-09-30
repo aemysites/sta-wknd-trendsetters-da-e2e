@@ -35,7 +35,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: 400px; /* ensures block is visible */
+  min-height: 400px;
 }
 
 .cards.cards2 > ul {
@@ -168,5 +168,78 @@
 
   .cards.cards2 .cards-card-body {
     padding: 1rem 0.7rem 0.9rem;
+  }
+}
+
+
+.cards.cards7 {
+  padding: 0;
+  margin: 0;
+  background: var(--background-color);
+}
+
+.cards.cards7 > ul {
+  display: flex;
+  flex-direction: row;
+  justify-content: stretch;
+  align-items: flex-start;
+  gap: 2px; /* Nearly seamless, tightly grouped cards */
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  width: 100%;
+}
+
+.cards.cards7 > ul > li {
+  background: none;
+  border: none;
+  margin: 0;
+  padding: 0;
+  border-radius: 32px; /* Slightly increased for a soft, modern feel */
+  overflow: hidden;
+  display: flex;
+  flex: 1 1 0;
+  flex-direction: column;
+  justify-content: flex-start;
+  min-width: 0;
+  max-width: none;
+  height: auto;
+}
+
+/* Ensure image fills card, covers, and is perfectly square with rounded corners */
+.cards.cards7 .cards-card-image {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  border-radius: 32px;
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+  flex: 1 1 auto;
+  display: flex;
+  align-items: stretch;
+  justify-content: stretch;
+}
+
+.cards.cards7 .cards-card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  border-radius: 32px;
+}
+
+.cards.cards7 .cards-card-body {
+  display: none;
+}
+
+@media (width <= 900px) {
+  .cards.cards7 > ul {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .cards.cards7 > ul > li {
+    max-width: 100%;
+    min-width: 0;
   }
 }
