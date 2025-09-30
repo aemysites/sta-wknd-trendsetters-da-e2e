@@ -107,7 +107,6 @@
   padding: 0;
 }
 
-/* Main grid: two columns */
 .columns.columns27 > div {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -117,7 +116,6 @@
   position: relative;
 }
 
-/* Responsive: stack columns vertically */
 @media (width <= 900px) {
   .columns.columns27 > div {
     grid-template-columns: 1fr;
@@ -126,17 +124,10 @@
   }
 }
 
-/* --------------------------------
-   LEFT COLUMN: HEADLINE + AVATAR ROW
----------------------------------- */
-
-/* Remove all images in left column except the first (avatar), 
-   forcibly hide large portrait by default for all but the first image in the second <p> */
 .columns.columns27 > div > div:first-child > div > p:nth-child(2) img:not(:first-child) {
   display: none;
 }
 
-/* Visually force all images in the avatar p (should be only one avatar) to be small and circular */
 .columns.columns27 > div > div:first-child > div > p:nth-child(2) img,
 .columns.columns27 > div > div:first-child > div > p:nth-child(2) picture {
   width: 40px !important;
@@ -151,7 +142,6 @@
   vertical-align: middle;
 }
 
-/* Headline styling */
 .columns.columns27 > div > div:first-child > div > p:first-child {
   font-size: 2.2rem;
   line-height: 1.1;
@@ -161,7 +151,6 @@
   margin: 0 0 20px;
 }
 
-/* Group avatar, name, and role into a single flex row directly under headline */
 .columns.columns27 > div > div:first-child > div {
   display: flex;
   flex-direction: row;
@@ -171,7 +160,6 @@
   padding: 0;
 }
 
-/* Name and role: Remove extra vertical space and style horizontally */
 .columns.columns27 > div > div:first-child > div > p:nth-child(3),
 .columns.columns27 > div > div:first-child > div > p:nth-child(4) {
   margin: 0;
@@ -196,15 +184,11 @@
   font-weight: 400;
 }
 
-/* Remove any extra margin on grouped row */
 .columns.columns27 > div > div:first-child > div > p {
   margin-top: 0;
   margin-bottom: 0;
 }
 
-/* --------------------------------
-   DIVIDER 
----------------------------------- */
 .columns.columns27 > div::after {
   display: block;
   width: 100%;
@@ -213,8 +197,6 @@
   position: absolute;
   left: 0;
   right: 0;
-
-  /* Position below headline and avatar/name/role row */
   top: 78px;
   z-index: 1;
   content: "";
@@ -226,9 +208,6 @@
   }
 }
 
-/* --------------------------------
-   RIGHT COLUMN: TESTIMONIAL + LOGO
----------------------------------- */
 .columns.columns27 > div > div:last-child {
   display: flex;
   flex-direction: column;
@@ -236,7 +215,6 @@
   padding-top: 0;
 }
 
-/* Testimonial styling */
 .columns.columns27 > div > div:last-child > div > p:first-child {
   font-size: 1rem;
   line-height: 1.5;
@@ -246,7 +224,6 @@
   text-align: left;
 }
 
-/* Logo styling: right-aligned under testimonial with minimal gap */
 .columns.columns27 > div > div:last-child > div > p:last-child {
   margin: 0;
   display: flex;
@@ -262,9 +239,6 @@
   align-self: flex-end;
 }
 
-/* --------------------------------
-   RESPONSIVE ADJUSTMENTS
----------------------------------- */
 @media (width <= 600px) {
   .columns.columns27 > div > div:first-child > div {
     flex-direction: column;
@@ -276,4 +250,145 @@
   .columns.columns27 > div > div:last-child > div > p:last-child img {
     margin-top: 16px;
   }
+}
+
+
+.columns.columns28 {
+  background: #FAFAF7;
+  padding: 88px 0 92px;
+}
+
+/* Flex layout: align items to flex-start for top alignment */
+.columns.columns28 > div {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 60px;
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+/* Responsive stacking, padding tweaks */
+@media (width <= 900px) {
+  .columns.columns28 > div {
+    flex-direction: column;
+    gap: 32px;
+    padding: 0 16px;
+  }
+}
+
+/* Text column: nudge down slightly for visual balance */
+.columns.columns28 > div > div:first-child {
+  flex: 1 1 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  min-width: 0;
+  margin-top: 18px;
+}
+
+/* Ensure image column is always visible and takes up space */
+.columns.columns28 > div > .columns-img-col {
+  flex: 1 1 0;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-end;
+  min-width: 0;
+}
+
+/* If image or picture is missing, preserve column structure */
+.columns.columns28 .columns-img-col:empty {
+  min-height: 325px;
+}
+
+.columns.columns28 .columns-img-col picture,
+.columns.columns28 .columns-img-col img {
+  max-width: 430px;
+  max-height: 325px;
+  width: 100%;
+  aspect-ratio: 3/2;
+  border-radius: 32px;
+  object-fit: cover;
+  display: block;
+  box-shadow: none;
+}
+
+@media (width <= 900px) {
+  .columns.columns28 .columns-img-col picture,
+  .columns.columns28 .columns-img-col img {
+    max-width: 100%;
+    max-height: 220px;
+  }
+}
+
+/* Author label */
+.columns.columns28 > div > div:first-child > p:first-child {
+  text-transform: uppercase;
+  font-size: 12px;
+  color: #6E6E6E;
+  letter-spacing: 0.03em;
+  margin-top: 0;
+  margin-bottom: 16px;
+}
+
+/* Headline */
+.columns.columns28 > div > div:first-child h2 {
+  font-size: 64px;
+  font-weight: 400;
+  color: #222;
+  line-height: 1.02;
+  margin: 0 0 32px;
+}
+
+@media (width <= 900px) {
+  .columns.columns28 > div > div:first-child h2 {
+    font-size: 40px;
+    margin-bottom: 24px;
+  }
+}
+
+/* Main paragraph */
+.columns.columns28 > div > div:first-child h2 + p {
+  font-size: 18px;
+  color: #222;
+  line-height: 1.6;
+  margin-bottom: 32px;
+}
+
+/* Subtext */
+.columns.columns28 > div > div:first-child h2 + p + p {
+  font-size: 12px;
+  color: #A4A4A4;
+  margin-bottom: 8px;
+  margin-top: 0;
+}
+
+/* Button container */
+.columns.columns28 .button-container {
+  margin-top: 0;
+}
+
+/* Pill-shaped button style - override default */
+.columns.columns28 .button-container .button {
+  background: #FFF;
+  color: #222;
+  border: 1.5px solid #222;
+  border-radius: 9999px;
+  padding: 8px 28px;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.25;
+  box-sizing: border-box;
+  text-align: center;
+  text-decoration: none;
+  margin-top: 0.5em;
+  margin-bottom: 0;
+  transition: background 0.2s, color 0.2s;
+}
+
+.columns.columns28 .button-container .button:hover,
+.columns.columns28 .button-container .button:focus {
+  background: #222;
+  color: #FFF;
 }
