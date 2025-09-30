@@ -236,7 +236,6 @@
   z-index: 2;
 }
 
-/* LEFT COLUMN: Show and size image, vertically centered */
 .hero.hero13 > div:first-child {
   display: flex;
   align-items: center;
@@ -266,7 +265,6 @@
   display: block;
 }
 
-/* RIGHT COLUMN: Overlay panel, compact, adjacent to image */
 .hero.hero13 > div:last-child {
   display: flex;
   align-items: center;
@@ -323,7 +321,6 @@
   justify-content: flex-start;
 }
 
-/* Button overrides */
 .hero-container > .hero-wrapper > .block.hero.hero13 .button,
 .hero.hero13 .button-container a.button {
   border-radius: 999px;
@@ -348,7 +345,6 @@
   border-color: #222;
 }
 
-/* Responsive: stack vertically on small screens */
 @media (width <= 900px) {
   .hero.hero13 {
     flex-direction: column;
@@ -395,4 +391,231 @@
   .hero.hero13 > div:last-child > div {
     padding: 6px 2vw;
   }
+}
+
+
+.hero.hero20 {
+  position: relative;
+  width: 100vw;
+  min-height: 92vh;
+  display: block;
+  overflow: hidden;
+  background: #000;
+  box-sizing: border-box;
+}
+
+/* Full bleed hero */
+
+/* Collage grid background */
+.hero.hero20 > div:first-child {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.hero.hero20 > div:first-child > div > p {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  width: 100%;
+  height: 100%;
+  gap: 0;
+}
+
+.hero.hero20 > div:first-child > div > p picture {
+  width: 100%;
+  height: 100%;
+  display: block;
+  overflow: hidden;
+}
+
+.hero.hero20 > div:first-child > div > p img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Overlay for contrast */
+.hero.hero20::after {
+  display: block;
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  background: rgb(0 0 0 / 48%);
+  z-index: 1;
+  pointer-events: none;
+}
+
+/* Center overlay content (true centering, no translateY) */
+.hero.hero20 > div:last-child {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 2;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+
+  /* Add padding so content never hugs the top or bottom */
+  padding: 40px 0 60px;
+}
+
+.hero.hero20 > div:last-child > div {
+  width: 100%;
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 0;
+  text-align: center;
+  pointer-events: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Headline: more balanced line breaks, centered visually */
+.hero.hero20 h1 {
+  color: #fff;
+  font-size: clamp(2.7rem, 7vw, 5.8rem);
+  font-weight: 700;
+  line-height: 1.08;
+  letter-spacing: 0.01em;
+  margin-bottom: 0.8rem;
+  margin-top: 0;
+  text-align: center;
+  max-width: 650px;
+  overflow-wrap: break-word;
+  text-shadow: 0 2px 18px rgb(0 0 0 / 15%);
+}
+
+/* Subtitle: improved contrast, increased spacing from headline and buttons */
+.hero.hero20 h1 + p {
+  font-size: 1.12rem;
+  color: #f6f6f6;
+  margin: 0.7rem auto 1.6rem;
+  line-height: 1.53;
+  font-weight: 400;
+  max-width: 530px;
+  text-align: center;
+  text-shadow: 0 2px 15px rgb(0 0 0 / 20%);
+}
+
+/* Button row: more space from subtitle and bottom, slightly larger gap */
+.hero.hero20 h1 + p + p {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 1.5rem;
+  margin-top: 0.2rem;
+  margin-bottom: 0;
+}
+
+/* Buttons: more compact, visually grouped, better spacing */
+.hero.hero20 h1 + p + p a {
+  display: inline-block;
+  padding: 0.75em 1.6em;
+  border: 2px solid #fff;
+  border-radius: 200px;
+  color: #fff;
+  background: transparent;
+  text-transform: uppercase;
+  font-size: 1.02rem;
+  font-weight: 600;
+  letter-spacing: 0.09em;
+  text-decoration: none;
+  transition: background 0.15s, color 0.15s, border 0.15s;
+  margin: 0;
+  text-align: center;
+  box-shadow: none;
+  outline: none;
+  cursor: pointer;
+}
+
+.hero.hero20 h1 + p + p a:hover,
+.hero.hero20 h1 + p + p a:focus {
+  background: #fff;
+  color: #181818;
+  border-color: #fff;
+  text-decoration: none;
+}
+
+/* Responsive: maintain central balance and not overly narrow text */
+@media (width <= 900px) {
+  .hero.hero20 h1 {
+    font-size: clamp(1.7rem, 8vw, 3rem);
+    margin-bottom: 0.55rem;
+    max-width: 97vw;
+  }
+
+  .hero.hero20 > div:last-child > div {
+    max-width: 96vw;
+  }
+
+  .hero.hero20 h1 + p {
+    font-size: 0.99rem;
+    max-width: 95vw;
+    margin-bottom: 1rem;
+    margin-top: 0.25rem;
+  }
+
+  .hero.hero20 h1 + p + p {
+    gap: 1rem;
+  }
+
+  .hero.hero20 h1 + p + p a {
+    padding: 0.6em 1.2em;
+    font-size: 0.95rem;
+  }
+
+  .hero.hero20 > div:last-child {
+    padding: 24px 0 36px;
+  }
+}
+
+@media (width <= 600px) {
+  .hero.hero20 {
+    min-height: 60vh;
+  }
+
+  .hero.hero20 > div:last-child > div {
+    max-width: 99vw;
+  }
+
+  .hero.hero20 h1 {
+    font-size: clamp(1.1rem, 8vw, 1.5rem);
+    margin-bottom: 0.23rem;
+    max-width: 99vw;
+  }
+
+  .hero.hero20 h1 + p {
+    font-size: 0.92rem;
+    margin-bottom: 0.45rem;
+  }
+
+  .hero.hero20 h1 + p + p {
+    gap: 0.5rem;
+  }
+
+  .hero.hero20 h1 + p + p a {
+    padding: 0.4em 0.8em;
+    font-size: 0.91rem;
+  }
+
+  .hero.hero20 > div:last-child {
+    padding: 12px 0 18px;
+  }
+}
+
+/* Remove top margin from all children for consistent stacking */
+.hero.hero20 > div:last-child > div > * {
+  margin-top: 0;
 }
