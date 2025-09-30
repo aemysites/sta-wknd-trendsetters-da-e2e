@@ -258,7 +258,6 @@
   padding: 88px 0 92px;
 }
 
-/* Flex layout: align items to flex-start for top alignment */
 .columns.columns28 > div {
   display: flex;
   flex-direction: row;
@@ -269,7 +268,6 @@
   width: 100%;
 }
 
-/* Responsive stacking, padding tweaks */
 @media (width <= 900px) {
   .columns.columns28 > div {
     flex-direction: column;
@@ -278,7 +276,6 @@
   }
 }
 
-/* Text column: nudge down slightly for visual balance */
 .columns.columns28 > div > div:first-child {
   flex: 1 1 0;
   display: flex;
@@ -288,7 +285,6 @@
   margin-top: 18px;
 }
 
-/* Ensure image column is always visible and takes up space */
 .columns.columns28 > div > .columns-img-col {
   flex: 1 1 0;
   display: flex;
@@ -297,7 +293,6 @@
   min-width: 0;
 }
 
-/* If image or picture is missing, preserve column structure */
 .columns.columns28 .columns-img-col:empty {
   min-height: 325px;
 }
@@ -322,7 +317,6 @@
   }
 }
 
-/* Author label */
 .columns.columns28 > div > div:first-child > p:first-child {
   text-transform: uppercase;
   font-size: 12px;
@@ -332,7 +326,6 @@
   margin-bottom: 16px;
 }
 
-/* Headline */
 .columns.columns28 > div > div:first-child h2 {
   font-size: 64px;
   font-weight: 400;
@@ -348,7 +341,6 @@
   }
 }
 
-/* Main paragraph */
 .columns.columns28 > div > div:first-child h2 + p {
   font-size: 18px;
   color: #222;
@@ -356,7 +348,6 @@
   margin-bottom: 32px;
 }
 
-/* Subtext */
 .columns.columns28 > div > div:first-child h2 + p + p {
   font-size: 12px;
   color: #A4A4A4;
@@ -364,12 +355,10 @@
   margin-top: 0;
 }
 
-/* Button container */
 .columns.columns28 .button-container {
   margin-top: 0;
 }
 
-/* Pill-shaped button style - override default */
 .columns.columns28 .button-container .button {
   background: #FFF;
   color: #222;
@@ -391,4 +380,98 @@
 .columns.columns28 .button-container .button:focus {
   background: #222;
   color: #FFF;
+}
+
+
+.columns.columns37 > div {
+  display: grid;
+  grid-template-columns: 1fr 420px;
+  align-items: center; /* Ensures both columns centered as vertical groups */
+  background: var(--background-color);
+  padding: 5vw 6vw;
+  border-bottom: 2px solid #000;
+  min-height: 280px;
+  box-sizing: border-box;
+}
+
+/* Responsive: Stack columns vertically on small screens */
+@media (width <= 900px) {
+  .columns.columns37 > div {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 8vw 4vw;
+    min-height: unset;
+  }
+
+  .columns.columns37 > div > div:last-child {
+    width: 100%;
+    justify-content: flex-start;
+    margin-top: 32px;
+  }
+}
+
+/* Ensure both columns' content is centered vertically as a block */
+.columns.columns37 > div > div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* Headline styling */
+.columns.columns37 h2 {
+  font-size: clamp(2.5rem, 6vw, var(--heading-font-size-xl));
+  font-weight: 400;
+  letter-spacing: 0.03em;
+  line-height: 1.07;
+  color: #000;
+  margin: 0 0 10px;
+}
+
+/* Subheadline styling */
+.columns.columns37 > div > div:first-child p:not(.button-container) {
+  font-size: 1rem;
+  color: #333;
+  font-weight: 300;
+  margin: 0;
+}
+
+/* Button container adjustment */
+.columns.columns37 .button-container {
+  margin: 0;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+/* Button styling override */
+.columns.columns37 .button {
+  min-width: 320px;
+  max-width: 420px;
+  width: 100%;
+  padding: 0.6em 0;
+  font-size: 1rem;
+  font-weight: 400;
+  color: #000;
+  background: #fff;
+  border: 2px solid #000;
+  border-radius: 999px;
+  box-shadow: 0 2px 0 0 #eaea99;
+  text-align: center;
+  transition: box-shadow 0.2s, background 0.2s;
+  outline: none;
+  margin: 0;
+}
+
+.columns.columns37 .button:hover,
+.columns.columns37 .button:focus {
+  background: #f6f6f6;
+  box-shadow: 0 4px 0 0 #eaea99;
+}
+
+@media (width <= 900px) {
+  .columns.columns37 .button {
+    min-width: 100%;
+    max-width: 100%;
+  }
 }
