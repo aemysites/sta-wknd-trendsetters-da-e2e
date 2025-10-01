@@ -235,22 +235,18 @@
   display: block;
 }
 
-/* --- IMAGE COLLAGE GRID --- */
 .hero.hero20 > div:first-child {
   position: absolute;
   inset: 0;
   width: 100%;
   height: 100%;
   display: grid;
-
-  /* Use a 3x3 grid for 9 images. Adjust row/column count for fewer/more images. */
   grid-template-columns: repeat(3, 1fr);
   grid-template-rows: repeat(3, 1fr);
   gap: 0;
   z-index: 1;
 }
 
-/* Each <p> in the grid should fill its cell and not overlap */
 .hero.hero20 > div:first-child > div {
   display: contents;
 }
@@ -262,8 +258,6 @@
   height: 100%;
   overflow: hidden;
   display: block;
-
-  /* Ensure each <p> is a grid item */
 }
 
 .hero.hero20 > div:first-child > div > p > picture,
@@ -274,7 +268,6 @@
   display: block;
 }
 
-/* --- SUBTLE GRADIENT OVERLAY FOR LEGIBILITY --- */
 .hero.hero20::before {
   content: "";
   position: absolute;
@@ -284,7 +277,6 @@
   background: linear-gradient(180deg,rgb(0 0 0 / 12%) 0%,rgb(0 0 0 / 30%) 100%);
 }
 
-/* --- CENTRAL TEXT OVERLAY --- */
 .hero.hero20 > div:last-child {
   position: absolute;
   inset: 0;
@@ -312,7 +304,6 @@
   padding: 0;
 }
 
-/* --- HEADLINE --- */
 .hero.hero20 h1 {
   font-size: clamp(2.5rem, 7vw, 5.6rem);
   font-weight: 600;
@@ -324,7 +315,6 @@
   text-shadow: 0 4px 32px rgb(0 0 0 / 70%), 0 1px 3px rgb(0 0 0 / 23%);
 }
 
-/* --- DESCRIPTION --- */
 .hero.hero20 > div:last-child p:not(:last-child) {
   font-size: 1.22rem;
   color: rgb(255 255 255 / 96%);
@@ -333,7 +323,6 @@
   max-width: 720px;
 }
 
-/* --- BUTTON ROW --- */
 .hero.hero20 > div:last-child p:last-child {
   display: flex;
   flex-direction: row;
@@ -370,7 +359,6 @@
   text-decoration: none;
 }
 
-/* --- RESPONSIVE GRID ADJUSTMENTS --- */
 @media (width <= 900px) {
   .hero.hero20 > div:first-child {
     grid-template-columns: 1fr 1fr;
@@ -406,5 +394,148 @@
     flex-direction: column;
     gap: 1.2rem;
     max-width: 210px;
+  }
+}
+
+
+.hero.hero25 {
+  /* Use flex column for vertical stacking, left alignment, and consistent left margin */
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  background: #F7F7F7;
+  padding: 7vw 0 7vw 7vw;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* Wrap the image and headline in a visual group using grid for controlled overlap and alignment */
+.hero.hero25 .hero25-block-group {
+  display: grid;
+  grid-template-rows: 315px auto;
+  grid-template-columns: 560px;
+  position: relative;
+  margin-bottom: 2vw;
+}
+
+/* Target actual first block for stacking: image left-aligned, headline slightly overlaps */
+.hero.hero25 > div:first-child {
+  display: grid;
+  grid-template-rows: 315px auto;
+  grid-template-columns: 560px;
+  position: relative;
+  margin-bottom: 2vw;
+  width: 560px;
+  max-width: 100%;
+}
+
+/* Image styling for strong left anchor */
+.hero.hero25 > div:first-child > div {
+  grid-row: 1;
+  grid-column: 1;
+  place-self: start start;
+  z-index: 2;
+}
+
+.hero.hero25 picture,
+.hero.hero25 img {
+  width: 560px;
+  max-width: 100%;
+  height: 315px;
+  object-fit: cover;
+  border-radius: 14px;
+  box-shadow: 0 8px 36px rgb(0 0 0 / 9%);
+  position: relative;
+  z-index: 2;
+}
+
+/* Headline styling for overlap and left alignment */
+.hero.hero25 > div:last-child > div > h1,
+.hero.hero25 h1 {
+  font-size: var(--heading-font-size-xxl);
+  font-weight: 400;
+  color: #191919;
+  letter-spacing: 0.03em;
+  line-height: 1.05;
+  margin-top: -3vw; /* Moves headline up for overlap */
+  margin-bottom: 2vw;
+  text-align: left;
+  max-width: 700px;
+  position: relative;
+  left: 0;
+  z-index: 3;
+  background: transparent;
+}
+
+/* Content below headline: left aligned, compact spacing */
+.hero.hero25 > div:last-child > div {
+  width: 100%;
+  max-width: 700px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-top: 0;
+}
+
+.hero.hero25 p:not(.button-container) {
+  font-size: var(--body-font-size-s);
+  color: #636363;
+  margin-bottom: 2vw;
+  text-align: left;
+  max-width: 34em;
+}
+
+.hero.hero25 .button-container {
+  display: flex;
+  gap: 1.2em;
+  margin-top: 2vw;
+  justify-content: flex-start;
+}
+
+.hero.hero25 .button-container .button {
+  background: #F7F7F7;
+  color: #191919;
+  border: 1.5px solid #191919;
+  border-radius: 2em;
+  font-size: var(--body-font-size-s);
+  font-weight: 500;
+  padding: 0.8em 2.2em;
+  margin: 0;
+  box-shadow: none;
+  transition: background 0.2s, color 0.2s;
+  text-align: center;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.hero.hero25 .button-container .button:hover,
+.hero.hero25 .button-container .button:focus {
+  background: #e0e0e0;
+  color: #191919;
+}
+
+/* Responsive adjustments for stacking and spacing */
+@media (width <= 900px) {
+  .hero.hero25 {
+    padding: 4vw 3vw;
+  }
+
+  .hero.hero25 > div:first-child {
+    width: 100%;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto;
+  }
+
+  .hero.hero25 h1 {
+    font-size: var(--heading-font-size-xl);
+    margin-top: -1.5vw;
+    max-width: 100%;
+  }
+
+  .hero.hero25 picture,
+  .hero.hero25 img {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
   }
 }
