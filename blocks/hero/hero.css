@@ -399,7 +399,6 @@
 
 
 .hero.hero25 {
-  /* Use flex column for vertical stacking, left alignment, and consistent left margin */
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -409,7 +408,6 @@
   box-sizing: border-box;
 }
 
-/* Wrap the image and headline in a visual group using grid for controlled overlap and alignment */
 .hero.hero25 .hero25-block-group {
   display: grid;
   grid-template-rows: 315px auto;
@@ -418,7 +416,6 @@
   margin-bottom: 2vw;
 }
 
-/* Target actual first block for stacking: image left-aligned, headline slightly overlaps */
 .hero.hero25 > div:first-child {
   display: grid;
   grid-template-rows: 315px auto;
@@ -429,7 +426,6 @@
   max-width: 100%;
 }
 
-/* Image styling for strong left anchor */
 .hero.hero25 > div:first-child > div {
   grid-row: 1;
   grid-column: 1;
@@ -449,7 +445,6 @@
   z-index: 2;
 }
 
-/* Headline styling for overlap and left alignment */
 .hero.hero25 > div:last-child > div > h1,
 .hero.hero25 h1 {
   font-size: var(--heading-font-size-xxl);
@@ -457,7 +452,7 @@
   color: #191919;
   letter-spacing: 0.03em;
   line-height: 1.05;
-  margin-top: -3vw; /* Moves headline up for overlap */
+  margin-top: -3vw;
   margin-bottom: 2vw;
   text-align: left;
   max-width: 700px;
@@ -467,7 +462,6 @@
   background: transparent;
 }
 
-/* Content below headline: left aligned, compact spacing */
 .hero.hero25 > div:last-child > div {
   width: 100%;
   max-width: 700px;
@@ -514,7 +508,6 @@
   color: #191919;
 }
 
-/* Responsive adjustments for stacking and spacing */
 @media (width <= 900px) {
   .hero.hero25 {
     padding: 4vw 3vw;
@@ -537,5 +530,80 @@
     width: 100%;
     max-width: 100%;
     height: auto;
+  }
+}
+
+/* Use grid for true centering, but nudge text up for optical alignment */
+.hero.hero29 {
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: 100vw;
+  height: 100vh;
+  min-height: 540px;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+/* Background image fills the grid area */
+.hero.hero29 > div:first-child {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  display: flex;
+}
+
+.hero.hero29 picture,
+.hero.hero29 img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Center overlay text, but visually nudge up */
+.hero.hero29 > div:nth-child(2) {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  height: auto;
+  display: grid;
+  place-items: center;
+  pointer-events: none;
+  transform: translateY(-6%);
+}
+
+/* Headline text styling and true centering */
+.hero.hero29 h1 {
+  margin: 0;
+  padding: 0 0.4vw;
+  color: #fff;
+  text-align: center;
+  font-size: clamp(2.5rem, 7vw, 6rem);
+  font-weight: 300;
+  line-height: 1.03;
+  letter-spacing: 0.04em;
+  text-shadow: 0 2px 8px rgb(0 0 0 / 45%);
+  width: 100%;
+  max-width: 96vw;
+  box-sizing: border-box;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+/* Responsive: maintain centering and sizing on small screens */
+@media (width <= 900px) {
+  .hero.hero29 {
+    height: 60vh;
+    min-height: 320px;
+  }
+
+  .hero.hero29 h1 {
+    font-size: clamp(1.5rem, 10vw, 3rem);
+    padding: 0 2vw;
+    max-width: 98vw;
   }
 }
