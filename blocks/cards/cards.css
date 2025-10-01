@@ -35,7 +35,6 @@
   padding: 40px 0;
 }
 
-/* Use flexbox for side-by-side layout of cards in the row */
 .cards.cards2 > ul {
   display: flex;
   flex-flow: row wrap;
@@ -48,7 +47,6 @@
   list-style: none;
 }
 
-/* Responsive: stack cards vertically on smaller screens */
 @media (width <= 900px) {
   .cards.cards2 > ul {
     flex-direction: column;
@@ -57,7 +55,6 @@
   }
 }
 
-/* Each card: same width, visually balanced, clean shadow, rounded corners */
 .cards.cards2 > ul > li {
   background: #fff;
   border-radius: 24px;
@@ -74,7 +71,6 @@
   min-height: 0;
 }
 
-/* Card image: top, aspect ratio, only rounded on top corners */
 .cards.cards2 .cards-card-image img {
   width: 100%;
   object-fit: cover;
@@ -84,7 +80,6 @@
   min-height: 180px;
 }
 
-/* Card body: consistent padding */
 .cards.cards2 .cards-card-body {
   display: flex;
   flex-direction: column;
@@ -92,7 +87,6 @@
   padding: 32px 32px 28px;
 }
 
-/* Card heading: prominent, spaced, uppercase */
 .cards.cards2 .cards-card-body h3 {
   font-size: 1.45rem;
   font-weight: 700;
@@ -103,7 +97,6 @@
   line-height: 1.12;
 }
 
-/* Card body text: smaller, lighter, clean margins */
 .cards.cards2 .cards-card-body p {
   color: #5A5A5A;
   font-size: 1.09rem;
@@ -112,7 +105,6 @@
   margin: 0;
 }
 
-/* "Read more" button styling for last <p> only in the first card (feature) */
 .cards.cards2 > ul > li:first-child .cards-card-body p:last-child {
   display: inline-block;
   border: 1.5px solid #191919;
@@ -134,7 +126,6 @@
   color: #fff;
 }
 
-/* Remove border/button styling for last <p> in non-feature cards */
 .cards.cards2 > ul > li:not(:first-child) .cards-card-body p:last-child {
   border: none;
   padding: 0;
@@ -144,6 +135,131 @@
   margin-top: 0;
 }
 
-/* Prevent excessive stretching for small numbers of cards */
 
-/* Prevent overflow and align items to the top of the card area */
+.cards.cards10 {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.cards.cards10 > ul {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+@media (width <= 1100px) {
+  .cards.cards10 > ul {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (width <= 700px) {
+  .cards.cards10 > ul {
+    grid-template-columns: 1fr;
+  }
+}
+
+.cards.cards10 > ul > li {
+  background: #fff;
+  border: 1px solid #e3e3e3;
+  border-radius: 18px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  min-height: 420px;
+  box-sizing: border-box;
+  margin: 0;
+  transition: box-shadow 0.2s;
+}
+
+.cards.cards10 .cards-card-image {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  min-height: 230px;
+  display: block;
+  border-top-left-radius: 18px;
+  border-top-right-radius: 18px;
+  overflow: hidden;
+  background: #eee;
+}
+
+.cards.cards10 .cards-card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-top-left-radius: 18px;
+  border-top-right-radius: 18px;
+  display: block;
+}
+
+.cards.cards10 .cards-card-body {
+  padding: 22px 18px 20px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  gap: 0;
+  justify-content: flex-start;
+}
+
+.cards.cards10 .cards-card-body p:first-child {
+  display: inline-block;
+  background: #f1f1f1;
+  color: #6e6e6e;
+  font-size: 12px;
+  font-weight: 500;
+  text-transform: uppercase;
+  border-radius: 12px;
+  padding: 2px 4px;
+  letter-spacing: 0.5px;
+  margin-top: 18px;
+  margin-bottom: 14px;
+  line-height: 1.2;
+}
+
+.cards.cards10 .cards-card-body h3 {
+  font-size: 22px;
+  font-weight: 700;
+  color: #222;
+  text-transform: uppercase;
+  margin-top: 0;
+  margin-bottom: 16px;
+  line-height: 1.1;
+  letter-spacing: 0.5px;
+}
+
+.cards.cards10 .cards-card-body p:not(:first-child, .button-container) {
+  color: #4a4a4a;
+  font-size: 15px;
+  margin: 0 0 8px;
+  line-height: 1.5;
+}
+
+.cards.cards10 .cards-card-body .button-container {
+  margin-top: auto;
+  padding-bottom: 4px;
+}
+
+.cards.cards10 .cards-card-body .button {
+  background: #222;
+  color: #fff;
+  font-size: 12px;
+  font-weight: 600;
+  border-radius: 30px;
+  padding: 6px 16px;
+  border: none;
+  text-decoration: none;
+  display: inline-block;
+  box-shadow: none;
+  margin: 0;
+  transition: background 0.2s;
+}
+
+.cards.cards10 .cards-card-body .button:hover,
+.cards.cards10 .cards-card-body .button:focus {
+  background: #444;
+}
