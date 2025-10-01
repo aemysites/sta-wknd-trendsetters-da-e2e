@@ -1,3 +1,4 @@
+/* stylelint-disable no-descending-specificity */
 .tabs .tabs-list {
   display: flex;
   gap: 0.5ch;
@@ -55,4 +56,192 @@
 
 .tabs .tabs-panel[aria-hidden='true'] {
   display: none;
+}
+
+
+.tabs.tabs22 {
+  background: #000;
+  padding-top: 0;
+  padding-bottom: 3.5rem;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Tabs navigation */
+.tabs.tabs22 .tabs-list {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: flex-end;
+  min-width: 320px;
+  max-width: 420px;
+  margin: 0 auto 2.2rem;
+  gap: 2.5rem;
+  background: none;
+  border: none;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Tab buttons */
+.tabs.tabs22 .tabs-list .tabs-tab {
+  background: none;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding-bottom: 0.5rem;
+  padding-top: 0;
+  margin: 0;
+  color: #666;
+  font-weight: 500;
+  position: relative;
+  transition: color 0.2s;
+  min-width: 0;
+}
+
+/* Tab label text */
+.tabs.tabs22 .tabs-list .tabs-tab p {
+  margin: 0;
+  font-size: 1.3rem;
+  letter-spacing: 0.06em;
+  line-height: 1.15;
+  color: inherit;
+  text-align: center;
+  background: none;
+  border: none;
+  padding: 0;
+  font-weight: inherit;
+}
+
+/* Active tab styling */
+.tabs.tabs22 .tabs-list .tabs-tab[aria-selected='true'] {
+  color: #fff;
+  cursor: default;
+}
+
+.tabs.tabs22 .tabs-list .tabs-tab[aria-selected='true'] p {
+  color: #fff;
+  border-bottom: 2px solid #fff;
+  padding-bottom: 0.2rem;
+  width: fit-content;
+  margin: auto;
+}
+
+.tabs.tabs22 .tabs-list .tabs-tab[aria-selected='false'] p {
+  color: #666;
+  border-bottom: none;
+}
+
+/* Remove any default border/background styles */
+.tabs.tabs22 .tabs-list .tabs-tab,
+.tabs.tabs22 .tabs-list .tabs-tab[aria-selected='true'] {
+  background: none;
+  border: none;
+}
+
+/* Tab focus outline */
+.tabs.tabs22 .tabs-list .tabs-tab:focus {
+  outline: 1px solid #fff;
+  outline-offset: 2px;
+}
+
+/* Tab panel block - no border/padding */
+.tabs.tabs22 .tabs-panel {
+  border: none;
+  background: none;
+  box-shadow: none;
+  margin: 0;
+  padding: 0;
+  display: none;
+}
+
+/* Only show active tab panel */
+.tabs.tabs22 .tabs-panel[aria-hidden="false"] {
+  display: block;
+}
+
+/* Panel content - vertical stacking and centering */
+.tabs.tabs22 .tabs-panel > div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+}
+
+/* Heading styles */
+.tabs.tabs22 .tabs-panel h3 {
+  color: #fff;
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 3.5rem;
+  font-weight: 600;
+  letter-spacing: 0.09em;
+  margin-top: 0;
+  margin-bottom: 2.2rem;
+  line-height: 1.13;
+  word-break: break-word;
+  overflow-wrap: break-word;
+}
+
+/* Responsive heading adjustments */
+@media (width <= 650px) {
+  .tabs.tabs22 .tabs-panel h3 {
+    font-size: 2.1rem;
+    letter-spacing: 0.07em;
+    margin-bottom: 1.2rem;
+    max-width: 95vw;
+  }
+}
+
+/* Image wrapper - ensure visible and zero margin */
+.tabs.tabs22 .tabs-panel > div > p {
+  margin: 0;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+  margin-bottom: 1.5rem;
+}
+
+/* Ensure image and picture are visible and properly sized */
+.tabs.tabs22 .tabs-panel > div > p > picture,
+.tabs.tabs22 .tabs-panel > div > p > picture > img {
+  display: block;
+  margin: 0 auto;
+  width: 100%;
+  max-width: 900px;
+  border-radius: 2rem;
+  box-shadow: none;
+  background: none;
+  height: auto;
+  object-fit: cover;
+  visibility: visible;
+  opacity: 1;
+}
+
+/* Responsive image adjustments */
+@media (width <= 950px) {
+  .tabs.tabs22 .tabs-panel > div > p > picture,
+  .tabs.tabs22 .tabs-panel > div > p > picture > img {
+    max-width: 97vw;
+    border-radius: 1.2rem;
+  }
+}
+
+/* Margin below image for air */
+
+/* Prevent wide blocks from stretching too far on very large screens */
+
+/* Center everything inside block */
+.tabs.tabs22 .tabs-panel,
+.tabs.tabs22 .tabs-panel > div {
+  align-items: center;
+  justify-content: center;
 }
