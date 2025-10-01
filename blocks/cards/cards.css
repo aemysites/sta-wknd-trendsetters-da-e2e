@@ -749,7 +749,6 @@
   }
 }
 
-/* Ensure images display and fill their container */
 .cards.cards34 .cards-card-image {
   flex: 0 0 48%;
   display: flex;
@@ -779,7 +778,6 @@
   }
 }
 
-/* Card content area: align content to the top, compact spacing */
 .cards.cards34 .cards-card-body {
     padding: 16px 14px 20px;
     gap: 8px;
@@ -792,7 +790,6 @@
   }
 }
 
-/* Label + meta as flex row using grid */
 .cards.cards34 .cards-card-body-row {
   display: flex;
   align-items: center;
@@ -823,7 +820,6 @@
   margin-top: 0;
 }
 
-/* Dot as a visual separator between pill and meta */
 .cards.cards34 .cards-card-body > p:first-child::after {
   display: inline-block;
   width: 5px;
@@ -843,7 +839,6 @@
   margin-top: 0;
 }
 
-/* Title styling */
 .cards.cards34 .cards-card-body h3 {
   font-size: 22px;
   font-weight: 700;
@@ -854,7 +849,6 @@
   line-height: 1.2;
 }
 
-/* Description text */
 .cards.cards34 .cards-card-body > p:nth-child(4) {
   color: #555;
   font-size: 16px;
@@ -862,7 +856,6 @@
   margin: 0 0 10px;
 }
 
-/* "Read" link: understated, inline */
 .cards.cards34 .cards-card-body .button-container {
   margin: 0;
   padding: 0;
@@ -885,4 +878,88 @@
   cursor: pointer;
 }
 
-/* Prevent overflow/collapsing in content */
+
+.cards.cards35 > ul {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 36px;
+  list-style: none;
+  margin: 0 auto;
+  padding: 0;
+  max-width: 1080px;
+  justify-content: center;
+  align-items: stretch;
+}
+
+@media (width <= 950px) {
+  .cards.cards35 > ul {
+    grid-template-columns: repeat(2, 1fr);
+    max-width: 720px;
+    gap: 32px 24px;
+  }
+}
+
+@media (width <= 650px) {
+  .cards.cards35 > ul {
+    grid-template-columns: 1fr;
+    max-width: 400px;
+    gap: 24px 0;
+  }
+}
+
+.cards.cards35 > ul > li {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: stretch;
+  background: #fff;
+  border-radius: 20px;
+  overflow: hidden;
+  min-width: 0;
+  border: none;
+  box-sizing: border-box;
+  margin: 0;
+}
+
+.cards.cards35 .cards-card-image,
+.cards.cards35 .cards-card-body {
+  display: block;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.cards.cards35 .cards-card-image {
+  aspect-ratio: 1/1;
+  background: #fff;
+  overflow: hidden;
+}
+
+.cards.cards35 .cards-card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  border-radius: 20px 20px 0 0;
+  background: #fff;
+}
+
+.cards.cards35 .cards-card-body {
+  padding: 12px 18px;
+  background: #fff;
+  border-radius: 0 0 20px 20px;
+  min-height: 42px;
+  box-sizing: border-box;
+}
+
+.cards.cards35 .cards-card-body h3 {
+  font-size: 0.93rem;
+  font-weight: 700;
+  color: #222;
+  margin: 0;
+  letter-spacing: 0.01em;
+  line-height: 1.32;
+  text-align: left;
+  overflow-wrap: break-word;
+  max-width: 100%;
+}
