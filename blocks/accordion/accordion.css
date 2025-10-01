@@ -68,7 +68,6 @@
   box-sizing: border-box;
 }
 
-/* Each row divided by a bottom border, no gap between items */
 .accordion.accordion17 details {
   border: none;
   border-bottom: 1px solid #E0E0DC;
@@ -85,7 +84,6 @@
   margin-top: 0;
 }
 
-/* Side-by-side row: left-tight text, right-flush chevron */
 .accordion.accordion17 summary {
   display: flex;
   flex-direction: row;
@@ -113,7 +111,6 @@
   color: transparent;
 }
 
-/* Summary text: fills row, ellipsis if long, line-height for visual balance */
 .accordion.accordion17 summary p {
   margin: 0;
   padding: 0;
@@ -129,7 +126,6 @@
   white-space: nowrap;
 }
 
-/* Chevron absolutely positioned, nearly flush right */
 .accordion.accordion17 summary::after {
   position: absolute;
   top: 50%;
@@ -147,12 +143,10 @@
   pointer-events: none;
 }
 
-/* Flip chevron on open */
 .accordion.accordion17 details[open] summary::after {
   transform: translateY(-50%) rotate(-45deg);
 }
 
-/* Accordion body: matches summary left/right padding, visually balanced */
 .accordion.accordion17 .accordion-item-body {
   padding: 0 10px 14px;
   background: #FAFAF7;
@@ -163,4 +157,138 @@
 .accordion.accordion17 details[open] .accordion-item-body {
   border-top: 1px solid #E0E0DC;
   background: #FAFAF7;
+}
+
+
+.accordion.accordion18 {
+  background: #fff;
+  padding: 0;
+}
+
+/* Use grid for more robust two-column layout */
+.accordion.accordion18 details,
+.accordion.accordion18 details[open] {
+  display: grid;
+  grid-template-columns: 40% 60%;
+  align-items: center;
+  border: none;
+  border-bottom: 1px solid #D9D9D9;
+  margin: 0;
+  padding: 0;
+  min-height: 54px;
+  background: #fff;
+  box-shadow: none;
+  position: relative;
+}
+
+.accordion.accordion18 details:last-of-type {
+  border-bottom: none;
+}
+
+.accordion.accordion18 details + details {
+  margin-top: 0;
+}
+
+/* Remove summary arrow, make summary visually inert */
+.accordion.accordion18 summary {
+  grid-column: 1 / 2;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  cursor: default;
+  background: transparent;
+  outline: none;
+  user-select: text;
+  display: flex;
+  align-items: center;
+  height: 100%;
+}
+
+.accordion.accordion18 summary::-webkit-details-marker,
+.accordion.accordion18 summary::marker,
+.accordion.accordion18 summary::after {
+  display: none;
+}
+
+/* Question styling */
+.accordion.accordion18 .accordion-item-label {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  padding: 0;
+}
+
+.accordion.accordion18 .accordion-item-label p {
+  margin: 0;
+  color: #757575;
+  font-size: 16px;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  line-height: 1.2;
+  width: 100%;
+  overflow-wrap: break-word;
+}
+
+/* Answer column, always show even when details is closed */
+.accordion.accordion18 .accordion-item-body {
+  grid-column: 2 / 3;
+  display: flex;
+  align-items: center;
+  padding: 0 0 0 16px;
+  margin: 0;
+  min-height: 1em;
+  visibility: visible;
+  opacity: 1;
+  pointer-events: auto;
+  position: static;
+}
+
+.accordion.accordion18 .accordion-item-body p {
+  margin: 0;
+  color: #444;
+  font-size: 11px;
+  font-weight: 400;
+  line-height: 1.4;
+  width: 100%;
+  word-wrap: break-word;
+}
+
+/* Try to always show answer even if details is closed */
+.accordion.accordion18 details:not([open]) .accordion-item-body {
+  display: flex;
+  visibility: visible;
+  opacity: 1;
+  pointer-events: auto;
+  position: static;
+  height: auto;
+  max-height: none;
+  overflow: visible;
+}
+
+/* Remove border/background from answer when open */
+.accordion.accordion18 details[open] .accordion-item-body {
+  border-top: none;
+  background: transparent;
+}
+
+/* Responsive: stack columns vertically on mobile */
+@media (width <= 600px) {
+  .accordion.accordion18 details,
+  .accordion.accordion18 details[open] {
+    grid-template-columns: 1fr;
+    min-height: unset;
+  }
+
+  .accordion.accordion18 summary,
+  .accordion.accordion18 .accordion-item-body {
+    grid-column: 1 / 2;
+    width: 100%;
+    padding: 0;
+    height: unset;
+  }
+
+  .accordion.accordion18 .accordion-item-body {
+    padding-top: 0.35em;
+  }
 }
