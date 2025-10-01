@@ -1,3 +1,4 @@
+/* stylelint-disable no-descending-specificity */
 .cards > ul {
   list-style: none;
   margin: 0;
@@ -25,3 +26,124 @@
   aspect-ratio: 4 / 3;
   object-fit: cover;
 }
+
+
+.cards.cards2 {
+  width: 100%;
+  display: block;
+  background: var(--background-color);
+  padding: 40px 0;
+}
+
+/* Use flexbox for side-by-side layout of cards in the row */
+.cards.cards2 > ul {
+  display: flex;
+  flex-flow: row wrap;
+  gap: 40px;
+  justify-content: center;
+  align-items: flex-start;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+/* Responsive: stack cards vertically on smaller screens */
+@media (width <= 900px) {
+  .cards.cards2 > ul {
+    flex-direction: column;
+    gap: 28px;
+    align-items: stretch;
+  }
+}
+
+/* Each card: same width, visually balanced, clean shadow, rounded corners */
+.cards.cards2 > ul > li {
+  background: #fff;
+  border-radius: 24px;
+  box-shadow: 0 2px 20px 0 rgb(48 68 86 / 8%);
+  overflow: hidden;
+  border: none;
+  min-width: 0;
+  max-width: 540px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  flex: 1 1 0;
+  min-height: 0;
+}
+
+/* Card image: top, aspect ratio, only rounded on top corners */
+.cards.cards2 .cards-card-image img {
+  width: 100%;
+  object-fit: cover;
+  border-radius: 24px 24px 0 0;
+  display: block;
+  aspect-ratio: 16/7;
+  min-height: 180px;
+}
+
+/* Card body: consistent padding */
+.cards.cards2 .cards-card-body {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  padding: 32px 32px 28px;
+}
+
+/* Card heading: prominent, spaced, uppercase */
+.cards.cards2 .cards-card-body h3 {
+  font-size: 1.45rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--text-color);
+  margin: 0 0 14px;
+  line-height: 1.12;
+}
+
+/* Card body text: smaller, lighter, clean margins */
+.cards.cards2 .cards-card-body p {
+  color: #5A5A5A;
+  font-size: 1.09rem;
+  font-weight: 400;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* "Read more" button styling for last <p> only in the first card (feature) */
+.cards.cards2 > ul > li:first-child .cards-card-body p:last-child {
+  display: inline-block;
+  border: 1.5px solid #191919;
+  border-radius: 24px;
+  padding: 8px 26px;
+  font-size: 1rem;
+  color: #191919;
+  background: #fff;
+  font-weight: 500;
+  letter-spacing: 0.03em;
+  cursor: pointer;
+  margin-top: 18px;
+  transition: background 0.2s, color 0.2s;
+  align-self: flex-start;
+}
+
+.cards.cards2 > ul > li:first-child .cards-card-body p:last-child:hover {
+  background: #191919;
+  color: #fff;
+}
+
+/* Remove border/button styling for last <p> in non-feature cards */
+.cards.cards2 > ul > li:not(:first-child) .cards-card-body p:last-child {
+  border: none;
+  padding: 0;
+  background: none;
+  color: #5A5A5A;
+  cursor: default;
+  margin-top: 0;
+}
+
+/* Prevent excessive stretching for small numbers of cards */
+
+/* Prevent overflow and align items to the top of the card area */
