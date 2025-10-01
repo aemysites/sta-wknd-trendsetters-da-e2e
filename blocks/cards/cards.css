@@ -592,7 +592,6 @@
   min-height: 680px;
 }
 
-/* Right column: Beach card spans two rows, stays tall */
 .cards.cards26 ul > li:nth-child(2) {
   grid-row: 1 / 3;
   grid-column: 2 / 3;
@@ -613,19 +612,16 @@
   transition: box-shadow 0.2s;
 }
 
-/* Left cards: Make them more square (closer to original) */
 .cards.cards26 ul > li:not(:nth-child(2)) {
   min-height: 340px;
   aspect-ratio: 1/1;
   align-self: stretch;
 }
 
-/* Hover effect for depth */
 .cards.cards26 ul > li:hover {
   box-shadow: 0 12px 48px rgb(80 80 80 / 18%);
 }
 
-/* Fill card with image background */
 .cards.cards26 .cards-card-image {
   position: absolute;
   inset: 0;
@@ -645,7 +641,6 @@
   display: block;
 }
 
-/* Overlay text, with text-shadow for better readability */
 .cards.cards26 .cards-card-body {
   position: absolute;
   top: 0;
@@ -668,7 +663,6 @@
   padding: 58px 56px 44px;
 }
 
-/* Typography tweaks for visual hierarchy */
 .cards.cards26 .cards-card-body h3 {
   font-size: 2.7rem;
   color: #232323;
@@ -687,7 +681,6 @@
   text-shadow: 0 2px 12px rgb(0 0 0 / 9%);
 }
 
-/* Responsive adjustments for mobile */
 @media (width <= 900px) {
   .cards.cards26 ul {
     grid-template-columns: 1fr;
@@ -716,3 +709,180 @@
     text-shadow: 0 2px 8px rgb(0 0 0 / 12%);
   }
 }
+
+
+.cards.cards34 ul {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+@media (width <= 900px) {
+  .cards.cards34 ul {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+}
+
+.cards.cards34 ul > li {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  background: #fff;
+  border-radius: 18px;
+  box-shadow: 0 2px 16px rgb(40 40 40 / 6%);
+  border: none;
+  min-height: 240px;
+  overflow: hidden;
+  position: relative;
+}
+
+@media (width <= 900px) {
+  .cards.cards34 ul > li {
+    flex-direction: column;
+    min-height: 0;
+    border-radius: 18px;
+    max-width: 100%;
+  }
+}
+
+/* Ensure images display and fill their container */
+.cards.cards34 .cards-card-image {
+  flex: 0 0 48%;
+  display: flex;
+  align-items: stretch;
+  justify-content: stretch;
+  overflow: hidden;
+  border-radius: 18px 0 0 18px;
+  padding: 0;
+  margin: 0;
+  background: none;
+  min-height: 240px;
+}
+
+.cards.cards34 .cards-card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 18px 0 0 18px;
+  display: block;
+}
+
+@media (width <= 900px) {
+  .cards.cards34 .cards-card-image,
+  .cards.cards34 .cards-card-image img {
+    border-radius: 18px 18px 0 0;
+    min-height: 180px;
+  }
+}
+
+/* Card content area: align content to the top, compact spacing */
+.cards.cards34 .cards-card-body {
+    padding: 16px 14px 20px;
+    gap: 8px;
+  }
+
+@media (width <= 900px) {
+  .cards.cards34 .cards-card-body {
+    padding: 16px 14px 20px;
+    gap: 8px;
+  }
+}
+
+/* Label + meta as flex row using grid */
+.cards.cards34 .cards-card-body-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 6px;
+}
+
+.cards.cards34 .cards-card-body > p:first-child,
+.cards.cards34 .cards-card-body > p:nth-child(2) {
+  margin: 0;
+  font-size: 13px;
+  line-height: 1.2;
+  vertical-align: middle;
+  padding: 0;
+  margin-bottom: 0;
+}
+
+.cards.cards34 .cards-card-body > p:first-child {
+  background: #F0F0F0;
+  color: #585858;
+  font-weight: 600;
+  padding: 3px 12px;
+  border-radius: 16px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-right: 8px;
+  position: relative;
+  margin-top: 0;
+}
+
+/* Dot as a visual separator between pill and meta */
+.cards.cards34 .cards-card-body > p:first-child::after {
+  display: inline-block;
+  width: 5px;
+  height: 5px;
+  margin-left: 8px;
+  margin-right: 0;
+  background: #bbb;
+  border-radius: 50%;
+  vertical-align: middle;
+  content: "";
+}
+
+.cards.cards34 .cards-card-body > p:nth-child(2) {
+  color: #888;
+  margin-left: 0;
+  font-weight: 400;
+  margin-top: 0;
+}
+
+/* Title styling */
+.cards.cards34 .cards-card-body h3 {
+  font-size: 22px;
+  font-weight: 700;
+  color: #363636;
+  letter-spacing: 0.06em;
+  margin: 10px 0 3px;
+  text-transform: uppercase;
+  line-height: 1.2;
+}
+
+/* Description text */
+.cards.cards34 .cards-card-body > p:nth-child(4) {
+  color: #555;
+  font-size: 16px;
+  line-height: 1.5;
+  margin: 0 0 10px;
+}
+
+/* "Read" link: understated, inline */
+.cards.cards34 .cards-card-body .button-container {
+  margin: 0;
+  padding: 0;
+}
+
+.cards.cards34 .cards-card-body .button-container .button {
+  font-size: 15px;
+  color: #363636;
+  font-weight: 400;
+  text-decoration: underline;
+  background: none;
+  border: none;
+  border-radius: 0;
+  box-shadow: none;
+  padding: 0;
+  min-width: 0;
+  line-height: 1.3;
+  display: inline;
+  margin: 0;
+  cursor: pointer;
+}
+
+/* Prevent overflow/collapsing in content */
