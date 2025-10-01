@@ -2,11 +2,14 @@
 .columns > div {
   display: flex;
   flex-direction: row;
-  align-items: center;
-  justify-content: center;
+  align-items: flex-start;
+  justify-content: flex-start;
   width: 100%;
   margin: 0;
   padding: 0;
+  gap: 64px;
+  max-width: 1080px;
+  box-sizing: border-box;
 }
 
 .columns img {
@@ -46,14 +49,14 @@
 
 
 .columns {
-  background: #F7F8F5;
+  background: #fafaf6;
   width: 100%;
-  min-height: 210px; /* Ensures the block is visually tall enough for vertical centering */
+  min-height: 0;
   display: flex;
   flex-direction: column;
-  justify-content: center; /* Center children vertically */
-  align-items: stretch;
-  padding: 0;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 36px 0 40px;
   box-sizing: border-box;
 }
 
@@ -73,10 +76,9 @@
   padding: 0;
   max-width: 900px;
   width: 100%;
-
-  /* Extra vertical margin to visually center the text with respect to the block */
   margin-top: 0;
   margin-bottom: 0;
+  display: none;
 }
 
 @media (width <= 900px) {
@@ -87,4 +89,123 @@
   .columns > div {
     flex-direction: column;
   }
+}
+
+@media (width <= 900px) {
+  .columns > div {
+    flex-direction: column;
+    gap: 36px;
+    align-items: stretch;
+    max-width: 98vw;
+  }
+}
+
+/* Image column: square, flush with top */
+.columns > div > div:first-child {
+  width: 370px;
+  min-width: 270px;
+  height: 370px;
+  border-radius: 32px;
+  box-shadow: 0 2px 24px 0 rgb(20 20 20 / 10%);
+  background: url('https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=370&q=80') center center / cover no-repeat;
+  display: block;
+  overflow: hidden;
+  margin: 0;
+}
+
+@media (width <= 900px) {
+  .columns > div > div:first-child {
+    width: 94vw;
+    max-width: 370px;
+    height: 56vw;
+    min-height: 220px;
+    margin: 0 auto;
+  }
+}
+
+/* Hide any text inside the image block */
+
+/* Right column: vertical stack, slightly narrower */
+.columns > div > div:last-child {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  max-width: 470px;
+  min-width: 250px;
+  width: 100%;
+  padding: 0;
+}
+
+/* Headline: large, tight, flush with top */
+.columns > div > div:last-child h2 {
+  display: block;
+  font-size: 4rem;
+  font-weight: 600;
+  color: #131313;
+  line-height: 1.01; /* Extra tight */
+  margin: 0 0 16px; /* Remove all top margin, reduce bottom margin */
+  letter-spacing: 0;
+  text-align: left;
+  overflow-wrap: break-word; /* Replaced deprecated word-break: break-word */
+  word-wrap: break-word; /* Added to maintain identical visual behavior */
+  hyphens: auto;
+}
+
+@media (width <= 900px) {
+  .columns > div > div:last-child h2 {
+    font-size: 2.1rem;
+    margin-bottom: 12px;
+  }
+}
+
+/* Paragraphs: relaxed, but not too loose */
+.columns > div > div:last-child p {
+  color: #4a4a4a;
+  font-size: 1.13rem;
+  line-height: 1.62;
+  margin: 0 0 18px;
+  text-align: left;
+}
+
+.columns > div > div:last-child p:first-of-type {
+  margin-top: 12px; /* Gentle space after headline */
+}
+
+.columns > div > div:last-child p:last-child {
+  margin-bottom: 0;
+}
+
+/* Button container and buttons (if present in HTML) */
+.columns > div > div:last-child .button-container {
+  display: flex;
+  flex-direction: row;
+  gap: 18px;
+  margin-top: 18px;
+}
+
+.columns > div > div:last-child .button-container a.button,
+.columns > div > div:last-child .button-container button {
+  background: #fff;
+  color: #1a1a1a;
+  border: 1.5px solid #191919;
+  padding: 0.67em 1.9em;
+  border-radius: 2.2em;
+  font-size: 1.13rem;
+  font-weight: 500;
+  box-shadow: none;
+  line-height: 1.2;
+  transition: background 0.14s, color 0.14s;
+}
+
+.columns > div > div:last-child .button-container a.button:hover,
+.columns > div > div:last-child .button-container button:hover {
+  background: #191919;
+  color: #fff;
+}
+
+/* Hide additional columns not in use */
+.columns > div > div:not(:first-child, :last-child) {
+  display: none;
 }
