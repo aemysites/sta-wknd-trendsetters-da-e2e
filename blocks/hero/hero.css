@@ -58,7 +58,6 @@
   padding: 0;
 }
 
-/* Make the image fill the hero as a pseudo-background */
 .hero.hero6 > div:first-child {
   position: absolute;
   inset: 0;
@@ -79,7 +78,6 @@
   pointer-events: none;
 }
 
-/* Overlay content positioning */
 .hero.hero6 > div:last-child {
   position: relative;
   z-index: 2;
@@ -91,7 +89,6 @@
   pointer-events: auto;
 }
 
-/* Overlay box styling and alignment (left + vertical center) */
 .hero.hero6 > div:last-child > div {
   background: rgb(36 36 36 / 60%);
   border: 2px solid #fff;
@@ -142,7 +139,6 @@
   justify-content: flex-start;
 }
 
-/* Pill-style button look */
 .hero.hero6 .button-container .button {
   font-size: 1rem;
   padding: 10px 34px;
@@ -164,7 +160,6 @@
   border-color: #fff;
 }
 
-/* Responsive for medium screens */
 @media (width <= 980px) {
   .hero.hero6 > div:last-child > div {
     margin-left: 8px;
@@ -190,7 +185,6 @@
   }
 }
 
-/* Responsive for small screens */
 @media (width <= 640px) {
   .hero.hero6 > div:last-child > div {
     margin-left: 3vw;
@@ -222,5 +216,195 @@
     width: 100%;
     padding-left: 0;
     padding-right: 0;
+  }
+}
+
+
+.hero-container > .hero-wrapper {
+  max-width: unset;
+  padding: 0;
+}
+
+.hero.hero20 {
+  position: relative;
+  min-height: 90vh;
+  width: 100vw;
+  overflow: hidden;
+  padding: 0;
+  background: #000;
+  display: block;
+}
+
+/* --- IMAGE COLLAGE GRID --- */
+.hero.hero20 > div:first-child {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: grid;
+
+  /* Use a 3x3 grid for 9 images. Adjust row/column count for fewer/more images. */
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  gap: 0;
+  z-index: 1;
+}
+
+/* Each <p> in the grid should fill its cell and not overlap */
+.hero.hero20 > div:first-child > div {
+  display: contents;
+}
+
+.hero.hero20 > div:first-child > div > p {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  display: block;
+
+  /* Ensure each <p> is a grid item */
+}
+
+.hero.hero20 > div:first-child > div > p > picture,
+.hero.hero20 > div:first-child > div > p > picture > img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* --- SUBTLE GRADIENT OVERLAY FOR LEGIBILITY --- */
+.hero.hero20::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+  background: linear-gradient(180deg,rgb(0 0 0 / 12%) 0%,rgb(0 0 0 / 30%) 100%);
+}
+
+/* --- CENTRAL TEXT OVERLAY --- */
+.hero.hero20 > div:last-child {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+}
+
+.hero.hero20 > div:last-child > div {
+  width: 100%;
+  max-width: 950px;
+  margin: 0 auto;
+  text-align: center;
+  color: #fff;
+  pointer-events: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: none;
+  border-radius: 0;
+  padding: 0;
+}
+
+/* --- HEADLINE --- */
+.hero.hero20 h1 {
+  font-size: clamp(2.5rem, 7vw, 5.6rem);
+  font-weight: 600;
+  line-height: 1.07;
+  letter-spacing: 0.03em;
+  color: #fff;
+  margin-bottom: 1.1rem;
+  margin-top: 0;
+  text-shadow: 0 4px 32px rgb(0 0 0 / 70%), 0 1px 3px rgb(0 0 0 / 23%);
+}
+
+/* --- DESCRIPTION --- */
+.hero.hero20 > div:last-child p:not(:last-child) {
+  font-size: 1.22rem;
+  color: rgb(255 255 255 / 96%);
+  margin: 0 auto 2.2rem;
+  text-shadow: 0 2px 10px rgb(0 0 0 / 29%);
+  max-width: 720px;
+}
+
+/* --- BUTTON ROW --- */
+.hero.hero20 > div:last-child p:last-child {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 2.2rem;
+  margin-bottom: 0;
+  margin-top: 0;
+  width: 100%;
+  max-width: 420px;
+}
+
+.hero.hero20 > div:last-child p:last-child a {
+  display: inline-block;
+  border: 2px solid #fff;
+  background: transparent;
+  border-radius: 2.6em;
+  padding: 0.78em 2.5em;
+  font-size: 1.09rem;
+  color: #fff;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  transition: background 0.2s, color 0.2s;
+  text-decoration: none;
+  margin: 0;
+  text-align: center;
+  box-sizing: border-box;
+  white-space: nowrap;
+}
+
+.hero.hero20 > div:last-child p:last-child a:hover,
+.hero.hero20 > div:last-child p:last-child a:focus {
+  background: #fff;
+  color: #222;
+  text-decoration: none;
+}
+
+/* --- RESPONSIVE GRID ADJUSTMENTS --- */
+@media (width <= 900px) {
+  .hero.hero20 > div:first-child {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: repeat(5, 1fr);
+  }
+
+  .hero.hero20 h1 {
+    font-size: clamp(2rem, 9vw, 3.2rem);
+  }
+
+  .hero.hero20 > div:last-child > div {
+    max-width: 98vw;
+    padding: 0;
+  }
+}
+
+@media (width <= 600px) {
+  .hero.hero20 > div:first-child {
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(9, 1fr);
+  }
+
+  .hero.hero20 h1 {
+    font-size: clamp(1.3rem, 9vw, 2.2rem);
+  }
+
+  .hero.hero20 > div:last-child > div {
+    padding: 0;
+    max-width: 99vw;
+  }
+
+  .hero.hero20 > div:last-child p:last-child {
+    flex-direction: column;
+    gap: 1.2rem;
+    max-width: 210px;
   }
 }
