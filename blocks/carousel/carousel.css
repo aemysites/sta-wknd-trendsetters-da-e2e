@@ -1,3 +1,4 @@
+/* stylelint-disable no-descending-specificity */
 .carousel .carousel-slides-container {
   position: relative;
 }
@@ -99,7 +100,6 @@
   z-index: 1;
 }
 
-/* stylelint-disable-next-line no-descending-specificity */
 .carousel .carousel-navigation-buttons button {
   position: relative;
   width: 44px;
@@ -150,4 +150,148 @@
   .carousel .carousel-slide .carousel-slide-content[data-align='justify'] {
     --slide-content-width: auto;
   }
+}
+
+
+.carousel.carousel24 {
+  position: relative;
+  background: white;
+  padding-left: 2vw;
+  padding-right: 2vw;
+  overflow: visible;
+}
+
+/* Main image collage effects */
+.carousel.carousel24 .carousel-slides-container {
+  position: relative;
+  z-index: 2;
+  transform: rotate(-3deg) scale(1.01);
+  box-shadow:
+    0 12px 80px 0 rgb(0 0 0 / 22%),
+    0 6px 32px 0 rgb(0 0 0 / 12%);
+  background: transparent;
+  border-radius: 8px;
+  clip-path: polygon(2% 0, 98% 2%, 99% 98%, 1% 97%);
+}
+
+/* Simulate layered collage: two "photo" borders */
+.carousel.carousel24 .carousel-slides-container::before,
+.carousel.carousel24 .carousel-slides-container::after {
+  content: "";
+  position: absolute;
+  z-index: 3;
+  pointer-events: none;
+}
+
+.carousel.carousel24 .carousel-slides-container::before {
+  left: 4vw;
+  top: 2vw;
+  width: 65%;
+  height: 89%;
+  border: 4px solid #ededed;
+  border-radius: 16px 30px 22px 12px;
+  transform: rotate(-8deg);
+  box-shadow: 0 6px 36px 0 rgb(0 0 0 / 8%);
+  opacity: 0.65;
+}
+
+.carousel.carousel24 .carousel-slides-container::after {
+  right: 5vw;
+  bottom: 3vw;
+  width: 55%;
+  height: 70%;
+  border: 2px dashed #eaeaea;
+  border-radius: 26px 12px 25px 30px;
+  transform: rotate(6deg);
+  opacity: 0.38;
+}
+
+/* Hide overlay text */
+.carousel.carousel24 .carousel-slide .carousel-slide-content {
+  display: none;
+}
+
+/* Sketchy lines: mix of straight, curved, and wobbly via SVG backgrounds */
+.carousel.carousel24 .carousel-sketch-line {
+  position: absolute;
+  z-index: 4;
+  height: 0;
+  pointer-events: none;
+  background: none;
+}
+
+/* Top left hand-drawn straight line */
+.carousel.carousel24 .carousel-sketch-line.sketch-top {
+  left: 2vw;
+  top: 12px;
+  width: 56vw;
+  border-top: 2.5px solid #363636;
+  border-radius: 18px 22px 0 0;
+  opacity: 0.35;
+  transform: rotate(-9deg);
+}
+
+/* Bottom right hand-drawn straight line */
+.carousel.carousel24 .carousel-sketch-line.sketch-bottom {
+  right: 7vw;
+  bottom: 14px;
+  width: 42vw;
+  border-top: 2px solid #222;
+  border-radius: 0 0 17px 21px;
+  opacity: 0.24;
+  transform: rotate(8deg);
+}
+
+/* Wobbly/curved SVG sketch line */
+.carousel.carousel24 .carousel-sketch-line.sketch-curve {
+  left: 12vw;
+  top: 36%;
+  width: 34vw;
+  height: 18px;
+  background: url('data:image/svg+xml;utf8,<svg width="100%" height="18" xmlns="http://www.w3.org/2000/svg"><path d="M0,12 Q30,0 70,10 Q120,25 190,4 Q270,15 350,0" stroke="%23333333" stroke-width="2.2" fill="none" opacity="0.28"/></svg>');
+  border-radius: 0;
+  opacity: 1;
+  border: none;
+  transform: rotate(-14deg);
+}
+
+/* Decorative angled label (handwritten style) */
+.carousel.carousel24 .carousel-overlay-label {
+  position: absolute;
+  left: 13vw;
+  bottom: 19%;
+  z-index: 5;
+  color: #232323;
+  font-size: 1rem;
+  letter-spacing: 0.07em;
+  opacity: 0.52;
+  background: transparent;
+  pointer-events: none;
+  transform: rotate(-13deg);
+  text-shadow: 0 1px 0 #fafafa;
+  font-style: italic;
+  padding-left: 8px;
+  padding-right: 10px;
+  border-radius: 12px;
+  border-bottom: 1px dashed #cfcfcf;
+
+  /* Add underline squiggle via svg background */
+  background-image: url('data:image/svg+xml;utf8,<svg width="100" height="7" xmlns="http://www.w3.org/2000/svg"><path d="M1 6 Q20 2 40 6 Q70 2 99 6" stroke="%23aaa" stroke-width="2" fill="none" opacity="0.7"/></svg>');
+  background-repeat: no-repeat;
+  background-position: left bottom;
+  background-size: 90px 7px;
+}
+
+/* Responsive gutter/margin */
+@media (width >= 600px) {
+  .carousel.carousel24 {
+    padding-left: 48px;
+    padding-right: 48px;
+  }
+}
+
+/* Hide navigation and indicators */
+.carousel.carousel24 .carousel-navigation-buttons,
+.carousel.carousel24 .carousel-slide-indicators {
+  display: none;
 }
