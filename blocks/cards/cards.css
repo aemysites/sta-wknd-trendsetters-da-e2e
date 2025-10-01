@@ -491,7 +491,6 @@
   box-shadow: 0 4px 24px rgb(34 34 34 / 6%);
 }
 
-/* 2x2 grid, cards side by side per row */
 .cards.cards23 > ul {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -503,7 +502,6 @@
   box-sizing: border-box;
 }
 
-/* Card styling */
 .cards.cards23 > ul > li {
   background: #fff;
   border-radius: 20px;
@@ -515,7 +513,6 @@
   justify-content: flex-start;
 }
 
-/* Card image styling */
 .cards.cards23 .cards-card-image {
   width: 100%;
   aspect-ratio: 16/10;
@@ -534,7 +531,6 @@
   display: block;
 }
 
-/* Card body styling */
 .cards.cards23 .cards-card-body {
   padding: 24px 24px 18px;
   flex: 1;
@@ -546,7 +542,6 @@
   box-sizing: border-box;
 }
 
-/* Headings and paragraphs */
 .cards.cards23 .cards-card-body h3 {
   font-size: 22px;
   font-weight: 700;
@@ -566,7 +561,6 @@
   text-align: left;
 }
 
-/* Responsive: stack cards vertically on smaller screens */
 @media (width <= 900px) {
   .cards.cards23 > ul {
     grid-template-columns: 1fr;
@@ -577,5 +571,148 @@
 
   .cards.cards23 > ul > li {
     min-height: 240px;
+  }
+}
+
+
+.cards.cards26 {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0;
+}
+
+.cards.cards26 ul {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: repeat(2, minmax(340px, 1fr));
+  gap: 32px;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  min-height: 680px;
+}
+
+/* Right column: Beach card spans two rows, stays tall */
+.cards.cards26 ul > li:nth-child(2) {
+  grid-row: 1 / 3;
+  grid-column: 2 / 3;
+  min-height: 680px;
+  align-self: stretch;
+  aspect-ratio: 3/4;
+}
+
+.cards.cards26 ul > li {
+  background: #fff;
+  border-radius: 32px;
+  box-shadow: 0 4px 24px rgb(80 80 80 / 12%);
+  overflow: hidden;
+  position: relative;
+  border: none;
+  min-height: 340px;
+  display: block;
+  transition: box-shadow 0.2s;
+}
+
+/* Left cards: Make them more square (closer to original) */
+.cards.cards26 ul > li:not(:nth-child(2)) {
+  min-height: 340px;
+  aspect-ratio: 1/1;
+  align-self: stretch;
+}
+
+/* Hover effect for depth */
+.cards.cards26 ul > li:hover {
+  box-shadow: 0 12px 48px rgb(80 80 80 / 18%);
+}
+
+/* Fill card with image background */
+.cards.cards26 .cards-card-image {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  line-height: 0;
+  display: block;
+}
+
+.cards.cards26 .cards-card-image picture,
+.cards.cards26 .cards-card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 32px;
+  display: block;
+}
+
+/* Overlay text, with text-shadow for better readability */
+.cards.cards26 .cards-card-body {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 2;
+  padding: 40px 42px 32px;
+  max-width: 60%;
+  color: #232323;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  background: none;
+  justify-content: flex-start;
+  box-sizing: border-box;
+  text-shadow: 0 2px 12px rgb(0 0 0 / 13%);
+}
+
+.cards.cards26 ul > li:nth-child(2) .cards-card-body {
+  max-width: 46%;
+  padding: 58px 56px 44px;
+}
+
+/* Typography tweaks for visual hierarchy */
+.cards.cards26 .cards-card-body h3 {
+  font-size: 2.7rem;
+  color: #232323;
+  font-weight: 400;
+  margin: 0 0 16px;
+  line-height: 1.04;
+  text-shadow: 0 2px 12px rgb(0 0 0 / 13%);
+}
+
+.cards.cards26 .cards-card-body p {
+  font-size: 1.15rem;
+  color: #606060;
+  font-weight: 400;
+  margin: 0;
+  line-height: 1.5;
+  text-shadow: 0 2px 12px rgb(0 0 0 / 9%);
+}
+
+/* Responsive adjustments for mobile */
+@media (width <= 900px) {
+  .cards.cards26 ul {
+    grid-template-columns: 1fr;
+    grid-template-rows: none;
+    gap: 20px;
+    min-height: unset;
+  }
+
+  .cards.cards26 ul > li,
+  .cards.cards26 ul > li:nth-child(2) {
+    min-height: 220px;
+    grid-row: auto;
+    grid-column: auto;
+    border-radius: 18px;
+    aspect-ratio: unset;
+  }
+
+  .cards.cards26 .cards-card-image img {
+    border-radius: 18px;
+  }
+
+  .cards.cards26 .cards-card-body {
+    max-width: 95%;
+    padding: 18px 14px 16px 16px;
+    border-radius: 0 0 14px 14px;
+    text-shadow: 0 2px 8px rgb(0 0 0 / 12%);
   }
 }
