@@ -970,7 +970,6 @@
   padding: 48px 0;
 }
 
-/* Centered grid with flexible columns and consistent appearance */
 .cards.cards36 > ul {
   display: grid;
   grid-template-columns: repeat(3, minmax(280px, 1fr));
@@ -983,7 +982,6 @@
   list-style: none;
 }
 
-/* Responsive breakpoints */
 @media (width <= 900px) {
   .cards.cards36 > ul {
     grid-template-columns: repeat(2, minmax(280px, 1fr));
@@ -1000,7 +998,6 @@
   }
 }
 
-/* Card structure and appearance */
 .cards.cards36 > ul > li {
   display: flex;
   flex-direction: column;
@@ -1015,7 +1012,6 @@
   box-sizing: border-box;
 }
 
-/* Remove background from image container so image is visible */
 .cards.cards36 .cards-card-image {
   width: 100%;
   aspect-ratio: 1 / 1;
@@ -1028,7 +1024,6 @@
   background: none;
 }
 
-/* Image fills the container, square, rounded top corners */
 .cards.cards36 .cards-card-image img,
 .cards.cards36 .cards-card-image picture {
   width: 100%;
@@ -1038,13 +1033,11 @@
   display: block;
 }
 
-/* Remove default image margin if any */
 .cards.cards36 .cards-card-image img {
   margin: 0;
   padding: 0;
 }
 
-/* Card body: tight vertical spacing, centered text */
 .cards.cards36 .cards-card-body {
   width: 100%;
   padding: 12px 20px 16px;
@@ -1057,22 +1050,229 @@
   justify-content: center;
 }
 
-/* Paragraph spacing in body */
 .cards.cards36 .cards-card-body p {
   margin: 0;
   padding: 0;
 }
 
-/* Subtle shadow on hover */
 .cards.cards36 > ul > li:hover {
   box-shadow: 0 8px 32px rgb(30 41 59 / 14%);
 }
 
-/* Prevent double border-radius on nested elements */
 .cards.cards36 > ul > li,
 .cards.cards36 .cards-card-image,
 .cards.cards36 .cards-card-image img {
   border-radius: 16px 16px 0 0;
 }
 
-/* Match vertical alignment of items within grid cells */
+
+.cards.cards37 {
+  background: #fff;
+  padding: 40px 24px;
+  box-sizing: border-box;
+}
+
+/* Layout: two columns, left for feature, right for vertical stack */
+.cards.cards37 > ul {
+  display: grid;
+  grid-template-columns: minmax(0, 54%) minmax(0, 46%);
+  grid-template-rows: auto;
+  gap: 0 56px;
+  align-items: start;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+@media (width <= 900px) {
+  .cards.cards37 > ul {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+  }
+}
+
+/* Left column: feature card spans vertically, stacks main image and headline */
+.cards.cards37 > ul > li:first-child {
+  grid-column: 1;
+  grid-row: 1 / span 2;
+  display: flex;
+  flex-direction: column;
+  background: none;
+  box-shadow: none;
+  border: none;
+  padding: 0;
+}
+
+/* Main card image */
+.cards.cards37 > ul > li:first-child .cards-card-image img {
+  border-radius: 24px;
+  width: 100%;
+  height: 350px;
+  object-fit: cover;
+  margin-bottom: 32px;
+  display: block;
+}
+
+/* Main card label */
+.cards.cards37 > ul > li:first-child .cards-card-body p:first-child {
+  display: inline-block;
+  background: #f5f5f5;
+  color: var(--dark-color);
+  border-radius: 999px;
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.07em;
+  padding: 5px 16px;
+  margin-bottom: 18px;
+  margin-top: 0;
+  text-transform: uppercase;
+}
+
+/* Main card headline */
+.cards.cards37 > ul > li:first-child .cards-card-body h3 {
+  font-size: 40px;
+  font-weight: 700;
+  color: var(--text-color);
+  text-transform: uppercase;
+  margin: 0 0 14px;
+  line-height: 1.1;
+}
+
+/* Main card description */
+.cards.cards37 > ul > li:first-child .cards-card-body p:last-child {
+  font-size: 17px;
+  color: #666;
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* Right column container: stack remaining cards vertically */
+.cards.cards37 > ul > li:not(:first-child) {
+  grid-column: 2;
+  background: none;
+  border: none;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  margin-bottom: 28px;
+}
+
+/* Stack right column cards with flex, except on mobile where flex-direction switches */
+
+@media (width <= 900px) {
+  .cards.cards37 > ul > li:not(:first-child) {
+    flex-direction: column;
+    margin-bottom: 24px;
+  }
+}
+
+/* Featured right card (second li) image styling */
+.cards.cards37 > ul > li:nth-child(2) .cards-card-image img,
+.cards.cards37 > ul > li:nth-child(3) .cards-card-image img {
+  width: 108px;
+  height: 80px;
+  object-fit: cover;
+  border-radius: 16px;
+  margin-right: 18px;
+  margin-bottom: 0;
+  display: block;
+}
+
+@media (width <= 900px) {
+  .cards.cards37 > ul > li:nth-child(2) .cards-card-image img,
+  .cards.cards37 > ul > li:nth-child(3) .cards-card-image img {
+    margin-bottom: 14px;
+    margin-right: 0;
+  }
+}
+
+/* Body for right column cards, fills remaining space */
+.cards.cards37 > ul > li:not(:first-child) .cards-card-body {
+  flex: 1;
+  min-width: 0;
+  padding: 0;
+  margin: 0;
+}
+
+/* Label pill for featured right cards */
+.cards.cards37 > ul > li:nth-child(2) .cards-card-body p:first-child,
+.cards.cards37 > ul > li:nth-child(3) .cards-card-body p:first-child {
+  display: inline-block;
+  background: #f5f5f5;
+  color: var(--dark-color);
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.07em;
+  padding: 4px 14px;
+  margin-bottom: 10px;
+  margin-top: 0;
+  text-transform: uppercase;
+}
+
+/* Headline for featured right cards */
+.cards.cards37 > ul > li:nth-child(2) .cards-card-body h3,
+.cards.cards37 > ul > li:nth-child(3) .cards-card-body h3 {
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--text-color);
+  text-transform: uppercase;
+  margin: 0 0 8px;
+  line-height: 1.15;
+}
+
+/* Description for featured right cards */
+.cards.cards37 > ul > li:nth-child(2) .cards-card-body p:last-child,
+.cards.cards37 > ul > li:nth-child(3) .cards-card-body p:last-child {
+  font-size: 16px;
+  color: #888;
+  margin: 0;
+  line-height: 1.45;
+}
+
+/* Hide images for the remaining right column cards (from 4th on) */
+.cards.cards37 > ul > li:nth-child(n+4) .cards-card-image {
+  display: none;
+}
+
+/* List-style right column cards (from 4th on) vertical stack, horizontal separators */
+.cards.cards37 > ul > li:nth-child(n+4) {
+  display: flex;
+  flex-direction: column;
+  border-bottom: 1px solid #e5e5e5;
+  padding-bottom: 24px;
+  margin-bottom: 0;
+}
+
+.cards.cards37 > ul > li:last-child {
+  border-bottom: none;
+}
+
+/* Headline for list-style right cards */
+.cards.cards37 > ul > li:nth-child(n+4) .cards-card-body h3 {
+  font-size: 17px;
+  color: var(--text-color);
+  font-weight: 700;
+  text-transform: uppercase;
+  margin: 0 0 6px;
+  line-height: 1.1;
+}
+
+/* Description for list-style right cards */
+.cards.cards37 > ul > li:nth-child(n+4) .cards-card-body p {
+  font-size: 15px;
+  color: #888;
+  margin: 0;
+  line-height: 1.45;
+}
+
+/* Remove extra margin from card bodies globally */
+.cards.cards37 .cards-card-body {
+  margin: 0;
+  padding: 0;
+}
