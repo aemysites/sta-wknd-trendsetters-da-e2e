@@ -270,7 +270,6 @@
   padding: 28px 0;
 }
 
-/* Flexbox horizontal row, reduced padding for tighter edge alignment */
 .cards.cards12 > ul {
   display: flex;
   flex-direction: row;
@@ -283,7 +282,6 @@
   box-sizing: border-box;
 }
 
-/* Card sizing and proportion: reduced height, less round corners, subtler shadow */
 .cards.cards12 > ul > li {
   background: #fff;
   border-radius: 24px;
@@ -300,7 +298,6 @@
   transition: box-shadow 0.2s;
 }
 
-/* Image section: proportions tweaked for more compact look */
 .cards.cards12 .cards-card-image {
   width: 100%;
   height: 65%;
@@ -322,7 +319,6 @@
   border-top-right-radius: 24px;
 }
 
-/* Card body: slightly less bottom padding for subtler float */
 .cards.cards12 .cards-card-body {
   display: flex;
   flex-direction: column;
@@ -332,7 +328,6 @@
   margin: 0;
 }
 
-/* Label/date pill: tighter, lighter background, more compact gap */
 .cards.cards12 .cards-card-body p {
   margin: 0 0 14px;
   font-size: 12px;
@@ -353,13 +348,11 @@
   opacity: 0.87;
 }
 
-/* Headline/title: less letter-spacing for geometric compactness */
 .cards.cards12 .cards-card-body h3 {
     font-size: 0.82rem;
     letter-spacing: 0.03em;
   }
 
-/* Responsive adjustments for mobile screens */
 @media (width <= 900px) {
   .cards.cards12 > ul {
     gap: 10px;
@@ -395,4 +388,106 @@
     font-size: 0.82rem;
     letter-spacing: 0.03em;
   }
+}
+
+
+.cards.cards19 {
+  background: #fff;
+}
+
+/* Grid layout: 4 columns, 2 rows, responsive */
+.cards.cards19 ul {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(2, auto);
+  gap: 32px 24px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+@media (width <= 900px) {
+  .cards.cards19 ul {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (width <= 600px) {
+  .cards.cards19 ul {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Each card: horizontal flex, icon and text side by side, top-aligned */
+.cards.cards19 ul > li {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  padding: 0;
+  border: none;
+  background: none;
+  min-height: 0;
+  box-sizing: border-box;
+}
+
+/* Remove default and previous margin/padding from card bodies */
+.cards.cards19 .cards-card-body {
+  margin: 0;
+  padding: 0;
+  min-width: 0; /* Ensures flex can shrink */
+}
+
+/* Icon container: left, with margin to text */
+.cards.cards19 ul > li .cards-card-body:first-child {
+  flex: 0 0 auto;
+  margin-right: 12px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  min-width: 20px;
+}
+
+/* Ensure the icon <img> is visible and sized correctly */
+.cards.cards19 ul > li .cards-card-body:first-child p {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  min-width: 20px;
+}
+
+.cards.cards19 ul > li .cards-card-body:first-child p img {
+  width: 20px;
+  height: 20px;
+  object-fit: contain;
+  display: block;
+  vertical-align: top;
+}
+
+/* Text container: right, fills remaining space, top-aligned */
+.cards.cards19 ul > li .cards-card-body:last-child {
+  flex: 1 1 0;
+  display: flex;
+  align-items: flex-start;
+  min-width: 0;
+}
+
+/* Style text: left-aligned, correct size and spacing */
+.cards.cards19 ul > li .cards-card-body:last-child p {
+  margin: 0;
+  font-size: 13px;
+  line-height: 1.4;
+  color: #232323;
+  text-align: left;
+  font-weight: 400;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  min-width: 0;
+}
+
+/* Ensure images never stretch vertically or horizontally */
+.cards.cards19 ul > li img {
+  max-width: 100%;
+  max-height: 100%;
 }
