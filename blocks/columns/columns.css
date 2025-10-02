@@ -1,3 +1,4 @@
+/* stylelint-disable no-descending-specificity */
 .columns > div {
   display: flex;
   flex-direction: column;
@@ -29,5 +30,141 @@
   .columns > div > div {
     flex: 1;
     order: unset;
+  }
+}
+
+
+.columns.columns3 {
+  background: #f7f7f2;
+  padding: 48px 0;
+  display: block;
+}
+
+/* Flex outer block, vertically centered row */
+.columns.columns3 .block.columns {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  padding: 0;
+  background: transparent;
+}
+
+/* Side-by-side columns, with slightly more breathing room */
+.columns.columns3 .block.columns div {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 22px; /* increased gap for more open feel */
+  width: 100%;
+  background: transparent;
+  padding: 0;
+}
+
+@media (width <= 900px) {
+  .columns.columns3 .block.columns div {
+    flex-direction: column;
+    gap: 20px;
+    align-items: stretch;
+  }
+}
+
+/* IMAGE COLUMN: slightly wider flex, larger possible image */
+.columns.columns3 .columns-img-col {
+  flex: 0 1 58%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.columns.columns3 .columns-img-col picture,
+.columns.columns3 .columns-img-col img {
+  display: block;
+  width: 100%;
+  max-width: 600px;
+  height: auto;
+  border-radius: 18px;
+  object-fit: cover;
+}
+
+/* TEXT COLUMN: slightly narrower flex and more room for headline */
+.columns.columns3 .columns-img-col + div {
+  flex: 0 1 42%;
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem; /* slightly more vertical gap for air */
+  align-items: flex-start;
+  justify-content: center;
+  width: 100%;
+}
+
+/* Headline: allow even wider for optimal wrapping */
+.columns.columns3 .columns-img-col + div h1 {
+  font-size: clamp(2.3rem, 5vw, 3.6rem);
+  font-weight: 600;
+  line-height: 1.1;
+  color: #222;
+  margin: 0 0 0.5rem;
+  letter-spacing: 0;
+  text-align: left;
+  max-width: 820px;
+}
+
+/* Paragraph: slightly more width and a touch more bottom margin */
+.columns.columns3 .columns-img-col + div p {
+  font-size: 1.08rem;
+  color: #444;
+  margin: 0 0 0.5rem;
+  line-height: 1.7;
+  max-width: 420px;
+}
+
+/* Button container: keep tight, but not cramped */
+.columns.columns3 .columns-img-col + div .button-container {
+  display: flex;
+  flex-direction: row;
+  gap: 0.45rem;
+  padding: 0;
+  margin: 0;
+}
+
+/* Button style: outlined pill, match original */
+.columns.columns3 .columns-img-col + div .button {
+  border: 2px solid #222;
+  border-radius: 22px;
+  background: #fff;
+  color: #222;
+  font-size: 1rem;
+  padding: 0.65rem 1.5rem;
+  margin: 0;
+  outline: none;
+  text-decoration: none;
+  font-weight: 500;
+  cursor: pointer;
+  box-shadow: none;
+  transition: background 0.15s, color 0.15s, border-color 0.15s;
+}
+
+.columns.columns3 .columns-img-col + div .button:hover,
+.columns.columns3 .columns-img-col + div .button:focus {
+  background: #222;
+  color: #fff;
+  border-color: #222;
+}
+
+@media (width <= 900px) {
+  .columns.columns3 {
+    padding: 32px 0;
+  }
+
+  .columns.columns3 .columns-img-col picture,
+  .columns.columns3 .columns-img-col img {
+    max-width: 100%;
+  }
+
+  .columns.columns3 .columns-img-col + div {
+    max-width: 100%;
+    gap: 0.7rem;
   }
 }
