@@ -35,7 +35,6 @@
   padding: 0;
 }
 
-/* Flex for side-by-side, top-aligned layout */
 .cards.cards2 ul {
   display: flex;
   flex-direction: row;
@@ -47,7 +46,6 @@
   list-style: none;
 }
 
-/* Remove default card borders/background */
 .cards.cards2 ul li {
   border: none;
   background: transparent;
@@ -56,7 +54,6 @@
   margin: 0;
 }
 
-/* Left feature card */
 .cards.cards2 ul li:first-child {
   flex: 1 1 65%;
   display: flex;
@@ -66,7 +63,6 @@
   max-width: 60vw;
 }
 
-/* Feature image: ensure it's always visible and fills container */
 .cards.cards2 ul li:first-child .cards-card-image {
   width: 100%;
   aspect-ratio: 1/1.13;
@@ -78,7 +74,6 @@
   min-height: 0;
 }
 
-/* Feature image actual img: fill and display */
 .cards.cards2 ul li:first-child .cards-card-image img {
   width: 100%;
   height: 100%;
@@ -87,13 +82,11 @@
   border-radius: 2vw;
 }
 
-/* Feature card body styles */
 .cards.cards2 ul li:first-child .cards-card-body {
   padding: 0;
   margin: 0;
 }
 
-/* Feature card heading */
 .cards.cards2 ul li:first-child .cards-card-body h3 {
   font-size: 2.35rem;
   font-weight: 600;
@@ -104,7 +97,6 @@
   letter-spacing: -0.02em;
 }
 
-/* Feature card paragraph */
 .cards.cards2 ul li:first-child .cards-card-body p {
   font-size: 1.14rem;
   line-height: 1.6;
@@ -113,7 +105,6 @@
   margin-top: 0;
 }
 
-/* Button style for last "Read more" paragraph */
 .cards.cards2 ul li:first-child .cards-card-body p:last-of-type {
   display: inline-block;
   padding: 10px 28px;
@@ -128,7 +119,6 @@
   transition: background 0.15s;
 }
 
-/* Right card column: top-aligned, same vertical start as image */
 .cards.cards2 ul li:not(:first-child) {
   flex: 1 1 35%;
   display: flex;
@@ -140,7 +130,6 @@
   margin-top: 0;
 }
 
-/* Card image style: ensure visibility, remove default background */
 .cards.cards2 ul li:not(:first-child) .cards-card-image {
   width: 100%;
   max-width: 340px;
@@ -154,7 +143,6 @@
   display: block;
 }
 
-/* Card image actual img */
 .cards.cards2 ul li:not(:first-child) .cards-card-image img {
   width: 100%;
   height: 100%;
@@ -163,14 +151,12 @@
   display: block;
 }
 
-/* Card body on right */
 .cards.cards2 ul li:not(:first-child) .cards-card-body {
   max-width: 340px;
   padding: 0;
   margin: 0;
 }
 
-/* Card headline */
 .cards.cards2 ul li:not(:first-child) .cards-card-body h3 {
   font-size: 1.14rem;
   font-weight: 500;
@@ -180,7 +166,6 @@
   letter-spacing: 0.01em;
 }
 
-/* Card paragraph */
 .cards.cards2 ul li:not(:first-child) .cards-card-body p {
   font-size: 1.01rem;
   color: #656565;
@@ -188,7 +173,6 @@
   margin: 0;
 }
 
-/* Responsive: stack vertically on smaller screens */
 @media (width <= 900px) {
   .cards.cards2 ul {
     flex-direction: column;
@@ -211,5 +195,135 @@
 
   .cards.cards2 ul li:first-child .cards-card-body h3 {
     font-size: 1.4rem;
+  }
+}
+
+
+.cards.cards10 {
+  background: #f7f8f6;
+  padding: 16px 0 0;
+}
+
+.cards.cards10 ul {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 10px;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  list-style: none;
+  align-items: stretch;
+}
+
+@media (width <= 1024px) {
+  .cards.cards10 ul {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (width <= 600px) {
+  .cards.cards10 ul {
+    grid-template-columns: 1fr;
+  }
+}
+
+.cards.cards10 li {
+  background: #fff;
+  border: 1px solid #e4e6e4;
+  border-radius: 20px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  margin: 0;
+  box-shadow: none;
+  align-self: stretch;
+}
+
+.cards.cards10 .cards-card-image {
+  width: 100%;
+  aspect-ratio: 15 / 13;
+  min-height: 0;
+  background: #ececec;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.cards.cards10 .cards-card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  display: block;
+  background: #ececec;
+}
+
+.cards.cards10 .cards-card-body {
+  background: #fff;
+  padding: 11px 14px 8px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  flex: 1;
+  box-sizing: border-box;
+}
+
+.cards.cards10 .cards-card-body p:first-child {
+  background: #f5f5f5;
+  color: #242424;
+  font-size: 13px;
+  font-weight: 700;
+  text-transform: uppercase;
+  border-radius: 14px;
+  padding: 4px 12px;
+  display: inline-block;
+  margin-bottom: 2px;
+  margin-top: 0;
+  letter-spacing: 0.6px;
+  line-height: 1.18;
+}
+
+.cards.cards10 .cards-card-body h3 {
+  color: #212121;
+  font-size: 1.31rem;
+  font-weight: 700;
+  margin: 0 0 2px;
+  text-transform: uppercase;
+  line-height: 1.08;
+  letter-spacing: 0.017em;
+}
+
+.cards.cards10 .cards-card-body p:last-child {
+  color: #595959;
+  font-size: 0.93rem;
+  margin: 0;
+  line-height: 1.32;
+  font-weight: 400;
+  letter-spacing: 0.01em;
+}
+
+.cards.cards10 .cards-card-body p:not(:first-child, :last-child) {
+  margin: 0 0 2px;
+  font-size: 0.97rem;
+  color: #232323;
+  letter-spacing: 0.01em;
+}
+
+@media (width <= 600px) {
+  .cards.cards10 li {
+    border-radius: 14px;
+  }
+
+  .cards.cards10 .cards-card-image {
+    aspect-ratio: 5 / 4;
+  }
+
+  .cards.cards10 .cards-card-body {
+    padding: 11px 7px 7px;
   }
 }
