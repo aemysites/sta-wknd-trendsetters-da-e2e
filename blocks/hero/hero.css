@@ -381,7 +381,6 @@
   padding: 0;
 }
 
-/* Collage grid fills block, positioned absolutely as background */
 .hero.hero20 div div:first-child {
   position: absolute;
   inset: 0;
@@ -409,7 +408,6 @@
   display: block;
 }
 
-/* Overlay for contrast */
 .hero.hero20 div div:first-child::after {
   position: absolute;
   inset: 0;
@@ -418,7 +416,6 @@
   pointer-events: none;
 }
 
-/* Content area (text + buttons) centered and overlayed */
 .hero.hero20 div div:last-child {
   position: absolute;
   inset: 0;
@@ -435,7 +432,6 @@
   background: none;
 }
 
-/* Headline styling */
 .hero.hero20 h1 {
   color: #fff;
   font-size: 80px;
@@ -448,7 +444,6 @@
   text-align: center;
 }
 
-/* Subheadline styling */
 .hero.hero20 p:not(.button-container) {
   color: #fff;
   font-size: 18px;
@@ -457,10 +452,6 @@
   max-width: 700px;
   text-align: center;
 }
-
-/* --- BUTTON FLEX LAYOUT: SIDE BY SIDE ON DESKTOP, STACKED ON MOBILE --- */
-
-/* The following assumes button containers are siblings inside the last child div. */
 
 .hero.hero20 div div:last-child p.button-container {
   display: flex;
@@ -471,12 +462,10 @@
   margin: 0.5em 0 0;
 }
 
-/* Ensure only the actual buttons inside p.button-container are next to each other */
 .hero.hero20 div div:last-child p.button-container a.button {
   margin: 0;
 }
 
-/* Hide extra margins that can break the flex layout between button containers */
 .hero.hero20 .button {
   margin: 0;
   padding: 0.75em 2em;
@@ -499,7 +488,6 @@
   color: #222;
 }
 
-/* Responsive: stack buttons on mobile, adjust headline */
 @media (width <= 900px) {
   .hero.hero20 {
     min-height: 80vh;
@@ -533,4 +521,173 @@
   }
 }
 
-/* Hero should span the full width of the page */
+
+.hero.hero25 {
+  background: #faf9f6;
+  width: 100%;
+  min-height: 100vh;
+  box-sizing: border-box;
+  padding: 0;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+
+.hero.hero25 .block {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  box-sizing: border-box;
+  background: none;
+  position: relative;
+  min-height: 700px;
+}
+
+.hero.hero25 .block div {
+  box-sizing: border-box;
+}
+
+/* Image/media area — positioned absolutely to overlap headline */
+.hero.hero25 .block div:first-child {
+  flex: 0 0 560px;
+  width: 560px;
+  min-width: 350px;
+  max-width: 560px;
+  height: 315px;
+  align-self: flex-start;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  margin: 0;
+  padding: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 2;
+}
+
+.hero.hero25 picture {
+  width: 100%;
+  max-width: 560px;
+  height: 315px;
+  margin: 0;
+  display: block;
+  position: static;
+}
+
+.hero.hero25 img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  border: none;
+}
+
+/* Text block — stretches full width, headline flows under image */
+.hero.hero25 .block div:last-child {
+  flex: 1 1 0;
+  min-width: 390px;
+  max-width: 900px;
+  margin-left: 0;
+  margin-top: 0;
+  padding-left: 0;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+
+.hero.hero25 h1 {
+  font-size: 4rem;
+  font-weight: 400;
+  letter-spacing: 0.04em;
+  line-height: 1.05;
+  color: #000;
+  text-align: left;
+  margin: 0 0 1.5vw;
+  max-width: 1100px;
+  box-sizing: border-box;
+  padding-top: 0;
+  position: relative;
+}
+
+.hero.hero25 p:not(.button-container) {
+  color: #404040;
+  font-size: 1rem;
+  line-height: 1.6;
+  margin: 1vw 0 0;
+  max-width: 350px;
+  text-align: left;
+  box-sizing: border-box;
+}
+
+.hero.hero25 .button-container {
+  display: flex;
+  flex-direction: row;
+  gap: 1vw;
+  width: 100%;
+  justify-content: flex-start;
+  align-items: center;
+  margin: 2vw 0 0;
+}
+
+.hero.hero25 .button {
+  background: #fff;
+  color: #000;
+  border: 2px solid #000;
+  font-size: 1rem;
+  font-weight: 500;
+  border-radius: 32px;
+  padding: 0.85em 2.2em;
+  box-shadow: none;
+  text-align: center;
+  transition: background 0.2s, color 0.2s;
+  margin: 0;
+  min-width: 0;
+  display: inline-block;
+}
+
+.hero.hero25 .button:hover,
+.hero.hero25 .button:focus {
+  background: #000;
+  color: #fff;
+  outline: none;
+}
+
+/* Responsive adjustments */
+@media (width <= 900px) {
+  .hero.hero25 .block {
+    flex-direction: column;
+    max-width: 100vw;
+    padding: 0 2vw;
+    min-height: unset;
+  }
+
+  .hero.hero25 .block div:first-child,
+  .hero.hero25 .block div:last-child {
+    position: static;
+    margin: 0;
+    min-width: 0;
+    max-width: 100%;
+    width: 100%;
+  }
+
+  .hero.hero25 h1 {
+    font-size: 2.1rem;
+    max-width: 100%;
+    margin: 0 0 1em;
+  }
+
+  .hero.hero25 p:not(.button-container) {
+    max-width: 100%;
+  }
+
+  .hero.hero25 .button-container {
+    gap: 3vw;
+  }
+}
