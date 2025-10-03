@@ -710,7 +710,6 @@
   padding: 0;
 }
 
-/* Grid layout for multi-card display, but each li is a stacking context */
 .cards.cards24 ul {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(410px, 1fr));
@@ -733,7 +732,6 @@
   align-items: flex-start;
 }
 
-/* Main image: large, rotated and outlined */
 .cards.cards24 .cards-card-image {
   position: relative;
   z-index: 2;
@@ -749,7 +747,6 @@
   overflow: hidden;
 }
 
-/* Ensure image fills its parent */
 .cards.cards24 .cards-card-image img,
 .cards.cards24 .cards-card-image picture {
   display: block;
@@ -760,7 +757,6 @@
   border-radius: 18px;
 }
 
-/* Text card: Deep overlap into image for collage effect */
 .cards.cards24 .cards-card-body {
   position: absolute;
   left: 42px;
@@ -776,7 +772,6 @@
   margin: 0;
 }
 
-/* Make sure the text is clear and visually separated */
 .cards.cards24 .cards-card-body p {
   margin: 0;
   font-size: 15px;
@@ -785,7 +780,6 @@
   line-height: 1.4;
 }
 
-/* Responsive: stack cards vertically, adjust overlay positions */
 @media (width <= 700px) {
   .cards.cards24 ul {
     grid-template-columns: 1fr;
@@ -810,3 +804,155 @@
     font-size: 14px;
   }
 }
+
+
+.cards.cards26 ul {
+  display: grid;
+  grid-template-columns: 1.1fr 1.7fr;
+  grid-template-rows: 270px 90px 270px 90px;
+  gap: 32px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.cards.cards26 li {
+  background: #fff;
+  border: none;
+  border-radius: 28px;
+  box-shadow: 0 3px 20px rgb(0 0 0 / 5%);
+  overflow: hidden;
+  position: relative;
+  min-width: 0;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+/* Card placements for asymmetric grid */
+.cards.cards26 li:nth-child(1) { /* Tennis, but make it fashion */
+  grid-column: 1 / 2;
+  grid-row: 1 / 2;
+}
+
+.cards.cards26 li:nth-child(2) { /* Beach days, bright ways */
+  grid-column: 2 / 3;
+  grid-row: 1 / 3;
+}
+
+.cards.cards26 li:nth-child(3) { /* Party after dark - event */
+  grid-column: 1 / 2;
+  grid-row: 2 / 3;
+}
+
+.cards.cards26 li:nth-child(4) { /* Party after dark */
+  grid-column: 1 / 2;
+  grid-row: 3 / 5;
+}
+
+.cards.cards26 li:nth-child(5) { /* Portrait */
+  grid-column: 2 / 3;
+  grid-row: 3 / 4;
+}
+
+.cards.cards26 li:nth-child(6) { /* Table group */
+  grid-column: 2 / 3;
+  grid-row: 4 / 5;
+}
+
+/* Responsive stacking on small screens */
+@media (width <= 900px) {
+  .cards.cards26 ul {
+    grid-template-columns: 1fr;
+    grid-template-rows: none;
+    gap: 20px;
+  }
+
+  .cards.cards26 li {
+    grid-column: 1 / -1;
+    grid-row: auto;
+    min-height: 160px;
+  }
+}
+
+/* Full-bleed image behind overlay text */
+.cards.cards26 .cards-card-image {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  display: block;
+  margin: 0;
+}
+
+.cards.cards26 .cards-card-image img,
+.cards.cards26 .cards-card-image picture {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Overlay body text on image */
+.cards.cards26 .cards-card-body {
+  position: relative;
+  z-index: 2;
+  padding: 2rem 2rem 1.2rem;
+  color: #f7f7f7;
+  text-shadow: 0 1px 12px rgb(0 0 0 / 20%);
+  margin: 0;
+  max-width: 92%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+/* Specific contrast adjustment for light backgrounds */
+.cards.cards26 li:nth-child(2) .cards-card-body {
+  color: #232323;
+  text-shadow: 0 2px 12px rgb(255 255 255 / 8%);
+}
+
+/* Card title style */
+.cards.cards26 .cards-card-body h3 {
+  font-size: 2.1rem;
+  font-weight: 300;
+  margin: 0 0 0.72rem;
+  line-height: 1.12;
+  letter-spacing: 0.01em;
+}
+
+/* Card paragraph style */
+.cards.cards26 .cards-card-body p {
+  font-size: 1rem;
+  margin: 0;
+  font-weight: 300;
+  line-height: 1.4;
+  letter-spacing: 0.01em;
+}
+
+.cards.cards26 .cards-card-body:empty {
+  display: none;
+}
+
+/* Fix cards with no .cards-card-body spacing */
+.cards.cards26 li:not(:first-child, :nth-child(2), :nth-child(4)) .cards-card-body:empty {
+  padding: 0;
+}
+
+/* Remove default spacing from images inside cards */
+
+/* Ensure minimal vertical gaps on all screen sizes */
+
+/* Slightly increase card image contrast for overlay visibility, if needed */
+
+/* .cards.cards26 li .cards-card-image::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(0,0,0,0.18) 0%, rgba(0,0,0,0.10) 100%);
+  z-index: 2;
+  pointer-events: none;
+} */
