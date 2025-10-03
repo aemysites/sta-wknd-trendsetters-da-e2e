@@ -1,3 +1,4 @@
+/* stylelint-disable no-descending-specificity */
 .hero-container .hero-wrapper {
   max-width: unset;
   padding: 0;
@@ -58,7 +59,6 @@
   background: transparent;
 }
 
-/* Background image: covers the block, behind overlay */
 .hero.hero6 div:first-child {
   position: absolute;
   inset: 0;
@@ -77,7 +77,6 @@
   display: block;
 }
 
-/* Overlay card: upper left, slightly above center, more compact */
 .hero.hero6 div:last-child {
   position: relative;
   z-index: 2;
@@ -89,7 +88,6 @@
   pointer-events: none;
 }
 
-/* Card tweaks: more compact, shifted up, tighter left */
 .hero.hero6 div:last-child div {
   background: rgb(26 27 30 / 56%);
   border: 2px solid #fff;
@@ -107,7 +105,6 @@
   pointer-events: auto;
 }
 
-/* Headline */
 .hero.hero6 h1 {
   color: #fff;
   font-size: 64px;
@@ -116,11 +113,9 @@
   letter-spacing: 0.01em;
   margin: 0 0 32px;
   text-align: left;
-  word-break: break-word;
-  overflow-wrap: break-word;
+  word-wrap: break-word; /* Replaced deprecated "word-break: break-word" with "word-wrap: break-word" */
 }
 
-/* Description: tighter for better line breaks */
 .hero.hero6 p:not(.button-container) {
   color: #d3d3d3;
   font-size: 18px;
@@ -131,7 +126,6 @@
   overflow-wrap: break-word;
 }
 
-/* Button container */
 .hero.hero6 .button-container {
   display: flex;
   flex-wrap: wrap;
@@ -177,7 +171,6 @@
   border-color: #eaeaea;
 }
 
-/* Responsiveness */
 @media (width <= 900px) {
   .hero.hero6 {
     min-height: 420px;
@@ -218,7 +211,165 @@
   }
 }
 
-/* Remove z-index from picture if present */
 .hero.hero6 picture {
   z-index: unset;
 }
+
+
+.hero.hero12 {
+  position: relative;
+  width: 100%;
+  min-height: 370px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  background: url('URL_TO_HERO_BACKGROUND_IMAGE') center center/cover no-repeat;
+  border-radius: 24px;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+/* Overlay panel: horizontally oriented, floating, centered vertically, left-aligned with spacing */
+.hero.hero12 div {
+  position: absolute;
+  top: 50%;
+  left: 48px;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 600px;
+  max-width: 90vw;
+  height: 220px;
+  padding: 32px 36px;
+  background: rgb(34 34 34 / 42%);
+  border: 1.3px solid rgb(70 70 70 / 42%);
+  border-radius: 20px;
+  box-shadow: 0 6px 36px 0 rgb(0 0 0 / 10%);
+  backdrop-filter: blur(2px);
+  z-index: 2;
+  box-sizing: border-box;
+}
+
+/* Responsive overlay: stacks content vertically on smaller screens */
+@media (width <= 900px) {
+  .hero.hero12 div {
+    position: static;
+    transform: none;
+    margin: 18px auto;
+    padding: 14px 8px;
+    flex-direction: column;
+    width: 98vw;
+    max-width: 99vw;
+    height: auto;
+    align-items: flex-start;
+  }
+}
+
+/* Image in overlay: square, left-aligned with margin, vertically centered */
+.hero.hero12 picture {
+  flex: 0 0 150px;
+  order: 1;
+  margin-right: 32px;
+  margin-left: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 150px;
+  height: 150px;
+}
+
+.hero.hero12 img {
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 16px;
+  box-shadow: 0 2px 12px rgb(0 0 0 / 11%);
+  display: block;
+}
+
+/* (Future) text/content block: right section */
+.hero.hero12 div div {
+  flex: 1 1 0%;
+  order: 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  min-width: 0;
+  gap: 18px;
+  height: 100%;
+}
+
+/* Headline (future content) */
+.hero.hero12 h1,
+.hero.hero12 h2,
+.hero.hero12 h3 {
+  color: #F5F5F5;
+  font-size: 2.2rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.045em;
+  line-height: 1.05;
+  margin: 0 0 8px;
+  max-width: 96%;
+  word-break: normal;
+  overflow-wrap: break-word;
+}
+
+.hero.hero12 p,
+.hero.hero12 ul,
+.hero.hero12 li {
+  color: #E0E0E0;
+  font-size: 1rem;
+  margin: 0 0 8px;
+  line-height: 1.4;
+  font-weight: 400;
+}
+
+.hero.hero12 ul,
+.hero.hero12 ol {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 8px;
+}
+
+.hero.hero12 ul li,
+.hero.hero12 ol li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 6px;
+}
+
+.hero.hero12 a,
+.hero.hero12 .button,
+.hero.hero12 input[type="button"],
+.hero.hero12 input[type="submit"],
+.hero.hero12 button {
+  padding: 11px 24px;
+  border-radius: 28px;
+  background: rgb(34 34 34 / 35%);
+  border: 1.2px solid rgb(220 220 220 / 22%);
+  color: #F5F5F5;
+  font-size: 1rem;
+  font-weight: 500;
+  margin-top: 8px;
+  margin-bottom: 0;
+  min-width: 150px;
+  transition: background 0.2s, color 0.2s, border 0.2s;
+  box-sizing: border-box;
+  outline: none;
+}
+
+.hero.hero12 a:hover,
+.hero.hero12 .button:hover,
+.hero.hero12 input[type="button"]:hover,
+.hero.hero12 input[type="submit"]:hover,
+.hero.hero12 button:hover {
+  background: #fff;
+  color: #232325;
+  border-color: #fff;
+}
+
+/* Hero wrapper full width if needed */
