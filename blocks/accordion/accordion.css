@@ -1,8 +1,8 @@
+/* stylelint-disable no-descending-specificity */
 .accordion details {
   border: 1px solid #dadada;
 }
 
-/* stylelint-disable-next-line no-descending-specificity */
 .accordion details + details {
   margin-top: 24px;
 }
@@ -58,4 +58,94 @@
 .accordion details[open] .accordion-item-body {
   border-top: 1px solid #dadada;
   background-color: var(--background-color);
+}
+
+
+.accordion.accordion17 {
+  background: #f7f7f4;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.accordion.accordion17 details {
+  border: none;
+  margin: 0;
+  background: transparent;
+  border-bottom: 1px solid #e0e0dc;
+  box-sizing: border-box;
+}
+
+.accordion.accordion17 details:last-child {
+  border-bottom: none;
+}
+
+.accordion.accordion17 summary {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 42px;
+  padding: 2px 24px 2px 4px;
+  background: transparent;
+  cursor: pointer;
+  border: none;
+  outline: none;
+  list-style: none;
+  box-sizing: border-box;
+  transition: background-color 0.2s;
+  position: relative;
+  margin: 0;
+}
+
+.accordion.accordion17 summary::-webkit-details-marker {
+  display: none;
+}
+
+/* Chevron: smaller, lighter, spaced from edge */
+.accordion.accordion17 summary::after {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 13px;
+  height: 13px;
+  margin-left: 10px;
+  background-image: url('data:image/svg+xml;utf8,<svg fill="none" stroke="%233c3c3b" stroke-width="1.2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M8 10l4 4 4-4"/></svg>');
+  background-size: 13px 13px;
+  background-repeat: no-repeat;
+  background-position: center;
+  transition: transform 0.2s;
+}
+
+.accordion.accordion17 details[open] summary::after {
+  transform: rotate(180deg);
+}
+
+.accordion.accordion17 summary p {
+  margin: 0;
+  padding: 0;
+  font-size: 16px;
+  color: #3c3c3b;
+  font-weight: 400;
+  line-height: 1.2;
+  letter-spacing: 0;
+  display: block;
+  text-align: left;
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+.accordion.accordion17 .accordion-item-body {
+  padding: 0 4px 12px;
+  color: #3c3c3b;
+  font-size: 15px;
+  background: transparent;
+  box-sizing: border-box;
+  display: none;
+  line-height: 1.5;
+}
+
+.accordion.accordion17 details[open] .accordion-item-body {
+  display: block;
 }
