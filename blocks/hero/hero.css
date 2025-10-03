@@ -113,7 +113,7 @@
   letter-spacing: 0.01em;
   margin: 0 0 32px;
   text-align: left;
-  word-wrap: break-word; /* Replaced deprecated "word-break: break-word" with "word-wrap: break-word" */
+  word-wrap: break-word;
 }
 
 .hero.hero6 p:not(.button-container) {
@@ -229,7 +229,6 @@
   box-sizing: border-box;
 }
 
-/* Overlay panel: horizontally oriented, floating, centered vertically, left-aligned with spacing */
 .hero.hero12 div {
   position: absolute;
   top: 50%;
@@ -251,7 +250,6 @@
   box-sizing: border-box;
 }
 
-/* Responsive overlay: stacks content vertically on smaller screens */
 @media (width <= 900px) {
   .hero.hero12 div {
     position: static;
@@ -266,7 +264,6 @@
   }
 }
 
-/* Image in overlay: square, left-aligned with margin, vertically centered */
 .hero.hero12 picture {
   flex: 0 0 150px;
   order: 1;
@@ -288,7 +285,6 @@
   display: block;
 }
 
-/* (Future) text/content block: right section */
 .hero.hero12 div div {
   flex: 1 1 0%;
   order: 2;
@@ -301,7 +297,6 @@
   height: 100%;
 }
 
-/* Headline (future content) */
 .hero.hero12 h1,
 .hero.hero12 h2,
 .hero.hero12 h3 {
@@ -372,4 +367,170 @@
   border-color: #fff;
 }
 
-/* Hero wrapper full width if needed */
+
+.hero.hero20 {
+  position: relative;
+  width: 100vw;
+  min-height: 100vh;
+  overflow: hidden;
+  background: transparent;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr;
+  place-items: stretch stretch;
+  padding: 0;
+}
+
+/* Collage grid fills block, positioned absolutely as background */
+.hero.hero20 div div:first-child {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  gap: 2px;
+  width: 100vw;
+  height: 100vh;
+  z-index: 1;
+  pointer-events: none;
+  background: #000;
+}
+
+.hero.hero20 div div:first-child picture {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.hero.hero20 div div:first-child img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Overlay for contrast */
+.hero.hero20 div div:first-child::after {
+  position: absolute;
+  inset: 0;
+  background: rgb(0 0 0 / 45%);
+  z-index: 2;
+  pointer-events: none;
+}
+
+/* Content area (text + buttons) centered and overlayed */
+.hero.hero20 div div:last-child {
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100vw;
+  height: 100vh;
+  text-align: center;
+  padding: 0 2em;
+  pointer-events: auto;
+  background: none;
+}
+
+/* Headline styling */
+.hero.hero20 h1 {
+  color: #fff;
+  font-size: 80px;
+  font-weight: bold;
+  letter-spacing: 0.08em;
+  line-height: 1.05;
+  margin: 0 0 0.45em;
+  text-shadow: 0 2px 20px rgb(0 0 0 / 25%);
+  max-width: 1200px;
+  text-align: center;
+}
+
+/* Subheadline styling */
+.hero.hero20 p:not(.button-container) {
+  color: #fff;
+  font-size: 18px;
+  margin: 0 0 2em;
+  text-shadow: 0 2px 10px rgb(0 0 0 / 18%);
+  max-width: 700px;
+  text-align: center;
+}
+
+/* --- BUTTON FLEX LAYOUT: SIDE BY SIDE ON DESKTOP, STACKED ON MOBILE --- */
+
+/* The following assumes button containers are siblings inside the last child div. */
+
+.hero.hero20 div div:last-child p.button-container {
+  display: flex;
+  flex-direction: row;
+  gap: 1em;
+  justify-content: center;
+  align-items: center;
+  margin: 0.5em 0 0;
+}
+
+/* Ensure only the actual buttons inside p.button-container are next to each other */
+.hero.hero20 div div:last-child p.button-container a.button {
+  margin: 0;
+}
+
+/* Hide extra margins that can break the flex layout between button containers */
+.hero.hero20 .button {
+  margin: 0;
+  padding: 0.75em 2em;
+  border-radius: 999px;
+  background: transparent;
+  color: #fff;
+  border: 2px solid #fff;
+  font-size: 18px;
+  font-weight: 500;
+  text-align: center;
+  min-width: 0;
+  transition: background 0.2s, color 0.2s;
+  box-sizing: border-box;
+  pointer-events: auto;
+}
+
+.hero.hero20 .button:hover,
+.hero.hero20 .button:focus {
+  background: #fff;
+  color: #222;
+}
+
+/* Responsive: stack buttons on mobile, adjust headline */
+@media (width <= 900px) {
+  .hero.hero20 {
+    min-height: 80vh;
+  }
+
+  .hero.hero20 div div:first-child {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+    height: 80vh;
+  }
+
+  .hero.hero20 h1 {
+    font-size: 42px;
+    padding: 0 0.2em;
+  }
+
+  .hero.hero20 div div:last-child {
+    height: 80vh;
+    padding: 2em 1em;
+  }
+
+  .hero.hero20 div div:last-child p.button-container {
+    flex-direction: column;
+    gap: 1em;
+    margin-top: 1.2em;
+  }
+
+  .hero.hero20 .button {
+    font-size: 15px;
+    padding: 10px 15px;
+  }
+}
+
+/* Hero should span the full width of the page */
