@@ -1,3 +1,4 @@
+/* stylelint-disable no-descending-specificity */
 .columns > div {
   display: flex;
   flex-direction: column;
@@ -29,5 +30,56 @@
   .columns > div > div {
     flex: 1;
     order: unset;
+  }
+}
+
+
+.columns {
+  background-color: #F6F7F4;
+  width: 100%;
+  min-height: 120px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-top: 48px;
+  padding-bottom: 48px;
+  box-sizing: border-box;
+}
+
+.columns h2 {
+  display: none;
+}
+
+.columns div {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.columns p {
+  color: #222;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.4;
+  text-align: center;
+  margin: 0;
+  padding: 0;
+  max-width: 1600px;
+  width: 100%;
+  white-space: nowrap;
+}
+
+.columns .button-container,
+.columns p:not(:first-of-type) {
+  display: none;
+}
+
+@media (width <= 1300px) {
+  .columns p {
+    max-width: 98vw;
+    white-space: normal;
   }
 }
