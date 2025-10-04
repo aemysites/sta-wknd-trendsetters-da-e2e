@@ -217,10 +217,9 @@
   background: #f7f8f6;
   padding: 0;
   box-sizing: border-box;
-  min-height: 56px; /* ensures breathing room for text and button */
+  min-height: 56px;
 }
 
-/* Remove any inherited vertical centering/min-height */
 .columns.columns15 .block.columns-3-cols {
   background: transparent;
   padding: 0;
@@ -229,7 +228,6 @@
   display: block;
 }
 
-/* Main row: side by side, top alignment, enough height for full content */
 .columns.columns15 .block.columns-3-cols div {
   display: flex;
   flex-direction: row;
@@ -238,18 +236,16 @@
   gap: 2.5em;
   width: 100%;
   margin: 0;
-  padding: 1em 2em; /* more vertical and horizontal padding for vertical space and readability */
+  padding: 1em 2em;
   box-sizing: border-box;
-  min-height: 54px; /* minimum height for visibility of button and wrapped text */
+  min-height: 54px;
 }
 
-/* Each column: two texts flex, button compact */
 .columns.columns15 .block.columns-3-cols div div {
   flex: 1 1 0;
   min-width: 0;
 }
 
-/* Button column: only as wide as needed, top-aligned */
 .columns.columns15 .block.columns-3-cols div div:last-child {
   flex: 0 0 auto;
   display: flex;
@@ -259,7 +255,6 @@
   margin-left: 1em;
 }
 
-/* Paragraphs: small, normal weight, adequate line height and margin for readability */
 .columns.columns15 .block.columns-3-cols div p {
   font-size: 13px;
   color: #212121;
@@ -272,7 +267,6 @@
   padding: 0;
 }
 
-/* Button container: top-aligned, compact */
 .columns.columns15 .block.columns-3-cols div .button-container {
   display: flex;
   align-items: flex-start;
@@ -281,7 +275,6 @@
   padding: 0;
 }
 
-/* Button style: pill, thin border, white, yellow shadow */
 .columns.columns15 .block.columns-3-cols .button {
   background: #fff;
   color: #212121;
@@ -297,7 +290,6 @@
   min-width: 0;
 }
 
-/* Button hover/focus override */
 .columns.columns15 .block.columns-3-cols .button:hover,
 .columns.columns15 .block.columns-3-cols .button:focus {
   background: #f9f9d5;
@@ -306,7 +298,6 @@
   text-decoration: none;
 }
 
-/* Responsive: stack vertically on mobile */
 @media (width <= 900px) {
   .columns.columns15 .block.columns-3-cols div {
     flex-direction: column;
@@ -322,4 +313,210 @@
   .columns.columns15 .block.columns-3-cols div .button-container {
     justify-content: flex-start;
   }
+}
+
+
+.columns.columns21 {
+  background: #000;
+  color: #fff;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+/* Main columns row: ensure vertical centering using min-height and align-items */
+.columns.columns21 .columns-wrapper .columns {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  min-height: 250px; /* taller for better centering */
+  padding: 60px 0;
+  width: 100%;
+}
+
+/* Inner columns flex row for the 4 main columns */
+.columns.columns21 .columns-wrapper .columns div {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: stretch;
+  width: 100%;
+  gap: 80px;
+}
+
+@media (width <= 900px) {
+  .columns.columns21 .columns-wrapper .columns {
+    flex-direction: column;
+    align-items: stretch;
+    min-height: unset;
+    padding: 32px 0;
+  }
+
+  .columns.columns21 .columns-wrapper .columns div {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 36px;
+  }
+}
+
+/* First column: vertical stack with two main sections (logo/title row + social row) */
+.columns.columns21 .columns-wrapper .columns div div:first-child {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  min-width: 210px;
+  gap: 10px;
+  padding-top: 10px;
+}
+
+/* Logo/title row: horizontal flex */
+.columns.columns21 .columns-wrapper .columns div div:first-child p:first-child {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 10px;
+  margin: 0 0 12px;
+  padding: 0;
+}
+
+/* Logo image */
+.columns.columns21 .columns-wrapper .columns div div:first-child img {
+  width: 40px;
+  height: 40px;
+  margin-right: 8px;
+  vertical-align: middle;
+  background: transparent;
+  display: inline-block;
+}
+
+/* Blog title (FASHION BLOG) */
+.columns.columns21 .columns-wrapper .columns div div:first-child .button {
+  background: none;
+  box-shadow: none;
+  color: #fff;
+  border: none;
+  padding: 0;
+  margin: 0;
+  font-size: 18px;
+  text-transform: uppercase;
+  font-weight: 500;
+  letter-spacing: 1px;
+  line-height: 1.1;
+  cursor: default;
+  display: inline;
+}
+
+/* Social icons row: horizontal, icons only, hide labels */
+.columns.columns21 .columns-wrapper .columns div div:first-child ul {
+  display: flex;
+  flex-direction: row;
+  gap: 18px;
+  margin: 0 0 0 2px;
+  padding: 0;
+}
+
+.columns.columns21 .columns-wrapper .columns div div:first-child ul li {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.columns.columns21 .columns-wrapper .columns div div:first-child ul img {
+  width: 18px;
+  height: 18px;
+  display: block;
+}
+
+.columns.columns21 .columns-wrapper .columns div div:first-child ul .button-container {
+  display: none;
+}
+
+/* --- MENU COLUMNS --- */
+.columns.columns21 .columns-wrapper .columns div div:not(:first-child) {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  min-width: 140px;
+  gap: 0;
+  padding-bottom: 8px;
+}
+
+/* Section headings: small, uppercase, lighter, spaced */
+.columns.columns21 .columns-wrapper .columns div div:not(:first-child) h2 {
+  color: #8c8c8c;
+  text-transform: uppercase;
+  font-size: 12px;
+  font-weight: 400;
+  letter-spacing: 2.2px;
+  margin: 0 0 14px;
+  line-height: 1.1;
+  background: transparent;
+  padding: 0;
+}
+
+/* Remove bullets, space links vertically, left align */
+.columns.columns21 .columns-wrapper .columns div div:not(:first-child) ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.columns.columns21 .columns-wrapper .columns div div:not(:first-child) ul li {
+  margin-bottom: 10px;
+  padding: 0;
+  list-style: none;
+}
+
+.columns.columns21 .columns-wrapper .columns div div:not(:first-child) ul li:last-child {
+  margin-bottom: 0;
+}
+
+.columns.columns21 .columns-wrapper .columns div div:not(:first-child) ul li a {
+  color: #fff;
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 1.6;
+  text-decoration: none;
+  background: none;
+  border: none;
+  padding: 0;
+  margin: 0;
+  display: inline-block;
+  transition: color 0.2s;
+  text-align: left;
+}
+
+.columns.columns21 .columns-wrapper .columns div div:not(:first-child) ul li a:hover,
+.columns.columns21 .columns-wrapper .columns div div:not(:first-child) ul li a:focus {
+  color: #8c8c8c;
+  text-decoration: underline;
+}
+
+/* Remove all ul/li margins and bullets in block */
+.columns.columns21 ul {
+  margin: 0;
+  padding: 0;
+}
+
+.columns.columns21 ul li {
+  list-style: none;
+}
+
+/* Prevent blue button style leaking to .button in block */
+.columns.columns21 .button {
+  background: none;
+  box-shadow: none;
+  color: #fff;
+  border: none;
+  padding: 0;
+  margin: 0;
+  font-size: 18px;
+  text-transform: uppercase;
+  font-weight: 500;
+  letter-spacing: 1px;
+  line-height: 1.1;
+  cursor: default;
+  display: inline;
 }
