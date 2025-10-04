@@ -1,3 +1,4 @@
+/* stylelint-disable no-descending-specificity */
 .cards > ul {
   list-style: none;
   margin: 0;
@@ -24,4 +25,231 @@
   width: 100%;
   aspect-ratio: 4 / 3;
   object-fit: cover;
+}
+
+
+.cards.cards2 {
+  width: 100%;
+  background: var(--background-color);
+  padding: 0;
+  margin: 0;
+}
+
+/* Main block: side-by-side, top-aligned columns */
+.cards.cards2 .cards {
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 56px 0;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start; /* Top alignment */
+  min-height: 80vh;
+}
+
+/* Side-by-side layout for the two li's, align right card to the top */
+.cards.cards2 ul {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start; /* Top align both columns */
+  gap: 28px; /* Reduced gap for tighter grouping */
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  width: 100%;
+  height: 100%;
+}
+
+/* Common li rules */
+.cards.cards2 ul li {
+  background: none;
+  border: none;
+  box-shadow: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  min-width: 0;
+}
+
+/* Left column: image + text + button */
+.cards.cards2 ul li:first-child {
+  flex: 1.28 1 0;
+  min-width: 340px;
+  max-width: 58vw;
+  justify-content: flex-start;
+  height: auto;
+}
+
+/* Large feature image */
+.cards.cards2 ul li:first-child .cards-card-image {
+  margin-bottom: 36px;
+}
+
+.cards.cards2 ul li:first-child .cards-card-image img {
+  width: 100%;
+  height: 390px;
+  max-height: 500px;
+  object-fit: cover;
+  border-radius: 34px;
+  box-shadow: 0 8px 32px 0 rgb(0 0 0 / 7%);
+  display: block;
+}
+
+/* Main text and button for feature card */
+.cards.cards2 ul li:first-child .cards-card-body {
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.cards.cards2 ul li:first-child h3 {
+  font-size: 2.2rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--text-color);
+  margin: 0 0 18px;
+  line-height: 1.05;
+}
+
+.cards.cards2 ul li:first-child p {
+  font-size: 1.14rem;
+  color: var(--text-color);
+  margin: 0 0 20px;
+  line-height: 1.6;
+}
+
+.cards.cards2 ul li:first-child p:last-child {
+  align-self: flex-start;
+  margin-top: 14px;
+  margin-bottom: 0;
+  padding: 10px 28px;
+  border: 2px solid var(--text-color);
+  border-radius: 999px;
+  font-size: 1rem;
+  font-weight: 500;
+  background: transparent;
+  color: var(--text-color);
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+  line-height: 1.25;
+  box-shadow: none;
+  display: inline-block;
+}
+
+.cards.cards2 ul li:first-child p:last-child:hover,
+.cards.cards2 ul li:first-child p:last-child:focus {
+  background: var(--text-color);
+  color: var(--background-color);
+}
+
+/* Right card: top-aligned to block */
+.cards.cards2 ul li:nth-child(2) {
+  flex: 0.95 1 0;
+  min-width: 320px;
+  max-width: 34vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  height: auto;
+}
+
+/* Right card image and body */
+.cards.cards2 ul li:nth-child(2) .cards-card-image {
+  margin-bottom: 0;
+}
+
+.cards.cards2 ul li:nth-child(2) .cards-card-image img {
+  width: 100%;
+  height: 210px; /* Reduced for tighter visual grouping */
+  max-height: 240px;
+  object-fit: cover;
+  border-radius: 22px;
+  box-shadow: 0 6px 24px 0 rgb(0 0 0 / 6%);
+  display: block;
+}
+
+/* Card body: strong overlap with image, minimal gap */
+.cards.cards2 ul li:nth-child(2) .cards-card-body {
+  background: var(--background-color);
+  border-radius: 22px;
+  box-shadow: 0 6px 24px 0 rgb(0 0 0 / 4%);
+  padding: 28px 30px 26px 20px;
+  margin-top: -54px; /* Increased negative margin for close grouping */
+  position: relative;
+  z-index: 2;
+}
+
+.cards.cards2 ul li:nth-child(2) h3 {
+  font-size: 1.17rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #666;
+  margin: 0 0 14px;
+  line-height: 1.2;
+}
+
+.cards.cards2 ul li:nth-child(2) p {
+  font-size: 1rem;
+  color: #888;
+  margin: 0;
+  line-height: 1.6;
+}
+
+/* Responsive stacking and adjustments */
+@media (width <= 900px) {
+  .cards.cards2 .cards {
+    padding: 30px 0;
+    min-height: unset;
+  }
+
+  .cards.cards2 ul {
+    flex-direction: column;
+    gap: 36px;
+    width: 100%;
+    height: unset;
+  }
+
+  .cards.cards2 ul li,
+  .cards.cards2 ul li:first-child,
+  .cards.cards2 ul li:nth-child(2) {
+    max-width: 100%;
+    min-width: 0;
+    height: unset;
+  }
+
+  .cards.cards2 ul li:first-child .cards-card-image img,
+  .cards.cards2 ul li:nth-child(2) .cards-card-image img {
+    height: 200px;
+    max-height: 240px;
+  }
+
+  .cards.cards2 ul li:nth-child(2) .cards-card-body {
+    margin-top: -32px;
+    padding: 18px 14px;
+  }
+}
+
+/* Large screens: boost right card/image size if needed */
+@media (width >= 1100px) {
+  .cards.cards2 ul li:first-child .cards-card-image img {
+    height: 440px;
+    max-height: 520px;
+  }
+
+  .cards.cards2 ul li:nth-child(2) .cards-card-image img {
+    height: 230px;
+    max-height: 260px;
+  }
+
+  .cards.cards2 ul li:nth-child(2) .cards-card-body {
+    padding: 36px 38px 38px 24px;
+    margin-top: -60px;
+  }
 }
