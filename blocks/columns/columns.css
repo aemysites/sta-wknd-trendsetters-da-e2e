@@ -324,18 +324,16 @@
   padding: 0;
 }
 
-/* Main columns row: ensure vertical centering using min-height and align-items */
 .columns.columns21 .columns-wrapper .columns {
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  min-height: 250px; /* taller for better centering */
+  min-height: 250px;
   padding: 60px 0;
   width: 100%;
 }
 
-/* Inner columns flex row for the 4 main columns */
 .columns.columns21 .columns-wrapper .columns div {
   display: flex;
   flex-direction: row;
@@ -360,7 +358,6 @@
   }
 }
 
-/* First column: vertical stack with two main sections (logo/title row + social row) */
 .columns.columns21 .columns-wrapper .columns div div:first-child {
   display: flex;
   flex-direction: column;
@@ -371,7 +368,6 @@
   padding-top: 10px;
 }
 
-/* Logo/title row: horizontal flex */
 .columns.columns21 .columns-wrapper .columns div div:first-child p:first-child {
   display: flex;
   flex-direction: row;
@@ -381,7 +377,6 @@
   padding: 0;
 }
 
-/* Logo image */
 .columns.columns21 .columns-wrapper .columns div div:first-child img {
   width: 40px;
   height: 40px;
@@ -391,7 +386,6 @@
   display: inline-block;
 }
 
-/* Blog title (FASHION BLOG) */
 .columns.columns21 .columns-wrapper .columns div div:first-child .button {
   background: none;
   box-shadow: none;
@@ -408,7 +402,6 @@
   display: inline;
 }
 
-/* Social icons row: horizontal, icons only, hide labels */
 .columns.columns21 .columns-wrapper .columns div div:first-child ul {
   display: flex;
   flex-direction: row;
@@ -433,7 +426,6 @@
   display: none;
 }
 
-/* --- MENU COLUMNS --- */
 .columns.columns21 .columns-wrapper .columns div div:not(:first-child) {
   display: flex;
   flex-direction: column;
@@ -443,7 +435,6 @@
   padding-bottom: 8px;
 }
 
-/* Section headings: small, uppercase, lighter, spaced */
 .columns.columns21 .columns-wrapper .columns div div:not(:first-child) h2 {
   color: #8c8c8c;
   text-transform: uppercase;
@@ -456,7 +447,6 @@
   padding: 0;
 }
 
-/* Remove bullets, space links vertically, left align */
 .columns.columns21 .columns-wrapper .columns div div:not(:first-child) ul {
   list-style: none;
   margin: 0;
@@ -494,7 +484,6 @@
   text-decoration: underline;
 }
 
-/* Remove all ul/li margins and bullets in block */
 .columns.columns21 ul {
   margin: 0;
   padding: 0;
@@ -504,7 +493,6 @@
   list-style: none;
 }
 
-/* Prevent blue button style leaking to .button in block */
 .columns.columns21 .button {
   background: none;
   box-shadow: none;
@@ -520,3 +508,181 @@
   cursor: default;
   display: inline;
 }
+
+
+.columns.columns27 {
+  background: #F8F9F6;
+  padding: 64px 0 56px;
+  width: 100%;
+  box-sizing: border-box;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* The columns-2-cols element is the main layout row: use flex to make columns side by side */
+.columns.columns27 .columns-2-cols {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: stretch;
+  gap: 64px;
+  max-width: 1120px;
+  margin: 0 auto;
+  box-sizing: border-box;
+  width: 100%;
+}
+
+@media (width <= 900px) {
+  .columns.columns27 .columns-2-cols {
+    flex-direction: column;
+    gap: 32px;
+    max-width: 100%;
+  }
+}
+
+/* Left column: vertical stack */
+.columns.columns27 .columns-2-cols div {
+  min-width: 0;
+  flex: 1 1 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  min-height: 40px;
+}
+
+/* Padding inside left and right columns for breathing room */
+.columns.columns27 .columns-2-cols div:first-child {
+  padding-left: 32px;
+  padding-right: 16px;
+  box-sizing: border-box;
+}
+
+.columns.columns27 .columns-2-cols div:last-child {
+  padding-right: 32px;
+  padding-left: 16px;
+  box-sizing: border-box;
+  flex: 0 0 220px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-end;
+  min-width: 220px;
+  height: 100%;
+}
+
+@media (width <= 900px) {
+  .columns.columns27 .columns-2-cols div:first-child,
+  .columns.columns27 .columns-2-cols div:last-child {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+}
+
+/* Heading styling */
+.columns.columns27 .columns-2-cols div:first-child p:first-child {
+  font-size: 2.5rem;
+  font-weight: 400;
+  letter-spacing: 0.05em;
+  color: #232323;
+  margin: 0 0 12px;
+  line-height: 1.1;
+  max-width: 100%;
+}
+
+/* Testimonial quote */
+.columns.columns27 .columns-2-cols div:first-child p:nth-child(2) {
+  font-size: 1rem;
+  font-weight: 400;
+  color: #232323;
+  margin: 0 0 32px;
+  line-height: 1.6;
+  max-width: 500px;
+  border-bottom: 1px solid #E2E3DF;
+  padding-bottom: 32px;
+}
+
+/* Avatar group container: put avatar/name/role in a row, role below name */
+.columns.columns27 .columns-2-cols div:first-child p:nth-child(3) {
+  margin: 24px 0 0;
+  display: flex;
+  align-items: center;
+}
+
+/* Avatar image (in picture/img) */
+.columns.columns27 .columns-2-cols div:first-child p:nth-child(3) picture,
+.columns.columns27 .columns-2-cols div:first-child p:nth-child(3) img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+  vertical-align: middle;
+  margin-right: 12px;
+  background: #e2e3df;
+  box-shadow: 0 1px 2px rgb(0 0 0 / 8%);
+  display: inline-block;
+}
+
+/* Name next to avatar */
+.columns.columns27 .columns-2-cols div:first-child p:nth-child(4) {
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: #353535;
+  margin-left: 0;
+}
+
+/* Role below name, left-align with name */
+.columns.columns27 .columns-2-cols div:first-child p:nth-child(5) {
+  font-size: 0.85rem;
+  font-weight: 400;
+  color: #686868;
+  margin: 2px 0 0 52px;
+  padding: 0;
+  display: block;
+}
+
+/* Remove spacing between avatar group items */
+.columns.columns27 .columns-2-cols div:first-child p:nth-child(3),
+.columns.columns27 .columns-2-cols div:first-child p:nth-child(4),
+.columns.columns27 .columns-2-cols div:first-child p:nth-child(5) {
+  margin-bottom: 0;
+  margin-top: 0;
+}
+
+/* Right column: logo block at bottom right */
+
+@media (width <= 900px) {
+  .columns.columns27 .columns-2-cols div:last-child {
+    justify-content: flex-start;
+    align-items: flex-start;
+    min-width: 0;
+    margin-top: 24px;
+  }
+}
+
+/* Right column: logo container */
+.columns.columns27 .columns-2-cols div:last-child p {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+/* Logo image sizing */
+.columns.columns27 .columns-2-cols div:last-child img {
+  height: 28px;
+  width: auto;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+/* Prevent column collapse if content is missing */
+
+/* Responsive logo alignment */
+@media (width <= 900px) {
+  .columns.columns27 .columns-2-cols div:last-child p {
+    justify-content: flex-start;
+  }
+}
+
+/* Keep overall block centered on page */
