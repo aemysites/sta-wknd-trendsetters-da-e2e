@@ -1,3 +1,4 @@
+/* stylelint-disable no-descending-specificity */
 .hero-container .hero-wrapper {
   max-width: unset;
   padding: 0;
@@ -63,7 +64,6 @@
   background: transparent;
 }
 
-/* The image fills the block, left side, with rounded corners */
 .hero.hero6 div:first-child {
   flex: 1 1 0;
   order: 1;
@@ -81,7 +81,6 @@
   border-radius: 24px;
 }
 
-/* Overlay panel is left-aligned, vertically centered, visually distinct with generous padding and width */
 .hero.hero6 div:last-child {
   position: absolute;
   left: 0;
@@ -95,7 +94,6 @@
   z-index: 3;
 }
 
-/* Main overlay box */
 .hero.hero6 div:last-child div {
   display: flex;
   flex-direction: column;
@@ -117,7 +115,6 @@
   align-self: center;
 }
 
-/* Headline styles */
 .hero.hero6 h1 {
   color: #fff;
   margin: 0 0 2.2rem;
@@ -129,7 +126,6 @@
   max-width: 100%;
 }
 
-/* Description styles */
 .hero.hero6 p {
   color: rgb(255 255 255 / 85%);
   font-size: 1.18rem;
@@ -139,7 +135,6 @@
   text-align: left;
 }
 
-/* Button area */
 .hero.hero6 .button-container {
   display: flex;
   flex-flow: row wrap;
@@ -149,7 +144,6 @@
   justify-content: flex-start;
 }
 
-/* Main button styling */
 .hero-container .hero-wrapper .block.hero .button {
   background: #fff;
   color: #222;
@@ -165,14 +159,12 @@
   text-align: center;
 }
 
-/* If a second button ever appears, style as outlined */
 .hero-container .hero-wrapper .block.hero .button + .button {
   background: transparent;
   color: #fff;
   border: 2px solid #fff;
 }
 
-/* Responsive adjustments */
 @media (width <= 1200px) {
   .hero.hero6 div:last-child div {
     max-width: 70vw;
@@ -243,5 +235,189 @@
 
   .hero.hero6 .button-container {
     gap: 0.5rem;
+  }
+}
+
+
+.hero.hero13 {
+  position: relative;
+  width: 100vw;
+  min-height: 600px;
+  box-sizing: border-box;
+  border-radius: 24px;
+  overflow: hidden;
+  display: grid;
+  place-items: center;
+  background: url('./background-image.jpg') center/cover no-repeat;
+}
+
+.hero.hero13 div {
+  box-sizing: border-box;
+}
+
+.hero.hero13 .block,
+.hero.hero13[data-block-name="hero"] {
+  display: grid;
+  grid-template-columns: minmax(260px, 320px) 1fr;
+  align-items: center;
+  justify-content: center;
+  gap: 2.5rem;
+  width: 90%;
+  max-width: 1100px;
+  min-height: 480px;
+  background: rgb(0 0 0 / 36%);
+  border: 2px solid rgb(30 30 30 / 60%);
+  border-radius: 24px;
+  backdrop-filter: blur(2px);
+  margin: 0 auto;
+  padding: 2.5rem;
+  position: relative;
+  z-index: 1;
+}
+
+.hero.hero13 .block div:first-child {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 260px;
+  max-width: 320px;
+  height: 320px;
+  flex: 1;
+  order: 1;
+}
+
+.hero.hero13 picture {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border-radius: 18px;
+  overflow: hidden;
+}
+
+.hero.hero13 img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 18px;
+  display: block;
+}
+
+.hero.hero13 .block div:last-child {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  justify-content: center;
+  flex: 2;
+  order: 2;
+  min-width: 0;
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+}
+
+.hero.hero13 .block h1,
+.hero.hero13 .block h2 {
+  color: #f1f1f1;
+  font-weight: 600;
+  line-height: 1.08;
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  max-width: 650px;
+  letter-spacing: 0.01em;
+  text-shadow: 0 2px 12px rgb(0 0 0 / 20%);
+}
+
+.hero.hero13 .block p,
+.hero.hero13 .block li,
+.hero.hero13 .block span {
+  color: #f1f1f1;
+  font-size: 1.08rem;
+  opacity: 0.92;
+  margin-bottom: 0.7rem;
+}
+
+.hero.hero13 .block .button,
+.hero.hero13 .block button,
+.hero.hero13 .block a.button {
+  background: rgb(30 30 40 / 85%);
+  color: #f1f1f1;
+  border-radius: 2.4em;
+  border: none;
+  font-weight: 500;
+  font-size: 1.14rem;
+  padding: 0.9em 2.2em;
+  min-width: 190px;
+  margin: 1.4rem 0 0;
+  box-shadow: none;
+  text-align: center;
+  transition: background 0.2s, color 0.2s, border 0.2s;
+}
+
+.hero.hero13 .block .button:hover,
+.hero.hero13 .block button:hover,
+.hero.hero13 .block a.button:hover {
+  background: #1d3ecf;
+  color: #fff;
+}
+
+.hero.hero13 .block hr,
+.hero.hero13 .block .divider {
+  width: 100%;
+  height: 1px;
+  background: rgb(241 241 241 / 14%);
+  border: none;
+  margin: 1.3rem 0;
+}
+
+@media (width <= 900px) {
+  .hero.hero13 .block,
+  .hero.hero13[data-block-name="hero"] {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto;
+    gap: 1.7rem;
+    padding: 1.2rem 0.5rem;
+    width: 98%;
+    min-height: 400px;
+  }
+
+  .hero.hero13 .block div:first-child,
+  .hero.hero13 .block div:last-child {
+    min-width: 0;
+    max-width: 100%;
+    height: auto;
+    order: unset;
+    padding: 0;
+  }
+
+  .hero.hero13 picture {
+    width: 100%;
+    height: auto;
+    margin-bottom: 1.5rem;
+  }
+}
+
+@media (width <= 600px) {
+  .hero.hero13 {
+    min-height: 400px;
+  }
+
+  .hero.hero13 .block,
+  .hero.hero13[data-block-name="hero"] {
+    width: 100%;
+    padding: 0.7rem 0.1rem;
+    min-height: 250px;
+  }
+
+  .hero.hero13 .block h1,
+  .hero.hero13 .block h2 {
+    font-size: 1.4rem;
+    max-width: 95vw;
+  }
+
+  .hero.hero13 .block .button,
+  .hero.hero13 .block button,
+  .hero.hero13 .block a.button {
+    font-size: 1rem;
+    padding: 0.7em 1.3em;
+    min-width: 140px;
   }
 }
