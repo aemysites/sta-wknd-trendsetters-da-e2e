@@ -31,3 +31,54 @@
     order: unset;
   }
 }
+
+
+.columns.columns1 {
+  background: #f7f8f5;
+  min-height: 80px;
+  width: 100%;
+  box-sizing: border-box;
+  padding-top: 40px;
+  padding-bottom: 32px;
+  display: block;
+}
+
+/* Hide only the image columns inside the block */
+.columns.columns1 .columns-img-col {
+  display: none;
+}
+
+/* Ensure the direct container div is a flex container for horizontal centering */
+.columns.columns1 div {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: flex-start;
+  width: 100%;
+  gap: 0;
+  margin: 0;
+  padding: 0;
+  min-height: 1em;
+}
+
+/* Center and style any remaining content inside the flex container (covers text, spans, paragraphs, etc.) */
+.columns.columns1 div * {
+  color: #212121;
+  font-size: var(--body-font-size-s);
+  line-height: 1.4;
+  text-align: center;
+  margin: 0;
+  padding: 0;
+  max-width: 1000px;
+  width: 100%;
+}
+
+/* Prevent accidental collapsing of the flex container; keep space for text nodes */
+
+/* Responsive adjustment for vertical spacing on smaller screens */
+@media (width <= 900px) {
+  .columns.columns1 {
+    padding-top: 32px;
+    padding-bottom: 24px;
+  }
+}
