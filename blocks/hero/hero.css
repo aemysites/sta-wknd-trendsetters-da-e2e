@@ -765,7 +765,6 @@
   display: none;
 }
 
-/* Use flex only on the deepest direct parent of the h1 for perfect centering */
 .hero.hero29 div:last-child,
 .hero.hero29 div:last-child div {
   display: flex;
@@ -777,7 +776,6 @@
   margin: 0;
 }
 
-/* Make text size, line-height, and block width match more closely */
 .hero.hero29 h1 {
   color: #fff;
   text-align: center;
@@ -789,9 +787,135 @@
   z-index: 2;
   max-width: 61vw;
   width: 100%;
-
-  /* Nudge up for optical centering */
   transform: translateY(-2%);
 }
 
-/* Ensure wrapper allows hero to stretch edge-to-edge */
+
+.hero.hero37 {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 48px 5vw;
+  border-bottom: 2px solid #000;
+  background: var(--background-color);
+  min-height: 210px;
+  box-sizing: border-box;
+}
+
+/* Left spacer column */
+.hero.hero37 div {
+  flex: 1 1 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* Right column: horizontal row for text group and button */
+.hero.hero37 div:last-child {
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 4vw;
+  max-width: 900px;
+  width: 100%;
+}
+
+/* Text group: stack headline and subtext vertically and left-align */
+.hero.hero37 div:last-child h2,
+.hero.hero37 div:last-child p:not(.button-container) {
+  margin-left: 0;
+  margin-right: 0;
+  text-align: left;
+}
+
+.hero.hero37 div:last-child h2 {
+  font-size: var(--heading-font-size-xl);
+  line-height: 1.1;
+  font-weight: 400;
+  color: var(--text-color);
+  margin-bottom: 0.5rem;
+  letter-spacing: 0.03em;
+}
+
+.hero.hero37 div:last-child p:not(.button-container) {
+  font-size: var(--body-font-size-s);
+  color: #808080;
+  margin-top: 0;
+  margin-bottom: 0;
+  font-weight: 400;
+  line-height: 1.4;
+}
+
+/* Helper: make headline+subtext a vertical group using a flex column pattern */
+
+.hero.hero37 div:last-child h2,
+.hero.hero37 div:last-child h2 + p:not(.button-container) {
+  display: block;
+  margin-right: 0;
+}
+
+.hero.hero37 div:last-child h2 + p:not(.button-container) {
+  margin-top: 0.7rem;
+}
+
+/* Button container: next to text group, align center vertically */
+.hero.hero37 .button-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  min-width: 340px;
+}
+
+/* Button style */
+.hero.hero37 .button {
+  min-width: 340px;
+  padding: 0.75em 0;
+  border: 1px solid #000;
+  border-radius: 2em;
+  background: #fff;
+  color: #000;
+  font-size: 1rem;
+  font-weight: 400;
+  text-align: center;
+  box-shadow: 0 2px 0 0 #e6e600;
+  margin: 0;
+  transition: box-shadow 0.2s;
+}
+
+.hero.hero37 .button:hover,
+.hero.hero37 .button:focus {
+  box-shadow: 0 4px 0 0 #e6e600;
+}
+
+/* Responsive: Stack everything vertically on small screens */
+@media (width <= 900px) {
+  .hero.hero37 {
+    flex-direction: column;
+    align-items: stretch;
+    padding: 32px 4vw;
+  }
+
+  .hero.hero37 div {
+    width: 100%;
+    min-width: unset;
+  }
+
+  .hero.hero37 div:last-child {
+    flex-direction: column;
+    align-items: flex-start;
+    max-width: unset;
+    gap: 1.2rem;
+  }
+
+  .hero.hero37 .button-container {
+    justify-content: flex-start;
+    margin-top: 1.6rem;
+    min-width: 220px;
+  }
+
+  .hero.hero37 .button {
+    min-width: 220px;
+  }
+}
