@@ -602,7 +602,6 @@
   box-sizing: border-box;
 }
 
-/* Left column: image + link */
 .hero.hero25 div {
   flex: 1 1 46%;
   display: flex;
@@ -616,13 +615,11 @@
   position: relative;
 }
 
-/* Group Watch Video link and image closely */
 .hero.hero25 div p {
   margin-top: 0;
   margin-bottom: 0.2rem;
 }
 
-/* Make video/image visually dominant (no extra margin) */
 .hero.hero25 picture {
   display: block;
   width: 100%;
@@ -643,7 +640,6 @@
   margin-top: 0;
 }
 
-/* Right column: headline, description, buttons */
 .hero.hero25 div:last-child {
   flex: 1 1 54%;
   position: relative;
@@ -665,7 +661,6 @@
   margin-top: 0;
 }
 
-/* Headline: overlap slightly with image for visual connection */
 .hero.hero25 div:last-child p:first-child {
   font-size: 4.4rem;
   font-weight: 400;
@@ -681,7 +676,6 @@
   top: -1.2rem;
 }
 
-/* Description: compact width for grouping */
 .hero.hero25 div:last-child p:nth-child(2) {
   font-size: 1.08rem;
   color: #7E7E7E;
@@ -691,7 +685,6 @@
   text-align: left;
 }
 
-/* Button container: left-aligned, side by side */
 .hero.hero25 .button-container {
   display: flex;
   flex-direction: row;
@@ -703,11 +696,6 @@
   padding: 0;
 }
 
-/* Pill-shaped button styles */
-
-/* Side-by-side button spacing */
-
-/* Responsive stacking for small screens */
 @media (width <= 900px) {
   .hero.hero25 {
     flex-direction: column;
@@ -757,3 +745,53 @@
     margin-top: 0.1rem;
   }
 }
+
+
+.hero.hero29 {
+  position: relative;
+  min-height: 100vh;
+  width: 100vw;
+  padding: 0;
+  margin: 0;
+  overflow: hidden;
+  background: url('./media_1afaa877f6f7b3c38a82dee0182ea1486c0f52a6f.avif?width=2000&format=webply&optimize=medium') center center / cover no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero.hero29 picture,
+.hero.hero29 img {
+  display: none;
+}
+
+/* Use flex only on the deepest direct parent of the h1 for perfect centering */
+.hero.hero29 div:last-child,
+.hero.hero29 div:last-child div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  margin: 0;
+}
+
+/* Make text size, line-height, and block width match more closely */
+.hero.hero29 h1 {
+  color: #fff;
+  text-align: center;
+  margin: 0;
+  font-size: clamp(2.7rem, 7vw, 5rem);
+  letter-spacing: 0.06em;
+  font-weight: 400;
+  line-height: 1.23;
+  z-index: 2;
+  max-width: 61vw;
+  width: 100%;
+
+  /* Nudge up for optical centering */
+  transform: translateY(-2%);
+}
+
+/* Ensure wrapper allows hero to stretch edge-to-edge */
