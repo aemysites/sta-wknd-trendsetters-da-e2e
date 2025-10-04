@@ -181,7 +181,6 @@
 
 
 .columns {
-  /* Two columns: left for content, right for image */
   display: grid;
   grid-template-columns: 1fr 1fr;
   min-height: 600px;
@@ -190,86 +189,6 @@
   overflow: hidden;
 }
 
-/* Left column: center the whole content group vertically and stack inner items */
-.columns .columns15.block.columns-3-cols {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: stretch;
-  min-height: 600px;
-  height: 100vh;
-  padding-left: 8vw;
-  padding-right: 4vw;
-  background: var(--background-color);
-  z-index: 2;
-  position: relative;
-}
-
-/* Stack all content vertically, align left */
-.columns .columns15.block.columns-3-cols div {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  justify-content: center;
-  gap: 2.2rem;
-  width: 100%;
-  height: auto;
-}
-
-/* Headline: large, bold, uppercase, strong letter-spacing */
-.columns .columns15.block.columns-3-cols div p:first-child {
-  font-size: var(--heading-font-size-xl);
-  font-weight: 600;
-  letter-spacing: 0.025em;
-  color: var(--text-color);
-  text-transform: uppercase;
-  margin: 0 0 1.2rem;
-  line-height: 1.08;
-}
-
-/* Subtext: lighter, smaller, secondary look */
-.columns .columns15.block.columns-3-cols div p:not(:first-child, .button-container) {
-  font-size: var(--body-font-size-s);
-  color: var(--dark-color);
-  margin: 0 0 2rem;
-  line-height: 1.6;
-  font-weight: 400;
-}
-
-/* Buttons: stack under previous content, not beside */
-.columns .columns15.block.columns-3-cols div .button-container {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  gap: 1.2rem;
-  margin: 0;
-  width: auto;
-  justify-content: flex-start;
-  align-self: flex-start;
-}
-
-/* Button: outlined neutral, not filled */
-.columns .columns15.block.columns-3-cols .button {
-  border: 2px solid var(--text-color);
-  background: transparent;
-  color: var(--text-color);
-  padding: 0.8em 2.4em;
-  border-radius: 2em;
-  font-size: var(--body-font-size-s);
-  font-weight: 500;
-  box-shadow: none;
-  transition: background 0.2s, color 0.2s;
-  margin: 0;
-}
-
-.columns .columns15.block.columns-3-cols .button:hover,
-.columns .columns15.block.columns-3-cols .button:focus {
-  background: var(--text-color);
-  color: var(--background-color);
-  text-decoration: none;
-}
-
-/* Right column: show image using a background layer */
 .columns::before {
   position: absolute;
   content: "";
@@ -282,9 +201,6 @@
   pointer-events: none;
 }
 
-/* Ensure left column content appears above image */
-
-/* Responsive: single column on mobile, hide image */
 @media (width <= 900px) {
   .columns {
     grid-template-columns: 1fr;
@@ -294,14 +210,116 @@
   .columns::before {
     display: none;
   }
+}
 
-  .columns .columns15.block.columns-3-cols {
+
+.columns.columns15 {
+  background: #f7f8f6;
+  padding: 0;
+  box-sizing: border-box;
+  min-height: 56px; /* ensures breathing room for text and button */
+}
+
+/* Remove any inherited vertical centering/min-height */
+.columns.columns15 .block.columns-3-cols {
+  background: transparent;
+  padding: 0;
+  min-height: unset;
+  height: auto;
+  display: block;
+}
+
+/* Main row: side by side, top alignment, enough height for full content */
+.columns.columns15 .block.columns-3-cols div {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 2.5em;
+  width: 100%;
+  margin: 0;
+  padding: 1em 2em; /* more vertical and horizontal padding for vertical space and readability */
+  box-sizing: border-box;
+  min-height: 54px; /* minimum height for visibility of button and wrapped text */
+}
+
+/* Each column: two texts flex, button compact */
+.columns.columns15 .block.columns-3-cols div div {
+  flex: 1 1 0;
+  min-width: 0;
+}
+
+/* Button column: only as wide as needed, top-aligned */
+.columns.columns15 .block.columns-3-cols div div:last-child {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-end;
+  min-width: 0;
+  margin-left: 1em;
+}
+
+/* Paragraphs: small, normal weight, adequate line height and margin for readability */
+.columns.columns15 .block.columns-3-cols div p {
+  font-size: 13px;
+  color: #212121;
+  line-height: 1.55;
+  margin: 0;
+  font-weight: 400;
+  letter-spacing: 0;
+  text-transform: none;
+  text-align: left;
+  padding: 0;
+}
+
+/* Button container: top-aligned, compact */
+.columns.columns15 .block.columns-3-cols div .button-container {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  margin: 0;
+  padding: 0;
+}
+
+/* Button style: pill, thin border, white, yellow shadow */
+.columns.columns15 .block.columns-3-cols .button {
+  background: #fff;
+  color: #212121;
+  border: 1px solid #212121;
+  border-radius: 999px;
+  padding: 4px 18px;
+  font-size: 13px;
+  box-shadow: 0 2px 0 0 #f9f9d5;
+  margin: 0;
+  font-weight: 400;
+  transition: box-shadow 0.2s, background 0.2s, color 0.2s;
+  line-height: 1.45;
+  min-width: 0;
+}
+
+/* Button hover/focus override */
+.columns.columns15 .block.columns-3-cols .button:hover,
+.columns.columns15 .block.columns-3-cols .button:focus {
+  background: #f9f9d5;
+  color: #212121;
+  box-shadow: 0 4px 0 0 #f9f9d5;
+  text-decoration: none;
+}
+
+/* Responsive: stack vertically on mobile */
+@media (width <= 900px) {
+  .columns.columns15 .block.columns-3-cols div {
+    flex-direction: column;
+    gap: 1.2em;
+    padding: 1em;
     min-height: unset;
-    height: auto;
-    padding: 2rem 1rem;
   }
 
-  .columns .columns15.block.columns-3-cols div {
-    gap: 1.4rem;
+  .columns.columns15 .block.columns-3-cols div div {
+    width: 100%;
+  }
+
+  .columns.columns15 .block.columns-3-cols div .button-container {
+    justify-content: flex-start;
   }
 }
