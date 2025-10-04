@@ -146,16 +146,16 @@
 
 .hero-container .hero-wrapper .block.hero .button {
   background: #fff;
-  color: #222;
-  border-radius: 2.4em;
-  border: none;
-  font-weight: 500;
-  font-size: 1.11rem;
-  padding: 0.87em 2.8em;
+  color: #111;
+  border-radius: 2em;
+  border: 2px solid #111;
+  font-weight: 400;
+  font-size: 1.03rem;
+  padding: 0.7em 2em;
   box-shadow: none;
   margin: 0;
-  min-width: 210px;
-  transition: background 0.2s, color 0.2s, border 0.2s;
+  min-width: 120px;
+  transition: border 0.15s, background 0.15s, color 0.15s;
   text-align: center;
 }
 
@@ -163,6 +163,7 @@
   background: transparent;
   color: #fff;
   border: 2px solid #fff;
+  margin-left: 0.7rem;
 }
 
 @media (width <= 1200px) {
@@ -435,7 +436,6 @@
   overflow: hidden;
 }
 
-/* Collage grid fills the background, covering the whole hero area */
 .hero.hero20 div:first-of-type {
   grid-area: collage;
   position: absolute;
@@ -443,8 +443,6 @@
   width: 100vw;
   height: 100%;
   display: grid;
-
-  /* Dynamically fill available space with all images */
   grid-template-columns: repeat(3, 1fr);
   grid-template-rows: repeat(3, 1fr);
   gap: 0;
@@ -460,7 +458,6 @@
   display: contents;
 }
 
-/* Each image fills its grid cell completely */
 .hero.hero20 div:first-of-type picture {
   width: 100%;
   height: 100%;
@@ -476,7 +473,6 @@
   border-radius: 0;
 }
 
-/* Overlay for collage (text contrast) */
 .hero.hero20 div:first-of-type::after {
   position: absolute;
   inset: 0;
@@ -484,7 +480,6 @@
   pointer-events: none;
 }
 
-/* Text/content overlay (centers everything) */
 .hero.hero20 div:last-of-type {
   position: relative;
   z-index: 2;
@@ -510,7 +505,6 @@
   width: 100%;
 }
 
-/* Headline styles */
 .hero.hero20 h1 {
   color: #fff;
   font-size: clamp(2.6rem, 8vw, 6rem);
@@ -522,7 +516,6 @@
   text-align: center;
 }
 
-/* Subheading styles */
 .hero.hero20 p:not(:last-child) {
   color: #e2e2e2;
   font-size: 1.13rem;
@@ -533,7 +526,6 @@
   max-width: 650px;
 }
 
-/* Button row styling */
 .hero.hero20 p:last-child {
   display: flex;
   justify-content: center;
@@ -542,7 +534,6 @@
   margin: 0;
 }
 
-/* Button styles */
 .hero.hero20 p:last-child a {
   display: inline-block;
   padding: 0.72em 2.3em;
@@ -565,7 +556,6 @@
   text-decoration: none;
 }
 
-/* Responsive layout for mobile screens */
 @media (width <= 900px) {
   .hero.hero20 {
     min-height: 550px;
@@ -595,5 +585,175 @@
   .hero.hero20 p:last-child {
     flex-direction: column;
     gap: 0.8rem;
+  }
+}
+
+
+.hero.hero25 {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 2.2vw;
+  width: 100%;
+  min-height: 80vh;
+  background: var(--background-color);
+  padding-top: 32px;
+  box-sizing: border-box;
+}
+
+/* Left column: image + link */
+.hero.hero25 div {
+  flex: 1 1 46%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  min-width: 320px;
+  max-width: 575px;
+  box-sizing: border-box;
+  padding-left: 6vw;
+  position: relative;
+}
+
+/* Group Watch Video link and image closely */
+.hero.hero25 div p {
+  margin-top: 0;
+  margin-bottom: 0.2rem;
+}
+
+/* Make video/image visually dominant (no extra margin) */
+.hero.hero25 picture {
+  display: block;
+  width: 100%;
+  max-width: 560px;
+  margin-top: 0.2rem;
+  margin-bottom: 0;
+}
+
+.hero.hero25 img {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-width: 560px;
+  min-height: 315px;
+  object-fit: cover;
+  border-radius: 12px;
+  box-shadow: 0 8px 32px rgb(0 0 0 / 16%);
+  margin-top: 0;
+}
+
+/* Right column: headline, description, buttons */
+.hero.hero25 div:last-child {
+  flex: 1 1 54%;
+  position: relative;
+  min-width: 340px;
+  max-width: 620px;
+  padding-left: 0;
+  margin-top: 0;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+.hero.hero25 div:last-child div {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 0.9rem;
+  width: 100%;
+  margin-top: 0;
+}
+
+/* Headline: overlap slightly with image for visual connection */
+.hero.hero25 div:last-child p:first-child {
+  font-size: 4.4rem;
+  font-weight: 400;
+  letter-spacing: 0.03em;
+  color: var(--text-color);
+  line-height: 1.04;
+  margin: 0 0 0.2rem;
+  max-width: 590px;
+  text-align: left;
+  overflow-wrap: break-word;
+  position: relative;
+  z-index: 2;
+  top: -1.2rem;
+}
+
+/* Description: compact width for grouping */
+.hero.hero25 div:last-child p:nth-child(2) {
+  font-size: 1.08rem;
+  color: #7E7E7E;
+  margin: 0 0 0.4rem;
+  line-height: 1.5;
+  max-width: 370px;
+  text-align: left;
+}
+
+/* Button container: left-aligned, side by side */
+.hero.hero25 .button-container {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 0.7rem;
+  margin-top: 0;
+  margin-bottom: 0;
+  padding: 0;
+}
+
+/* Pill-shaped button styles */
+
+/* Side-by-side button spacing */
+
+/* Responsive stacking for small screens */
+@media (width <= 900px) {
+  .hero.hero25 {
+    flex-direction: column;
+    align-items: flex-start;
+    min-height: auto;
+    padding-top: 18px;
+    gap: 1rem;
+  }
+
+  .hero.hero25 div,
+  .hero.hero25 div:first-child,
+  .hero.hero25 div:last-child {
+    max-width: 100vw;
+    min-width: 0;
+    padding-left: 0;
+  }
+
+  .hero.hero25 picture {
+    margin-top: 0.1rem;
+    max-width: 100vw;
+  }
+
+  .hero.hero25 img {
+    margin-top: 0;
+  }
+
+  .hero.hero25 div:last-child div {
+    margin-top: 0;
+    gap: 0.6rem;
+  }
+
+  .hero.hero25 div:last-child p:first-child {
+    font-size: 2.2rem;
+    max-width: 98vw;
+    top: 0;
+  }
+
+  .hero.hero25 div:last-child p:nth-child(2) {
+    font-size: 1rem;
+    max-width: 100vw;
+  }
+
+  .hero.hero25 .button-container {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.4rem;
+    margin-top: 0.1rem;
   }
 }
