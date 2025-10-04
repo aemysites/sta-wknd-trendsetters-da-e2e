@@ -78,8 +78,6 @@
   }
 }
 
-
-/* --- Fix core layout targeting the actual columns inner wrapper --- */
 .columns.columns4.block.columns-2-cols div {
   display: flex;
   flex-direction: row;
@@ -90,7 +88,6 @@
   background: #fff;
 }
 
-/* Responsive stacking for mobile */
 @media (width <= 800px) {
   .columns.columns4.block.columns-2-cols div {
     flex-direction: column;
@@ -100,7 +97,6 @@
   }
 }
 
-/* Left column: stack heading and paragraph */
 .columns.columns4.block.columns-2-cols div div:first-child {
   display: flex;
   flex-direction: column;
@@ -126,7 +122,6 @@
   margin: 0;
 }
 
-/* Right column: vertical stack for buttons */
 .columns.columns4.block.columns-2-cols div div:last-child {
   display: flex;
   flex-direction: column;
@@ -135,7 +130,6 @@
   min-width: 220px;
 }
 
-/* Stack links vertically inside the right column */
 .columns.columns4.block.columns-2-cols div div:last-child p {
   display: flex;
   flex-direction: column;
@@ -145,7 +139,6 @@
   padding: 0;
 }
 
-/* Pill button styling for links */
 .columns.columns4.block.columns-2-cols div div:last-child a {
   display: block;
   width: 220px;
@@ -166,12 +159,10 @@
   margin: 0;
 }
 
-/* Subtle yellow highlight for top button */
 .columns.columns4.block.columns-2-cols div div:last-child a:first-child {
   border-bottom: 2px solid #e6e600;
 }
 
-/* Button hover/focus effect */
 .columns.columns4.block.columns-2-cols div div:last-child a:hover,
 .columns.columns4.block.columns-2-cols div div:last-child a:focus {
   border-color: #e6e600;
@@ -179,7 +170,6 @@
   outline: none;
 }
 
-/* Responsive: make buttons full width on small screens */
 @media (width <= 480px) {
   .columns.columns4.block.columns-2-cols div div:last-child a {
     width: 100%;
@@ -189,4 +179,129 @@
   }
 }
 
-/* Remove default link styling for these buttons */
+
+.columns {
+  /* Two columns: left for content, right for image */
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  min-height: 600px;
+  position: relative;
+  background: var(--background-color);
+  overflow: hidden;
+}
+
+/* Left column: center the whole content group vertically and stack inner items */
+.columns .columns15.block.columns-3-cols {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: stretch;
+  min-height: 600px;
+  height: 100vh;
+  padding-left: 8vw;
+  padding-right: 4vw;
+  background: var(--background-color);
+  z-index: 2;
+  position: relative;
+}
+
+/* Stack all content vertically, align left */
+.columns .columns15.block.columns-3-cols div {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 2.2rem;
+  width: 100%;
+  height: auto;
+}
+
+/* Headline: large, bold, uppercase, strong letter-spacing */
+.columns .columns15.block.columns-3-cols div p:first-child {
+  font-size: var(--heading-font-size-xl);
+  font-weight: 600;
+  letter-spacing: 0.025em;
+  color: var(--text-color);
+  text-transform: uppercase;
+  margin: 0 0 1.2rem;
+  line-height: 1.08;
+}
+
+/* Subtext: lighter, smaller, secondary look */
+.columns .columns15.block.columns-3-cols div p:not(:first-child, .button-container) {
+  font-size: var(--body-font-size-s);
+  color: var(--dark-color);
+  margin: 0 0 2rem;
+  line-height: 1.6;
+  font-weight: 400;
+}
+
+/* Buttons: stack under previous content, not beside */
+.columns .columns15.block.columns-3-cols div .button-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 1.2rem;
+  margin: 0;
+  width: auto;
+  justify-content: flex-start;
+  align-self: flex-start;
+}
+
+/* Button: outlined neutral, not filled */
+.columns .columns15.block.columns-3-cols .button {
+  border: 2px solid var(--text-color);
+  background: transparent;
+  color: var(--text-color);
+  padding: 0.8em 2.4em;
+  border-radius: 2em;
+  font-size: var(--body-font-size-s);
+  font-weight: 500;
+  box-shadow: none;
+  transition: background 0.2s, color 0.2s;
+  margin: 0;
+}
+
+.columns .columns15.block.columns-3-cols .button:hover,
+.columns .columns15.block.columns-3-cols .button:focus {
+  background: var(--text-color);
+  color: var(--background-color);
+  text-decoration: none;
+}
+
+/* Right column: show image using a background layer */
+.columns::before {
+  position: absolute;
+  content: "";
+  top: 0;
+  right: 0;
+  width: 50vw;
+  height: 100%;
+  background: url('https://images.unsplash.com/photo-1519125323398-675f0ddb6308?auto=format&fit=crop&w=800&q=80') center center/cover no-repeat;
+  z-index: 1;
+  pointer-events: none;
+}
+
+/* Ensure left column content appears above image */
+
+/* Responsive: single column on mobile, hide image */
+@media (width <= 900px) {
+  .columns {
+    grid-template-columns: 1fr;
+    min-height: unset;
+  }
+
+  .columns::before {
+    display: none;
+  }
+
+  .columns .columns15.block.columns-3-cols {
+    min-height: unset;
+    height: auto;
+    padding: 2rem 1rem;
+  }
+
+  .columns .columns15.block.columns-3-cols div {
+    gap: 1.4rem;
+  }
+}
