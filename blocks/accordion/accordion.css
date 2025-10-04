@@ -1,8 +1,8 @@
+/* stylelint-disable no-descending-specificity */
 .accordion details {
   border: 1px solid #dadada;
 }
 
-/* stylelint-disable-next-line no-descending-specificity */
 .accordion details + details {
   margin-top: 24px;
 }
@@ -58,4 +58,113 @@
 .accordion details[open] .accordion-item-body {
   border-top: 1px solid #dadada;
   background-color: var(--background-color);
+}
+
+
+.accordion.accordion17 {
+  background: #FAFAF6;
+  padding: 0;
+}
+
+/* Accordion Item Styling */
+.accordion.accordion17 details {
+  display: block;
+  border: none;
+  border-bottom: 1px solid #E0E0E0;
+  margin: 0;
+  background: transparent;
+  color: #232120; /* Ensure text is visible */
+}
+
+.accordion.accordion17 details:last-child {
+  border-bottom: none;
+}
+
+/* Summary row: flex for layout, compact alignment */
+.accordion.accordion17 summary {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 100%;
+  padding: 16px 20px;
+  cursor: pointer;
+  background: transparent;
+  outline: none;
+  color: #232120;
+  font-size: 14px;
+  border: none;
+  margin: 0;
+  box-sizing: border-box;
+  min-height: 40px;
+}
+
+/* Hide default browser marker */
+.accordion.accordion17 summary::-webkit-details-marker {
+  display: none;
+}
+
+/* Question text: flex-grow, prevent overflow */
+.accordion.accordion17 .accordion-item-label p {
+  margin: 0;
+  color: #232120;
+  font-size: 14px;
+  font-weight: normal;
+  flex: 1 1 auto;
+  min-width: 0;
+
+  /* Prevent overflow, ensure flex stretch */
+}
+
+/* Ensure summary is clickable, and visible */
+.accordion.accordion17 summary:focus {
+  outline: none;
+}
+
+/* Chevron pseudo-element: visually grouped, thin, vertically centered and inset */
+.accordion.accordion17 summary::after {
+  display: inline-block;
+  margin-left: auto;
+  margin-right: 0;
+  width: 14px;
+  height: 8px;
+  border: solid #232120;
+  border-width: 0 1px 1px 0;
+  transform: rotate(39deg);
+  vertical-align: middle;
+  position: relative;
+  top: 1px; /* Nudge chevron down for perfect centering */
+  background: none;
+  border-radius: 0;
+  box-sizing: border-box;
+}
+
+/* Chevron rotates when open */
+.accordion.accordion17 details[open] summary::after {
+  transform: rotate(-141deg);
+}
+
+/* Accordion body styling */
+.accordion.accordion17 .accordion-item-body {
+  padding: 16px 20px;
+  color: #232120;
+  font-size: 14px;
+  background: transparent;
+  border: none;
+  display: block;
+}
+
+/* Responsive: Slightly smaller padding and chevron on narrow screens */
+@media (width <= 599px) {
+  .accordion.accordion17 summary,
+  .accordion.accordion17 .accordion-item-body {
+    padding: 14px;
+    font-size: 13px;
+  }
+
+  .accordion.accordion17 summary::after {
+    width: 10px;
+    height: 6px;
+    border-width: 0 1px 1px 0;
+    top: 1px;
+  }
 }
