@@ -649,7 +649,6 @@
   position: relative;
 }
 
-/* Left column: image/video */
 .hero.hero25 div {
   flex: 1 1 52%;
   display: flex;
@@ -657,7 +656,7 @@
   justify-content: flex-end;
   min-width: 0;
   position: relative;
-  margin-top: -4vw; /* raise image/video to top of block */
+  margin-top: -4vw;
 }
 
 .hero.hero25 picture {
@@ -677,7 +676,6 @@
   display: block;
 }
 
-/* Right column: text & buttons */
 .hero.hero25 div:last-child {
   flex: 1 1 48%;
   flex-direction: column;
@@ -685,20 +683,18 @@
   justify-content: flex-start;
   min-width: 0;
   position: relative;
-  margin-left: -11vw; /* stronger overlap headline into image */
-  margin-top: -2vw;   /* raise headline and text closer to image top */
+  margin-left: -11vw;
+  margin-top: -2vw;
   z-index: 2;
   max-width: 600px;
 }
 
-/* Stack text inside right column */
 .hero.hero25 div:last-child div {
   width: 100%;
   max-width: 500px;
   padding-left: 0;
 }
 
-/* Larger, bolder headline, less vertical margin, overlaps image */
 .hero.hero25 div:last-child p:first-child {
   font-size: clamp(3.5rem, 6vw, 6.2rem);
   font-weight: 400;
@@ -713,7 +709,6 @@
   z-index: 1;
 }
 
-/* Description: below headline, normal width, left-aligned */
 .hero.hero25 div:last-child p:not(:first-child, .button-container) {
   font-size: clamp(1.15rem, 1.15vw, 1.4rem);
   color: #444;
@@ -724,7 +719,6 @@
   max-width: 480px;
 }
 
-/* Button below description, right-aligned within right column */
 .hero.hero25 .button-container {
   display: flex;
   gap: 1vw;
@@ -734,7 +728,6 @@
   padding: 0;
 }
 
-/* Button style */
 .hero.hero25 .button {
   background: #fff;
   color: #191919;
@@ -756,7 +749,6 @@
   background: #f3f3f3;
 }
 
-/* Responsive adjustments */
 @media (width <= 900px) {
   .hero.hero25 {
     flex-direction: column;
@@ -815,3 +807,59 @@
     padding: 0.7em 1.2em;
   }
 }
+
+
+.hero.hero29 {
+  position: relative;
+  width: 100vw;
+  min-height: 70vh;
+  height: 100vh;
+  overflow: hidden;
+  padding: 0;
+  background: none;
+}
+
+/* Make sure the hero image fills the block as a background */
+.hero.hero29 div picture,
+.hero.hero29 div img {
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+  display: block;
+}
+
+.hero.hero29 div:first-child {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 1;
+  pointer-events: none;
+}
+
+/* Use only relative positioning on the overlay (do not use flex or absolute centering here) */
+.hero.hero29 div:not(:first-child) {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  z-index: 2;
+  pointer-events: none;
+}
+
+/* Absolutely center the heading inside the overlay for pixel-perfect alignment */
+.hero.hero29 h1 {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #fff;
+  text-align: center;
+  margin: 0;
+  font-size: clamp(2rem, 7vw, 6rem);
+  font-weight: 400;
+  line-height: 1.1;
+  letter-spacing: 0.04em;
+}
+
+/* Remove unwanted margin/padding from the hero wrapper for full-bleed effect */
