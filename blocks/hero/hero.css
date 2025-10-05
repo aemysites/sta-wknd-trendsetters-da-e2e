@@ -379,7 +379,6 @@
 
 
 .hero.hero13 {
-  /* Remove solid background and card effect */
   background: none;
   width: 100vw;
   min-height: 420px;
@@ -390,7 +389,6 @@
   margin: 0;
 }
 
-/* Single overlay panel, not nested card */
 .hero.hero13 div {
   background: rgb(20 20 20 / 56%);
   border-radius: 22px;
@@ -409,7 +407,6 @@
   z-index: 1;
 }
 
-/* Align image at left edge inside overlay */
 .hero.hero13 div div:first-child {
   display: flex;
   align-items: flex-start;
@@ -418,7 +415,6 @@
   margin: 0 2.3rem 0 0;
 }
 
-/* Remove inner framing effect */
 .hero.hero13 div div:first-child picture,
 .hero.hero13 div div:first-child img {
   width: 220px;
@@ -433,7 +429,6 @@
   margin: 0;
 }
 
-/* Maintain right-side structure for future content, left-aligned */
 .hero.hero13 div div:not(:first-child) {
   flex: 1 1 0;
   min-width: 0;
@@ -445,7 +440,6 @@
   align-items: flex-start;
 }
 
-/* Responsive stacking for small screens */
 @media (width <= 700px) {
   .hero.hero13 {
     min-height: unset;
@@ -477,7 +471,174 @@
   }
 }
 
-/* Remove z-index from picture so it isn't hidden */
 .hero.hero13 picture {
   position: static;
+}
+
+
+.hero.hero20 {
+  width: 100vw;
+  height: 100vh;
+  min-height: 600px;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  background: #000;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  place-items: stretch stretch;
+  overflow: hidden;
+}
+
+/* Ensure collage grid fills entire left column vertically and horizontally */
+.hero.hero20 div:first-child {
+  display: flex;
+  align-items: stretch;
+  justify-content: stretch;
+  height: 100vh;
+  width: 100%;
+  min-height: 600px;
+}
+
+.hero.hero20 div:first-child p {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  gap: 0;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.hero.hero20 picture,
+.hero.hero20 img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  margin: 0;
+  padding: 0;
+  position: static;
+  box-sizing: border-box;
+}
+
+/* Right column: perfectly center all content vertically & horizontally */
+.hero.hero20 div:last-child {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100vh;
+  min-width: 0;
+  min-height: 600px;
+  position: relative;
+  z-index: 1;
+}
+
+/* Center text-group as a column, keep buttons tight with the text */
+.hero.hero20 div:last-child div {
+  background: rgb(0 0 0 / 36%);
+  border-radius: 18px;
+  padding: 2.5rem 2rem;
+  box-sizing: border-box;
+  max-width: 750px;
+  width: 100%;
+  margin: 0;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Headline styles */
+.hero.hero20 h1 {
+  color: #fff;
+  font-size: 4.5rem;
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: 0.04em;
+  margin-bottom: 2rem;
+  text-align: center;
+  width: 100%;
+}
+
+/* Supporting text: wider and tighter with headline/buttons */
+.hero.hero20 p:not(.button-container) {
+  color: #f3f3f3;
+  font-size: 1.17rem;
+  margin-bottom: 1.3rem;
+  text-align: center;
+  max-width: 600px;
+  width: 100%;
+}
+
+/* Button row: side by side, tight under text */
+.hero.hero20 div:last-child div .button-container {
+  display: inline-block;
+  margin-right: 0.75rem;
+  margin-bottom: 0;
+  vertical-align: middle;
+  margin-top: 0.5rem;
+}
+
+.hero.hero20 div:last-child div .button-container:last-of-type {
+  margin-right: 0;
+}
+
+/* Button styles */
+.hero.hero20 .button {
+  background: rgb(0 0 0 / 55%);
+  color: #fff;
+  border: 2px solid #fff;
+  border-radius: 2em;
+  font-size: 1.09rem;
+  font-weight: 600;
+  padding: 0.85em 2.3em;
+  margin: 0;
+  min-width: 120px;
+  box-shadow: none;
+  text-align: center;
+  line-height: 1.2;
+  transition: background 0.2s;
+  cursor: pointer;
+}
+
+.hero.hero20 .button:hover,
+.hero.hero20 .button:focus {
+  background: rgb(255 255 255 / 15%);
+  color: #fff;
+}
+
+/* Responsive: stack on mobile, allow collage to show full width */
+@media (width <= 900px) {
+  .hero.hero20 {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto;
+    height: auto;
+    min-height: 0;
+  }
+
+  .hero.hero20 div:first-child,
+  .hero.hero20 div:last-child {
+    height: auto;
+    min-height: 0;
+    width: 100%;
+  }
+
+  .hero.hero20 div:first-child {
+    aspect-ratio: 3/2;
+    min-height: 250px;
+  }
+
+  .hero.hero20 div:last-child div {
+    padding: 1.2rem 0.3rem;
+    max-width: 95vw;
+  }
+
+  .hero.hero20 h1 {
+    font-size: 2.2rem;
+    margin-bottom: 1.2rem;
+  }
 }
