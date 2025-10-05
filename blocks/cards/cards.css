@@ -25,3 +25,182 @@
   aspect-ratio: 4 / 3;
   object-fit: cover;
 }
+
+
+.cards.cards2 {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 3.5rem 0;
+  background: var(--background-color);
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: stretch;
+}
+
+.cards.cards2 ul {
+  display: flex;
+  flex-direction: row;
+  gap: 0.6rem;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  box-sizing: border-box;
+  align-items: stretch;
+}
+
+/* Card styling: outer corners only rounded, subtle shadow, fill height */
+.cards.cards2 ul li {
+  flex: 1 1 0;
+  display: flex;
+  flex-direction: column;
+  background: var(--background-color);
+  border: none;
+  box-shadow: 0 8px 32px 0 rgba(50,50,50,0.07);
+  overflow: hidden;
+  min-width: 0;
+  min-height: 640px;
+}
+
+/* Outer corners only for left and right cards */
+.cards.cards2 ul li:first-child {
+  border-top-left-radius: 2rem;
+  border-bottom-left-radius: 2rem;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+.cards.cards2 ul li:last-child {
+  border-top-right-radius: 2rem;
+  border-bottom-right-radius: 2rem;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+/* Images: left card tall and rounded left, right card even taller and rounded top */
+.cards.cards2 ul li:first-child .cards-card-image {
+  border-top-left-radius: 2rem;
+  border-bottom-left-radius: 2rem;
+  overflow: hidden;
+}
+.cards.cards2 ul li:first-child .cards-card-image img {
+  width: 100%;
+  height: 375px;
+  object-fit: cover;
+  display: block;
+  border-top-left-radius: 2rem;
+  border-bottom-left-radius: 2rem;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+.cards.cards2 ul li:last-child .cards-card-image {
+  border-top-right-radius: 2rem;
+  overflow: hidden;
+}
+.cards.cards2 ul li:last-child .cards-card-image img {
+  width: 100%;
+  height: 240px;
+  object-fit: cover;
+  display: block;
+  border-top-right-radius: 2rem;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+/* Card body: tighter padding, balanced vertical space */
+.cards.cards2 .cards-card-body {
+  flex: 1 1 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding: 2rem 2.5rem 1.2rem 2.5rem;
+  gap: 0.7rem;
+  box-sizing: border-box;
+}
+
+.cards.cards2 ul li:first-child .cards-card-body {
+  padding-top: 2.1rem;
+  padding-bottom: 2rem;
+}
+
+.cards.cards2 ul li:last-child .cards-card-body {
+  padding-top: 0.5rem;
+  padding-bottom: 1.5rem;
+  justify-content: flex-start;
+}
+
+/* Headline styles: large, uppercase, zero top margin for tight alignment */
+.cards.cards2 ul li .cards-card-body h3 {
+  font-size: 2.25rem;
+  text-transform: uppercase;
+  letter-spacing: 0.01em;
+  color: var(--text-color);
+  margin-top: 0;
+  margin-bottom: 1rem;
+  font-weight: 700;
+}
+
+/* Paragraph styling: smaller gap */
+.cards.cards2 ul li .cards-card-body p {
+  color: var(--text-color);
+  font-size: 1.05rem;
+  font-weight: 400;
+  margin-top: 0;
+  margin-bottom: 1rem;
+  line-height: 1.6;
+}
+
+/* "Read more" as a button: larger padding, closer to previous paragraph */
+.cards.cards2 ul li:first-child .cards-card-body p:last-child {
+  display: inline-block;
+  padding: 1em 2.2em;
+  border: 1.5px solid var(--text-color);
+  border-radius: 2em;
+  font-size: 1.09rem;
+  font-weight: 500;
+  color: var(--text-color);
+  background: var(--background-color);
+  cursor: pointer;
+  width: fit-content;
+  margin-top: 0.1em;
+  transition: background 0.2s;
+  margin-bottom: 0;
+  line-height: 1.4;
+}
+.cards.cards2 ul li:first-child .cards-card-body p:last-child:hover {
+  background: var(--light-color);
+}
+
+/* Responsive: stack cards vertically and adjust image/card spacing */
+@media (max-width: 900px) {
+  .cards.cards2 {
+    flex-direction: column;
+    padding: 2rem 0 2rem 0;
+    margin: 0;
+    width: 100%;
+    max-width: 100vw;
+  }
+  .cards.cards2 ul {
+    flex-direction: column;
+    gap: 2rem;
+  }
+  .cards.cards2 ul li,
+  .cards.cards2 ul li:first-child,
+  .cards.cards2 ul li:last-child {
+    border-radius: 1.5rem;
+    min-height: 0;
+  }
+  .cards.cards2 ul li .cards-card-image,
+  .cards.cards2 ul li .cards-card-image img {
+    border-radius: 1.5rem 1.5rem 0 0;
+    height: 200px;
+  }
+  .cards.cards2 ul li .cards-card-body {
+    padding: 1.5rem 1.2rem 1.2rem 1.2rem;
+    justify-content: flex-start;
+  }
+}
