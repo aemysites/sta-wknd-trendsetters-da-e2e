@@ -661,3 +661,105 @@
   color: #191919;
   margin-right: 8px;
 }
+
+
+.columns.columns15 {
+  background: #f8f9f7;
+  padding: 0;
+}
+
+/* Main row layout: horizontal flex, top aligned, correct gap */
+.columns.columns15 .block.columns div {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 42px;
+  width: 100%;
+  background: transparent;
+  padding: 0;
+  margin: 0;
+}
+
+/* Responsive: stack columns vertically on small screens */
+@media (width <= 900px) {
+  .columns.columns15 .block.columns div {
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  .columns.columns15 .block.columns div div {
+    width: auto;
+    max-width: 100%;
+  }
+}
+
+/* Text columns: prevent wrapping, set wide enough width so sentences do not wrap */
+.columns.columns15 .block.columns div div {
+  font-size: 14px;
+  line-height: 1.3;
+  color: #222;
+  margin: 0;
+  padding: 0;
+  width: 510px;
+  min-width: 300px;
+  max-width: 600px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  flex-shrink: 0;
+}
+
+/* Prevent <p> from wrapping/overflow issues */
+.columns.columns15 .block.columns div div p {
+  margin: 0;
+  padding: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Button column: align top, right, fixed width */
+.columns.columns15 .block.columns div div:last-child {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-end;
+  min-width: 120px;
+  width: 120px;
+  margin: 0;
+  padding: 0;
+  flex-shrink: 0;
+}
+
+/* High-specificity button style to override base design and increase horizontal padding */
+.columns.columns15 .block.columns .button-container .button,
+.columns.columns15 .block.columns .button-container a.button,
+.columns.columns15 a.button {
+  background: #fff;
+  font-size: 13px;
+  padding: 5px 24px;
+  border: 1px solid #222;
+  border-radius: 22px;
+  box-shadow: 0 2px 0 0 #ffc;
+  margin: 0;
+  text-align: center;
+  text-decoration: none;
+  line-height: 1.4;
+  font-weight: 400;
+  white-space: nowrap;
+  border-width: 1px;
+  border-color: #222;
+  background-color: #fff;
+  color: #222;
+  transition: box-shadow 0.15s;
+  min-width: 120px;
+}
+
+/* Button hover/focus */
+.columns.columns15 .block.columns .button-container .button:hover,
+.columns.columns15 .block.columns .button-container .button:focus,
+.columns.columns15 .block.columns .button-container a.button:hover,
+.columns.columns15 .block.columns .button-container a.button:focus,
+.columns.columns15 a.button:hover,
+.columns.columns15 a.button:focus {
+  box-shadow: 0 3px 6px #ffc;
+}
