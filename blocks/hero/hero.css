@@ -819,7 +819,6 @@
   background: none;
 }
 
-/* Make sure the hero image fills the block as a background */
 .hero.hero29 div picture,
 .hero.hero29 div img {
   width: 100vw;
@@ -838,7 +837,6 @@
   pointer-events: none;
 }
 
-/* Use only relative positioning on the overlay (do not use flex or absolute centering here) */
 .hero.hero29 div:not(:first-child) {
   position: relative;
   width: 100vw;
@@ -847,7 +845,6 @@
   pointer-events: none;
 }
 
-/* Absolutely center the heading inside the overlay for pixel-perfect alignment */
 .hero.hero29 h1 {
   position: absolute;
   top: 50%;
@@ -862,4 +859,131 @@
   letter-spacing: 0.04em;
 }
 
-/* Remove unwanted margin/padding from the hero wrapper for full-bleed effect */
+
+.hero.hero38 {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: 60px 7vw 0;
+  background: var(--background-color);
+  border-bottom: 2px solid #000;
+  min-height: 220px;
+  box-sizing: border-box;
+  width: 100%;
+}
+
+.hero.hero38 div {
+  flex: 1 1 0;
+  min-width: 0;
+}
+
+/* Content column */
+.hero.hero38 div:last-of-type {
+  flex: 3 1 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  min-width: 0;
+  width: 100%;
+}
+
+/* --- Use CSS Grid for true side-by-side grouping of text and button --- */
+.hero.hero38 div:last-of-type div {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 340px;
+  grid-template-rows: auto auto;
+  align-items: start;
+  column-gap: 100px;
+  width: 100%;
+}
+
+/* Heading and subtext both in the left column */
+.hero.hero38 div:last-of-type div h2 {
+  grid-column: 1;
+  grid-row: 1;
+  font-size: var(--heading-font-size-xl);
+  color: var(--text-color);
+  font-weight: 400;
+  margin: 0 0 10px;
+  letter-spacing: 0.04em;
+  line-height: 1.1;
+  max-width: 600px;
+  text-align: left;
+}
+
+.hero.hero38 div:last-of-type div p:not(.button-container) {
+  grid-column: 1;
+  grid-row: 2;
+  font-size: var(--body-font-size-s);
+  color: #707070;
+  font-weight: 300;
+  margin: 0;
+  line-height: 1.4;
+  max-width: 420px;
+  text-align: left;
+}
+
+/* Button on right column, vertically centered to text group */
+.hero.hero38 div:last-of-type div .button-container {
+  grid-column: 2;
+  grid-row: 1 / span 2;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  min-width: 0;
+  margin: 0;
+  height: 100%;
+}
+
+/* Button styling for pill shape and accent */
+.hero.hero38 .button {
+  min-width: 320px;
+  padding: 14px 0;
+  border: 2px solid #000;
+  border-radius: 999px;
+  background: #fff;
+  color: #000;
+  font-size: var(--body-font-size-xs);
+  font-weight: 400;
+  text-align: center;
+  box-shadow: 0 2px 0 #d4d700;
+  transition: background 0.2s, color 0.2s;
+  line-height: 1.2;
+  margin: 0;
+}
+
+/* Responsive: stack vertically on small screens */
+@media (width <= 900px) {
+  .hero.hero38 {
+    flex-direction: column;
+    padding: 40px 4vw 0;
+    min-height: unset;
+  }
+
+  .hero.hero38 div,
+  .hero.hero38 div:last-of-type {
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: 0;
+    width: 100%;
+  }
+
+  .hero.hero38 div:last-of-type div {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .hero.hero38 div:last-of-type div .button-container {
+    justify-content: flex-start;
+    margin-top: 20px;
+    height: auto;
+  }
+
+  .hero.hero38 .button {
+    min-width: 180px;
+    padding: 12px 0;
+  }
+}
