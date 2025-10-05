@@ -381,7 +381,6 @@
   box-sizing: border-box;
 }
 
-/* Use flex for main two-column layout and vertical centering of sidebar */
 .columns.columns9 .columns {
   display: flex;
   flex-direction: row;
@@ -389,7 +388,6 @@
   gap: 40px;
 }
 
-/* Responsive: stack columns vertically on smaller screens */
 @media (width <= 900px) {
   .columns.columns9 .columns {
     flex-direction: column;
@@ -398,7 +396,6 @@
   }
 }
 
-/* Left column: restrict width and align content top */
 .columns.columns9 .columns div:first-child {
   flex: 1 1 0;
   max-width: 480px;
@@ -411,7 +408,6 @@
   padding-bottom: 0;
 }
 
-/* Headline and subheadline spacing */
 .columns.columns9 h2 {
   font-size: 13px;
   text-transform: uppercase;
@@ -432,7 +428,6 @@
   line-height: 1.15;
 }
 
-/* Description paragraph */
 .columns.columns9 h2 + h3 + p {
   font-size: 16px;
   color: #6D6D6D;
@@ -441,7 +436,6 @@
   line-height: 1.7;
 }
 
-/* Right column: sidebar appearance, center contact info vertically */
 .columns.columns9 .columns div:last-child {
   flex: 0 0 310px;
   display: flex;
@@ -453,7 +447,6 @@
   gap: 0;
 }
 
-/* Contact info list: compact, centered vertically */
 .columns.columns9 ul {
   list-style: none;
   padding: 0;
@@ -466,7 +459,6 @@
   justify-content: center;
 }
 
-/* Each contact row: icon left, text right, tightly grouped */
 .columns.columns9 li {
   display: flex;
   flex-direction: row;
@@ -475,7 +467,6 @@
   min-height: 40px;
 }
 
-/* Icon circle: compact, lighter, centered */
 .columns.columns9 li p:first-child {
   margin: 0;
   display: flex;
@@ -488,14 +479,12 @@
   flex-shrink: 0;
 }
 
-/* Icon sizing */
 .columns.columns9 li img {
   width: 18px;
   height: 18px;
   display: block;
 }
 
-/* Contact label: lighter, smaller */
 .columns.columns9 li h4 {
   font-size: 12px;
   text-transform: uppercase;
@@ -506,7 +495,6 @@
   line-height: 1.2;
 }
 
-/* Contact info text: dark, compact */
 .columns.columns9 li p:not(:first-child) {
   font-size: 15px;
   color: #151515;
@@ -515,7 +503,6 @@
   line-height: 1.5;
 }
 
-/* Email link: remove button look, use underline */
 .columns.columns9 .button-container .button {
   color: #151515;
   font-size: 15px;
@@ -528,7 +515,6 @@
   margin: 0;
 }
 
-/* Right column image: max width, rounded corners, shadow, tight gap */
 .columns.columns9 .columns-img-col {
   width: 100%;
   max-width: 680px;
@@ -543,7 +529,6 @@
   box-shadow: 0 8px 32px rgb(0 0 0 / 10%);
 }
 
-/* Responsive: image margin on small screens */
 @media (width <= 900px) {
   .columns.columns9 .columns-img-col {
     margin-top: 24px;
@@ -560,4 +545,119 @@
   }
 }
 
-/* Remove extra margin/padding for vertical alignment */
+
+.columns.columns11 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+  align-items: start;
+  padding: 56px 0 0;
+}
+
+.columns.columns11 div {
+  box-sizing: border-box;
+}
+
+.columns.columns11 div div {
+  max-width: 520px;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  margin-bottom: 0;
+}
+
+.columns.columns11 p:first-child {
+  font-size: var(--body-font-size-xs);
+  font-weight: 500;
+  text-transform: uppercase;
+  color: #757575;
+  letter-spacing: 0.08em;
+  margin-bottom: 18px;
+  margin-top: 0;
+}
+
+.columns.columns11 h1 {
+  font-size: 68px;
+  font-weight: 600;
+  color: #191919;
+  line-height: 1.09;
+  margin-bottom: 32px;
+  margin-top: 0;
+}
+
+@media (width <= 900px) {
+  .columns.columns11 {
+    grid-template-columns: 1fr;
+    gap: 32px;
+    padding: 32px 0 0;
+  }
+
+  .columns.columns11 h1 {
+    font-size: 36px;
+    margin-bottom: 18px;
+  }
+}
+
+.columns.columns11 p {
+  font-size: var(--body-font-size-s);
+  color: #191919;
+  margin-bottom: 20px;
+  margin-top: 0;
+  line-height: 1.6;
+}
+
+.columns.columns11 div div p.button-container {
+  margin-top: 18px;
+  text-align: left;
+}
+
+.columns.columns11 .button {
+  padding: 8px 18px;
+  border: 1.5px solid #191919;
+  border-radius: 999px;
+  background: #fff;
+  color: #191919;
+  font-size: 14px;
+  font-weight: 500;
+  margin-top: 0;
+  margin-left: 0;
+  margin-right: 0;
+  box-shadow: none;
+}
+
+.columns.columns11 .button:hover,
+.columns.columns11 .button:focus {
+  background: #191919;
+  color: #fff;
+  border-color: #191919;
+}
+
+.columns.columns11 picture,
+.columns.columns11 img {
+  width: 100%;
+  max-width: 340px;
+  aspect-ratio: 1 / 1;
+  border-radius: 16px;
+  object-fit: cover;
+  display: block;
+  margin-bottom: 0;
+}
+
+.columns.columns11 div div p:nth-child(6),
+.columns.columns11 div div p:nth-child(7),
+.columns.columns11 div div p:nth-child(8),
+.columns.columns11 div div p:nth-child(9) {
+  font-size: 14px;
+  color: #757575;
+  display: inline;
+  margin-right: 8px;
+  margin-bottom: 0;
+}
+
+.columns.columns11 div div p:nth-child(6) {
+  font-weight: 600;
+  color: #191919;
+  margin-right: 8px;
+}
