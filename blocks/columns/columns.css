@@ -299,7 +299,6 @@
   padding: 0;
 }
 
-/* Force the columns row (the parent of left and right columns) to take up only as much height as its tallest child and align children to the top */
 .columns.columns8 .block.columns div {
   display: flex;
   flex-direction: row;
@@ -309,7 +308,6 @@
   height: auto;
 }
 
-/* Responsive: stack columns vertically on small screens */
 @media (width <= 800px) {
   .columns.columns8 .block.columns div {
     flex-direction: column;
@@ -317,7 +315,6 @@
   }
 }
 
-/* Heading styles: left column */
 .columns.columns8 h2 {
   font-size: 48px;
   line-height: 1.08;
@@ -328,7 +325,6 @@
   box-sizing: border-box;
 }
 
-/* Right column: compact vertical stack for paragraph + button, no vertical centering */
 .columns.columns8 .block.columns div div:last-child {
   display: flex;
   flex-direction: column;
@@ -340,25 +336,21 @@
   height: auto;
 }
 
-/* Remove unwanted margins for tight grouping */
 .columns.columns8 .block.columns div div:last-child p {
   margin: 0;
 }
 
-/* Paragraph styles */
 .columns.columns8 .block.columns div div:last-child p:not(.button-container) {
   font-size: 13px;
   line-height: 1.5;
   color: #222;
 }
 
-/* Button container: no extra spacing */
 .columns.columns8 .button-container {
   margin: 0;
   padding: 0;
 }
 
-/* Button styles */
 .columns.columns8 .button-container .button {
   background: #fff;
   color: #000;
@@ -381,3 +373,191 @@
   border-color: #000;
   text-decoration: none;
 }
+
+
+.columns.columns9 {
+  background: #fff;
+  padding: 48px 32px 0;
+  box-sizing: border-box;
+}
+
+/* Use flex for main two-column layout and vertical centering of sidebar */
+.columns.columns9 .columns {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  gap: 40px;
+}
+
+/* Responsive: stack columns vertically on smaller screens */
+@media (width <= 900px) {
+  .columns.columns9 .columns {
+    flex-direction: column;
+    gap: 32px;
+    align-items: stretch;
+  }
+}
+
+/* Left column: restrict width and align content top */
+.columns.columns9 .columns div:first-child {
+  flex: 1 1 0;
+  max-width: 480px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  margin-bottom: 0;
+  padding-top: 0;
+  margin-top: 0;
+  padding-bottom: 0;
+}
+
+/* Headline and subheadline spacing */
+.columns.columns9 h2 {
+  font-size: 13px;
+  text-transform: uppercase;
+  color: #6D6D6D;
+  font-weight: 400;
+  letter-spacing: 1px;
+  margin-top: 0;
+  margin-bottom: 10px;
+}
+
+.columns.columns9 h3 {
+  font-size: 34px;
+  text-transform: uppercase;
+  font-weight: 400;
+  letter-spacing: 2px;
+  color: #151515;
+  margin-bottom: 18px;
+  line-height: 1.15;
+}
+
+/* Description paragraph */
+.columns.columns9 h2 + h3 + p {
+  font-size: 16px;
+  color: #6D6D6D;
+  margin-bottom: 0;
+  margin-top: 0;
+  line-height: 1.7;
+}
+
+/* Right column: sidebar appearance, center contact info vertically */
+.columns.columns9 .columns div:last-child {
+  flex: 0 0 310px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  min-width: 0;
+  padding-top: 0;
+  gap: 0;
+}
+
+/* Contact info list: compact, centered vertically */
+.columns.columns9 ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  align-items: flex-start;
+  max-width: 310px;
+  justify-content: center;
+}
+
+/* Each contact row: icon left, text right, tightly grouped */
+.columns.columns9 li {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 11px;
+  min-height: 40px;
+}
+
+/* Icon circle: compact, lighter, centered */
+.columns.columns9 li p:first-child {
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  background: #f5f5f5;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+/* Icon sizing */
+.columns.columns9 li img {
+  width: 18px;
+  height: 18px;
+  display: block;
+}
+
+/* Contact label: lighter, smaller */
+.columns.columns9 li h4 {
+  font-size: 12px;
+  text-transform: uppercase;
+  color: #6D6D6D;
+  font-weight: 500;
+  margin: 0 0 1px;
+  letter-spacing: 1px;
+  line-height: 1.2;
+}
+
+/* Contact info text: dark, compact */
+.columns.columns9 li p:not(:first-child) {
+  font-size: 15px;
+  color: #151515;
+  font-weight: 400;
+  margin: 0;
+  line-height: 1.5;
+}
+
+/* Email link: remove button look, use underline */
+.columns.columns9 .button-container .button {
+  color: #151515;
+  font-size: 15px;
+  text-decoration: underline;
+  background: none;
+  border: none;
+  padding: 0;
+  font-weight: 400;
+  border-radius: 0;
+  margin: 0;
+}
+
+/* Right column image: max width, rounded corners, shadow, tight gap */
+.columns.columns9 .columns-img-col {
+  width: 100%;
+  max-width: 680px;
+  margin-top: 10px;
+}
+
+.columns.columns9 .columns-img-col img {
+  width: 100%;
+  height: auto;
+  border-radius: 24px;
+  display: block;
+  box-shadow: 0 8px 32px rgb(0 0 0 / 10%);
+}
+
+/* Responsive: image margin on small screens */
+@media (width <= 900px) {
+  .columns.columns9 .columns-img-col {
+    margin-top: 24px;
+    max-width: 100%;
+  }
+
+  .columns.columns9 .columns div:last-child {
+    align-items: stretch;
+    justify-content: flex-start;
+  }
+
+  .columns.columns9 ul {
+    max-width: 100%;
+  }
+}
+
+/* Remove extra margin/padding for vertical alignment */
