@@ -776,7 +776,7 @@
   flex-flow: row nowrap;
   justify-content: center;
   align-items: center;
-  gap: 36px; /* Slightly tighter grouping for more balance */
+  gap: 36px;
   background: transparent;
 }
 
@@ -790,7 +790,7 @@
 .columns.columns16 .columns-img-col picture,
 .columns.columns16 .columns-img-col img {
   display: block;
-  width: 188px;  /* Slightly smaller for compact, airy look */
+  width: 188px;
   height: 132px;
   object-fit: cover;
   background: transparent;
@@ -827,5 +827,196 @@
     max-width: 96vw;
     height: auto;
     transform: none;
+  }
+}
+
+
+.columns.columns27 {
+  background: #fafbf7;
+  padding: 0;
+}
+
+.columns.columns27 .columns {
+  width: 100%;
+}
+
+/* Main grid: headline/quote and image side by side, meta row full width below */
+.columns.columns27 .columns div {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto auto;
+  gap: 0 3.5rem;
+  align-items: start;
+  padding: 3rem 2rem;
+  background: #fafbf7;
+}
+
+/* Headline + Quote (left column, first row) */
+.columns.columns27 .columns div div:first-child {
+  grid-column: 1 / 2;
+  grid-row: 1 / 2;
+  align-self: start;
+}
+
+.columns.columns27 .columns div div:first-child p:first-child {
+  font-size: 2.2rem;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 0.01em;
+  line-height: 1.1;
+  color: #232622;
+  margin-bottom: 1.2rem;
+  margin-top: 0;
+}
+
+.columns.columns27 .columns div div:first-child p:nth-child(2) {
+  font-size: 1rem;
+  line-height: 1.7;
+  color: #232622;
+  margin: 0;
+  max-width: 30em;
+}
+
+/* Portrait image (right column, first row) */
+.columns.columns27 .columns div div:last-child p picture img,
+.columns.columns27 .columns div div:last-child p img[alt*="customer"] {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 0;
+  object-fit: cover;
+  margin: 0 auto;
+  margin-bottom: 0;
+  box-shadow: none;
+}
+
+.columns.columns27 .columns div div:last-child p:first-child {
+  grid-column: 2 / 3;
+  grid-row: 1 / 2;
+  margin: 0;
+  padding: 0;
+}
+
+/* Meta row: stretches full width, left flex group for avatar/name/title, logo at far right */
+.columns.columns27 .columns div div:last-child {
+  grid-column: 1 / -1;
+  grid-row: 2 / 3;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 0;
+  padding-top: 3rem;
+  margin-top: 0;
+  border-top: 1px solid #e2e3dd;
+  min-height: 90px;
+  padding-bottom: 0.5rem;
+}
+
+/* Left meta group: avatar, name, title stacked and aligned left */
+.columns.columns27 .columns div div:last-child .meta-details {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.1rem;
+  margin-right: 1.2rem;
+}
+
+.columns.columns27 .columns div div:last-child p {
+  margin: 0;
+  padding: 0;
+}
+
+.columns.columns27 .columns div div:last-child p picture img,
+.columns.columns27 .columns div div:last-child img[alt*="customer"] {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+  vertical-align: middle;
+  margin-bottom: 0.6rem;
+  box-shadow: 0 0 0 1px #e2e3dd;
+  display: inline-block;
+}
+
+.columns.columns27 .columns div div:last-child p:nth-of-type(2),
+.columns.columns27 .columns div div:last-child p:nth-of-type(3) {
+  display: block;
+  margin-top: 0.25rem;
+}
+
+.columns.columns27 .columns div div:last-child p:nth-of-type(2) {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #232622;
+  margin-bottom: 2px;
+}
+
+.columns.columns27 .columns div div:last-child p:nth-of-type(3) {
+  font-size: 0.92rem;
+  color: #3d3e39;
+  margin-bottom: 0;
+}
+
+/* Logo: anchored at far right of block */
+.columns.columns27 .columns div div:last-child p:last-child {
+  margin-left: auto;
+  margin-top: 0;
+  display: block;
+  align-self: flex-end;
+  padding-right: 0;
+}
+
+.columns.columns27 .columns div div:last-child p:last-child img {
+  height: 2.2rem;
+  width: auto;
+  vertical-align: middle;
+  display: inline-block;
+}
+
+/* Increase spacing above and below divider for separation */
+
+.columns.columns27 .columns div div:first-child,
+.columns.columns27 .columns div div:last-child {
+  margin: 0;
+  padding: 0;
+}
+
+/* Responsive: stack vertically and space meta row clearly on small screens */
+@media (width <= 900px) {
+  .columns.columns27 .columns div {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto auto;
+    gap: 2rem 0;
+    padding: 2rem 1rem;
+  }
+
+  .columns.columns27 .columns div div:first-child {
+    grid-column: 1 / 2;
+    grid-row: 1 / 2;
+  }
+
+  .columns.columns27 .columns div div:last-child {
+    grid-column: 1 / 2;
+    grid-row: 3 / 4;
+    flex-direction: column;
+    align-items: flex-start;
+    border-top: 1px solid #e2e3dd;
+    padding-top: 2.2rem;
+    min-height: unset;
+  }
+
+  .columns.columns27 .columns div div:last-child .meta-details {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.1rem;
+    margin-right: 0;
+  }
+
+  .columns.columns27 .columns div div:last-child p:last-child {
+    margin-left: 0;
+    margin-top: 1.5rem;
+    align-self: flex-start;
+    padding-right: 0;
   }
 }
