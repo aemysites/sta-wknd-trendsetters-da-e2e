@@ -60,7 +60,6 @@
   box-sizing: border-box;
 }
 
-/* Image column: ensure the image fills the whole half, vertically and horizontally */
 .hero.hero5 div:first-of-type {
   flex: 1 1 0;
   display: flex;
@@ -101,7 +100,6 @@
   box-sizing: border-box;
 }
 
-/* Text column: top-align and reduce vertical space, add more room to the left */
 .hero.hero5 div:last-of-type {
   flex: 1 1 0;
   display: flex;
@@ -127,7 +125,6 @@
   padding: 0;
 }
 
-/* Typography and spacing */
 .hero.hero5 h2 {
   color: #222;
   font-size: 2.6rem;
@@ -185,7 +182,6 @@
   color: #fff;
 }
 
-/* Responsive: stack vertically and shrink paddings */
 @media (width <= 900px) {
   .hero.hero5 {
     flex-direction: column;
@@ -222,3 +218,172 @@
     align-items: flex-start;
   }
 }
+
+
+.hero.hero6 {
+  position: relative;
+  width: 100vw;
+  min-height: 100vh;
+  box-sizing: border-box;
+  overflow: hidden;
+  background: #000;
+  display: flex;
+  align-items: stretch;
+}
+
+/* Full-bleed image as background */
+.hero.hero6 div:first-child {
+  position: absolute;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 1;
+  display: flex;
+  align-items: stretch;
+  justify-content: stretch;
+  margin: 0;
+  padding: 0;
+}
+
+.hero.hero6 picture,
+.hero.hero6 img {
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+  display: block;
+  margin: 0;
+  padding: 0;
+  border-radius: 0;
+}
+
+/* Overlay content column: make sure it uses full height */
+.hero.hero6 div:last-child {
+  position: relative;
+  z-index: 2;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  pointer-events: none;
+}
+
+/* Overlay panel: glassmorphic effect, centered vertically on left, all content inside */
+.hero.hero6 div:last-child div {
+  pointer-events: auto;
+  margin-left: 3vw;
+  min-width: 340px;
+  width: 41vw;
+  max-width: 520px;
+  background: rgb(30 30 30 / 48%);
+  border: 2px solid rgb(255 255 255 / 90%);
+  border-radius: 28px;
+  padding: 54px 54px 38px;
+  backdrop-filter: blur(14px);
+  backdrop-filter: blur(14px);
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 34px;
+  box-shadow: 0 2px 32px 0 rgb(50 50 50 / 10%);
+  min-height: 80vh;
+}
+
+.hero.hero6 h1,
+.hero.hero6 p,
+.hero.hero6 .button-container {
+  width: 100%;
+  max-width: 440px;
+}
+
+/* Headline styling */
+.hero.hero6 h1 {
+  color: #fff;
+  font-size: clamp(2.7rem, 6.8vw, 4.25rem);
+  font-weight: 400;
+  line-height: 1.08;
+  margin: 0 0 22px;
+  letter-spacing: 0.01em;
+}
+
+/* Description text */
+.hero.hero6 p:not(.button-container) {
+  color: rgb(255 255 255 / 81%);
+  font-size: 1.12rem;
+  font-weight: 400;
+  margin: 0 0 30px;
+  max-width: 420px;
+}
+
+/* Button row */
+.hero.hero6 .button-container {
+  display: flex;
+  gap: 18px;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+/* Button styles, override base */
+.hero-container .hero-wrapper .block.hero.hero6 .button {
+  background: transparent;
+  color: #fff;
+  border: 2px solid #fff;
+  border-radius: 999px;
+  font-size: 1rem;
+  font-weight: 500;
+  padding: 0.88em 2.3em;
+  margin: 0;
+  box-shadow: none;
+  min-width: 120px;
+  line-height: 1.2;
+  transition: background 0.16s, color 0.16s;
+  text-align: center;
+  letter-spacing: 0.01em;
+}
+
+.hero-container .hero-wrapper .block.hero.hero6 .button:hover,
+.hero-container .hero-wrapper .block.hero.hero6 .button:focus {
+  background: rgb(255 255 255 / 14%);
+  color: #fff;
+}
+
+/* Responsive: stack overlay below image on small screens */
+@media (width <= 900px) {
+  .hero.hero6 {
+    flex-direction: column;
+    min-height: 500px;
+  }
+
+  .hero.hero6 div:first-child {
+    position: static;
+    width: 100vw;
+    height: 340px;
+    min-height: 220px;
+  }
+
+  .hero.hero6 div:last-child {
+    height: auto;
+    min-height: 0;
+    width: 100vw;
+    justify-content: flex-end;
+    align-items: center;
+  }
+
+  .hero.hero6 div:last-child div {
+    margin-left: 0;
+    width: 95vw;
+    max-width: 98vw;
+    min-width: 0;
+    padding: 28px 5vw 22px;
+    gap: 18px;
+    min-height: 0;
+  }
+
+  .hero.hero6 h1 {
+    font-size: clamp(1.2rem, 7vw, 2.5rem);
+  }
+}
+
+/* Make hero span full width of viewport */
