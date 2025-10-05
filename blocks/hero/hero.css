@@ -231,7 +231,6 @@
   align-items: stretch;
 }
 
-/* Full-bleed image as background */
 .hero.hero6 div:first-child {
   position: absolute;
   inset: 0;
@@ -256,7 +255,6 @@
   border-radius: 0;
 }
 
-/* Overlay content column: make sure it uses full height */
 .hero.hero6 div:last-child {
   position: relative;
   z-index: 2;
@@ -268,7 +266,6 @@
   pointer-events: none;
 }
 
-/* Overlay panel: glassmorphic effect, centered vertically on left, all content inside */
 .hero.hero6 div:last-child div {
   pointer-events: auto;
   margin-left: 3vw;
@@ -279,7 +276,6 @@
   border: 2px solid rgb(255 255 255 / 90%);
   border-radius: 28px;
   padding: 54px 54px 38px;
-  backdrop-filter: blur(14px);
   backdrop-filter: blur(14px);
   box-sizing: border-box;
   display: flex;
@@ -298,7 +294,6 @@
   max-width: 440px;
 }
 
-/* Headline styling */
 .hero.hero6 h1 {
   color: #fff;
   font-size: clamp(2.7rem, 6.8vw, 4.25rem);
@@ -308,7 +303,6 @@
   letter-spacing: 0.01em;
 }
 
-/* Description text */
 .hero.hero6 p:not(.button-container) {
   color: rgb(255 255 255 / 81%);
   font-size: 1.12rem;
@@ -317,7 +311,6 @@
   max-width: 420px;
 }
 
-/* Button row */
 .hero.hero6 .button-container {
   display: flex;
   gap: 18px;
@@ -325,7 +318,6 @@
   margin-bottom: 0;
 }
 
-/* Button styles, override base */
 .hero-container .hero-wrapper .block.hero.hero6 .button {
   background: transparent;
   color: #fff;
@@ -349,7 +341,6 @@
   color: #fff;
 }
 
-/* Responsive: stack overlay below image on small screens */
 @media (width <= 900px) {
   .hero.hero6 {
     flex-direction: column;
@@ -386,4 +377,107 @@
   }
 }
 
-/* Make hero span full width of viewport */
+
+.hero.hero13 {
+  /* Remove solid background and card effect */
+  background: none;
+  width: 100vw;
+  min-height: 420px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  margin: 0;
+}
+
+/* Single overlay panel, not nested card */
+.hero.hero13 div {
+  background: rgb(20 20 20 / 56%);
+  border-radius: 22px;
+  border: 1.5px solid rgb(255 255 255 / 22%);
+  box-shadow: 0 6px 36px 0 rgb(0 0 0 / 10%);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  max-width: 850px;
+  width: 90vw;
+  min-height: 320px;
+  margin: 0 auto;
+  padding: 2.3rem 2.8rem;
+  box-sizing: border-box;
+  position: relative;
+  z-index: 1;
+}
+
+/* Align image at left edge inside overlay */
+.hero.hero13 div div:first-child {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  flex: 0 0 230px;
+  margin: 0 2.3rem 0 0;
+}
+
+/* Remove inner framing effect */
+.hero.hero13 div div:first-child picture,
+.hero.hero13 div div:first-child img {
+  width: 220px;
+  height: 220px;
+  max-width: 100%;
+  max-height: 100%;
+  border-radius: 18px;
+  object-fit: cover;
+  display: block;
+  background: #eee;
+  box-shadow: 0 4px 18px 0 rgb(0 0 0 / 11%);
+  margin: 0;
+}
+
+/* Maintain right-side structure for future content, left-aligned */
+.hero.hero13 div div:not(:first-child) {
+  flex: 1 1 0;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1.2rem;
+  padding-left: 0;
+  align-items: flex-start;
+}
+
+/* Responsive stacking for small screens */
+@media (width <= 700px) {
+  .hero.hero13 {
+    min-height: unset;
+    padding: 0;
+  }
+
+  .hero.hero13 div {
+    flex-direction: column;
+    width: 98vw;
+    max-width: 99vw;
+    min-height: unset;
+    padding: 1.2rem 0.5rem;
+    box-shadow: 0 2px 14px 0 rgb(0 0 0 / 13%);
+    align-items: center;
+  }
+
+  .hero.hero13 div div:first-child {
+    margin-right: 0;
+    margin-bottom: 1.3rem;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .hero.hero13 div div:first-child picture,
+  .hero.hero13 div div:first-child img {
+    width: 150px;
+    height: 150px;
+    border-radius: 13px;
+  }
+}
+
+/* Remove z-index from picture so it isn't hidden */
+.hero.hero13 picture {
+  position: static;
+}
