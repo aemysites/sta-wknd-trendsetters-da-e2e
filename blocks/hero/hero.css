@@ -878,7 +878,6 @@
   min-width: 0;
 }
 
-/* Content column */
 .hero.hero38 div:last-of-type {
   flex: 3 1 0;
   display: flex;
@@ -888,7 +887,6 @@
   width: 100%;
 }
 
-/* --- Use CSS Grid for true side-by-side grouping of text and button --- */
 .hero.hero38 div:last-of-type div {
   display: grid;
   grid-template-columns: minmax(0, 1fr) 340px;
@@ -898,7 +896,6 @@
   width: 100%;
 }
 
-/* Heading and subtext both in the left column */
 .hero.hero38 div:last-of-type div h2 {
   grid-column: 1;
   grid-row: 1;
@@ -924,7 +921,6 @@
   text-align: left;
 }
 
-/* Button on right column, vertically centered to text group */
 .hero.hero38 div:last-of-type div .button-container {
   grid-column: 2;
   grid-row: 1 / span 2;
@@ -936,7 +932,6 @@
   height: 100%;
 }
 
-/* Button styling for pill shape and accent */
 .hero.hero38 .button {
   min-width: 320px;
   padding: 14px 0;
@@ -953,7 +948,6 @@
   margin: 0;
 }
 
-/* Responsive: stack vertically on small screens */
 @media (width <= 900px) {
   .hero.hero38 {
     flex-direction: column;
@@ -985,5 +979,139 @@
   .hero.hero38 .button {
     min-width: 180px;
     padding: 12px 0;
+  }
+}
+
+.hero.hero41 {
+  position: relative;
+  width: 100vw;
+  min-height: 100vh;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  overflow: hidden;
+  background: transparent;
+}
+
+/* Hero image as background */
+.hero.hero41 div div picture,
+.hero.hero41 div div img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Lighter overlay for less darkening, more image detail */
+.hero.hero41::before {
+  display: block;
+  position: absolute;
+  inset: 0;
+  background: rgb(0 0 0 / 15%);
+  z-index: 1;
+}
+
+/* Content block: higher, tighter to left, more vertical compactness */
+.hero.hero41 div:nth-child(2) {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  margin-left: 1.5vw;
+  margin-top: 6vh;
+  max-width: 460px;
+  width: 32vw;
+  min-width: 240px;
+  min-height: 40vh;
+  background: none;
+  padding: 0;
+}
+
+/* Heading: big, compressed, overlaying image */
+.hero.hero41 h1 {
+  color: #fff;
+  font-size: clamp(2.7rem, 8vw, 5.6rem);
+  font-weight: 400;
+  line-height: 1.03;
+  letter-spacing: 0.03em;
+  margin: 0 0 0.7rem;
+  text-align: left;
+  z-index: 2;
+}
+
+/* Paragraph: wider, minimal spacing below */
+.hero.hero41 p {
+  color: #fff;
+  font-size: 1.10rem;
+  line-height: 1.32;
+  margin: 0 0 0.4rem;
+  max-width: 32rem;
+  text-align: left;
+  z-index: 2;
+}
+
+/* Button: tight to paragraph, pill style */
+.hero.hero41 .button-container {
+  margin-top: 0.1rem;
+  z-index: 2;
+}
+
+.hero-container .hero-wrapper .block.hero.hero41 .button {
+  background: rgb(20 20 20 / 45%);
+  color: #fff;
+  border: 1.5px solid #fff;
+  border-radius: 2em;
+  font-size: 1rem;
+  font-weight: 500;
+  padding: 0.62em 2em;
+  margin: 0;
+  box-shadow: none;
+  transition: background 0.2s, color 0.2s;
+  text-align: center;
+  min-width: 110px;
+  line-height: 1.2;
+}
+
+/* Button hover style for subtle effect */
+.hero-container .hero-wrapper .block.hero.hero41 .button:hover,
+.hero-container .hero-wrapper .block.hero.hero41 .button:focus {
+  background: rgb(255 255 255 / 14%);
+  color: #fff;
+  border-color: #fff;
+}
+
+/* Responsive: stack, preserve left alignment, scale up padding top */
+@media (width <= 900px) {
+  .hero.hero41 {
+    flex-direction: column;
+    min-height: 60vh;
+    padding: 0;
+    align-items: flex-start;
+  }
+
+  .hero.hero41 div:nth-child(2) {
+    margin-left: 0;
+    margin-top: 11vw;
+    padding: 0 5vw 8vw;
+    max-width: 100vw;
+    width: 100vw;
+    min-width: 0;
+    min-height: auto;
+  }
+
+  .hero.hero41 h1 {
+    font-size: clamp(2rem, 8vw, 2.7rem);
+    margin-bottom: 0.4rem;
+  }
+
+  .hero.hero41 p {
+    margin-bottom: 0.3rem;
+    max-width: 100vw;
   }
 }
