@@ -840,7 +840,6 @@
   width: 100%;
 }
 
-/* Main grid: headline/quote and image side by side, meta row full width below */
 .columns.columns27 .columns div {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -851,7 +850,6 @@
   background: #fafbf7;
 }
 
-/* Headline + Quote (left column, first row) */
 .columns.columns27 .columns div div:first-child {
   grid-column: 1 / 2;
   grid-row: 1 / 2;
@@ -877,7 +875,6 @@
   max-width: 30em;
 }
 
-/* Portrait image (right column, first row) */
 .columns.columns27 .columns div div:last-child p picture img,
 .columns.columns27 .columns div div:last-child p img[alt*="customer"] {
   display: block;
@@ -897,7 +894,6 @@
   padding: 0;
 }
 
-/* Meta row: stretches full width, left flex group for avatar/name/title, logo at far right */
 .columns.columns27 .columns div div:last-child {
   grid-column: 1 / -1;
   grid-row: 2 / 3;
@@ -913,7 +909,6 @@
   padding-bottom: 0.5rem;
 }
 
-/* Left meta group: avatar, name, title stacked and aligned left */
 .columns.columns27 .columns div div:last-child .meta-details {
   display: flex;
   flex-direction: column;
@@ -958,7 +953,6 @@
   margin-bottom: 0;
 }
 
-/* Logo: anchored at far right of block */
 .columns.columns27 .columns div div:last-child p:last-child {
   margin-left: auto;
   margin-top: 0;
@@ -974,15 +968,12 @@
   display: inline-block;
 }
 
-/* Increase spacing above and below divider for separation */
-
 .columns.columns27 .columns div div:first-child,
 .columns.columns27 .columns div div:last-child {
   margin: 0;
   padding: 0;
 }
 
-/* Responsive: stack vertically and space meta row clearly on small screens */
 @media (width <= 900px) {
   .columns.columns27 .columns div {
     grid-template-columns: 1fr;
@@ -1019,4 +1010,140 @@
     align-self: flex-start;
     padding-right: 0;
   }
+}
+
+
+.columns.columns28 {
+  background: #f6f6f2;
+  padding: 56px 0;
+}
+
+.columns.columns28 .block.columns-2-cols {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 40px;
+}
+
+/* The flex row container for text and image columns */
+.columns.columns28 .block.columns-2-cols div {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 72px; /* slightly increased for more generous gap */
+  min-height: 520px; /* helps with vertical centering if one column is much taller */
+}
+
+/* Responsive stacking for mobile */
+@media (width <= 900px) {
+  .columns.columns28 .block.columns-2-cols div {
+    flex-direction: column;
+    gap: 32px;
+    align-items: stretch;
+    min-height: unset;
+  }
+}
+
+/* Text column */
+.columns.columns28 .block.columns-2-cols div div:not(.columns-img-col) {
+  max-width: 470px; /* more balanced to image */
+  flex: 1 1 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 24px;
+}
+
+@media (width <= 900px) {
+  .columns.columns28 .block.columns-2-cols div div:not(.columns-img-col) {
+    max-width: 100%;
+    padding-right: 0;
+  }
+}
+
+/* Image column */
+.columns.columns28 .block.columns-2-cols div .columns-img-col {
+  flex: 1 1 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-width: 430px;
+  max-width: 540px;
+  height: 100%;
+}
+
+.columns.columns28 .block.columns-2-cols div .columns-img-col img {
+  border-radius: 24px;
+  width: 100%;
+  max-width: 540px;
+  height: auto;
+  display: block;
+  box-shadow: 0 4px 32px rgb(0 0 0 / 8%);
+  object-fit: cover;
+}
+
+/* Author label (first p) */
+.columns.columns28 .block.columns-2-cols div div:not(.columns-img-col) p:first-child {
+  font-size: 12px;
+  color: #7c7c7c;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 0;
+  margin-top: 0;
+  font-weight: 400;
+}
+
+/* Headline (h2) */
+.columns.columns28 .block.columns-2-cols div div:not(.columns-img-col) h2 {
+  font-size: 64px;
+  font-weight: 400;
+  color: #212120;
+  line-height: 1.05;
+  margin: 0 0 14px;
+  letter-spacing: 0.01em;
+  text-align: left;
+}
+
+/* Main body paragraph (second p) */
+.columns.columns28 .block.columns-2-cols div div:not(.columns-img-col) p:nth-of-type(2) {
+  font-size: 18px;
+  color: #212120;
+  line-height: 1.7;
+  margin: 0 0 8px;
+  font-weight: 400;
+}
+
+/* Fine print (third p) */
+.columns.columns28 .block.columns-2-cols div div:not(.columns-img-col) p:nth-of-type(3) {
+  font-size: 12px;
+  color: #bcbcbc;
+  margin: 0 0 12px;
+  font-weight: 400;
+}
+
+/* Button container */
+.columns.columns28 .block.columns-2-cols div .button-container {
+  margin-top: 0;
+}
+
+/* Button: stronger override, subtle shadow */
+.columns.columns28 .block.columns-2-cols div .button-container .button {
+  background: #f6f6f2;
+  color: #212120;
+  border: 1.5px solid #212120;
+  border-radius: 24px;
+  padding: 10px 32px;
+  font-size: 14px;
+  font-weight: 500;
+  margin-top: 0;
+  margin-bottom: 0;
+  box-shadow: 0 2px 12px rgb(0 0 0 / 5%);
+  transition: background 0.2s, color 0.2s;
+  display: inline-block;
+}
+
+/* Button hover */
+.columns.columns28 .block.columns-2-cols div .button-container .button:hover,
+.columns.columns28 .block.columns-2-cols div .button-container .button:focus {
+  background: #212120;
+  color: #f6f6f2;
 }
