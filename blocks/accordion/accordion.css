@@ -79,7 +79,6 @@
   margin-top: 0;
 }
 
-/* Accordion summary: less horizontal padding for tighter left/right alignment */
 .accordion.accordion17 summary {
   display: flex;
   flex-direction: row;
@@ -100,7 +99,6 @@
   width: 100%;
 }
 
-/* Remove bottom border for last summary */
 .accordion.accordion17 details:last-of-type summary {
   border-bottom: none;
 }
@@ -131,7 +129,6 @@
   text-align: left;
 }
 
-/* Chevron styling: reduced left margin for tighter right alignment */
 .accordion.accordion17 summary::after {
   display: block;
   width: 20px;
@@ -146,12 +143,10 @@
   background: none;
 }
 
-/* Chevron rotates when open */
 .accordion.accordion17 details[open] summary::after {
   transform: rotate(-135deg);
 }
 
-/* Accordion panel content styling with tighter horizontal padding */
 .accordion.accordion17 .accordion-item-body {
   padding: 0 8px 18px;
   font-size: 16px;
@@ -161,11 +156,137 @@
   box-sizing: border-box;
 }
 
-/* Responsive adjustments for very small screens */
 @media (width <= 500px) {
   .accordion.accordion17 summary,
   .accordion.accordion17 .accordion-item-body {
     padding-left: 4px;
     padding-right: 4px;
+  }
+}
+
+
+.accordion.accordion18 {
+  background: #fff;
+  border: none;
+  padding: 0;
+  box-shadow: none;
+}
+
+/* Show answers if possible */
+.accordion.accordion18 details[open] .accordion-item-body,
+.accordion.accordion18 details .accordion-item-body {
+  display: block;
+  height: auto;
+  opacity: 1;
+  pointer-events: auto;
+  visibility: visible;
+}
+
+/* Lay out each FAQ row as flex, side by side */
+.accordion.accordion18 details {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  border: none;
+  background: transparent;
+  margin: 0;
+  padding: 0;
+  min-height: 44px;
+  position: relative;
+  border-bottom: 1px solid #c3c3c3;
+}
+
+/* Divider line between rows except last */
+
+.accordion.accordion18 details:last-child {
+  border-bottom: none;
+}
+
+/* Remove default margin between details */
+.accordion.accordion18 details + details {
+  margin-top: 0;
+}
+
+/* Question summary styling */
+.accordion.accordion18 summary.accordion-item-label {
+  flex: 1 1 45%;
+  padding: 12px 18px 12px 0;
+  margin: 0;
+  cursor: default;
+  background: none;
+  border: none;
+  outline: none;
+  color: #666;
+  font-size: 20px;
+  font-weight: 400;
+  letter-spacing: 1.5px;
+  text-align: left;
+  text-transform: lowercase;
+  min-width: 0;
+  transition: none;
+  display: block;
+  white-space: normal;
+}
+
+/* Remove summary marker and arrow for all browsers */
+.accordion.accordion18 summary.accordion-item-label::-webkit-details-marker,
+.accordion.accordion18 summary.accordion-item-label::marker,
+.accordion.accordion18 summary.accordion-item-label::after {
+  display: none;
+  content: none;
+}
+
+/* Remove highlight */
+.accordion.accordion18 summary.accordion-item-label:focus,
+.accordion.accordion18 summary.accordion-item-label:hover {
+  background: transparent;
+}
+
+/* Remove margins from question <p> */
+.accordion.accordion18 summary.accordion-item-label p {
+  margin: 0;
+  padding: 0;
+  text-transform: lowercase;
+}
+
+/* Answer area styling and alignment */
+.accordion.accordion18 .accordion-item-body {
+  flex: 1 1 55%;
+  padding: 12px 0 12px 18px;
+  color: #222;
+  font-size: 13px;
+  font-weight: 400;
+  letter-spacing: 0.3px;
+  text-align: left;
+  background: none;
+  border: none;
+  margin: 0;
+  min-width: 0;
+  overflow-wrap: break-word;
+  display: block;
+  align-self: flex-start;
+}
+
+/* Remove margins from answer <p> */
+.accordion.accordion18 .accordion-item-body p {
+  margin: 0;
+  padding: 0;
+}
+
+/* Responsive: stack vertically on mobile */
+@media (width <= 600px) {
+  .accordion.accordion18 details {
+    flex-direction: column;
+    min-height: 0;
+  }
+
+  .accordion.accordion18 summary.accordion-item-label {
+    padding-right: 0;
+    padding-bottom: 0;
+  }
+
+  .accordion.accordion18 .accordion-item-body {
+    padding-left: 0;
+    padding-top: 0;
   }
 }
