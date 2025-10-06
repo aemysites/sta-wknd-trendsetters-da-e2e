@@ -352,7 +352,6 @@
   }
 }
 
-/* Ensure the hero block is visible, wide, and horizontally oriented */
 .hero.hero13 {
   display: flex;
   flex-direction: row;
@@ -371,7 +370,6 @@
   gap: 2.5rem;
 }
 
-/* First-level children flex row: left is image/card, right is content (empty if no content) */
 .hero.hero13 div {
   display: flex;
   flex-direction: row;
@@ -382,7 +380,6 @@
   justify-content: flex-start;
 }
 
-/* Left-side image card */
 .hero.hero13 div div {
   flex: 0 0 auto;
   display: flex;
@@ -397,7 +394,6 @@
   margin-right: 2.5rem;
 }
 
-/* Responsive image card */
 .hero.hero13 picture,
 .hero.hero13 img {
   border-radius: 22px;
@@ -409,7 +405,6 @@
   background: #d3d3d3;
 }
 
-/* Hide border/background/shadow on empty right-side (content) div */
 .hero.hero13 div div:not(:first-child) {
   border: none;
   background: none;
@@ -419,7 +414,6 @@
   margin: 0;
 }
 
-/* Responsive: stack vertical on small screens */
 @media (width <= 900px) {
   .hero.hero13 {
     flex-direction: column;
@@ -458,5 +452,192 @@
   .hero-container .hero-wrapper {
     min-height: 240px;
     border-radius: 20px;
+  }
+}
+
+/* Collage grid fills entire hero block as background */
+.hero.hero20 {
+  position: relative;
+  width: 100vw;
+  min-height: 80vh;
+  background: #000;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Background grid setup for collage images */
+.hero.hero20 div:first-child {
+  position: absolute;
+  inset: 0;
+  width: 100vw;
+  height: 100%;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  gap: 0;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.hero.hero20 div:first-child div,
+.hero.hero20 div:first-child p {
+  display: contents;
+}
+
+.hero.hero20 div:first-child picture {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.hero.hero20 div:first-child img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Vertically and horizontally center the entire content group */
+.hero.hero20 div:last-child {
+  position: relative;
+  z-index: 1;
+  min-height: 80vh;
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: auto;
+}
+
+/* Stack headline, subheading, and buttons closely as a centered column */
+.hero.hero20 div:last-child div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  max-width: 950px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 2vw;
+  text-align: center;
+  text-shadow: 0 2px 16px rgb(0 0 0 / 24%);
+}
+
+/* Headline: tight spacing below for closer grouping */
+.hero.hero20 h1 {
+  color: #fff;
+  font-size: clamp(2.5rem, 7vw, 6rem);
+  line-height: 1.08;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  margin-bottom: 0.6rem;
+  margin-top: 0;
+  text-align: center;
+  overflow-wrap: break-word;
+}
+
+/* Subheading: tight margin below to group with buttons */
+.hero.hero20 p:not(:last-child) {
+  color: #e5e5e5;
+  font-size: 1.2rem;
+  line-height: 1.4;
+  margin: 0 0 1rem;
+  text-align: center;
+  max-width: 650px;
+  padding: 0 1vw;
+  text-shadow: 0 1px 8px rgb(0 0 0 / 10%);
+}
+
+/* Button row: horizontal alignment, tight grouping under subheading */
+.hero.hero20 p:last-child {
+  display: flex;
+  flex-direction: row;
+  gap: 24px;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+}
+
+/* Button styles */
+.hero.hero20 p:last-child a {
+  display: inline-block;
+  font-size: 1.1rem;
+  font-weight: 600;
+  padding: 0.9em 2.3em;
+  border-radius: 999px;
+  border: 2px solid #fff;
+  background: transparent;
+  color: #fff;
+  text-decoration: none;
+  transition: background 0.2s, color 0.2s, border-color 0.2s;
+  min-width: 150px;
+  text-align: center;
+  box-shadow: none;
+}
+
+.hero.hero20 p:last-child a:first-child {
+  background: #fff;
+  color: #222;
+  border: 2px solid #fff;
+}
+
+.hero.hero20 p:last-child a:last-child {
+  background: transparent;
+  color: #fff;
+  border: 2px solid #fff;
+}
+
+.hero.hero20 p:last-child a:hover,
+.hero.hero20 p:last-child a:focus {
+  background: #222;
+  color: #fff;
+  border-color: #222;
+  text-decoration: none;
+}
+
+/* Responsive: adjust grid, stack buttons on mobile, keep vertical centering */
+@media (width <= 900px) {
+  .hero-container .hero-wrapper {
+    border-radius: 20px;
+  }
+
+  .hero.hero20 {
+    min-height: 52vh;
+    width: 100vw;
+  }
+
+  .hero.hero20 div:first-child {
+    height: 52vh;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+  }
+
+  .hero.hero20 div:last-child {
+    min-height: 52vh;
+    width: 100vw;
+    padding: 0 1vw;
+  }
+
+  .hero.hero20 div:last-child div {
+    max-width: 96vw;
+    padding: 0 2vw;
+  }
+
+  .hero.hero20 h1 {
+    font-size: clamp(1.6rem, 8vw, 2.7rem);
+    margin-bottom: 0.5rem;
+  }
+
+  .hero.hero20 p:not(:last-child) {
+    font-size: 1rem;
+    margin-bottom: 0.7rem;
+  }
+
+  .hero.hero20 p:last-child {
+    flex-direction: column;
+    gap: 14px;
   }
 }
