@@ -289,21 +289,22 @@
 }
 
 .hero-container .hero-wrapper .block.hero .button {
-  background: #fff;
-  color: #000;
-  border: 1px solid #000;
-  border-radius: 9999px;
-  font-size: 1rem;
-  padding: 12px 0;
-  font-weight: 400;
+  background: rgb(255 255 255 / 4%);
+  color: #fff;
+  border: 1px solid #fff;
+  border-radius: 50px;
+  font-size: 18px;
+  padding: 0.4rem 1rem;
+  font-weight: 500;
   text-decoration: none;
-  box-shadow: 0 2px 0 0 #f5f54a;
-  transition: box-shadow 0.2s;
+  box-shadow: 0 1px 2px rgb(0 0 0 / 5%);
+  transition: background 0.2s, color 0.2s;
   text-align: center;
-  min-width: 340px;
+  min-width: unset;
   white-space: nowrap;
   margin: 0;
   outline: none;
+  max-width: 100%;
 }
 
 @media (width <= 900px) {
@@ -906,7 +907,6 @@
   box-sizing: border-box;
 }
 
-/* Remove any hiding of first div, just collapse its space if present */
 .hero.hero38 div:first-of-type {
   flex: 0 0 auto;
   width: 0;
@@ -916,7 +916,6 @@
   margin: 0;
 }
 
-/* Main content column - ensure it expands and is left-aligned */
 .hero.hero38 div:last-of-type {
   flex: 1 1 0;
   max-width: 700px;
@@ -926,7 +925,6 @@
   justify-content: flex-start;
 }
 
-/* inner content stack */
 .hero.hero38 div:last-of-type div {
   display: flex;
   flex-direction: column;
@@ -934,7 +932,6 @@
   width: 100%;
 }
 
-/* Headline */
 .hero.hero38 h2 {
   margin-top: 0;
   margin-bottom: 16px;
@@ -946,7 +943,6 @@
   line-height: 1.1;
 }
 
-/* Subtext */
 .hero.hero38 p {
   margin: 0 0 28px;
   color: #757575;
@@ -955,7 +951,6 @@
   text-align: left;
 }
 
-/* Button container: left-aligned, keep button below text group */
 .hero.hero38 .button-container {
   margin: 0;
   width: 100%;
@@ -965,9 +960,6 @@
   padding-top: 12px;
 }
 
-/* Button style override */
-
-/* Responsive stacking for smaller screens */
 @media (width <= 900px) {
   .hero.hero38 {
     flex-direction: column;
@@ -1001,5 +993,115 @@
     min-width: 160px;
     width: 100%;
     font-size: var(--body-font-size-s);
+  }
+}
+
+.hero.hero41 {
+  position: relative;
+  width: 100vw;
+  min-height: 100vh;
+  border-radius: 20px;
+  overflow: hidden;
+  background: none;
+  display: block;
+}
+
+/* Background image as full-area, rounded-corner layer */
+.hero.hero41 div picture,
+.hero.hero41 div picture img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+  border-radius: 20px;
+  z-index: 1;
+  pointer-events: none;
+}
+
+/* Content grouping anchored bottom left, with extra breathing room */
+.hero.hero41 div:nth-child(2) {
+  position: relative;
+  z-index: 2;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-start;
+}
+
+/* Tighter content box with increased left/bottom padding for balance */
+.hero.hero41 div:nth-child(2) div {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-end;
+  padding-left: 3vw;
+  padding-bottom: 4vw;
+  max-width: 320px;
+  width: 100%;
+}
+
+/* Headline: bright, crisp, clear, slightly more vertical spacing */
+.hero.hero41 h1 {
+  color: #fff;
+  font-size: 56px;
+  font-weight: 400;
+  line-height: 1.05;
+  letter-spacing: 0.03em;
+  margin-bottom: 1.2rem;
+  margin-top: 0;
+  text-align: left;
+  text-shadow: 0 1px 4px rgb(0 0 0 / 10%);
+}
+
+/* Paragraph: more space below, maximize readability, subtle shadow */
+.hero.hero41 p:not(.button-container) {
+  color: #fff;
+  font-size: 18px;
+  line-height: 1.6;
+  margin-bottom: 1.2rem;
+  margin-top: 0;
+  text-align: left;
+  text-shadow: 0 1px 4px rgb(0 0 0 / 10%);
+}
+
+/* Button container: left-aligned, minimal margin */
+.hero.hero41 .button-container {
+  margin-top: 0.2rem;
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+}
+
+/* Button: ultra-subtle, trimmed shadow, minimal padding & border */
+
+.hero-container .hero-wrapper .block.hero .button:hover,
+.hero-container .hero-wrapper .block.hero .button:focus {
+  background: rgb(255 255 255 / 12%);
+  color: #fff;
+}
+
+/* Responsiveness for mobile */
+@media (width <= 900px) {
+  .hero.hero41 {
+    border-radius: 10px;
+    min-height: 70vh;
+  }
+
+  .hero.hero41 h1 {
+    font-size: 34px;
+  }
+
+  .hero.hero41 div:nth-child(2) div {
+    max-width: 96vw;
+    padding-left: 1rem;
+    padding-bottom: 2.5rem;
+  }
+
+  .hero-container .hero-wrapper .block.hero .button {
+    font-size: var(--body-font-size-s);
+    padding: 0.4rem 0.8rem;
   }
 }
