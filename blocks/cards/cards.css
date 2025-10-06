@@ -65,7 +65,6 @@
   flex: 1 1 0px;
 }
 
-/* Feature card image */
 .cards.cards2 li:first-child .cards-card-image img {
   width: 100%;
   border-radius: 1.2rem;
@@ -75,7 +74,6 @@
   margin-bottom: 1.8rem;
 }
 
-/* Feature card body */
 .cards.cards2 li:first-child .cards-card-body {
   margin-top: 0;
   padding: 0;
@@ -123,7 +121,6 @@
   background: #f5f5f5;
 }
 
-/* Supporting card image */
 .cards.cards2 li:not(:first-child) .cards-card-image img {
   width: 100%;
   border-radius: 1.1rem;
@@ -133,7 +130,6 @@
   margin-bottom: 1.2rem;
 }
 
-/* Supporting card body */
 .cards.cards2 li:not(:first-child) .cards-card-body {
   margin-top: 0;
   padding: 0;
@@ -160,7 +156,6 @@
   margin: 0;
 }
 
-/* Responsive stacking for narrow screens */
 @media (width <= 900px) {
   .cards.cards2 ul {
     flex-direction: column;
@@ -170,4 +165,118 @@
   .cards.cards2 {
     padding: 2rem 0.5rem;
   }
+}
+
+
+.cards.cards10 {
+  background: #f9fafb;
+  padding: 40px 32px;
+}
+
+.cards.cards10 ul {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 22px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  grid-auto-rows: minmax(340px, 1fr);
+  place-items: stretch stretch;
+}
+
+@media (width <= 1200px) {
+  .cards.cards10 ul {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (width <= 700px) {
+  .cards.cards10 ul {
+    grid-template-columns: 1fr;
+  }
+
+  .cards.cards10 {
+    padding-left: 12px;
+    padding-right: 12px;
+  }
+}
+
+.cards.cards10 li {
+  background: #fff;
+  border: 1px solid #e5e7eb;
+  border-radius: 18px;
+  box-shadow: 0 2px 8px 0 rgb(16 24 40 / 3%);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  height: 100%;
+  min-width: 0;
+  min-height: 340px;
+}
+
+.cards.cards10 .cards-card-image {
+  width: 100%;
+  aspect-ratio: 4/3;
+  min-height: 150px;
+  max-height: 210px;
+  overflow: hidden;
+  border-radius: 18px 18px 0 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #f4f5f6;
+}
+
+.cards.cards10 .cards-card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  border-radius: 18px 18px 0 0;
+}
+
+.cards.cards10 .cards-card-body {
+  padding: 20px 22px 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  flex: 1 1 auto;
+  margin: 0;
+  background: transparent;
+  justify-content: flex-start;
+}
+
+.cards.cards10 .cards-card-body p:first-of-type {
+  align-self: flex-start;
+  background: #f4f4f6;
+  color: #7d838c;
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 0.065em;
+  font-weight: 600;
+  border-radius: 999px;
+  padding: 5px 16px;
+  margin: 0 0 8px;
+  display: inline-block;
+}
+
+.cards.cards10 .cards-card-body h3 {
+  color: #181a1d;
+  font-size: 1.13rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  line-height: 1.1;
+  margin: 0 0 7px;
+}
+
+.cards.cards10 .cards-card-body p {
+  color: #8a9099;
+  font-size: 15px;
+  line-height: 1.6;
+  margin: 0 0 10px;
+}
+
+.cards.cards10 .cards-card-body .button-container {
+  display: none;
 }
