@@ -4,7 +4,7 @@
   padding: 0;
   margin: 0;
   background: url('YOUR_BACKGROUND_IMAGE_URL') center center/cover no-repeat;
-  border-radius: 32px;
+  border-radius: 0;
   overflow: hidden;
   min-height: 440px;
   display: flex;
@@ -648,7 +648,6 @@
   overflow: visible;
 }
 
-/* Main two-column row */
 .hero.hero25 div {
   display: flex;
   flex-direction: row;
@@ -662,7 +661,6 @@
   position: relative;
 }
 
-/* Image/Media Column */
 .hero.hero25 div div:first-child {
   flex: 1 1 640px;
   min-width: 400px;
@@ -677,7 +675,6 @@
   position: relative;
 }
 
-/* Make image flush left with rounded top-left, and allow text overlap */
 .hero.hero25 picture {
   display: block;
   width: 640px;
@@ -699,7 +696,6 @@
   display: block;
 }
 
-/* Text Column - overlap and alignment */
 .hero.hero25 div div:last-child {
   flex: 1 1 640px;
   min-width: 370px;
@@ -715,7 +711,6 @@
   background: transparent;
 }
 
-/* Headline */
 .hero.hero25 p:first-child {
   font-size: 88px;
   font-weight: 500;
@@ -727,7 +722,6 @@
   max-width: 100%;
 }
 
-/* Supporting text */
 .hero.hero25 p:not(:first-child, .button-container) {
   font-size: 19px;
   color: #747474;
@@ -738,7 +732,6 @@
   line-height: 1.6;
 }
 
-/* Button Group */
 .hero.hero25 .button-container {
   display: flex;
   flex-direction: row;
@@ -750,7 +743,6 @@
   justify-content: flex-start;
 }
 
-/* Button Styling */
 .hero.hero25 .button {
   background: #f9f9f6;
   color: #232323;
@@ -774,7 +766,6 @@
   border-color: #232323;
 }
 
-/* Responsive for smaller screens */
 @media (width <= 1100px) {
   .hero.hero25 {
     flex-direction: column;
@@ -832,5 +823,74 @@
     padding: 12px 28px;
     border-radius: 18px;
     box-shadow: 0 2px 12px 0 rgb(0 0 0 / 8%);
+  }
+}
+
+.hero.hero29 {
+  position: relative;
+  width: 100vw;
+  min-height: 100vh;
+  min-height: 100svh;
+  overflow: hidden;
+  display: flex;
+  align-items: stretch;
+  justify-content: stretch;
+}
+
+/* Full-cover background image */
+.hero.hero29 picture,
+.hero.hero29 img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  z-index: 0;
+  pointer-events: none;
+  user-select: none;
+}
+
+/* Overlay text container, perfectly centered using flex */
+.hero.hero29 div {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  padding: 0;
+  z-index: 1;
+}
+
+/* Center text inside the inner-most div */
+.hero.hero29 div div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  padding: 0;
+  height: auto;
+}
+
+/* Heading styling: thin, large, centered, good contrast */
+.hero.hero29 h1 {
+  color: #fff;
+  font-size: clamp(2.7rem, 8vw, 6.2rem);
+  font-weight: 300;
+  text-align: center;
+  line-height: 1.07;
+  letter-spacing: 0.04em;
+  margin: 0;
+  padding: 0;
+  text-shadow: 0 2px 16px rgb(0 0 0 / 48%), 0 1px 2px rgb(0 0 0 / 13%);
+}
+
+/* Responsive heading adjustment for smaller screens */
+@media (width <= 900px) {
+  .hero.hero29 h1 {
+    font-size: clamp(1.2rem, 10vw, 2.7rem);
+    line-height: 1.14;
   }
 }
