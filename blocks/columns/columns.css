@@ -31,3 +31,110 @@
     order: unset;
   }
 }
+
+
+.columns.columns4 {
+  /* Grid layout for two columns with wide separation and strict vertical centering */
+  display: grid;
+  grid-template-columns: 1fr 260px;
+  gap: 115px;
+  min-height: 80vh;
+  height: 100%;
+  place-items: center;
+  background: var(--background-color);
+}
+
+/* Make the first child div (the "row") fill the grid cell and center its content vertically */
+.columns.columns4 div {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}
+
+/* Left column: stack heading and paragraph vertically, left-align and allow for wide text */
+.columns.columns4 div div:first-child {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  min-width: 0;
+  flex: 1 1 0%;
+}
+
+.columns.columns4 div div:first-child h2 {
+  margin-bottom: 40px;
+  line-height: 1.05;
+  letter-spacing: 0.04em;
+}
+
+.columns.columns4 div div:first-child p {
+  font-size: var(--body-font-size-s);
+  color: #444;
+  margin: 0;
+  max-width: 740px;
+  line-height: 1.45;
+}
+
+/* Right column: vertically center and stack the buttons */
+.columns.columns4 div div:last-child {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+  width: 100%;
+}
+
+/* Pill-shaped buttons for the links */
+.columns.columns4 div div:last-child a {
+  display: block;
+  width: 220px;
+  padding: 13px 0;
+  margin: 0;
+  border: 1px solid #000;
+  border-radius: 999px;
+  background: #fff;
+  color: #000;
+  font-size: var(--body-font-size-s);
+  text-align: center;
+  text-decoration: none;
+  transition: box-shadow 0.2s;
+  box-sizing: border-box;
+}
+
+.columns.columns4 div div:last-child a:first-child {
+  border-bottom: 2px solid #E7E800;
+}
+
+/* Responsive: stack columns vertically on small screens */
+@media (width <= 900px) {
+  .columns.columns4 {
+    grid-template-columns: 1fr;
+    gap: 38px;
+    min-height: unset;
+    padding: 36px 0;
+    place-items: unset;
+  }
+
+  .columns.columns4 div {
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: center;
+    height: auto;
+  }
+
+  .columns.columns4 div div:first-child {
+    align-items: flex-start;
+    margin-bottom: 32px;
+  }
+
+  .columns.columns4 div div:last-child {
+    align-items: stretch;
+  }
+
+  .columns.columns4 div div:last-child a {
+    width: 100%;
+  }
+}
