@@ -290,18 +290,20 @@
 
 .hero-container .hero-wrapper .block.hero .button {
   background: #fff;
-  color: #222;
-  border: none;
-  border-radius: 32px;
-  font-size: 18px;
-  padding: 16px 38px;
-  font-weight: 500;
+  color: #000;
+  border: 1px solid #000;
+  border-radius: 9999px;
+  font-size: 1rem;
+  padding: 12px 0;
+  font-weight: 400;
   text-decoration: none;
-  box-shadow: 0 2px 8px rgb(0 0 0 / 6%);
-  transition: background 0.2s, color 0.2s;
+  box-shadow: 0 2px 0 0 #f5f54a;
+  transition: box-shadow 0.2s;
   text-align: center;
-  min-width: 180px;
+  min-width: 340px;
   white-space: nowrap;
+  margin: 0;
+  outline: none;
 }
 
 @media (width <= 900px) {
@@ -837,7 +839,6 @@
   justify-content: stretch;
 }
 
-/* Full-cover background image */
 .hero.hero29 picture,
 .hero.hero29 img {
   position: absolute;
@@ -851,7 +852,6 @@
   user-select: none;
 }
 
-/* Overlay text container, perfectly centered using flex */
 .hero.hero29 div {
   position: absolute;
   inset: 0;
@@ -863,7 +863,6 @@
   z-index: 1;
 }
 
-/* Center text inside the inner-most div */
 .hero.hero29 div div {
   display: flex;
   flex-direction: column;
@@ -874,7 +873,6 @@
   height: auto;
 }
 
-/* Heading styling: thin, large, centered, good contrast */
 .hero.hero29 h1 {
   color: #fff;
   font-size: clamp(2.7rem, 8vw, 6.2rem);
@@ -887,10 +885,121 @@
   text-shadow: 0 2px 16px rgb(0 0 0 / 48%), 0 1px 2px rgb(0 0 0 / 13%);
 }
 
-/* Responsive heading adjustment for smaller screens */
 @media (width <= 900px) {
   .hero.hero29 h1 {
     font-size: clamp(1.2rem, 10vw, 2.7rem);
     line-height: 1.14;
+  }
+}
+
+
+.hero.hero38 {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: 72px 0 0 96px;
+  min-height: 380px;
+  background: var(--background-color);
+  border-bottom: 2px solid #000;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* Remove any hiding of first div, just collapse its space if present */
+.hero.hero38 div:first-of-type {
+  flex: 0 0 auto;
+  width: 0;
+  min-width: 0;
+  max-width: 0;
+  padding: 0;
+  margin: 0;
+}
+
+/* Main content column - ensure it expands and is left-aligned */
+.hero.hero38 div:last-of-type {
+  flex: 1 1 0;
+  max-width: 700px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+
+/* inner content stack */
+.hero.hero38 div:last-of-type div {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 100%;
+}
+
+/* Headline */
+.hero.hero38 h2 {
+  margin-top: 0;
+  margin-bottom: 16px;
+  color: var(--text-color);
+  font-size: var(--heading-font-size-xl);
+  font-weight: 400;
+  letter-spacing: normal;
+  text-align: left;
+  line-height: 1.1;
+}
+
+/* Subtext */
+.hero.hero38 p {
+  margin: 0 0 28px;
+  color: #757575;
+  font-size: var(--body-font-size-s);
+  font-weight: 400;
+  text-align: left;
+}
+
+/* Button container: left-aligned, keep button below text group */
+.hero.hero38 .button-container {
+  margin: 0;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding-top: 12px;
+}
+
+/* Button style override */
+
+/* Responsive stacking for smaller screens */
+@media (width <= 900px) {
+  .hero.hero38 {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 32px 0 0;
+    min-height: 220px;
+  }
+
+  .hero.hero38 div:first-of-type {
+    width: 0;
+    min-width: 0;
+    max-width: 0;
+    padding: 0;
+    margin: 0;
+    flex: 0 0 auto;
+  }
+
+  .hero.hero38 div:last-of-type {
+    padding-left: 16px;
+    padding-right: 16px;
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .hero.hero38 .button-container {
+    width: 100%;
+    justify-content: flex-start;
+  }
+
+  .hero-container .hero-wrapper .block.hero .button {
+    min-width: 160px;
+    width: 100%;
+    font-size: var(--body-font-size-s);
   }
 }
