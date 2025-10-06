@@ -1,3 +1,4 @@
+/* stylelint-disable no-descending-specificity */
 .columns > div {
   display: flex;
   flex-direction: column;
@@ -34,7 +35,6 @@
 
 
 .columns.columns4 {
-  /* Grid layout for two columns with wide separation and strict vertical centering */
   display: grid;
   grid-template-columns: 1fr 260px;
   gap: 115px;
@@ -44,7 +44,6 @@
   background: var(--background-color);
 }
 
-/* Make the first child div (the "row") fill the grid cell and center its content vertically */
 .columns.columns4 div {
   display: flex;
   flex-direction: row;
@@ -53,7 +52,6 @@
   height: 100%;
 }
 
-/* Left column: stack heading and paragraph vertically, left-align and allow for wide text */
 .columns.columns4 div div:first-child {
   display: flex;
   flex-direction: column;
@@ -77,7 +75,6 @@
   line-height: 1.45;
 }
 
-/* Right column: vertically center and stack the buttons */
 .columns.columns4 div div:last-child {
   display: flex;
   flex-direction: column;
@@ -87,7 +84,6 @@
   width: 100%;
 }
 
-/* Pill-shaped buttons for the links */
 .columns.columns4 div div:last-child a {
   display: block;
   width: 220px;
@@ -108,7 +104,6 @@
   border-bottom: 2px solid #E7E800;
 }
 
-/* Responsive: stack columns vertically on small screens */
 @media (width <= 900px) {
   .columns.columns4 {
     grid-template-columns: 1fr;
@@ -137,4 +132,97 @@
   .columns.columns4 div div:last-child a {
     width: 100%;
   }
+}
+
+
+.columns.columns8 .block {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 48px;
+  background: #fff;
+  width: 100%;
+}
+
+@media (width <= 900px) {
+  .columns.columns8 .block {
+    flex-direction: column;
+    gap: 24px;
+  }
+}
+
+/* Wider content columns for natural text flow */
+.columns.columns8 .block div:first-child {
+  flex: 1.1 1 0;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.columns.columns8 .block div:not(:first-child) {
+  flex: 1.4 1 0;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+/* More breathing room inside columns */
+.columns.columns8 .block div {
+  padding-left: 32px;
+  padding-right: 32px;
+}
+
+@media (width <= 900px) {
+  .columns.columns8 .block div {
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
+
+.columns.columns8 h2 {
+  font-size: 3rem;
+  font-weight: 400;
+  color: #000;
+  line-height: 1.07;
+  margin: 0 0 0.6em;
+  letter-spacing: 0.01em;
+  text-align: left;
+  padding-top: 0.15em;
+}
+
+.columns.columns8 p:not(.button-container) {
+  font-size: 0.98rem;
+  color: #000;
+  margin: 0 0 18px;
+  line-height: 1.45;
+  text-align: left;
+  max-width: 520px;
+  overflow-wrap: break-word;
+}
+
+.columns.columns8 .button-container {
+  text-align: left;
+  margin: 0;
+}
+
+.columns.columns8 .button {
+  background: #fff;
+  color: #000;
+  border: 1.5px solid #000;
+  border-radius: 24px;
+  padding: 8px 32px;
+  font-size: 0.98rem;
+  margin: 0;
+  box-shadow: none;
+  transition: background 0.2s, color 0.2s;
+  text-align: center;
+  display: inline-block;
+}
+
+.columns.columns8 .button:hover,
+.columns.columns8 .button:focus {
+  background: #000;
+  color: #fff;
 }
