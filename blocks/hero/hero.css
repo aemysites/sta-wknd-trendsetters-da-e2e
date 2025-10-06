@@ -1,3 +1,4 @@
+/* stylelint-disable no-descending-specificity */
 .hero-container .hero-wrapper {
   max-width: unset;
   padding: 0;
@@ -44,4 +45,163 @@
   .hero {
     padding: 40px 32px;
   }
+}
+
+.hero.hero5 {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  min-height: 80vh;
+  width: 100%;
+  padding: 0;
+  box-sizing: border-box;
+  background: none;
+}
+
+/* Image side (first direct child div) */
+.hero.hero5 div:nth-child(1) {
+  flex: 1 1 0;
+  order: 2;
+  display: flex;
+  align-items: stretch;
+  justify-content: flex-end;
+  min-width: 0;
+  min-height: 0;
+  padding: 0;
+  background: none;
+}
+
+.hero.hero5 div:nth-child(1) picture {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: stretch;
+  justify-content: flex-end;
+  position: static;
+}
+
+.hero.hero5 div:nth-child(1) img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  min-height: 100%;
+  min-width: 100%;
+}
+
+/* Content side (second direct child div) */
+.hero.hero5 div:nth-child(2) {
+  flex: 1 1 0;
+  order: 1;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  background: #fff;
+  min-width: 0;
+  min-height: 0;
+
+  /* Padding: more top/left, less bottom for higher placement & compactness */
+  padding: 10rem 3rem 1rem 10.5rem;
+  box-sizing: border-box;
+}
+
+.hero.hero5 div:nth-child(2) div {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  max-width: 390px;
+  width: 100%;
+}
+
+/* Heading and paragraph styling */
+.hero.hero5 h2 {
+  color: #000;
+  font-size: 2.5rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-top: 0;
+  margin-bottom: 1.2rem;
+  line-height: 1.1;
+}
+
+.hero.hero5 p:not(.button-container) {
+  color: #666;
+  font-size: 1rem;
+  line-height: 1.65;
+  margin-bottom: 1.2rem;
+  margin-top: 0;
+}
+
+/* Button styling */
+.hero.hero5 .button-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  margin-top: 0.2rem;
+  margin-bottom: 0;
+  padding: 0;
+}
+
+.hero.hero5 .button-container .button {
+  background: #fff;
+  border: 1.5px solid #000;
+  color: #000;
+  border-radius: 2.4em;
+  padding: 0.75em 2em;
+  font-size: 1rem;
+  font-weight: 500;
+  transition: background 0.2s, color 0.2s, border 0.2s;
+  margin: 0;
+  box-shadow: none;
+  outline: none;
+}
+
+.hero.hero5 .button-container .button:hover,
+.hero.hero5 .button-container .button:focus {
+  background: #000;
+  color: #fff;
+  border-color: #000;
+  text-decoration: none;
+}
+
+/* Responsive adjustments */
+@media (width <= 1200px) {
+  .hero.hero5 div:nth-child(2) {
+    padding-left: 3.5rem;
+    padding-right: 2rem;
+  }
+}
+
+@media (width <= 900px) {
+  .hero.hero5 {
+    flex-direction: column-reverse;
+    min-height: 0;
+  }
+
+  .hero.hero5 div:nth-child(1),
+  .hero.hero5 div:nth-child(2) {
+    min-height: 320px;
+    width: 100%;
+    padding: 2rem 1rem;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .hero.hero5 div:nth-child(2) div {
+    max-width: 100%;
+    align-items: center;
+    text-align: center;
+    padding: 0;
+  }
+
+  .hero.hero5 .button-container {
+    justify-content: center;
+  }
+}
+
+/* Remove any z-index from the image container if present */
+.hero.hero5 picture {
+  z-index: unset;
 }
