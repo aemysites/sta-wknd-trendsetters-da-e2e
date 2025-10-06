@@ -389,8 +389,6 @@
   justify-content: stretch;
   min-width: 0;
   min-height: 0;
-
-  /* The aspect-ratio is tuned to closely match the actual image proportions */
   aspect-ratio: 32 / 21;
 }
 
@@ -414,5 +412,134 @@
 
   .columns.columns30 .columns-img-col {
     aspect-ratio: unset;
+  }
+}
+
+
+.columns.columns31 {
+  padding: 64px 0;
+  background: #fff;
+}
+
+/* Ensure all content is visible and laid out as columns */
+.columns.columns31 .columns div {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 80px;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* Responsive: stack columns vertically */
+@media (width <= 900px) {
+  .columns.columns31 .columns div {
+    flex-direction: column;
+    gap: 32px;
+  }
+}
+
+/* Left column: name, tightly top-aligned and narrower */
+.columns.columns31 .columns div div:nth-child(1) {
+  min-width: 36px;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  padding: 0;
+  margin: 0;
+}
+
+.columns.columns31 .columns div div:nth-child(1) p {
+  color: #7d7d7d;
+  font-size: 16px;
+  margin: 0;
+  line-height: 1.2;
+  padding: 0;
+}
+
+/* Center column: badges stacked and heading above the fold */
+.columns.columns31 .columns div div:nth-child(2) {
+  min-width: 420px;
+  max-width: 480px;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: 0;
+  margin: 0;
+}
+
+/* Pills/badges styling: even tighter stack */
+.columns.columns31 .columns div div:nth-child(2) p:nth-child(-n+3) {
+  display: block;
+  background: #eaeaea;
+  color: #626262;
+  text-transform: uppercase;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  border-radius: 20px;
+  padding: 6px 16px;
+  margin: 0 0 2px;
+  line-height: 1.25;
+  width: fit-content;
+  box-sizing: border-box;
+}
+
+/* Heading styling: very little gap to badges */
+.columns.columns31 .columns div div:nth-child(2) h2 {
+  font-size: 64px;
+  font-weight: 400;
+  color: #121212;
+  line-height: 1.05;
+  letter-spacing: 0.5px;
+  margin: 2px 0 0;
+  padding: 0;
+}
+
+/* Right column: paragraphs, ensure top alignment */
+.columns.columns31 .columns div div:nth-child(3) {
+  min-width: 0;
+  flex: 1 1 0%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  padding: 0;
+  margin: 0;
+}
+
+.columns.columns31 .columns div div:nth-child(3) p {
+  font-size: 15px;
+  color: #444;
+  margin: 0 0 16px;
+  line-height: 1.5;
+  padding: 0;
+}
+
+/* Mobile adjustments */
+@media (width <= 900px) {
+  .columns.columns31 {
+    padding: 32px 0;
+  }
+
+  .columns.columns31 .columns div div:nth-child(2) h2 {
+    font-size: 38px;
+    margin-top: 6px;
+  }
+
+  .columns.columns31 .columns div div:nth-child(3) p,
+  .columns.columns31 .columns div div:nth-child(1) p {
+    font-size: 14px;
+  }
+
+  .columns.columns31 .columns div div:nth-child(2) {
+    min-width: 0;
+    max-width: 100%;
   }
 }
