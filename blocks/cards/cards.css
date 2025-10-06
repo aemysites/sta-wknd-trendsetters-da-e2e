@@ -1,3 +1,4 @@
+/* stylelint-disable no-descending-specificity */
 .cards > ul {
   list-style: none;
   margin: 0;
@@ -24,4 +25,149 @@
   width: 100%;
   aspect-ratio: 4 / 3;
   object-fit: cover;
+}
+
+
+.cards.cards2 {
+  background: #fff;
+  padding: 3rem 2rem;
+  border-radius: 1.5rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+
+.cards.cards2 ul {
+  display: flex;
+  flex-direction: row;
+  gap: 3rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.cards.cards2 li {
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  border-radius: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding: 0;
+}
+
+.cards.cards2 li:first-child {
+  flex: 1.2 1 0px;
+}
+
+.cards.cards2 li:not(:first-child) {
+  flex: 1 1 0px;
+}
+
+/* Feature card image */
+.cards.cards2 li:first-child .cards-card-image img {
+  width: 100%;
+  border-radius: 1.2rem;
+  box-shadow: 0 1px 12px rgb(33 33 32 / 9%);
+  object-fit: cover;
+  aspect-ratio: 4/3;
+  margin-bottom: 1.8rem;
+}
+
+/* Feature card body */
+.cards.cards2 li:first-child .cards-card-body {
+  margin-top: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.cards.cards2 li:first-child .cards-card-body h3 {
+  font-size: 2.25rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  color: #212120;
+  margin-bottom: 1.2rem;
+  margin-top: 0;
+  line-height: 1.13;
+}
+
+.cards.cards2 li:first-child .cards-card-body p {
+  color: #6e736d;
+  font-size: 1.1rem;
+  line-height: 1.7;
+  margin-bottom: 2rem;
+  margin-top: 0;
+}
+
+.cards.cards2 li:first-child .cards-card-body p:last-of-type {
+  display: inline-block;
+  padding: 0.5em 1.8em;
+  border: 2px solid #212120;
+  color: #212120;
+  border-radius: 999px;
+  background: #fff;
+  font-weight: 500;
+  font-size: 1rem;
+  cursor: pointer;
+  margin: 0;
+  transition: background 0.2s;
+  text-align: center;
+  box-sizing: border-box;
+}
+
+.cards.cards2 li:first-child .cards-card-body p:last-of-type:hover {
+  background: #f5f5f5;
+}
+
+/* Supporting card image */
+.cards.cards2 li:not(:first-child) .cards-card-image img {
+  width: 100%;
+  border-radius: 1.1rem;
+  box-shadow: 0 1px 12px rgb(33 33 32 / 10%);
+  object-fit: cover;
+  aspect-ratio: 4/3;
+  margin-bottom: 1.2rem;
+}
+
+/* Supporting card body */
+.cards.cards2 li:not(:first-child) .cards-card-body {
+  margin-top: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.cards.cards2 li:not(:first-child) .cards-card-body h3 {
+  font-size: 1.15rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: .02em;
+  color: #212120;
+  margin-bottom: 0.8rem;
+  margin-top: 0;
+  line-height: 1.15;
+}
+
+.cards.cards2 li:not(:first-child) .cards-card-body p {
+  color: #6e736d;
+  font-size: 1rem;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* Responsive stacking for narrow screens */
+@media (width <= 900px) {
+  .cards.cards2 ul {
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .cards.cards2 {
+    padding: 2rem 0.5rem;
+  }
 }
