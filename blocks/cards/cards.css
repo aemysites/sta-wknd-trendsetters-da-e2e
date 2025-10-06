@@ -615,7 +615,6 @@
   min-height: 530px;
 }
 
-/* Large, collage-style image */
 .cards.cards24 .cards-card-image {
   position: relative;
   z-index: 1;
@@ -630,7 +629,6 @@
   transform: rotate(-6deg);
 }
 
-/* Ensure image fills card block */
 .cards.cards24 .cards-card-image img,
 .cards.cards24 .cards-card-image picture {
   display: block;
@@ -639,11 +637,10 @@
   border-radius: 28px;
 }
 
-/* Collage text card styling & overlap */
 .cards.cards24 .cards-card-body {
   position: absolute;
-  bottom: 68px; /* place card higher for tighter overlap */
-  right: 42px;  /* bring closer to the image edge */
+  bottom: 68px;
+  right: 42px;
   z-index: 2;
   background: rgb(255 255 255 / 98%);
   box-shadow: 0 10px 28px rgb(0 0 0 / 11%);
@@ -657,7 +654,6 @@
   align-items: center;
 }
 
-/* Text inside collage block styling */
 .cards.cards24 .cards-card-body p {
   color: #222;
   font-size: var(--body-font-size-s);
@@ -668,7 +664,6 @@
   transform: rotate(-2deg);
 }
 
-/* Collage accent lines */
 .cards.cards24 .cards-card-image::before,
 .cards.cards24 .cards-card-body::before {
   display: block;
@@ -680,7 +675,6 @@
   opacity: 0.13;
 }
 
-/* Responsive adjustments */
 @media (width <= 700px) {
   .cards.cards24 li {
     max-width: 99vw;
@@ -708,4 +702,134 @@
     font-size: var(--body-font-size-xs);
     transform: none;
   }
+}
+
+
+.cards.cards26 {
+  margin: 0;
+  padding: 0;
+}
+
+/* Masonry-style two-column grid using grid layout */
+.cards.cards26 ul {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  grid-auto-flow: row dense;
+}
+
+/* Responsive stacking for small screens */
+@media (width <= 900px) {
+  .cards.cards26 ul {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+}
+
+/* Card styling: rounded, shadow, variable height */
+.cards.cards26 ul li {
+  position: relative;
+  background: transparent;
+  border: none;
+  border-radius: 24px;
+  box-shadow: 0 6px 24px rgb(0 0 0 / 7%);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  min-height: 250px;
+  transition: box-shadow 0.2s;
+  margin: 0;
+}
+
+/* Ensure image fills the card, rounded edges */
+.cards.cards26 .cards-card-image {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  min-height: 220px;
+  flex: 1 1 auto;
+}
+
+.cards.cards26 .cards-card-image picture,
+.cards.cards26 .cards-card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  border-radius: 24px;
+}
+
+/* Overlay text directly on image, spacing at top/left/right */
+.cards.cards26 .cards-card-body {
+  position: absolute;
+  top: 32px;
+  left: 32px;
+  right: 32px;
+  color: #E0E0E0;
+  z-index: 2;
+  padding: 0;
+  background: none;
+  text-shadow: 0 2px 8px rgb(0 0 0 / 16%);
+
+  /* allow overlay to wrap multiple lines naturally */
+}
+
+.cards.cards26 .cards-card-body h3 {
+  margin: 0 0 12px;
+  font-size: 2rem;
+  letter-spacing: 0.015em;
+  font-weight: 600;
+  color: #E0E0E0;
+  line-height: 1.1;
+}
+
+.cards.cards26 .cards-card-body p {
+  margin: 0;
+  font-size: 1rem;
+  color: #f8f8f8;
+  font-weight: 400;
+  line-height: 1.45;
+}
+
+/* Hide text overlay if empty */
+.cards.cards26 .cards-card-body:empty {
+  display: none;
+}
+
+/* Add variable min-heights for a more staggered look, alternating cards */
+.cards.cards26 ul li:nth-child(odd) {
+  min-height: 265px;
+}
+
+.cards.cards26 ul li:nth-child(even) {
+  min-height: 420px;
+}
+
+/* Reduce border-radius and padding for mobile */
+@media (width <= 600px) {
+  .cards.cards26 ul li,
+  .cards.cards26 .cards-card-image picture,
+  .cards.cards26 .cards-card-image img {
+    border-radius: 16px;
+  }
+
+  .cards.cards26 .cards-card-body {
+    top: 16px;
+    left: 16px;
+    right: 16px;
+  }
+
+  .cards.cards26 ul {
+    gap: 16px;
+  }
+}
+
+/* Remove any default margin for h3/p in overlay to ensure correct spacing */
+.cards.cards26 .cards-card-body h3,
+.cards.cards26 .cards-card-body p {
+  margin-top: 0;
+  margin-bottom: 0;
 }
