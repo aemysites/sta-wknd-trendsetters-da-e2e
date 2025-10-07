@@ -1,3 +1,4 @@
+/* stylelint-disable no-descending-specificity */
 .columns > div {
   display: flex;
   flex-direction: column;
@@ -30,4 +31,77 @@
     flex: 1;
     order: unset;
   }
+}
+
+
+/* Columns block background, spacing, and responsive centering */
+.columns {
+  background-color: #F6F7F4;
+  padding: 48px 32px;
+  margin: 40px auto;
+  max-width: 800px;
+  border-radius: 0;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+/* Responsive: reduce padding on small screens */
+@media (width <= 700px) {
+  .columns {
+    padding-left: 12px;
+    padding-right: 12px;
+    max-width: 100%;
+  }
+}
+
+/* If the HTML structure has two visible second-level divs side-by-side, arrange them using flex row */
+.columns div {
+  display: flex;
+  flex-direction: row;
+  gap: 48px;
+  width: 100%;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+/* On mobile, stack the columns vertically */
+@media (width <= 700px) {
+  .columns div {
+    flex-direction: column;
+    gap: 0;
+    align-items: center;
+  }
+}
+
+/* Inner column content centered */
+.columns div div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  min-width: 0;
+}
+
+/* Headline and paragraph: color, centering, spacing */
+.columns h1,
+.columns h2,
+.columns h3,
+.columns h4,
+.columns h5,
+.columns h6,
+.columns p {
+  color: #222;
+  text-align: center;
+  margin: 0.8em auto 0.25em;
+  line-height: 1.5;
+}
+
+/* Hide the button and its container, only if present */
+.columns .button-container,
+.columns a.button {
+  display: none;
 }
