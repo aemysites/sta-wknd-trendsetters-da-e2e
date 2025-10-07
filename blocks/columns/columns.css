@@ -31,3 +31,138 @@
     order: unset;
   }
 }
+
+
+/* Columns block visual layout improvements for .columns.columns4 */
+
+/* ----- Desktop: 2 side-by-side columns, tightly grouped, top-aligned ----- */
+.columns.columns4 {
+  background: var(--background-color);
+  padding-top: 3.5rem;
+  padding-bottom: 3.5rem;
+}
+
+/* Main layout: 2 columns, top aligned, generous max-width, centered */
+.columns.columns4 div {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 2.2rem;
+  max-width: 960px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* ----- Left column: text content ----- */
+.columns.columns4 div div {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  min-width: 0;
+  max-width: 650px;
+  width: 100%;
+}
+
+/* Heading: large, bold, lowercase, tight vertical rhythm */
+.columns.columns4 div div h2 {
+  font-size: var(--heading-font-size-xl);
+  color: var(--text-color);
+  margin-top: 0;
+  margin-bottom: 0.4rem;
+  text-transform: lowercase;
+  letter-spacing: 0.01em;
+  line-height: 1.05;
+}
+
+/* Paragraph: smaller, dark, left-aligned, readable max-width */
+.columns.columns4 div div p {
+  font-size: var(--body-font-size-s);
+  color: var(--dark-color);
+  margin-top: 0;
+  margin-bottom: 0;
+  line-height: 1.5;
+  max-width: 540px;
+}
+
+/* ----- Right column: vertical stack for buttons, centered horizontally, top aligned ----- */
+.columns.columns4 div div + div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  width: 240px;
+  min-width: 220px;
+  gap: 1rem;
+  padding-top: 0;
+}
+
+/* Button styling for links: pill, outlined, equal width, centered text */
+.columns.columns4 div div + div a {
+  display: block;
+  width: 220px;
+  padding: 0.75rem 0;
+  border: 1px solid var(--text-color);
+  border-radius: 999px;
+  background: var(--background-color);
+  color: var(--text-color);
+  font-size: var(--body-font-size-s);
+  text-align: center;
+  text-decoration: none;
+  box-sizing: border-box;
+  transition: box-shadow 0.2s, border-color 0.2s, background 0.2s;
+  margin: 0;
+  line-height: 1.25;
+}
+
+/* Subtle yellow accent for the first button only */
+.columns.columns4 div div + div a:first-child {
+  box-shadow: 0 -2px 0 0 #f8ff8b inset, 2px 0 0 0 #f8ff8b inset;
+}
+
+/* Button hover/focus state: subtle background shift */
+.columns.columns4 div div + div a:hover,
+.columns.columns4 div div + div a:focus {
+  background: var(--light-color);
+}
+
+/* Remove extra vertical margin if links are wrapped in <p> */
+.columns.columns4 div div + div p {
+  margin: 0;
+}
+
+/* ----- Responsive: stack columns on narrow screens ----- */
+@media (width <= 900px) {
+  .columns.columns4 div {
+    flex-direction: column;
+    gap: 1.5rem;
+    max-width: 100%;
+  }
+
+  .columns.columns4 div div + div {
+    width: 100%;
+    min-width: 0;
+    align-items: stretch;
+  }
+}
+
+/* Responsive tweaks for spacing and button size */
+@media (width <= 600px) {
+  .columns.columns4 {
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
+  }
+
+  .columns.columns4 div {
+    gap: 1rem;
+  }
+
+  .columns.columns4 div div + div a {
+    width: 100%;
+    padding: 0.55rem 0;
+    font-size: var(--body-font-size-xs);
+  }
+}
