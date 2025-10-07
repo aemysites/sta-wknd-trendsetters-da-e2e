@@ -1,3 +1,4 @@
+/* stylelint-disable no-descending-specificity */
 .cards > ul {
   list-style: none;
   margin: 0;
@@ -24,4 +25,214 @@
   width: 100%;
   aspect-ratio: 4 / 3;
   object-fit: cover;
+}
+
+
+.cards.cards2 {
+  background: #F7FBF6;
+  padding: 48px 0;
+}
+
+.cards.cards2 ul {
+  display: flex;
+  flex-direction: row;
+  gap: 40px;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0;
+  list-style: none;
+  align-items: flex-start;
+}
+
+.cards.cards2 li {
+  display: flex;
+  flex-direction: column;
+  background: #fff;
+  border: none;
+  box-shadow: 0 4px 28px rgb(0 0 0 / 6%);
+  border-radius: 0 0 24px 24px;
+  padding: 0;
+  margin: 0;
+  min-width: 0;
+}
+
+.cards.cards2 li:first-child {
+  flex: 1 1 59%;
+  max-width: 64%;
+}
+
+.cards.cards2 li:last-child {
+  flex: 1 1 35%;
+  max-width: 39%;
+}
+
+.cards.cards2 .cards-card-image {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  line-height: 0;
+}
+
+.cards.cards2 .cards-card-image img,
+.cards.cards2 .cards-card-image picture {
+  width: 100%;
+  display: block;
+  object-fit: cover;
+  border-radius: 24px 24px 0 0;
+  min-height: 192px;
+  max-height: 260px;
+  aspect-ratio: 16/9;
+  background: #e6ece1;
+}
+
+.cards.cards2 .cards-card-body {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 32px 32px 24px;
+  gap: 0;
+  flex: 1 1 auto;
+}
+
+.cards.cards2 li:first-child .cards-card-body h3 {
+  font-size: 2.1rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #161616;
+  letter-spacing: 0.7px;
+  margin: 0 0 16px;
+  line-height: 1.08;
+  text-align: left;
+}
+
+.cards.cards2 li:first-child .cards-card-body p {
+  font-size: 1.09rem;
+  color: #525252;
+  margin: 0 0 18px;
+  line-height: 1.6;
+  text-align: left;
+}
+
+.cards.cards2 li:first-child .cards-card-body p:last-child,
+.cards.cards2 li:first-child .cards-card-body a:last-child {
+  display: inline-block;
+  padding: 10px 26px;
+  border: 2px solid #161616;
+  border-radius: 32px;
+  background: #fff;
+  color: #161616;
+  font-size: 1.01rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  margin-top: 5px;
+  margin-bottom: 0;
+  letter-spacing: 0.5px;
+  cursor: pointer;
+  text-align: left;
+  line-height: 1.22;
+  box-shadow: none;
+  transition: background 0.15s, color 0.15s, border-color 0.15s;
+  min-width: 0;
+  border-width: 1.7px;
+}
+
+.cards.cards2 li:first-child .cards-card-body p:last-child:hover,
+.cards.cards2 li:first-child .cards-card-body a:last-child:hover {
+  background: #161616;
+  color: #fff;
+  border-color: #161616;
+}
+
+/* Secondary card */
+.cards.cards2 li:last-child .cards-card-body {
+  padding: 32px 32px 24px;
+}
+
+.cards.cards2 li:last-child .cards-card-body h3 {
+  font-size: 1.18rem;
+  font-weight: 700;
+  color: #161616;
+  margin: 0 0 9px;
+  text-align: left;
+  line-height: 1.2;
+  letter-spacing: 0.16px;
+  text-transform: none;
+}
+
+.cards.cards2 li:last-child .cards-card-body p {
+  font-size: 1.01rem;
+  color: #525252;
+  margin: 0;
+  line-height: 1.6;
+  text-align: left;
+}
+
+.cards.cards2 li:last-child .cards-card-body p:last-child {
+  display: inline-block;
+  border: 1.6px solid #e0e0e0;
+  border-radius: 12px;
+  background: #f7fbf6;
+  max-width: 260px;
+  padding: 10px 18px;
+  margin-top: 10px;
+  margin-bottom: 0;
+  font-size: 0.97rem;
+  text-align: left;
+  line-height: 1.52;
+}
+
+/* Responsive adjustments */
+@media (width <= 1100px) {
+  .cards.cards2 ul {
+    gap: 24px;
+    max-width: 98vw;
+  }
+
+  .cards.cards2 li:first-child,
+  .cards.cards2 li:last-child {
+    max-width: 100%;
+  }
+
+  .cards.cards2 .cards-card-body,
+  .cards.cards2 li:last-child .cards-card-body {
+    padding: 18px 14px 16px;
+  }
+
+  .cards.cards2 .cards-card-image img,
+  .cards.cards2 .cards-card-image picture {
+    min-height: 90px;
+    max-height: 120px;
+    border-radius: 12px 12px 0 0;
+  }
+
+  .cards.cards2 li:last-child .cards-card-body p:last-child {
+    max-width: 100%;
+  }
+}
+
+@media (width <= 700px) {
+  .cards.cards2 ul {
+    flex-direction: column;
+    gap: 18px;
+  }
+
+  .cards.cards2 li,
+  .cards.cards2 li:first-child,
+  .cards.cards2 li:last-child {
+    max-width: 100%;
+    border-radius: 0 0 18px 18px;
+    box-shadow: 0 2px 10px rgb(0 0 0 / 5%);
+  }
+
+  .cards.cards2 .cards-card-body,
+  .cards.cards2 li:last-child .cards-card-body {
+    padding: 11px 5vw 12px;
+  }
+
+  .cards.cards2 .cards-card-image img,
+  .cards.cards2 .cards-card-image picture {
+    min-height: 50px;
+    max-height: 80px;
+    border-radius: 8px 8px 0 0;
+  }
 }
