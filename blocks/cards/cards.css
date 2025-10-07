@@ -239,7 +239,7 @@
 .cards-wrapper .cards ul {
   display: flex;
   flex-direction: row;
-  gap: 16px; /* space between cards */
+  gap: 16px;
   list-style: none;
   padding: 0;
   margin: 0;
@@ -250,19 +250,14 @@
   min-width: 0;
   border-radius: 22px;
   overflow: hidden;
-
-  /* Remove border, shadow, etc. for a clean look */
   box-shadow: none;
   border: none;
   background: none;
   display: flex;
   flex-direction: column;
-  aspect-ratio: 4 / 3; /* modern browsers */
-
-  /* Optional: if you want equal heights and widths */
+  aspect-ratio: 4 / 3;
 }
 
-/* Ensure the image fills the card and is rounded */
 .cards-wrapper .cards-card-image {
   width: 100%;
   height: 100%;
@@ -277,4 +272,100 @@
   object-fit: cover;
   display: block;
   border-radius: 22px;
+}
+
+
+.cards.cards10 {
+  background: var(--background-color);
+  padding: 0;
+}
+
+/* Multi-row, multi-column grid for cards */
+.cards.cards10 ul {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  place-items: stretch stretch;
+}
+
+/* Card container styling */
+.cards.cards10 ul li {
+  display: flex;
+  flex-direction: column;
+  background: #fff;
+  border: 1px solid #e0e0e0;
+  border-radius: 18px;
+  box-sizing: border-box;
+  overflow: hidden;
+  min-width: 0;
+  min-height: 0;
+}
+
+/* Card body vertical stack */
+.cards.cards10 .cards-card-body {
+  display: flex;
+  flex-direction: column;
+  padding: 20px 20px 24px;
+  gap: 12px;
+  flex: 1;
+}
+
+/* Pill/tag styling */
+.cards.cards10 .cards-card-body p {
+  margin: 0;
+  padding: 0;
+}
+
+.cards.cards10 .cards-card-body p:first-child {
+  background: #f3f3f3;
+  color: #7e7e7e;
+  border-radius: 999px;
+  font-size: 12px;
+  padding: 4px 14px;
+  font-weight: 600;
+  text-transform: uppercase;
+  align-self: flex-start;
+  letter-spacing: 0.03em;
+  line-height: 1.2;
+}
+
+/* Heading styling */
+.cards.cards10 .cards-card-body h3 {
+  margin: 0;
+  font-size: 22px;
+  font-weight: 600;
+  color: #222;
+  text-transform: capitalize;
+  line-height: 1.15;
+}
+
+/* Description styling */
+.cards.cards10 .cards-card-body p:last-child {
+  font-size: 15px;
+  color: #929292;
+  line-height: 1.34;
+  max-height: 2.8em;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Tablet: Two columns */
+@media (width <= 1100px) {
+  .cards.cards10 ul {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Mobile: One column, tweaks padding for space */
+@media (width <= 700px) {
+  .cards.cards10 ul {
+    grid-template-columns: 1fr;
+  }
+
+  .cards.cards10 .cards-card-body {
+    padding: 14px 10px 16px;
+  }
 }
