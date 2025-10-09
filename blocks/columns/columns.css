@@ -1,3 +1,4 @@
+/* stylelint-disable no-descending-specificity */
 .columns > div {
   display: flex;
   flex-direction: column;
@@ -30,4 +31,40 @@
     flex: 1;
     order: unset;
   }
+}
+
+
+.columns-wrapper {
+  background: #F7F8F5;
+  padding-top: 48px;
+  padding-bottom: 48px;
+  min-height: 320px;
+  display: flex;
+  justify-content: center;
+}
+
+.columns {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.columns-5-cols > div {
+  display: flex;
+  gap: 32px;
+  justify-content: center;
+}
+
+.columns-img-col {
+  flex: 1 1 0;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.columns-img-col img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgb(0 0 0 / 4%);
 }
