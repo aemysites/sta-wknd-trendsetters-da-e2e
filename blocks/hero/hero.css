@@ -45,3 +45,187 @@
     padding: 40px 32px;
   }
 }
+
+/* HERO HERO6 - revised for accurate glass overlay and side-by-side image/text */
+
+/* Layout: side-by-side, image on right, overlay on left */
+.hero.hero6 {
+  display: flex;
+  flex-direction: row;
+  align-items: center; /* vertical centering of overlay panel */
+  justify-content: flex-start;
+  border-radius: 2.4em;
+  overflow: hidden;
+  min-height: 540px;
+  box-shadow: 0 8px 32px rgb(0 0 0 / 10%);
+  background: none;
+  position: relative;
+  margin: 0;
+  padding: 0;
+}
+
+/* IMAGE COLUMN: image always on the right side, fills area */
+.hero.hero6 picture {
+  flex: 1;
+  order: 2;
+  display: flex;
+  align-items: stretch;
+  justify-content: stretch;
+  min-width: 0;
+  min-height: 0;
+  z-index: unset;
+}
+
+.hero.hero6 picture img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  border-radius: 0;
+}
+
+/* Remove z-index if present */
+
+/* GLASS OVERLAY PANEL (left side) */
+.hero.hero6 div:not(:has(picture)) {
+  flex: 0 1 36vw;
+  order: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: center;
+  min-width: 0;
+  min-height: 0;
+  padding-left: 4vw;
+  padding-right: 2vw;
+  box-sizing: border-box;
+  z-index: 2;
+}
+
+/* Glass effect/rounded panel inside left side */
+.hero.hero6 div:not(:has(picture)) div {
+  background: rgb(255 255 255 / 18%);
+  backdrop-filter: blur(16px);
+  border: 2px solid rgb(255 255 255 / 62%);
+  border-radius: 1.2em;
+  box-shadow: 0 2px 24px rgb(0 0 0 / 9%);
+  padding: 2.2em 2em 2em;
+  max-width: 420px;
+  margin: 0;
+  align-self: flex-start;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+/* Headline: large, all-caps, left */
+.hero.hero6 h1 {
+  color: #fff;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  font-size: var(--heading-font-size-xl);
+  line-height: 1.1;
+  margin: 0 0 0.7em;
+  text-align: left;
+  overflow-wrap: break-word;
+}
+
+/* Subhead: smaller, lighter, left-aligned */
+.hero.hero6 p:not(.button-container) {
+  color: rgb(255 255 255 / 82%);
+  font-size: var(--body-font-size-s);
+  margin: 0 0 2em;
+  text-align: left;
+  line-height: 1.6;
+  overflow-wrap: break-word;
+}
+
+/* Button container: horizontal row, gap */
+.hero.hero6 .button-container {
+  display: flex;
+  flex-direction: row;
+  gap: 1.2em;
+  margin: 0;
+  padding: 0;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+/* Primary button: solid, pill-shaped */
+.hero.hero6 .button-container a.button,
+.hero.hero6 .button-container button.button {
+  min-width: 120px;
+  border-radius: 2em;
+  font-size: var(--body-font-size-s);
+  font-weight: 600;
+  padding: 0.85em 2.2em;
+  margin: 0;
+  background: #fff;
+  color: #222;
+  border: 2px solid #fff;
+  transition: background 0.18s, color 0.18s, border 0.18s;
+  box-shadow: 0 2px 9px rgb(0 0 0 / 6%);
+  outline: none;
+  line-height: 1.1;
+}
+
+/* Secondary button: outlined, transparent */
+.hero.hero6 .button-container a.button.secondary,
+.hero.hero6 .button-container button.button.secondary {
+  background: transparent;
+  color: #fff;
+  border: 2px solid #fff;
+}
+
+.hero.hero6 .button-container a.button:hover,
+.hero.hero6 .button-container button.button:hover {
+  background: rgb(255 255 255 / 90%);
+  color: var(--link-color);
+}
+
+.hero.hero6 .button-container a.button.secondary:hover,
+.hero.hero6 .button-container button.button.secondary:hover {
+  background: rgb(255 255 255 / 13%);
+  color: #fff;
+  border-color: #fff;
+}
+
+/* Responsive: stack and shrink panel for small screens */
+@media (width <= 900px) {
+  .hero.hero6 {
+    flex-direction: column;
+    border-radius: 1.2em;
+    min-height: 0;
+  }
+
+  .hero.hero6 picture {
+    order: 1;
+    flex-basis: 220px;
+    min-height: 140px;
+    max-height: 240px;
+  }
+
+  .hero.hero6 div:not(:has(picture)) {
+    order: 2;
+    flex-basis: auto;
+    max-width: 100%;
+    padding-left: 0;
+    padding-right: 0;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .hero.hero6 div:not(:has(picture)) div {
+    max-width: 100%;
+    padding: 1.5em 1em 1.2em;
+    border-radius: 1em;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .hero.hero6 h1 {
+    font-size: var(--heading-font-size-l);
+  }
+}
