@@ -256,12 +256,10 @@
 
 
 .cards.cards10 {
-  /* Outer block padding and background */
   padding: 40px 0;
   background: var(--background-color);
 }
 
-/* Responsive multi-row grid for cards */
 .cards.cards10 ul {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -285,7 +283,6 @@
   }
 }
 
-/* Individual card styling */
 .cards.cards10 li {
   background: #fff;
   border: 1px solid #e3e3e3;
@@ -298,7 +295,6 @@
   transition: box-shadow 0.2s;
 }
 
-/* Card image block: wide aspect, rounded top corners */
 .cards.cards10 .cards-card-image {
   width: 100%;
   aspect-ratio: 16 / 9;
@@ -318,7 +314,6 @@
   min-height: 120px;
 }
 
-/* Card body: vertical stack, left-aligned, tight spacing */
 .cards.cards10 .cards-card-body {
   padding: 14px 12px 12px;
   display: flex;
@@ -328,7 +323,6 @@
   flex: 1 1 auto;
 }
 
-/* Pill label (first p): muted, pill shape, small, all-caps, left */
 .cards.cards10 .cards-card-body p:first-child {
   background: #f2f2f2;
   color: #6c6c6c;
@@ -343,7 +337,6 @@
   display: inline-block;
 }
 
-/* Title: bold, dark, left-aligned, compact */
 .cards.cards10 .cards-card-body h3 {
   font-size: var(--heading-font-size-l);
   font-weight: 700;
@@ -355,7 +348,6 @@
   text-transform: none;
 }
 
-/* Description: plain, left-aligned, comfortable */
 .cards.cards10 .cards-card-body p:last-child {
   font-size: var(--body-font-size-s);
   color: #454545;
@@ -369,9 +361,91 @@
   padding: 0;
 }
 
-/* Make sure all card content stacks vertically, not centered */
 .cards.cards10 .cards-card-body * {
   align-self: flex-start;
 }
 
-/* Ensure images do not shrink on small cards */
+
+.cards.cards12 {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+  box-sizing: border-box;
+}
+
+/* Arrange cards side by side */
+.cards.cards12 ul {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: stretch;
+  gap: 32px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  width: 100%;
+}
+
+/* Each card: same width, fills height, no border/shadow/margin */
+.cards.cards12 li {
+  flex: 0 1 340px;
+  width: 340px;
+  min-width: 240px;
+  max-width: 340px;
+  display: flex;
+  flex-direction: column;
+  border-radius: 24px;
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  padding: 0;
+  margin: 0;
+  overflow: visible;
+}
+
+/* Image container with aspect ratio, rounded corners, no bg or spacing */
+.cards.cards12 .cards-card-image {
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  border-radius: 24px;
+  overflow: hidden;
+  background: none;
+  display: flex;
+  align-items: stretch;
+  justify-content: stretch;
+  margin: 0;
+  padding: 0;
+}
+
+/* Images: fill container, cover, rounded corners */
+.cards.cards12 .cards-card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 24px;
+  display: block;
+  background: none;
+  box-shadow: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* Hide the empty card body area */
+.cards.cards12 .cards-card-body {
+  display: none;
+}
+
+/* Responsive: stack cards vertically on smaller screens */
+@media (width <= 900px) {
+  .cards.cards12 ul {
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+  }
+
+  .cards.cards12 li {
+    width: 100%;
+    min-width: 0;
+    max-width: 100%;
+  }
+}
