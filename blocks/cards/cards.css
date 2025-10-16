@@ -56,7 +56,6 @@
   overflow: hidden;
 }
 
-/* Feature card (left) */
 .cards.cards2 li:first-child {
   flex: 1 1 0;
   min-width: 340px;
@@ -122,7 +121,6 @@
   color: #B6CE92;
 }
 
-/* Secondary card (right) */
 .cards.cards2 li:last-child {
   flex: 0 1 380px;
   min-width: 260px;
@@ -203,4 +201,129 @@
     box-shadow: 0 5px 24px rgb(35 34 29 / 6%);
     padding: 18px 12px;
   }
+}
+
+
+.cards.cards10 {
+  background-color: #f7f7f2;
+  padding-top: 56px;
+  padding-bottom: 56px;
+  margin: 0 auto;
+  width: 100%;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+/* Grid layout for cards (responsive) */
+.cards.cards10 ul {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  place-items: stretch stretch;
+}
+
+/* Responsive: 2 columns on tablets, 1 on mobile */
+@media (width <= 1024px) {
+  .cards.cards10 ul {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px 16px;
+  }
+}
+
+@media (width <= 600px) {
+  .cards.cards10 ul {
+    grid-template-columns: 1fr;
+    gap: 20px 0;
+  }
+}
+
+/* Card styling */
+.cards.cards10 li {
+  background-color: #fff;
+  border-radius: 20px;
+  box-shadow: 0 2px 8px 0 rgb(44 62 80 / 5%);
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  border: none;
+  overflow: hidden;
+}
+
+/* Card image area: rounded top corners and aspect ratio */
+.cards.cards10 .cards-card-image {
+  background: #f7f7f2;
+  width: 100%;
+  border-radius: 20px 20px 0 0;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  aspect-ratio: 4/3;
+  min-height: 0;
+}
+
+/* Images inside card image area */
+.cards.cards10 .cards-card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Card body styling */
+.cards.cards10 .cards-card-body {
+  background-color: #fff;
+  padding: 28px 22px 30px;
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 auto;
+  justify-content: flex-start;
+  min-width: 0;
+}
+
+/* Pill label (first p in body) */
+.cards.cards10 .cards-card-body p:first-child {
+  background: #f2f2f2;
+  color: #6b6b6b;
+  display: inline-block;
+  font-size: 12px;
+  font-weight: 500;
+  padding: 3px 12px;
+  border-radius: 999px;
+  margin: 0 0 14px;
+  line-height: 1.35;
+  letter-spacing: 0.02em;
+}
+
+/* Title styling */
+.cards.cards10 .cards-card-body h3 {
+  color: #232323;
+  font-size: 22px;
+  font-weight: 700;
+  margin: 0 0 12px;
+  line-height: 1.25;
+  text-align: left;
+  letter-spacing: 0.01em;
+}
+
+/* Description styling */
+.cards.cards10 .cards-card-body p:not(:first-child) {
+  color: #666;
+  font-size: 14px;
+  margin: 0;
+  line-height: 1.55;
+  text-align: left;
+}
+
+/* Ensure that if there are multiple .cards.cards10 siblings, they are side by side */
+.cards-wrapper {
+  display: flex;
+  flex-flow: row wrap;
+  gap: 32px;
+  align-items: flex-start;
 }
