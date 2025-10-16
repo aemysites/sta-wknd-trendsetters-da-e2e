@@ -31,3 +31,61 @@
     order: unset;
   }
 }
+
+
+.columns.columns4.block.columns-2-cols > div {
+  display: flex;
+  flex-direction: row;
+  align-items: center; /* vertically center columns */
+  justify-content: space-between;
+  gap: 3rem;
+}
+
+/* Left column (text) */
+.columns.columns4.block.columns-2-cols > div > div:first-child {
+  flex: 1 1 60%;
+  min-width: 0;
+}
+
+/* Right column: stack and center CTAs */
+.columns.columns4.block.columns-2-cols > div > div:last-child {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.2rem;
+}
+
+/* Style links as pill-shaped buttons */
+.columns.columns4.block.columns-2-cols > div > div:last-child a {
+  display: block;
+  width: 180px;
+  padding: 0.8em 2em;
+  font-family: 'Geometric Sans', Arial, sans-serif;
+  font-size: 1.07rem;
+  color: #000;
+  text-align: center;
+  text-decoration: none;
+  font-weight: 600;
+  border: 2px solid #000;
+  border-radius: 999px;
+  background: #fff;
+  transition: box-shadow 0.2s;
+}
+
+/* Yellow accent for top button */
+.columns.columns4.block.columns-2-cols > div > div:last-child a:first-child {
+  border-top: 2.5px solid #EAE600;
+}
+
+/* Responsive stacking */
+@media (width <= 700px) {
+  .columns.columns4.block.columns-2-cols > div {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 2rem;
+  }
+
+  .columns.columns4.block.columns-2-cols > div > div:last-child {
+    align-items: stretch;
+  }
+}
