@@ -47,7 +47,6 @@
   }
 }
 
-/* HERO BLOCK: FLUID SIDE-BY-SIDE LAYOUT */
 .hero.hero6 {
   display: flex;
   flex-direction: row;
@@ -61,7 +60,6 @@
   position: relative;
 }
 
-/* IMAGE SIDE */
 .hero.hero6 picture,
 .hero.hero6 img {
   flex: 1 1 58%;
@@ -74,12 +72,10 @@
   border-radius: 2em 0 0 2em;
 }
 
-/* Remove z-index if present */
 .hero.hero6 picture {
   z-index: unset;
 }
 
-/* TEXT OVERLAY SIDE */
 .hero.hero6 div {
   flex: 1 1 42%;
   order: 2;
@@ -91,7 +87,6 @@
   z-index: 1;
 }
 
-/* Overlay panel styling (only on the text column) */
 .hero.hero6 div:not(:has(picture)) {
   width: 100%;
   height: 100%;
@@ -105,11 +100,8 @@
   justify-content: center;
   gap: 2em;
   color: #fff;
-
-  /* If image should partially show on right, reduce width and add margin-left */
 }
 
-/* HEADLINE */
 .hero.hero6 h1 {
   font-size: var(--heading-font-size-xl);
   font-weight: 700;
@@ -121,7 +113,6 @@
   text-align: left;
 }
 
-/* SUBHEADING */
 .hero.hero6 p {
   font-size: var(--body-font-size-s);
   color: #d1d1d1;
@@ -130,7 +121,6 @@
   text-align: left;
 }
 
-/* BUTTON ROW */
 .hero.hero6 .button-container {
   display: flex;
   flex-direction: row;
@@ -140,7 +130,6 @@
   align-items: flex-start;
 }
 
-/* PRIMARY BUTTON */
 .hero.hero6 .button-container .button {
   background: #fff;
   color: #222;
@@ -155,7 +144,6 @@
   box-shadow: 0 2px 8px rgb(0 0 0 / 6%);
 }
 
-/* OUTLINED BUTTON (second button) */
 .hero.hero6 .button-container .button + .button {
   background: transparent;
   color: #fff;
@@ -168,14 +156,12 @@
   color: #222;
 }
 
-/* BUTTON INTERACTIONS */
 .hero.hero6 .button-container .button:hover,
 .hero.hero6 .button-container .button:focus {
   background: #222;
   color: #fff;
 }
 
-/* RESPONSIVE: STACK VERTICALLY ON SMALL SCREENS */
 @media (width <= 900px) {
   .hero.hero6 {
     flex-direction: column;
@@ -213,4 +199,45 @@
   }
 }
 
-/* FULL WIDTH HERO (if required) */
+
+.hero13.block {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 2rem;
+  border-radius: 2rem;
+  overflow: hidden;
+  position: relative;
+  background: url('./media_1cc267ba8a95f828b43cf6ac145ee17487be5c09c.avif?width=2000&format=webply&optimize=medium') center/cover no-repeat;
+}
+
+/* Image side */
+.hero13.block > div:first-child {
+  flex: none;
+  width: 350px;
+  height: 350px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero13.block > div:first-child picture,
+.hero13.block > div:first-child img {
+  border-radius: 1rem;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Overlay panel side */
+.hero13.block > div:last-child {
+  flex: 1 1 0;
+  background: rgb(22 22 22 / 75%);
+  border-radius: 1.5rem;
+  margin: 2rem;
+  padding: 2rem;
+  min-height: 300px;
+  color: #fff;
+  display: flex;
+  align-items: center;
+}
