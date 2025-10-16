@@ -305,22 +305,19 @@
 .columns-3-cols > div {
   display: flex;
   flex-direction: row;
-  gap: 80px; /* generous space between columns */
-  align-items: flex-start; /* top align both columns */
+  gap: 80px;
+  align-items: flex-start;
 }
 
-/* Stack label and buttons vertically as a left column */
 .columns-3-cols > div > div:nth-child(1),
 .columns-3-cols > div > div:nth-child(2) {
-  width: 180px; /* adjust as needed for your design */
+  width: 180px;
 }
 
-/* Place options below the label with spacing */
 .columns-3-cols > div > div:nth-child(2) {
-  margin-top: 48px; /* space between label and buttons */
+  margin-top: 48px;
 }
 
-/* Label styling */
 .columns-3-cols > div > div:nth-child(1) p {
   color: #757575;
   font-family: sans-serif;
@@ -330,7 +327,6 @@
   letter-spacing: 0.02em;
 }
 
-/* Button (pill) styling */
 .columns-3-cols > div > div:nth-child(2) p {
   background: #E0E0E0;
   color: #757575;
@@ -340,7 +336,7 @@
   text-transform: uppercase;
   padding: 6px 22px;
   border-radius: 999px;
-  margin: 0 0 16px; /* 16px gap between buttons */
+  margin: 0 0 16px;
   display: inline-block;
   letter-spacing: 0.05em;
 }
@@ -349,7 +345,6 @@
   margin-bottom: 0;
 }
 
-/* Right column: headline and paragraphs */
 .columns-3-cols > div > div:nth-child(3) {
   flex: 1 1 0%;
   min-width: 0;
@@ -379,7 +374,6 @@
   margin-bottom: 0;
 }
 
-/* Responsive: stack columns on mobile/tablet */
 @media (width <= 900px) {
   .columns-3-cols > div {
     flex-direction: column;
@@ -390,5 +384,190 @@
   .columns-3-cols > div > div:nth-child(2),
   .columns-3-cols > div > div:nth-child(3) {
     width: 100%;
+  }
+}
+
+
+.columns.columns32 {
+  background: var(--background-color);
+  padding: 52px 0;
+}
+
+.columns.columns32 div {
+  display: grid;
+  grid-template-columns: minmax(320px, 1fr) minmax(380px, 1fr);
+  gap: 60px;
+  align-items: center;
+  max-width: 1100px;
+  margin: 0 auto;
+  width: 100%;
+  box-sizing: border-box;
+  background: var(--background-color);
+}
+
+.columns.columns32 div div {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 9px;
+  padding: 0;
+  margin: 0;
+}
+
+/* Headline: prominent, uppercase, tight margin */
+.columns.columns32 h1,
+.columns.columns32 h2,
+.columns.columns32 h3 {
+  text-transform: uppercase;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  margin: 0 0 8px;
+  color: var(--text-color);
+  line-height: 1.08;
+}
+
+/* Breadcrumbs styling */
+.columns.columns32 p,
+.columns.columns32 small {
+  color: #646464;
+  font-size: var(--body-font-size-xs);
+  margin: 0;
+  line-height: 1.35;
+  padding: 0;
+}
+
+/* Byline/meta: grouped tightly, smaller font */
+.columns.columns32 div div p,
+.columns.columns32 div div span {
+  color: #222;
+  font-size: var(--body-font-size-s);
+  font-weight: 500;
+  margin: 0;
+  padding: 0;
+  line-height: 1.4;
+}
+
+/* Remove excess spacing for all direct children */
+.columns.columns32 div div * {
+  margin-bottom: 0;
+  margin-top: 0;
+  padding: 0;
+}
+
+/* Social icons: small, inline, tightly grouped, no labels/dots */
+.columns.columns32 ul,
+.columns.columns32 .social-icons {
+  display: flex;
+  flex-direction: row;
+  gap: 14px;
+  align-items: center;
+  margin: 2px 0 0;
+  padding: 0;
+  list-style: none;
+  background: none;
+  border: none;
+}
+
+.columns.columns32 ul li,
+.columns.columns32 .social-icons li {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.columns.columns32 ul li .icon,
+.columns.columns32 .social-icons .icon {
+  width: 26px;
+  height: 26px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: none;
+  border: none;
+  padding: 0;
+}
+
+.columns.columns32 ul li .icon img,
+.columns.columns32 .social-icons .icon img {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.columns.columns32 ul li::marker,
+.columns.columns32 ul li::before,
+.columns.columns32 ul li::after {
+  display: none;
+}
+
+/* Hide icon text labels if present */
+.columns.columns32 .social-icons a,
+.columns.columns32 ul li a {
+  font-size: 0;
+  line-height: 0;
+  color: inherit;
+  background: none;
+  border: none;
+  padding: 0;
+}
+
+/* Right column (image): center image, responsive, rounded */
+.columns.columns32 .columns-img-col {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  margin: 0;
+}
+
+.columns.columns32 .columns-img-col img {
+  max-width: 100%;
+  max-height: 430px;
+  width: auto;
+  height: auto;
+  border-radius: 20px;
+  display: block;
+  box-shadow: none;
+  background: none;
+}
+
+/* Remove any dot/divider elements between meta and icons if present */
+.columns.columns32 div div p:empty {
+  display: none;
+}
+
+/* Responsive stacking for small screens */
+@media (width <= 900px) {
+  .columns.columns32 div {
+    grid-template-columns: 1fr;
+    gap: 32px;
+    padding: 0 12px;
+  }
+
+  .columns.columns32 {
+    padding: 28px 0;
+  }
+
+  .columns.columns32 .columns-img-col img {
+    max-height: 270px;
+  }
+}
+
+@media (width <= 600px) {
+  .columns.columns32 {
+    padding: 12px 0;
+  }
+
+  .columns.columns32 div div {
+    gap: 6px;
+  }
+
+  .columns.columns32 ul,
+  .columns.columns32 .social-icons {
+    gap: 7px;
+  }
+
+  .columns.columns32 .columns-img-col img {
+    max-height: 150px;
   }
 }
