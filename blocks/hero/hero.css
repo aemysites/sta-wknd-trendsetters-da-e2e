@@ -687,19 +687,16 @@
   box-sizing: border-box;
 }
 
-/* Make sure all direct children are flexible but don't use child combinator */
 .hero.hero38 div {
   min-width: 0;
 }
 
-/* If first (left) column is empty or only for spacing, keep it slim */
 .hero.hero38 div:empty {
   flex: 0 0 56px;
   min-width: 32px;
   max-width: 80px;
 }
 
-/* Right column (content): vertical stack, left/top-aligned */
 .hero.hero38 div:not(:empty) {
   display: flex;
   flex-direction: column;
@@ -708,7 +705,6 @@
   width: 100%;
 }
 
-/* Headline: large, left-aligned, compact margin */
 .hero.hero38 h2 {
   margin: 0 0 10px;
   font-size: clamp(2.2rem, 5vw, 3rem);
@@ -719,7 +715,6 @@
   text-align: left;
 }
 
-/* Subheadline: slightly smaller, tight spacing, left-aligned */
 .hero.hero38 p {
   margin: 0 0 22px;
   font-size: clamp(1.05rem, 2vw, 1.15rem);
@@ -729,7 +724,6 @@
   max-width: 540px;
 }
 
-/* Button: wide, pill, left-aligned, black border, yellow accent */
 .hero.hero38 a.button,
 .hero.hero38 button {
   background: var(--background-color);
@@ -752,7 +746,6 @@
   transition: box-shadow 0.18s, background 0.18s;
 }
 
-/* Button hover/focus: accentuate the yellow, subtle background change */
 .hero.hero38 a.button:hover,
 .hero.hero38 a.button:focus,
 .hero.hero38 button:hover,
@@ -761,7 +754,6 @@
   background: var(--light-color);
 }
 
-/* If there's a .picture (image on either side, not background), style and position it: */
 .hero.hero38 .picture {
   flex: 1;
   align-self: stretch;
@@ -771,9 +763,6 @@
   z-index: unset;
 }
 
-/* Remove z-index if present */
-
-/* Image sizing and fit */
 .hero.hero38 .picture img {
   width: 100%;
   max-width: 520px;
@@ -784,7 +773,6 @@
   max-height: 480px;
 }
 
-/* Image left/right positioning (add the appropriate class if needed) */
 .hero.hero38.image-right .picture {
   order: 2;
 }
@@ -793,7 +781,6 @@
   order: 1;
 }
 
-/* Responsive: stack vertically on small screens, reduce paddings and gap */
 @media (width <= 900px) {
   .hero.hero38 {
     flex-direction: column;
@@ -823,4 +810,135 @@
   }
 }
 
-/* If hero should span full width with background image, use */
+/* Remove z-index from .hero .picture if present */
+.hero.hero41 .picture {
+  z-index: unset;
+}
+
+/* HERO LAYOUT: Desktop side-by-side, mobile stacked */
+.hero.hero41 {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  width: 100vw;
+  min-height: 65vh;
+  position: relative;
+  overflow: hidden;
+  background: #000;
+}
+
+/* IMAGE COLUMN, left side, fills area */
+.hero.hero41 .picture,
+.hero.hero41 img {
+  flex: 1 1 0%;
+  order: 1;
+  min-width: 0;
+  width: 100%;
+  height: auto;
+  max-height: 100vh;
+  object-fit: cover;
+  display: block;
+}
+
+/* CONTENT COLUMN, right side, vertical stack, left aligned */
+.hero.hero41 div:not(.picture, :has(img)) {
+  flex: 1 1 0%;
+  order: 2;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-start;
+  padding: 0 6vw 6vw;
+  min-width: 320px;
+  max-width: 600px;
+  background: none;
+  position: relative;
+  z-index: 1;
+}
+
+/* Headline */
+.hero.hero41 h1 {
+  font-size: clamp(2.5rem, 6vw, 5.5rem);
+  font-weight: 600;
+  letter-spacing: 0.045em;
+  color: #fff;
+  line-height: 1.07;
+  margin: 0 0 2rem;
+  text-align: left;
+}
+
+/* Paragraph */
+.hero.hero41 p {
+  font-size: clamp(1.1rem, 2vw, 1.35rem);
+  color: #ededed;
+  margin: 0 0 2.1rem;
+  text-align: left;
+  line-height: 1.7;
+  max-width: 480px;
+}
+
+/* Button: override base styles, left aligned, pill shape */
+.hero-container .hero-wrapper .hero.hero41 .button,
+.hero.hero41 .button,
+.hero.hero41 a.button,
+.hero.hero41 button {
+  background: rgb(32 32 32 / 97%);
+  color: #fff;
+  border: 1.5px solid #ededed;
+  border-radius: 2em;
+  padding: 0.85em 2.4em;
+  font-size: 1.15em;
+  font-weight: 600;
+  box-shadow: 0 2px 15px rgb(0 0 0 / 13%);
+  text-align: left;
+  align-self: flex-start;
+  margin: 0;
+  transition: background 0.18s, color 0.18s, border-color 0.18s;
+}
+
+.hero-container .hero-wrapper .hero.hero41 .button:hover,
+.hero.hero41 .button:hover,
+.hero.hero41 a.button:hover,
+.hero.hero41 button:hover {
+  background: #fff;
+  color: #222;
+  border-color: #222;
+}
+
+/* Responsive: Stack on narrow screens, image on top, text overlays bottom of image */
+@media (width <= 900px) {
+  .hero.hero41 {
+    flex-direction: column;
+    min-height: 400px;
+  }
+
+  .hero.hero41 .picture,
+  .hero.hero41 img {
+    flex: unset;
+    order: 1;
+    width: 100vw;
+    height: 32vh;
+    min-height: 180px;
+    max-height: 320px;
+  }
+
+  .hero.hero41 div:not(.picture, :has(img)) {
+    order: 2;
+    padding: 5vw 7vw 7vw;
+    max-width: 100vw;
+    min-width: unset;
+    align-items: flex-start;
+    justify-content: flex-start;
+  }
+
+  .hero.hero41 h1 {
+    font-size: clamp(1.8rem, 7vw, 2.8rem);
+    margin-bottom: 1.5rem;
+  }
+
+  .hero.hero41 p {
+    font-size: clamp(1rem, 3vw, 1.1rem);
+    margin-bottom: 1.5rem;
+  }
+}
