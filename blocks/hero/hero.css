@@ -672,3 +672,155 @@
     min-height: 340px;
   }
 }
+
+
+.hero.hero38 {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 96px;
+  padding: 64px 80px;
+  background: var(--background-color);
+  border-bottom: 2px solid #000;
+  min-height: 340px;
+  box-sizing: border-box;
+}
+
+/* Make sure all direct children are flexible but don't use child combinator */
+.hero.hero38 div {
+  min-width: 0;
+}
+
+/* If first (left) column is empty or only for spacing, keep it slim */
+.hero.hero38 div:empty {
+  flex: 0 0 56px;
+  min-width: 32px;
+  max-width: 80px;
+}
+
+/* Right column (content): vertical stack, left/top-aligned */
+.hero.hero38 div:not(:empty) {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  width: 100%;
+}
+
+/* Headline: large, left-aligned, compact margin */
+.hero.hero38 h2 {
+  margin: 0 0 10px;
+  font-size: clamp(2.2rem, 5vw, 3rem);
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  color: #000;
+  line-height: 1.13;
+  text-align: left;
+}
+
+/* Subheadline: slightly smaller, tight spacing, left-aligned */
+.hero.hero38 p {
+  margin: 0 0 22px;
+  font-size: clamp(1.05rem, 2vw, 1.15rem);
+  color: #595959;
+  line-height: 1.4;
+  text-align: left;
+  max-width: 540px;
+}
+
+/* Button: wide, pill, left-aligned, black border, yellow accent */
+.hero.hero38 a.button,
+.hero.hero38 button {
+  background: var(--background-color);
+  color: #000;
+  border: 2px solid #000;
+  border-radius: 9999px;
+  font-size: 1.03rem;
+  font-weight: 600;
+  line-height: 1.2;
+  padding: 0.85em 3em;
+  min-width: 220px;
+  box-shadow: 0 4px 0 0 #e6e600;
+  margin: 0;
+  text-align: center;
+  cursor: pointer;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  align-self: flex-start;
+  transition: box-shadow 0.18s, background 0.18s;
+}
+
+/* Button hover/focus: accentuate the yellow, subtle background change */
+.hero.hero38 a.button:hover,
+.hero.hero38 a.button:focus,
+.hero.hero38 button:hover,
+.hero.hero38 button:focus {
+  box-shadow: 0 7px 0 0 #e6e600;
+  background: var(--light-color);
+}
+
+/* If there's a .picture (image on either side, not background), style and position it: */
+.hero.hero38 .picture {
+  flex: 1;
+  align-self: stretch;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: unset;
+}
+
+/* Remove z-index if present */
+
+/* Image sizing and fit */
+.hero.hero38 .picture img {
+  width: 100%;
+  max-width: 520px;
+  height: auto;
+  object-fit: cover;
+  display: block;
+  border-radius: 0;
+  max-height: 480px;
+}
+
+/* Image left/right positioning (add the appropriate class if needed) */
+.hero.hero38.image-right .picture {
+  order: 2;
+}
+
+.hero.hero38.image-left .picture {
+  order: 1;
+}
+
+/* Responsive: stack vertically on small screens, reduce paddings and gap */
+@media (width <= 900px) {
+  .hero.hero38 {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 36px;
+    padding: 36px 16px;
+    min-height: unset;
+  }
+
+  .hero.hero38 div:empty {
+    display: none;
+  }
+
+  .hero.hero38 h2 {
+    font-size: clamp(1.5rem, 7vw, 2.1rem);
+  }
+
+  .hero.hero38 p {
+    font-size: clamp(0.98rem, 4vw, 1.06rem);
+  }
+
+  .hero.hero38 a.button,
+  .hero.hero38 button {
+    min-width: 160px;
+    padding-left: 1.5em;
+    padding-right: 1.5em;
+  }
+}
+
+/* If hero should span full width with background image, use */
