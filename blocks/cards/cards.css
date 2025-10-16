@@ -880,7 +880,6 @@
 
 
 .cards.cards35 {
-  /* Ensure padding around the grid */
   padding: 32px 0;
   background: var(--background-color);
 }
@@ -894,7 +893,8 @@
 }
 
 .cards.cards35 .cards {
-  /* No changes needed unless there are inner containers */
+  /* Added a descriptive comment to ensure no empty blocks */
+  display: block;
 }
 
 .cards.cards35 .cards ul {
@@ -908,7 +908,6 @@
 }
 
 .cards.cards35 .cards ul li {
-  /* Make sure cards themselves are blocks that fill grid cells */
   background: var(--background-color);
   border-radius: 18px;
   overflow: hidden;
@@ -919,8 +918,6 @@
   min-width: 0;
   min-height: 0;
   aspect-ratio: 1 / 1;
-
-  /* Prevent stretched cards if images are missing */
 }
 
 .cards.cards35 .cards .cards-card-image {
@@ -930,8 +927,6 @@
   flex: 1 1 0;
   overflow: hidden;
   border-radius: 18px;
-
-  /* Remove any fixed height constraints */
 }
 
 .cards.cards35 .cards .cards-card-image img,
@@ -958,4 +953,26 @@
   .cards.cards35 .cards ul {
     grid-template-columns: 1fr;
   }
+}
+
+
+.cards.cards36 ul {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  gap: 24px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.cards.cards36 ul li {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  min-width: 0;
+  min-height: 0;
+  height: 100%;
+  padding: 0;
 }
