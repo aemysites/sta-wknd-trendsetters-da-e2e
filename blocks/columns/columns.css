@@ -300,3 +300,95 @@
     margin: 0;
   }
 }
+
+
+.columns-3-cols > div {
+  display: flex;
+  flex-direction: row;
+  gap: 80px; /* generous space between columns */
+  align-items: flex-start; /* top align both columns */
+}
+
+/* Stack label and buttons vertically as a left column */
+.columns-3-cols > div > div:nth-child(1),
+.columns-3-cols > div > div:nth-child(2) {
+  width: 180px; /* adjust as needed for your design */
+}
+
+/* Place options below the label with spacing */
+.columns-3-cols > div > div:nth-child(2) {
+  margin-top: 48px; /* space between label and buttons */
+}
+
+/* Label styling */
+.columns-3-cols > div > div:nth-child(1) p {
+  color: #757575;
+  font-family: sans-serif;
+  font-size: 16px;
+  margin: 0;
+  font-weight: 400;
+  letter-spacing: 0.02em;
+}
+
+/* Button (pill) styling */
+.columns-3-cols > div > div:nth-child(2) p {
+  background: #E0E0E0;
+  color: #757575;
+  font-family: sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  padding: 6px 22px;
+  border-radius: 999px;
+  margin: 0 0 16px; /* 16px gap between buttons */
+  display: inline-block;
+  letter-spacing: 0.05em;
+}
+
+.columns-3-cols > div > div:nth-child(2) p:last-child {
+  margin-bottom: 0;
+}
+
+/* Right column: headline and paragraphs */
+.columns-3-cols > div > div:nth-child(3) {
+  flex: 1 1 0%;
+  min-width: 0;
+}
+
+.columns-3-cols > div > div:nth-child(3) h2 {
+  color: #222;
+  font-family: 'Geometric Sans', Arial, sans-serif;
+  font-size: 90px;
+  font-weight: 900;
+  line-height: 1.05;
+  letter-spacing: 0.04em;
+  margin: 0 0 32px;
+  border-radius: 0;
+}
+
+.columns-3-cols > div > div:nth-child(3) p {
+  color: #333;
+  font-family: sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  margin: 0 0 16px;
+  line-height: 1.5;
+}
+
+.columns-3-cols > div > div:nth-child(3) p:last-child {
+  margin-bottom: 0;
+}
+
+/* Responsive: stack columns on mobile/tablet */
+@media (width <= 900px) {
+  .columns-3-cols > div {
+    flex-direction: column;
+    gap: 32px;
+  }
+
+  .columns-3-cols > div > div:nth-child(1),
+  .columns-3-cols > div > div:nth-child(2),
+  .columns-3-cols > div > div:nth-child(3) {
+    width: 100%;
+  }
+}
