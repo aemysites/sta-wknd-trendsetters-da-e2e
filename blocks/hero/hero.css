@@ -240,12 +240,6 @@
   align-items: center;
 }
 
-
-/* HERO20 HERO BLOCK LAYOUT AND VISUALS */
-
-/* Ensure full-bleed layout for the hero block */
-
-/* Root layout: side-by-side columns */
 .hero.hero20 {
   display: flex;
   flex-direction: row;
@@ -260,15 +254,11 @@
   position: relative;
 }
 
-/* ----- IMAGE MOSAIC LEFT COLUMN ----- */
-
-/* Assume left column contains images inside a div or p */
 .hero.hero20 div,
 .hero.hero20 p {
   box-sizing: border-box;
 }
 
-/* Target the first div/p: images mosaic */
 .hero.hero20 div:not(:last-child),
 .hero.hero20 p:not(:last-child) {
   flex: 1 1 0;
@@ -282,7 +272,6 @@
   background: #000;
 }
 
-/* Individual images in the mosaic */
 .hero.hero20 img,
 .hero.hero20 picture {
   width: 100%;
@@ -291,12 +280,10 @@
   display: block;
 }
 
-/* Remove z-index from .hero .picture if set elsewhere */
 .hero .picture {
   z-index: unset;
 }
 
-/* ----- CONTENT RIGHT COLUMN ----- */
 .hero.hero20 div:last-child {
   flex: 1 1 0;
   order: 2;
@@ -311,7 +298,6 @@
   position: relative;
 }
 
-/* Inner stack for headline, subtitle, buttons */
 .hero.hero20 div:last-child * {
   box-sizing: border-box;
 }
@@ -351,7 +337,6 @@
   text-align: center;
 }
 
-/* Place buttons in a horizontal row */
 .hero.hero20 p a.button,
 .hero.hero20 p button.button,
 .hero.hero20 div a.button,
@@ -365,7 +350,6 @@
   margin-right: 0;
 }
 
-/* Button interactive states */
 .hero.hero20 a.button:hover,
 .hero.hero20 button.button:hover,
 .hero.hero20 a.button:focus,
@@ -377,7 +361,6 @@
   outline: none;
 }
 
-/* ----- RESPONSIVE STYLES ----- */
 @media (width <= 900px) {
   .hero.hero20 {
     flex-direction: column;
@@ -413,10 +396,209 @@
   }
 }
 
-/* Remove extra spacing from paragraphs and containers */
 .hero.hero20 p,
 .hero.hero20 div p {
   margin-top: 0;
   margin-bottom: 0;
   padding: 0;
+}
+
+
+.hero.hero25 {
+  /* Block background */
+  background: #F6F5F3;
+  box-sizing: border-box;
+  padding: 0;
+}
+
+/* Outer container must allow wide hero, but keep content centered */
+.hero.hero25 .hero {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: start;
+  gap: 0;
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 88px 0;
+  position: relative;
+  min-height: 540px;
+}
+
+/* Responsive stacking on small screens */
+@media (width <= 900px) {
+  .hero.hero25 .hero {
+    grid-template-columns: 1fr;
+    padding: 44px 0;
+  }
+}
+
+/* ========== Left column: image/video ========== */
+.hero.hero25 .hero .picture,
+.hero.hero25 .hero picture,
+.hero.hero25 .hero img,
+.hero.hero25 .hero video {
+  display: block;
+  width: 100%;
+  max-width: 640px;
+  aspect-ratio: 16 / 9;
+  height: auto;
+  border-radius: 24px;
+  box-shadow: 0 6px 32px rgb(0 0 0 / 7%);
+  object-fit: cover;
+  background: #e5e5e5;
+  position: relative;
+  z-index: 1; /* Ensure this is below headline for overlap */
+}
+
+/* Remove z-index if present */
+.hero.hero25 .hero .picture {
+  z-index: auto;
+  position: static;
+  margin-top: 64px;
+}
+
+/* ========== Right column: headline and text ========== */
+.hero.hero25 .hero h1 {
+  color: #000;
+  font-size: 4.5rem;
+  font-weight: 800;
+  line-height: 1.08;
+  letter-spacing: -0.02em;
+  margin-top: 0;
+  margin-bottom: -56px;
+  text-align: left;
+  position: relative;
+  z-index: 2;
+}
+
+.hero.hero25 .hero h1 + p {
+  font-size: 1.25rem;
+  color: #3A3A3A;
+  line-height: 1.6;
+  margin-top: 32px;
+  margin-bottom: 48px;
+  text-align: left;
+  max-width: 520px;
+}
+
+/* Overlap headline and image: headline column, image column */
+
+/* On mobile, remove the overlap */
+@media (width <= 900px) {
+  .hero.hero25 .hero h1 {
+    font-size: 2.4rem;
+    margin-bottom: 24px;
+  }
+
+  .hero.hero25 .hero .picture {
+    margin-top: 0;
+    max-width: 100%;
+    border-radius: 16px;
+  }
+
+  .hero.hero25 .hero h1 + p {
+    font-size: 1rem;
+    margin-top: 18px;
+    margin-bottom: 32px;
+    max-width: 100%;
+  }
+}
+
+/* ========== Button styles ========== */
+.hero.hero25 .button,
+.hero.hero25 a.button {
+  background: transparent;
+  color: #000;
+  border: 1.5px solid #000;
+  border-radius: 2.4em;
+  font-weight: 600;
+  font-size: 1rem;
+  padding: 0.9em 2.5em;
+  box-shadow: none;
+  text-align: center;
+  line-height: 1.2;
+  display: inline-block;
+  min-width: 160px;
+  max-width: 100%;
+  white-space: nowrap;
+  margin: 0;
+  transition: background 0.15s, color 0.15s, border-color 0.15s;
+}
+
+.hero.hero25 .button:hover,
+.hero.hero25 a.button:hover,
+.hero.hero25 .button:focus,
+.hero.hero25 a.button:focus {
+  background: #000;
+  color: #fff;
+  border-color: #000;
+}
+
+/* Button container: horizontal on desktop, vertical on mobile */
+.hero.hero25 .button-container,
+.hero.hero25 p.button-container {
+  display: flex;
+  flex-direction: row;
+  gap: 24px;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+@media (width <= 600px) {
+  .hero.hero25 .button-container,
+  .hero.hero25 p.button-container {
+    flex-direction: column;
+    gap: 12px;
+    align-items: stretch;
+  }
+}
+
+/* ========== Alignment and spacings for overall block ========== */
+.hero.hero25 .hero div {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  align-items: flex-start;
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+  padding-left: 72px;
+}
+
+/* Make sure columns fill height */
+
+/* ========== "Watch Video" link styling under image ========== */
+.hero.hero25 .hero a {
+  font-size: 1rem;
+  text-decoration: underline;
+  color: #000;
+  margin-top: 18px;
+  margin-bottom: 0;
+  margin-left: 0;
+  display: inline-block;
+}
+
+/* ========== Fine-tune left edge alignment ========== */
+
+@media (width <= 900px) {
+  .hero.hero25 .hero div {
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+}
+
+/* ========== Remove unwanted gaps from base styles ========== */
+.hero.hero25 h1,
+.hero.hero25 h2,
+.hero.hero25 h3,
+.hero.hero25 h4,
+.hero.hero25 h5,
+.hero.hero25 h6,
+.hero.hero25 p,
+.hero.hero25 dl,
+.hero.hero25 ol,
+.hero.hero25 ul,
+.hero.hero25 pre,
+.hero.hero25 blockquote {
+  margin-top: 0;
 }
