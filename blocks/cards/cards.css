@@ -705,13 +705,11 @@
 
 
 .cards.cards34 {
-  /* Ensures block doesn't exceed max width and centers content */
   max-width: 1200px;
   margin: 0 auto;
   padding: 0;
 }
 
-/* 2x2 grid layout for cards */
 .cards.cards34 ul {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -723,7 +721,6 @@
   place-items: stretch stretch;
 }
 
-/* Individual card styling: horizontal flex layout, consistent sizing */
 .cards.cards34 ul li {
   display: flex;
   flex-direction: row;
@@ -740,12 +737,10 @@
   transition: box-shadow 0.2s;
 }
 
-/* Card hover state for subtle elevation */
 .cards.cards34 ul li:hover {
   box-shadow: 0 8px 32px rgb(34 34 34 / 12%);
 }
 
-/* Image container: left 40% of card, vertically centered */
 .cards.cards34 .cards-card-image {
   flex: 0 0 40%;
   display: flex;
@@ -758,7 +753,6 @@
   height: 100%;
 }
 
-/* Images: fully fill left area, clipped to rounded corners */
 .cards.cards34 .cards-card-image img {
   width: 100%;
   height: 100%;
@@ -767,7 +761,6 @@
   display: block;
 }
 
-/* Text area: vertical stack, "Read" link at bottom */
 .cards.cards34 .cards-card-body {
   flex: 1 1 60%;
   display: flex;
@@ -778,7 +771,6 @@
   height: 100%;
 }
 
-/* Top row for pill + read-time: horizontal alignment */
 .cards.cards34 .cards-card-body .label-row,
 .cards.cards34 .cards-card-body p.pill + p,
 .cards.cards34 .cards-card-body p:first-child + p {
@@ -789,7 +781,6 @@
   margin: 0 0 12px;
 }
 
-/* Pill styling: muted gray, rounded shape, uppercase */
 .cards.cards34 .cards-card-body p.pill,
 .cards.cards34 .cards-card-body p:first-child {
   background: #e8e8e8;
@@ -805,7 +796,6 @@
   white-space: nowrap;
 }
 
-/* Read-time styling: muted color, small, uppercase */
 .cards.cards34 .cards-card-body span.read-time,
 .cards.cards34 .cards-card-body p.read-time,
 .cards.cards34 .cards-card-body p:first-child + p {
@@ -818,7 +808,6 @@
   white-space: nowrap;
 }
 
-/* Title styling: large, bold, dark color, margin for separation */
 .cards.cards34 .cards-card-body h3 {
   font-size: 24px;
   color: #222;
@@ -827,7 +816,6 @@
   line-height: 1.2;
 }
 
-/* Description styling: muted color, medium size, margin for separation */
 .cards.cards34 .cards-card-body p:not(:first-child, .pill, .read-time, :last-child) {
   color: #666;
   font-size: 15px;
@@ -835,7 +823,6 @@
   line-height: 1.5;
 }
 
-/* "Read" link: subtle, underlined, left-aligned at bottom */
 .cards.cards34 .cards-card-body a,
 .cards.cards34 .cards-card-body .button,
 .cards.cards34 .cards-card-body p:last-child {
@@ -854,7 +841,6 @@
   cursor: pointer;
 }
 
-/* Remove block button styling for cards block */
 .cards.cards34 .button {
   background: none;
   color: #444;
@@ -868,7 +854,6 @@
   margin: 0;
 }
 
-/* Responsive: stack cards vertically, keep image and text side by side */
 @media (width <=900px) {
   .cards.cards34 ul {
     grid-template-columns: 1fr;
@@ -890,5 +875,87 @@
 
   .cards.cards34 .cards-card-body {
     flex: 1 1 58%;
+  }
+}
+
+
+.cards.cards35 {
+  /* Ensure padding around the grid */
+  padding: 32px 0;
+  background: var(--background-color);
+}
+
+.cards.cards35 .cards-wrapper {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+  box-sizing: border-box;
+}
+
+.cards.cards35 .cards {
+  /* No changes needed unless there are inner containers */
+}
+
+.cards.cards35 .cards ul {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-auto-rows: 1fr;
+  gap: 2rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.cards.cards35 .cards ul li {
+  /* Make sure cards themselves are blocks that fill grid cells */
+  background: var(--background-color);
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: 0 4px 24px 0 rgb(0 0 0 / 7%);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  min-width: 0;
+  min-height: 0;
+  aspect-ratio: 1 / 1;
+
+  /* Prevent stretched cards if images are missing */
+}
+
+.cards.cards35 .cards .cards-card-image {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  flex: 1 1 0;
+  overflow: hidden;
+  border-radius: 18px;
+
+  /* Remove any fixed height constraints */
+}
+
+.cards.cards35 .cards .cards-card-image img,
+.cards.cards35 .cards .cards-card-image picture img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 18px;
+  display: block;
+}
+
+.cards.cards35 .cards .cards-card-body {
+  padding: 0;
+  margin: 0;
+}
+
+@media (width <= 900px) {
+  .cards.cards35 .cards ul {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (width <= 600px) {
+  .cards.cards35 .cards ul {
+    grid-template-columns: 1fr;
   }
 }
