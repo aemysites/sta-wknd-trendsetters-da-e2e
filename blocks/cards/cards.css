@@ -216,7 +216,6 @@
   align-items: flex-start;
 }
 
-/* Grid layout for cards (responsive) */
 .cards.cards10 ul {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -227,7 +226,6 @@
   place-items: stretch stretch;
 }
 
-/* Responsive: 2 columns on tablets, 1 on mobile */
 @media (width <= 1024px) {
   .cards.cards10 ul {
     grid-template-columns: repeat(2, 1fr);
@@ -242,7 +240,6 @@
   }
 }
 
-/* Card styling */
 .cards.cards10 li {
   background-color: #fff;
   border-radius: 20px;
@@ -254,7 +251,6 @@
   overflow: hidden;
 }
 
-/* Card image area: rounded top corners and aspect ratio */
 .cards.cards10 .cards-card-image {
   background: #f7f7f2;
   width: 100%;
@@ -267,7 +263,6 @@
   min-height: 0;
 }
 
-/* Images inside card image area */
 .cards.cards10 .cards-card-image img {
   width: 100%;
   height: 100%;
@@ -275,7 +270,6 @@
   display: block;
 }
 
-/* Card body styling */
 .cards.cards10 .cards-card-body {
   background-color: #fff;
   padding: 28px 22px 30px;
@@ -286,7 +280,6 @@
   min-width: 0;
 }
 
-/* Pill label (first p in body) */
 .cards.cards10 .cards-card-body p:first-child {
   background: #f2f2f2;
   color: #6b6b6b;
@@ -300,7 +293,6 @@
   letter-spacing: 0.02em;
 }
 
-/* Title styling */
 .cards.cards10 .cards-card-body h3 {
   color: #232323;
   font-size: 22px;
@@ -311,7 +303,6 @@
   letter-spacing: 0.01em;
 }
 
-/* Description styling */
 .cards.cards10 .cards-card-body p:not(:first-child) {
   color: #666;
   font-size: 14px;
@@ -320,10 +311,150 @@
   text-align: left;
 }
 
-/* Ensure that if there are multiple .cards.cards10 siblings, they are side by side */
 .cards-wrapper {
   display: flex;
   flex-flow: row wrap;
   gap: 32px;
   align-items: flex-start;
+}
+
+
+.cards.cards12 {
+  background: #fff;
+  padding: 40px 0;
+}
+
+.cards.cards12 ul {
+  display: flex;
+  flex-direction: row;
+  gap: 32px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  overflow-x: auto;
+  scrollbar-width: thin;
+  -webkit-overflow-scrolling: touch;
+}
+
+.cards.cards12 li {
+  background: #fff;
+  border-radius: 24px;
+  box-shadow: 0 4px 24px rgb(0 0 0 / 8%);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  min-width: 300px;
+  width: 340px;
+  max-width: 95vw;
+  height: 440px;
+  flex-shrink: 0;
+  border: none;
+}
+
+/* Image block at top */
+.cards.cards12 .cards-card-image {
+  width: 100%;
+  height: 65%;
+  min-height: 180px;
+  max-height: 280px;
+  overflow: hidden;
+  border-top-left-radius: 24px;
+  border-top-right-radius: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #eee;
+}
+
+.cards.cards12 .cards-card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Card body at the bottom */
+.cards.cards12 .cards-card-body {
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding: 20px 26px 22px;
+}
+
+/* Meta row: badge and date side by side */
+.cards.cards12 .cards-card-body .cards-card-meta-row,
+.cards.cards12 .cards-card-body p:first-child + p {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 12px;
+}
+
+/* For HTML without .cards-card-meta-row, target first two p's */
+.cards.cards12 .cards-card-body p:first-child,
+.cards.cards12 .cards-card-body p:nth-child(2) {
+  margin-top: 0;
+  margin-bottom: 0;
+  white-space: nowrap;
+  line-height: 1.2;
+}
+
+/* Badge styling */
+.cards.cards12 .cards-card-body p:first-child {
+  background: #F1F1F1;
+  color: #232323;
+  font-size: 0.77rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.09em;
+  border-radius: 999px;
+  padding: 2.5px 13px 2px;
+  margin-right: 12px;
+  max-width: 60%;
+  box-sizing: border-box;
+}
+
+/* Date styling */
+.cards.cards12 .cards-card-body p:nth-child(2) {
+  color: #6B6B6B;
+  font-size: 0.70rem;
+  font-weight: 500;
+  margin-left: auto;
+  box-sizing: border-box;
+}
+
+/* Headline styling */
+.cards.cards12 .cards-card-body h3 {
+    font-size: 1.02rem;
+    margin-top: 11px;
+  }
+
+/* Responsive tweaks */
+@media (width <= 900px) {
+  .cards.cards12 ul {
+    gap: 18px;
+  }
+
+  .cards.cards12 li {
+    min-width: 180px;
+    width: 220px;
+    height: 320px;
+  }
+
+  .cards.cards12 .cards-card-image {
+    min-height: 90px;
+    height: 60%;
+    max-height: 160px;
+  }
+
+  .cards.cards12 .cards-card-body {
+    padding: 12px 10px 13px;
+  }
+
+  .cards.cards12 .cards-card-body h3 {
+    font-size: 1.02rem;
+    margin-top: 11px;
+  }
 }
