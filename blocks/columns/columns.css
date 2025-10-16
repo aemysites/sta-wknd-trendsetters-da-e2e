@@ -414,7 +414,6 @@
   margin: 0;
 }
 
-/* Headline: prominent, uppercase, tight margin */
 .columns.columns32 h1,
 .columns.columns32 h2,
 .columns.columns32 h3 {
@@ -426,7 +425,6 @@
   line-height: 1.08;
 }
 
-/* Breadcrumbs styling */
 .columns.columns32 p,
 .columns.columns32 small {
   color: #646464;
@@ -436,7 +434,6 @@
   padding: 0;
 }
 
-/* Byline/meta: grouped tightly, smaller font */
 .columns.columns32 div div p,
 .columns.columns32 div div span {
   color: #222;
@@ -447,14 +444,12 @@
   line-height: 1.4;
 }
 
-/* Remove excess spacing for all direct children */
 .columns.columns32 div div * {
   margin-bottom: 0;
   margin-top: 0;
   padding: 0;
 }
 
-/* Social icons: small, inline, tightly grouped, no labels/dots */
 .columns.columns32 ul,
 .columns.columns32 .social-icons {
   display: flex;
@@ -500,7 +495,6 @@
   display: none;
 }
 
-/* Hide icon text labels if present */
 .columns.columns32 .social-icons a,
 .columns.columns32 ul li a {
   font-size: 0;
@@ -511,7 +505,6 @@
   padding: 0;
 }
 
-/* Right column (image): center image, responsive, rounded */
 .columns.columns32 .columns-img-col {
   display: flex;
   align-items: center;
@@ -531,12 +524,10 @@
   background: none;
 }
 
-/* Remove any dot/divider elements between meta and icons if present */
 .columns.columns32 div div p:empty {
   display: none;
 }
 
-/* Responsive stacking for small screens */
 @media (width <= 900px) {
   .columns.columns32 div {
     grid-template-columns: 1fr;
@@ -569,5 +560,76 @@
 
   .columns.columns32 .columns-img-col img {
     max-height: 150px;
+  }
+}
+
+
+.columns.columns40 {
+  /* Generous top/bottom block spacing and clean background */
+  background: var(--background-color);
+  padding: 56px 0;
+}
+
+/* Use Flexbox for both horizontal and vertical alignment of image columns */
+.columns.columns40 .block.columns-3-cols > div {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
+  padding-left: 24px;
+  padding-right: 24px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* Columns: ensure images are centered in their flex cells */
+.columns.columns40 .columns-img-col {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 0;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+
+  /* Side columns: square-ish, smaller */
+  aspect-ratio: 1 / 1;
+  max-width: 260px;
+}
+
+/* Center column: more rectangular and larger */
+.columns.columns40 .columns-img-col:nth-child(2) {
+  aspect-ratio: 4 / 3;
+  max-width: 400px;
+}
+
+/* Images: card effect, rounded corners, shadow, fill columns */
+.columns.columns40 .columns-img-col img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 28px;
+  box-shadow: 0 8px 32px rgb(0 0 0 / 13%);
+  background: var(--background-color);
+  display: block;
+  box-sizing: border-box;
+  transition: box-shadow 0.18s;
+}
+
+/* Responsive stacking: stack cards vertically below 900px,
+   remove max-width and aspect-ratio for full-width images */
+@media (width <= 900px) {
+  .columns.columns40 .block.columns-3-cols > div {
+    flex-direction: column;
+    gap: 28px;
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .columns.columns40 .columns-img-col,
+  .columns.columns40 .columns-img-col:nth-child(2) {
+    max-width: 100%;
+    aspect-ratio: unset;
   }
 }
