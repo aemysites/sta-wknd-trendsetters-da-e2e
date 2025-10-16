@@ -1,3 +1,4 @@
+/* stylelint-disable no-descending-specificity */
 .carousel .carousel-slides-container {
   position: relative;
 }
@@ -99,7 +100,6 @@
   z-index: 1;
 }
 
-/* stylelint-disable-next-line no-descending-specificity */
 .carousel .carousel-navigation-buttons button {
   position: relative;
   width: 44px;
@@ -150,4 +150,27 @@
   .carousel .carousel-slide .carousel-slide-content[data-align='justify'] {
     --slide-content-width: auto;
   }
+}
+
+
+.carousel.carousel24 .carousel-caption {
+  position: absolute;
+  left: 4px;
+  bottom: 4px;
+  background: rgb(24 24 24 / 27%);
+  color: #fff;
+  padding: 3px 11px 3px 9px;
+  border-radius: 1.5px;
+  font-size: 0.97em;
+  line-height: 1.17;
+  max-width: 52%;
+  box-shadow: 0 2px 6px rgb(0 0 0 / 4%);
+  z-index: 3;
+  letter-spacing: 0.01em;
+  opacity: 0.98;
+}
+
+.carousel.carousel24 .carousel-navigation-buttons,
+.carousel.carousel24 .carousel-slide-indicators {
+  display: none;
 }
