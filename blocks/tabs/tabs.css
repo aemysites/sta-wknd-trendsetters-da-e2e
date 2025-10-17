@@ -56,3 +56,213 @@
 .tabs .tabs-panel[aria-hidden='true'] {
   display: none;
 }
+
+
+.tabs.tabs22 {
+  background: #000;
+  padding: 3rem 0;
+  width: 100%;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Main centering & width constraint for content */
+.tabs.tabs22 .block,
+.tabs.tabs22 .tabs {
+  width: 100%;
+  max-width: 960px;
+  margin: 0 auto;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Tabs Navigation Bar */
+.tabs.tabs22 .tabs-list {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 3.2rem;
+  width: 100%;
+  margin-bottom: 2.8rem;
+  background: transparent;
+  box-sizing: border-box;
+  padding: 0;
+}
+
+/* Tab Buttons */
+.tabs.tabs22 .tabs-list button,
+.tabs.tabs22 .tabs-list [role="tab"] {
+  background: transparent;
+  border: none;
+  color: #bdbdbd;
+  font-weight: 500;
+  font-size: 1.13rem;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  padding: 0.6rem 0.2rem 0.3rem;
+  margin: 0;
+  cursor: pointer;
+  transition: color 0.2s;
+  outline: none;
+  box-shadow: none;
+  text-align: center;
+  position: relative;
+  border-radius: 0;
+  min-width: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1.1;
+}
+
+/* Selected tab underline: visually matches label width using border-bottom, centered content */
+.tabs.tabs22 .tabs-list button[aria-selected="true"],
+.tabs.tabs22 .tabs-list [role="tab"][aria-selected="true"] {
+  color: #fff;
+  font-weight: 600;
+  border-bottom: 2px solid #fff;
+  padding-bottom: 0.22em;
+}
+
+.tabs.tabs22 .tabs-list button:not([aria-selected="true"]),
+.tabs.tabs22 .tabs-list [role="tab"]:not([aria-selected="true"]) {
+  border-bottom: none;
+  color: #bdbdbd;
+  font-weight: 500;
+}
+
+/* Remove unwanted focus/hover outlines */
+.tabs.tabs22 .tabs-list button:focus,
+.tabs.tabs22 .tabs-list [role="tab"]:focus {
+  outline: none;
+  background: transparent;
+}
+
+/* Headline styling */
+.tabs.tabs22 .tabs-panel h1,
+.tabs.tabs22 .tabs-panel h2,
+.tabs.tabs22 .tabs-panel h3 {
+  color: #fff;
+  font-size: 2.35rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.19em;
+  text-align: center;
+  line-height: 1.13;
+  margin: 0 0 2.4rem;
+  padding: 0;
+  background: transparent;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* Panel text spacing */
+.tabs.tabs22 .tabs-panel p {
+  color: #fff;
+  text-align: center;
+  font-size: 1.05rem;
+  margin: 0 0 2.3rem;
+  line-height: 1.6;
+  padding: 0;
+  background: transparent;
+}
+
+/* Panel Layout: vertical stack by default */
+.tabs.tabs22 .tabs-panel {
+  display: none;
+  width: 100%;
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 0;
+  background: transparent;
+  box-sizing: border-box;
+  border: none;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Show active panel(s) */
+.tabs.tabs22 .tabs-panel[aria-hidden="false"] {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 0;
+  background: transparent;
+  box-sizing: border-box;
+  border: none;
+}
+
+/* Image Styling */
+.tabs.tabs22 .tabs-panel img {
+  display: block;
+  width: 100%;
+  max-width: 960px;
+  height: 350px;
+  margin: 0 auto;
+  border-radius: 54px;
+  box-shadow: 0 14px 54px rgb(0 0 0 / 13%);
+  object-fit: cover;
+  background: #181818;
+  border: none;
+  outline: none;
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+/* Responsive: stack panels vertically on mobile, side-by-side on larger screens */
+.tabs.tabs22 .panels-row {
+  display: flex;
+  flex-direction: row;
+  gap: 2.7rem;
+  width: 100%;
+  justify-content: center;
+  align-items: flex-start;
+  box-sizing: border-box;
+}
+
+@media (width <= 899px) {
+  .tabs.tabs22 .panels-row {
+    flex-direction: column;
+    gap: 2rem;
+    align-items: center;
+  }
+
+  .tabs.tabs22 .tabs-panel[aria-hidden="false"] {
+    max-width: 100%;
+  }
+
+  .tabs.tabs22 .tabs-panel img {
+    height: 190px;
+    border-radius: 30px;
+  }
+
+  .tabs.tabs22 .tabs-panel h1,
+  .tabs.tabs22 .tabs-panel h2,
+  .tabs.tabs22 .tabs-panel h3 {
+    font-size: 1.5rem;
+    letter-spacing: 0.12em;
+    margin-bottom: 1.2rem;
+  }
+}
+
+/* Utility: ensure all content is horizontally centered */
+.tabs.tabs22 .tabs-list,
+.tabs.tabs22 .tabs-panel,
+.tabs.tabs22 .tabs-panel img,
+.tabs.tabs22 .tabs-panel h1,
+.tabs.tabs22 .tabs-panel h2,
+.tabs.tabs22 .tabs-panel h3,
+.tabs.tabs22 .tabs-panel p {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Maintain image shadow and spacing */
