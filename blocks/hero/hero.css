@@ -1,3 +1,4 @@
+/* stylelint-disable no-descending-specificity */
 .hero-container .hero-wrapper {
   max-width: unset;
   padding: 0;
@@ -43,5 +44,167 @@
 @media (width >= 900px) {
   .hero {
     padding: 40px 32px;
+  }
+}
+
+.hero.hero6 {
+  position: relative;
+  width: 100%;
+  background-color: #111;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  min-height: 520px;
+  align-items: stretch;
+  padding: 0;
+  overflow: hidden;
+}
+
+.hero.hero6 div picture,
+.hero.hero6 div picture img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.hero.hero6 div:first-child {
+  position: relative;
+  grid-column: 1 / 2;
+  grid-row: 1 / 2;
+  height: 100%;
+  min-width: 0;
+}
+
+.hero.hero6 div:last-child {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  grid-column: 2 / 3;
+  grid-row: 1 / 2;
+  height: 100%;
+  min-width: 0;
+  position: relative;
+  z-index: 1;
+  padding: 0 0 0 4vw;
+}
+
+/* The overlay panel */
+.hero.hero6 div:last-child div {
+  background: rgb(16 16 20 / 76%);
+  border-radius: 2.4em;
+  border: 2px solid #fff;
+  margin: 0;
+  padding: 3.5rem 2.5rem 2.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  max-width: 540px;
+  width: 100%;
+  box-shadow: 0 8px 32px rgb(0 0 0 / 20%);
+}
+
+.hero.hero6 h1 {
+  color: #fff;
+  text-transform: uppercase;
+  font-size: clamp(2.5rem, 6vw, 3.5rem);
+  font-weight: 800;
+  letter-spacing: 0.075em;
+  line-height: 1.1;
+  margin: 0 0 1.2rem;
+  text-align: left;
+}
+
+.hero.hero6 p {
+  color: #ccc;
+  font-size: 1.15rem;
+  line-height: 1.6;
+  margin: 0 0 2rem;
+  text-align: left;
+  max-width: 96%;
+}
+
+.hero.hero6 .button-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-top: 0.5rem;
+}
+
+.hero.hero6 .button-container a.button,
+.hero.hero6 .button-container a {
+  border-radius: 2.4em;
+  font-size: 1.1rem;
+  font-weight: 700;
+  padding: 0.8em 2em;
+  border: 2px solid #fff;
+  background: #fff;
+  color: #131313;
+  margin: 0;
+  min-width: 120px;
+  text-align: center;
+  transition: background 0.2s, color 0.2s, border 0.2s;
+}
+
+.hero.hero6 .button-container a.button + a.button,
+.hero.hero6 .button-container a + a {
+  background: transparent;
+  color: #fff;
+  border: 2px solid #fff;
+}
+
+.hero.hero6 .button-container a.button:hover,
+.hero.hero6 .button-container a:hover {
+  background: #eaeaea;
+  color: #131313;
+  border-color: #eaeaea;
+}
+
+.hero.hero6 .button-container a.button + a.button:hover,
+.hero.hero6 .button-container a + a:hover {
+  background: rgb(255 255 255 / 12%);
+  color: #fff;
+  border-color: #fff;
+}
+
+@media (width <= 900px) {
+  .hero.hero6 {
+    grid-template-columns: 1fr;
+    min-height: 0;
+  }
+
+  .hero.hero6 div:first-child,
+  .hero.hero6 div:last-child {
+    grid-column: 1 / 2;
+  }
+
+  .hero.hero6 div:first-child {
+    height: 240px;
+    min-height: 180px;
+    max-height: 280px;
+    overflow: hidden;
+  }
+
+  .hero.hero6 div:last-child {
+    padding: 0 4vw 4vw;
+    height: auto;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .hero.hero6 div:last-child div {
+    padding: 2.2rem 1rem 1.5rem;
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+
+  .hero.hero6 h1,
+  .hero.hero6 p {
+    text-align: left;
+    max-width: 100%;
+  }
+
+  .hero.hero6 .button-container {
+    justify-content: flex-start;
+    gap: 0.7rem;
   }
 }
