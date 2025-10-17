@@ -754,9 +754,10 @@
 .cards-card-image {
   position: relative;
   width: 100%;
-  aspect-ratio: 4/3;
+  aspect-ratio: 16/10;
   min-height: 220px;
   overflow: hidden;
+  border-radius: 16px;
 }
 
 .cards-card-image img {
@@ -895,7 +896,6 @@
 
 
 .cards.cards35 {
-  /* Ensure background behind the grid, center the block, add top/bottom padding */
   background: #fff;
   padding: 40px 0;
   margin-left: auto;
@@ -908,7 +908,6 @@
   align-items: center;
 }
 
-/* Main grid: 3 columns, 2 rows, centered, tight gap, never full width */
 .cards.cards35 ul {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -922,7 +921,6 @@
   box-sizing: border-box;
 }
 
-/* Card styling: rounded corners, no border, subtle shadow, overflow hidden */
 .cards.cards35 li {
   background: #fff;
   border-radius: 16px;
@@ -934,7 +932,6 @@
   aspect-ratio: 16/9;
 }
 
-/* Image wrapper: fills card area, no extra margin/padding, ensures vertical stretch */
 .cards.cards35 .cards-card-image {
   width: 100%;
   height: 100%;
@@ -943,7 +940,6 @@
   overflow: hidden;
 }
 
-/* Image fills the card, is rounded, and covers the area */
 .cards.cards35 .cards-card-image img {
   width: 100%;
   height: 100%;
@@ -952,12 +948,10 @@
   display: block;
 }
 
-/* Hide empty card body so no gap shows below images */
 .cards.cards35 .cards-card-body:empty {
   display: none;
 }
 
-/* Responsive: stack to 2 columns, then 1, adjust gaps and grid max-width */
 @media (width <= 900px) {
   .cards.cards35 ul {
     grid-template-columns: repeat(2, 1fr);
@@ -984,9 +978,35 @@
   }
 }
 
-/* Remove unwanted whitespace from ul/li */
 .cards.cards35 ul,
 .cards.cards35 li {
   margin: 0;
   padding: 0;
+}
+
+
+.cards.block ul {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.cards.block ul li {
+  background: #fff;
+  border-radius: 16px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.cards-card-image picture,
+.cards-card-image img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 16px;
 }
