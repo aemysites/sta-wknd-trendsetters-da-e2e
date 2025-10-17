@@ -1,4 +1,3 @@
-/* stylelint-disable no-descending-specificity */
 .columns > div {
   display: flex;
   flex-direction: column;
@@ -385,8 +384,6 @@
   border: none;
   padding: 0;
 }
-
-/* Core layout: create a single horizontal row of six columns with even gaps */
 .columns.columns16 .columns-6-cols {
   background: transparent;
   border: none;
@@ -397,16 +394,14 @@
 .columns.columns16 .columns-6-cols div {
   display: flex;
   flex-direction: row;
-  align-items: center; /* vertical centering for all items */
+  align-items: center;
   justify-content: center;
-  gap: 3.5vw; /* generous, responsive horizontal gap */
+  gap: 3.5vw;
   background: transparent;
   border: none;
   padding: 0;
   margin: 0;
 }
-
-/* Columns: no background, no rounding, no shadow; rotation origin center */
 .columns.columns16 .columns-img-col {
   display: flex;
   align-items: center;
@@ -422,8 +417,6 @@
   min-height: 0;
   flex-shrink: 0;
 }
-
-/* Images: fixed height, auto width, no border/radius/shadow */
 .columns.columns16 .columns-img-col img,
 .columns.columns16 .columns-img-col picture {
   display: block;
@@ -436,16 +429,12 @@
   box-shadow: none;
   margin: 0;
 }
-
-/* Playful, alternating rotations for each image */
 .columns.columns16 .columns-img-col:nth-child(1) { transform: rotate(-8deg); }
 .columns.columns16 .columns-img-col:nth-child(2) { transform: rotate(6deg); }
 .columns.columns16 .columns-img-col:nth-child(3) { transform: rotate(-4deg); }
 .columns.columns16 .columns-img-col:nth-child(4) { transform: rotate(5deg); }
 .columns.columns16 .columns-img-col:nth-child(5) { transform: rotate(-7deg); }
 .columns.columns16 .columns-img-col:nth-child(6) { transform: rotate(4deg); }
-
-/* Responsive: reduce gap and image height on medium screens */
 @media (width <= 1100px) {
   .columns.columns16 .columns-6-cols div {
     gap: 2.5vw;
@@ -456,8 +445,6 @@
     height: 120px;
   }
 }
-
-/* On small screens, allow wrapping and smaller images */
 @media (width <= 700px) {
   .columns.columns16 .columns-6-cols div {
     flex-wrap: wrap;
@@ -472,5 +459,110 @@
   .columns.columns16 .columns-img-col img,
   .columns.columns16 .columns-img-col picture {
     height: 72px;
+  }
+}
+
+
+.columns-wrapper,
+.columns {
+  width: 100%;
+  background: #fff;
+}
+
+/* The first div inside .columns is the flex row container */
+.columns > div {
+  display: flex;
+  flex-direction: row;
+  gap: 64px; /* Generous horizontal space between columns */
+  align-items: flex-start;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 64px 0;
+}
+
+/* Left column: first two divs stacked vertically, narrow width */
+.columns > div > div:nth-child(1),
+.columns > div > div:nth-child(2) {
+  flex: 0 0 220px;
+  max-width: 220px;
+  margin-bottom: 0;
+}
+
+/* Right column: third div, take remaining space */
+.columns > div > div:nth-child(3) {
+  flex: 1 1 0;
+  max-width: 900px;
+  padding-left: 0;
+}
+
+/* Name styling */
+.columns > div > div:nth-child(1) p {
+  color: #888888;
+  font-size: 16px;
+  font-family: inherit, sans-serif;
+  margin: 0 0 40px 0;
+  font-weight: 400;
+  letter-spacing: 0.01em;
+}
+
+/* Pills/tags styling */
+.columns > div > div:nth-child(2) p {
+  background: #E0E0E0;
+  color: #666666;
+  display: inline-block;
+  padding: 4px 18px;
+  border-radius: 20px;
+  font-size: 12px;
+  text-transform: uppercase;
+  font-weight: 500;
+  margin-bottom: 10px;
+  margin-right: 0;
+  letter-spacing: 0.08em;
+}
+.columns > div > div:nth-child(2) p:not(:last-child) {
+  margin-bottom: 10px;
+}
+
+/* Headline styling */
+.columns > div > div:nth-child(3) h2 {
+  color: #000;
+  font-size: 68px;
+  font-family: 'Geometric Sans', 'Avenir Next', 'Montserrat', Arial, sans-serif;
+  font-weight: bold;
+  line-height: 1.05;
+  letter-spacing: 0.01em;
+  margin: 0 0 36px 0;
+  max-width: 700px;
+  word-break: break-word;
+}
+
+/* Paragraphs styling */
+.columns > div > div:nth-child(3) p {
+  color: #333;
+  font-size: 15px;
+  line-height: 1.6;
+  font-family: inherit, sans-serif;
+  margin: 0 0 16px 0;
+  font-weight: 400;
+}
+.columns > div > div:nth-child(3) p:last-child {
+  margin-bottom: 0;
+}
+
+/* Responsive adjustments (optional, for mobile) */
+@media (max-width: 900px) {
+  .columns > div {
+    flex-direction: column;
+    gap: 32px;
+    padding: 32px 0;
+  }
+  .columns > div > div:nth-child(1),
+  .columns > div > div:nth-child(2) {
+    max-width: 100%;
+    flex: 1 1 100%;
+  }
+  .columns > div > div:nth-child(3) {
+    max-width: 100%;
+    padding-left: 0;
   }
 }
