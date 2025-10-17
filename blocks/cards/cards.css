@@ -762,10 +762,10 @@
 
 .cards-card-image img {
   display: block;
-  width: 180px;
-  height: 120px;
+  width: 100%;
+  height: auto;
   object-fit: cover;
-  border-radius: 14px;
+  border-radius: 1.25rem;
 }
 
 .cards-card-body {
@@ -785,13 +785,14 @@
 }
 
 .cards-card-body h3 {
-  font-family: Montserrat, 'Avenir Next', Arial, sans-serif;
-  font-size: 24px;
-  font-weight: bold;
-  margin: 16px 0 8px;
+  font-family: Montserrat, Arial, sans-serif;
+  font-size: 2rem;
+  font-weight: 800;
+  margin: 0 0 0.75rem;
   line-height: 1.1;
-  letter-spacing: 0.5px;
-  color: #232323;
+  letter-spacing: 0.04em;
+  color: #222;
+  text-transform: uppercase;
 }
 
 .cards-card-body p {
@@ -862,13 +863,16 @@
 }
 
 .cards-card-body p:first-child {
-  background: #E9E9E9;
-  color: #333;
-  font-weight: bold;
+  background: #F2F2F2;
+  color: #CFCFCF;
+  font-weight: 500;
   text-transform: uppercase;
-  border-radius: 11px;
-  padding: 4px 14px;
-  letter-spacing: 0.5px;
+  border-radius: 999px;
+  padding: 0.2em 0.8em;
+  letter-spacing: 0.08em;
+  font-size: 0.8rem;
+  display: inline-block;
+  margin-bottom: 0.5rem;
 }
 
 .cards-card-body p:nth-child(2) {
@@ -885,12 +889,12 @@
 }
 
 .cards-card-body p:last-child {
-  font-size: 14px;
-  color: #232323;
+  font-size: 1rem;
+  color: #666;
   text-decoration: underline;
-  margin-top: auto;
-  font-weight: bold;
+  font-weight: 400;
   cursor: pointer;
+  margin-top: auto;
   margin-bottom: 0;
 }
 
@@ -1010,3 +1014,47 @@
   object-fit: cover;
   border-radius: 16px;
 }
+
+
+.cards.cards37 {
+  /* Block padding and background */
+  background: #fff;
+  border-radius: 1.5rem;
+  padding: 2.5rem;
+  box-sizing: border-box;
+  box-shadow: 0 2px 16px 0 rgb(34 34 34 / 6%);
+  max-width: 1200px;
+  margin: 0 auto 3rem;
+}
+
+.cards.cards37 ul {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2.5rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+@media (width <= 900px) {
+  .cards.cards37 ul {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+}
+
+/* Card styles */
+.cards.cards37 li {
+  background: #fff;
+  border-radius: 1.25rem;
+  box-shadow: 0 2px 16px 0 rgb(34 34 34 / 6%);
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+/* Image styling */
+
+/* Card body styling */
+
+/* Optionally, highlight specific words in gold if using <span>, but with current HTML this is not possible without JS. */
