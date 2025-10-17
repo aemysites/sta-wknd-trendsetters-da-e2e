@@ -468,34 +468,26 @@
   width: 100%;
   background: #fff;
 }
-
-/* The first div inside .columns is the flex row container */
 .columns > div {
   display: flex;
   flex-direction: row;
-  gap: 64px; /* Generous horizontal space between columns */
+  gap: 64px;
   align-items: flex-start;
   max-width: 1280px;
   margin: 0 auto;
   padding: 64px 0;
 }
-
-/* Left column: first two divs stacked vertically, narrow width */
 .columns > div > div:nth-child(1),
 .columns > div > div:nth-child(2) {
   flex: 0 0 220px;
   max-width: 220px;
   margin-bottom: 0;
 }
-
-/* Right column: third div, take remaining space */
 .columns > div > div:nth-child(3) {
   flex: 1 1 0;
   max-width: 900px;
   padding-left: 0;
 }
-
-/* Name styling */
 .columns > div > div:nth-child(1) p {
   color: #888888;
   font-size: 16px;
@@ -504,8 +496,6 @@
   font-weight: 400;
   letter-spacing: 0.01em;
 }
-
-/* Pills/tags styling */
 .columns > div > div:nth-child(2) p {
   background: #E0E0E0;
   color: #666666;
@@ -522,8 +512,6 @@
 .columns > div > div:nth-child(2) p:not(:last-child) {
   margin-bottom: 10px;
 }
-
-/* Headline styling */
 .columns > div > div:nth-child(3) h2 {
   color: #000;
   font-size: 68px;
@@ -535,8 +523,6 @@
   max-width: 700px;
   word-break: break-word;
 }
-
-/* Paragraphs styling */
 .columns > div > div:nth-child(3) p {
   color: #333;
   font-size: 15px;
@@ -548,8 +534,6 @@
 .columns > div > div:nth-child(3) p:last-child {
   margin-bottom: 0;
 }
-
-/* Responsive adjustments (optional, for mobile) */
 @media (max-width: 900px) {
   .columns > div {
     flex-direction: column;
@@ -565,4 +549,188 @@
     max-width: 100%;
     padding-left: 0;
   }
+}
+
+
+/* --- Columns block: Responsive two-column grid layout --- */
+.columns.columns33 {
+  background: #fff;
+  /* Remove box-shadow and border if present */
+  box-shadow: none;
+  border: none;
+}
+
+/* Use CSS Grid for robust two-column alignment and vertical centering */
+.columns.columns33 .columns-wrapper .block.columns {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  align-items: center;
+  gap: 56px;
+  padding: 64px 48px;
+  background: #fff;
+}
+
+/* Responsive: Stack columns vertically on small screens */
+@media (max-width: 900px) {
+  .columns.columns33 .columns-wrapper .block.columns {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto;
+    gap: 32px;
+    padding: 32px 12px;
+  }
+}
+
+/* --- Left column (image): center image vertically/horizontally in cell */
+.columns.columns33 .columns-img-col {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+.columns.columns33 .columns-img-col img {
+  width: 340px;
+  height: 440px;
+  max-width: 100%;
+  border-radius: 28px;
+  object-fit: cover;
+  margin: 0;
+  box-shadow: none;
+  background: none;
+}
+
+/* On mobile, let image fill width and keep portrait ratio */
+@media (max-width: 900px) {
+  .columns.columns33 .columns-img-col img {
+    width: 100%;
+    height: auto;
+    border-radius: 20px;
+  }
+}
+
+/* --- Right column: vertical stack, left-aligned */
+.columns.columns33 .columns-wrapper .block.columns div:not(.columns-img-col) {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 14px;
+  width: 100%;
+  min-width: 250px;
+  box-sizing: border-box;
+}
+
+/* --- Intro line: muted, uppercase, non-pill --- */
+.columns.columns33 .columns-wrapper .block.columns div:not(.columns-img-col) p:first-of-type {
+  background: none;
+  border-radius: 0;
+  color: #7a7a7a;
+  text-transform: uppercase;
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 0.03em;
+  margin: 0 0 2px 0;
+  padding: 0;
+  line-height: 1.2;
+}
+
+/* --- Pill label: only second <p>, small pill, tight spacing --- */
+.columns.columns33 .columns-wrapper .block.columns div:not(.columns-img-col) p:nth-of-type(2) {
+  background: #ededed;
+  color: #242424;
+  text-transform: uppercase;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  border-radius: 999px;
+  padding: 4px 16px;
+  margin: 0 0 6px 0;
+  line-height: 1.15;
+  display: inline-block;
+}
+
+/* --- Headline: large, bold, left-aligned, tight spacing --- */
+.columns.columns33 .columns-wrapper .block.columns div:not(.columns-img-col) h2 {
+  color: #222;
+  font-size: 45px;
+  font-weight: 800;
+  margin: 8px 0 14px 0;
+  text-align: left;
+  letter-spacing: -0.5px;
+  line-height: 1.08;
+}
+
+/* --- Byline row: pills and dots inline, tight horizontal spacing --- */
+.columns.columns33 .columns-wrapper .block.columns div:not(.columns-img-col) p:nth-of-type(3),
+.columns.columns33 .columns-wrapper .block.columns div:not(.columns-img-col) p:nth-of-type(5),
+.columns.columns33 .columns-wrapper .block.columns div:not(.columns-img-col) p:nth-of-type(7) {
+  display: inline-block;
+  background: #ededed;
+  color: #7a7a7a;
+  font-size: 15px;
+  font-weight: 500;
+  border-radius: 999px;
+  padding: 3px 12px;
+  margin-right: 5px;
+  margin-bottom: 0;
+  line-height: 1.2;
+  vertical-align: middle;
+}
+
+/* Remove right margin from last byline pill */
+.columns.columns33 .columns-wrapper .block.columns div:not(.columns-img-col) p:nth-of-type(7) {
+  margin-right: 0;
+}
+
+/* --- Dot separators: plain text, inline, muted color, NOT pill --- */
+.columns.columns33 .columns-wrapper .block.columns div:not(.columns-img-col) p:nth-of-type(4),
+.columns.columns33 .columns-wrapper .block.columns div:not(.columns-img-col) p:nth-of-type(6) {
+  display: inline;
+  background: none;
+  border-radius: 0;
+  color: #b4b4b4;
+  font-size: 18px;
+  font-weight: bold;
+  padding: 0;
+  margin: 0 4px;
+  vertical-align: middle;
+}
+
+/* --- Remove default margins for all p tags in block --- */
+.columns.columns33 .columns-wrapper .block.columns div:not(.columns-img-col) p {
+  margin: 0;
+}
+
+/* --- Responsive: stack byline pills vertically on very small screens --- */
+@media (max-width: 600px) {
+  .columns.columns33 .columns-wrapper .block.columns div:not(.columns-img-col) {
+    gap: 10px;
+  }
+  .columns.columns33 .columns-wrapper .block.columns div:not(.columns-img-col) p:nth-of-type(3),
+  .columns.columns33 .columns-wrapper .block.columns div:not(.columns-img-col) p:nth-of-type(5),
+  .columns.columns33 .columns-wrapper .block.columns div:not(.columns-img-col) p:nth-of-type(7) {
+    display: block;
+    margin-right: 0;
+    margin-bottom: 6px;
+  }
+  .columns.columns33 .columns-wrapper .block.columns div:not(.columns-img-col) p:nth-of-type(4),
+  .columns.columns33 .columns-wrapper .block.columns div:not(.columns-img-col) p:nth-of-type(6) {
+    display: block;
+    margin: 0 0 6px 0;
+  }
+}
+
+/* --- Remove background and border from columns block if present --- */
+.columns.columns33 .columns-wrapper,
+.columns.columns33 .columns-wrapper .block.columns {
+  background: none;
+  border: none;
+  box-shadow: none;
+}
+
+/* --- Prevent block from overflowing section --- */
+.columns.columns33 .columns-wrapper {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0;
 }
