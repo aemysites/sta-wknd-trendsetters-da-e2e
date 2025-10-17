@@ -35,26 +35,16 @@
 .cards.cards2 .cards-wrapper {
   display: flex;
   flex-direction: row;
-  gap: 48px; /* or adjust for the desired spacing */
+  gap: 48px;
   background: #f6f6f6;
-  padding: 48px 0; /* generous vertical spacing */
+  padding: 48px 0;
 }
-
-/* Left column (e.g. for image + headline + button) */
 .cards-wrapper > .cards.cards2.block:first-child {
   flex: 3 1 0%;
-
-  /* optional: min-width: 0; */
 }
-
-/* Right column (e.g. for the vertical grid of cards) */
 .cards-wrapper > .cards.cards2.block:last-child {
   flex: 2 1 0%;
-
-  /* optional: min-width: 0; */
 }
-
-/* For mobile responsiveness, stack columns */
 @media (width <= 900px) {
   .cards-wrapper {
     flex-direction: column;
@@ -64,4 +54,84 @@
   .cards-wrapper > .cards.cards2.block {
     width: 100%;
   }
+}
+
+
+.cards.cards7 {
+  background: var(--background-color);
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  width: 100%;
+  /* Prevent unwanted left/right margin from parent containers */
+}
+
+/* Remove default ul margin/padding and use flex for row layout */
+.cards.cards7 ul {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: row;
+  gap: 24px;
+  width: 100%;
+  box-sizing: border-box;
+  list-style: none;
+  /* Ensure row stretches fully to container's edge */
+  justify-content: stretch;
+  align-items: stretch;
+}
+
+/* Cards stack vertically on mobile */
+@media (max-width: 900px) {
+  .cards.cards7 ul {
+    flex-direction: column;
+    gap: 16px;
+  }
+}
+
+/* Each card fills available space, no side gaps or margins */
+.cards.cards7 li {
+  flex: 1 1 0;
+  min-width: 0;
+  margin: 0;
+  padding: 0;
+  border-radius: 20px;
+  overflow: hidden;
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+  box-shadow: none;
+  border: none;
+}
+
+/* Image container fills card width/height */
+.cards.cards7 .cards-card-image {
+  width: 100%;
+  flex: 1 1 auto;
+  display: flex;
+  align-items: stretch;
+  justify-content: stretch;
+  margin: 0;
+  padding: 0;
+}
+
+/* Full-bleed image (inherits card rounded corners via overflow) */
+.cards.cards7 .cards-card-image picture,
+.cards.cards7 .cards-card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  border-radius: 0;
+}
+
+/* Remove spacing/padding if card body is empty */
+.cards.cards7 .cards-card-body {
+  margin: 0;
+  padding: 0;
+  background: transparent;
+  border: none;
+  min-height: 0;
+  flex: 0 0 auto;
+  display: none;
 }
