@@ -25,3 +25,43 @@
   aspect-ratio: 4 / 3;
   object-fit: cover;
 }
+
+
+.cards.cards2 {
+  background-color: #f6f6f6;
+  padding: 48px 0;
+}
+
+.cards.cards2 .cards-wrapper {
+  display: flex;
+  flex-direction: row;
+  gap: 48px; /* or adjust for the desired spacing */
+  background: #f6f6f6;
+  padding: 48px 0; /* generous vertical spacing */
+}
+
+/* Left column (e.g. for image + headline + button) */
+.cards-wrapper > .cards.cards2.block:first-child {
+  flex: 3 1 0%;
+
+  /* optional: min-width: 0; */
+}
+
+/* Right column (e.g. for the vertical grid of cards) */
+.cards-wrapper > .cards.cards2.block:last-child {
+  flex: 2 1 0%;
+
+  /* optional: min-width: 0; */
+}
+
+/* For mobile responsiveness, stack columns */
+@media (width <= 900px) {
+  .cards-wrapper {
+    flex-direction: column;
+    gap: 32px;
+  }
+
+  .cards-wrapper > .cards.cards2.block {
+    width: 100%;
+  }
+}
