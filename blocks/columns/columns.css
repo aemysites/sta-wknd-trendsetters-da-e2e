@@ -268,7 +268,6 @@
   justify-content: center;
 }
 
-/* Typography */
 .columns-2-cols > div:first-child p:first-child {
   text-transform: uppercase;
   letter-spacing: .1em;
@@ -295,7 +294,6 @@
   margin-bottom: 1.2rem;
 }
 
-/* Meta info row */
 .columns-2-cols > div:first-child > div:nth-child(2) > p:nth-child(4),
 .columns-2-cols > div:first-child > div:nth-child(2) > p:nth-child(5),
 .columns-2-cols > div:first-child > div:nth-child(2) > p:nth-child(6),
@@ -323,7 +321,6 @@
   vertical-align: middle;
 }
 
-/* Button style */
 .button-container {
   margin-top: 2rem;
 }
@@ -347,7 +344,6 @@
   color: #fff;
 }
 
-/* Images side by side, rounded */
 .columns-img-col {
   display: flex;
   gap: 32px;
@@ -366,7 +362,6 @@
   background: #eee;
 }
 
-/* Responsive: stack columns and images */
 @media (width <= 900px) {
   .columns-2-cols {
     flex-direction: column;
@@ -381,5 +376,101 @@
   .columns-img-col {
     flex-direction: column;
     gap: 24px;
+  }
+}
+
+
+.columns.columns16 {
+  background: #fff;
+  border: none;
+  padding: 0;
+}
+
+/* Core layout: create a single horizontal row of six columns with even gaps */
+.columns.columns16 .columns-6-cols {
+  background: transparent;
+  border: none;
+  padding: 0;
+  margin: 0;
+}
+
+.columns.columns16 .columns-6-cols div {
+  display: flex;
+  flex-direction: row;
+  align-items: center; /* vertical centering for all items */
+  justify-content: center;
+  gap: 3.5vw; /* generous, responsive horizontal gap */
+  background: transparent;
+  border: none;
+  padding: 0;
+  margin: 0;
+}
+
+/* Columns: no background, no rounding, no shadow; rotation origin center */
+.columns.columns16 .columns-img-col {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: none;
+  border: none;
+  box-shadow: none;
+  border-radius: 0;
+  margin: 0;
+  padding: 0;
+  transform-origin: center center;
+  min-width: 0;
+  min-height: 0;
+  flex-shrink: 0;
+}
+
+/* Images: fixed height, auto width, no border/radius/shadow */
+.columns.columns16 .columns-img-col img,
+.columns.columns16 .columns-img-col picture {
+  display: block;
+  height: 180px;
+  width: auto;
+  max-width: 100%;
+  object-fit: contain;
+  background: none;
+  border-radius: 0;
+  box-shadow: none;
+  margin: 0;
+}
+
+/* Playful, alternating rotations for each image */
+.columns.columns16 .columns-img-col:nth-child(1) { transform: rotate(-8deg); }
+.columns.columns16 .columns-img-col:nth-child(2) { transform: rotate(6deg); }
+.columns.columns16 .columns-img-col:nth-child(3) { transform: rotate(-4deg); }
+.columns.columns16 .columns-img-col:nth-child(4) { transform: rotate(5deg); }
+.columns.columns16 .columns-img-col:nth-child(5) { transform: rotate(-7deg); }
+.columns.columns16 .columns-img-col:nth-child(6) { transform: rotate(4deg); }
+
+/* Responsive: reduce gap and image height on medium screens */
+@media (width <= 1100px) {
+  .columns.columns16 .columns-6-cols div {
+    gap: 2.5vw;
+  }
+
+  .columns.columns16 .columns-img-col img,
+  .columns.columns16 .columns-img-col picture {
+    height: 120px;
+  }
+}
+
+/* On small screens, allow wrapping and smaller images */
+@media (width <= 700px) {
+  .columns.columns16 .columns-6-cols div {
+    flex-wrap: wrap;
+    gap: 4vw 6vw;
+    justify-content: center;
+  }
+
+  .columns.columns16 .columns-img-col {
+    margin-bottom: 2vw;
+  }
+
+  .columns.columns16 .columns-img-col img,
+  .columns.columns16 .columns-img-col picture {
+    height: 72px;
   }
 }
