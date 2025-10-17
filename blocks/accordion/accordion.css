@@ -71,7 +71,6 @@
   box-shadow: none;
 }
 
-/* Vertically stack details, no margin/gap between */
 .accordion.accordion17 details {
   margin: 0;
   padding: 0;
@@ -80,21 +79,19 @@
   box-sizing: border-box;
 }
 
-/* Divider line only between rows, not above the first */
 .accordion.accordion17 details + details {
   border-top: 1px solid #E0E0DC;
 }
 
-/* FLEX LAYOUT for row: text left, arrow right, vertical centering */
 .accordion.accordion17 summary {
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
   width: 100%;
-  padding: 20px 16px; /* generous vertical, tight horizontal */
+  padding: 20px 16px;
   margin: 0;
-  font-size: 16px; /* use existing font-family */
+  font-size: 16px;
   font-weight: 500;
   color: #3E3E3E;
   line-height: 1.5;
@@ -107,21 +104,18 @@
   transition: background 0.2s;
 }
 
-/* Subtle background highlight for hover and focus */
 .accordion.accordion17 summary:hover,
 .accordion.accordion17 summary:focus {
   background: #F3F3EF;
 }
 
-/* Remove default summary arrow marker */
 .accordion.accordion17 summary::-webkit-details-marker,
 .accordion.accordion17 summary::marker {
   display: none;
 }
 
-/* Arrow icon alignment (SVG or other icon) */
 .accordion.accordion17 summary svg {
-  margin-left: 14px; /* spacing from text */
+  margin-left: 14px;
   width: 22px;
   height: 22px;
   stroke: #3E3E3E;
@@ -132,12 +126,10 @@
   transition: transform 0.2s;
 }
 
-/* Rotate arrow when open */
 .accordion.accordion17 details[open] summary svg {
   transform: rotate(180deg);
 }
 
-/* Body/content area in each details */
 .accordion.accordion17 .accordion-item-body,
 .accordion.accordion17 .accordion-body,
 .accordion.accordion17 div {
@@ -149,7 +141,6 @@
   box-sizing: border-box;
 }
 
-/* Responsive: reduce horizontal padding on small screens */
 @media (width <= 600px) {
   .accordion.accordion17 summary,
   .accordion.accordion17 .accordion-item-body,
@@ -158,4 +149,21 @@
     padding-left: 8px;
     padding-right: 8px;
   }
+}
+
+
+details.accordion-item[open] > summary.accordion-item-label {
+  display: inline-block;
+  width: 60%;
+  vertical-align: top;
+  padding: 18px 0;
+  margin: 0;
+}
+
+details.accordion-item[open] > .accordion-item-body {
+  display: inline-block;
+  width: 40%;
+  vertical-align: top;
+  padding: 18px 0 18px 24px;
+  margin: 0;
 }
