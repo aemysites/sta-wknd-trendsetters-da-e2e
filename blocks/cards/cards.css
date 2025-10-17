@@ -512,7 +512,6 @@
   padding: 2.5rem 1.5rem;
 }
 
-/* Cards grid: multi-row, multi-column layout using CSS Grid */
 .cards.cards23 ul {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -524,7 +523,6 @@
   width: 100%;
 }
 
-/* Individual card styling */
 .cards.cards23 li {
   background: #fff;
   border-radius: 16px;
@@ -536,12 +534,10 @@
   transition: box-shadow 0.2s;
 }
 
-/* Card hover elevation */
 .cards.cards23 li:hover {
   box-shadow: 0 6px 24px rgb(0 0 0 / 9%);
 }
 
-/* Card image with rounded top corners */
 .cards.cards23 .cards-card-image,
 .cards.cards23 .cards-card-image picture,
 .cards.cards23 .cards-card-image img {
@@ -554,7 +550,6 @@
   background: #f1f1f1;
 }
 
-/* Card body: vertical stack, left-aligned */
 .cards.cards23 .cards-card-body {
   display: flex;
   flex-direction: column;
@@ -565,7 +560,6 @@
   flex: 1 1 auto;
 }
 
-/* Card heading: uppercase, bold, tracking, color */
 .cards.cards23 .cards-card-body h3 {
   text-transform: uppercase;
   letter-spacing: 0.17em;
@@ -576,7 +570,6 @@
   line-height: 1.18;
 }
 
-/* Card subtitle/body text: lighter, smaller, more margin */
 .cards.cards23 .cards-card-body p {
   color: #9c9c9c;
   font-size: 0.96rem;
@@ -585,7 +578,6 @@
   line-height: 1.58;
 }
 
-/* Responsive: stack cards on small screens & adjust padding/gap */
 @media (width <= 900px) {
   .cards.cards23 {
     padding: 0.8rem 0.2rem;
@@ -610,5 +602,128 @@
   .cards.cards23 .cards-card-body h3 {
     font-size: 1.18rem;
     margin-bottom: 0.3rem;
+  }
+}
+
+
+.cards.cards24 {
+  max-width: 960px;
+  margin: 64px auto;
+  padding: 0;
+  background: none;
+  margin-bottom: 4rem;
+}
+
+.cards.cards24 ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: block;
+}
+
+.cards.cards24 li {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  position: relative;
+  gap: 0;
+  min-height: 340px;
+  margin: 0;
+  padding: 0;
+  background: none;
+  border: none;
+}
+
+/* Image area: prominent, slightly rotated, only modest overlap */
+.cards.cards24 .cards-card-image {
+  flex: 0 1 56%;
+  min-width: 320px;
+  max-width: 57%;
+  position: relative;
+  z-index: 2;
+  border-radius: 24px;
+  outline: 4px solid var(--dark-color);
+  outline-offset: -2px;
+  box-shadow: 0 16px 40px rgb(0 0 0 / 14%);
+  background: var(--background-color);
+  overflow: hidden;
+  margin-right: -48px;
+  margin-bottom: 0;
+  margin-top: 0;
+  transform: rotate(-4.2deg);
+  transition: box-shadow .2s;
+}
+
+.cards.cards24 .cards-card-image picture,
+.cards.cards24 .cards-card-image img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 24px;
+}
+
+/* Text area: visible, wide, gently tucked under image */
+.cards.cards24 .cards-card-body {
+  flex: 1 1 42%;
+  min-width: 260px;
+  max-width: 450px;
+  position: relative;
+  z-index: 1;
+  background: var(--light-color);
+  border-radius: 22px;
+  outline: 3px solid var(--dark-color);
+  outline-offset: -2px;
+  box-shadow: 0 4px 28px rgb(0 0 0 / 9%);
+  padding: 2.2rem 2.2rem 2.2rem 2.7rem;
+  margin-left: -24px;
+  margin-top: 0;
+  margin-bottom: 0;
+  transform: rotate(2.2deg);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.cards.cards24 .cards-card-body p,
+.cards.cards24 .cards-card-body strong,
+.cards.cards24 .cards-card-body em,
+.cards.cards24 .cards-card-body li {
+  color: var(--text-color);
+  margin: 0 0 1em;
+  font-size: var(--body-font-size-s);
+  line-height: 1.7;
+}
+
+.cards.cards24 .cards-card-body :last-child {
+  margin-bottom: 0;
+}
+
+/* Responsive: stack vertically and remove rotation/overlap at small sizes */
+@media (width <= 750px) {
+  .cards.cards24 li {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+    min-height: unset;
+  }
+
+  .cards.cards24 .cards-card-image,
+  .cards.cards24 .cards-card-body {
+    margin: 0;
+    transform: none;
+    border-radius: 12px;
+    outline-width: 2px;
+    box-shadow: 0 2px 12px rgb(0 0 0 / 10%);
+    width: 100%;
+    min-width: 0;
+    max-width: 100%;
+    padding: 0;
+  }
+
+  .cards.cards24 .cards-card-body {
+    padding: 1.5rem 1rem;
+    margin-top: 16px;
+    display: block;
   }
 }
