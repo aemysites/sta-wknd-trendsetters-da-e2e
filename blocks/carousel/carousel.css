@@ -198,3 +198,100 @@
   transform: rotate(0deg) scale(1.04);
   box-shadow: 0 8px 20px rgb(0 0 0 / 13%);
 }
+
+
+.carousel.carousel24 .carousel-navigation-buttons {
+  display: flex;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+  pointer-events: none;
+  z-index: 2;
+  background: none;
+}
+
+.carousel.carousel24 .carousel-navigation-buttons .carousel-prev,
+.carousel.carousel24 .carousel-navigation-buttons .carousel-next {
+  pointer-events: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  background: rgb(40 40 40 / 82%);
+  border: none;
+  border-radius: 50%;
+  color: #fff;
+  font-size: 20px;
+  margin: 0 14px;
+  opacity: 0.93;
+  box-shadow: 0 2px 12px rgb(0 0 0 / 15%);
+  transition: background 0.20s, opacity 0.20s, box-shadow 0.20s;
+  cursor: pointer;
+}
+
+.carousel.carousel24 .carousel-navigation-buttons .carousel-prev:not(:disabled):hover,
+.carousel.carousel24 .carousel-navigation-buttons .carousel-next:not(:disabled):hover,
+.carousel.carousel24 .carousel-navigation-buttons .carousel-prev:not(:disabled):focus,
+.carousel.carousel24 .carousel-navigation-buttons .carousel-next:not(:disabled):focus {
+  background: rgb(40 40 40 / 97%);
+  opacity: 1;
+  box-shadow: 0 4px 18px rgb(0 0 0 / 18%);
+}
+
+.carousel.carousel24 .carousel-navigation-buttons .carousel-prev:disabled,
+.carousel.carousel24 .carousel-navigation-buttons .carousel-next:disabled {
+  opacity: 0.47;
+  cursor: default;
+}
+
+.carousel.carousel24 .carousel-slide-indicators {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 12px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 9px;
+  z-index: 2;
+}
+
+.carousel.carousel24 .carousel-slide-indicators .indicator {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: rgb(255 255 255 / 33%);
+  border: 1px solid rgb(40 40 40 / 14%);
+  box-shadow: 0 1px 6px rgb(0 0 0 / 12%);
+  transition: background 0.17s, border 0.17s, box-shadow 0.17s, width 0.17s, height 0.17s;
+}
+
+.carousel.carousel24 .carousel-slide-indicators .indicator.active {
+  background: #fff;
+  border-color: #282828;
+  box-shadow: 0 3px 12px rgb(0 0 0 / 17%);
+  width: 13px;
+  height: 13px;
+}
+
+.carousel.carousel24 .carousel-caption {
+  position: absolute;
+  left: 18px;
+  bottom: 24px;
+  right: 18px;
+  background: rgb(16 16 16 / 60%);
+  color: #fff;
+  padding: 13px 18px 12px;
+  border-radius: 8px;
+  font-size: 1rem;
+  line-height: 1.4;
+  box-shadow: 0 1px 8px rgb(0 0 0 / 12%);
+  z-index: 3;
+  max-width: 80%;
+  pointer-events: auto;
+}
