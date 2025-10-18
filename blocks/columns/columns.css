@@ -50,13 +50,13 @@
   justify-content: center;
   align-items: flex-start;
   box-sizing: border-box;
-  padding: 56px 48px;
+  padding: 0;
   grid-template-columns: repeat(3, 1fr);
   gap: 32px;
   margin: 0 auto 40px;
   background: #fff;
-  border-radius: 18px;
-  box-shadow: 0 2px 16px rgb(50 50 70 / 8%);
+  border-radius: 0;
+  box-shadow: none;
   max-width: 1072px;
 }
 
@@ -638,24 +638,132 @@
 .columns.columns3.block.columns-2-cols > div {
   display: flex;
   flex-direction: row;
-  justify-content: space-between; /* Spreads content across the container */
-  align-items: center;            /* Vertically aligns the two columns */
-  gap: 3rem;                      /* Adds space between columns */
+  justify-content: space-between;
+  align-items: center;
+  gap: 3rem;
 }
 
 .columns.columns3.block.columns-2-cols > div > div:first-child {
-  flex: 1 1 0;        /* Text column grows to fill space */
+  flex: 1 1 0;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: flex-start; /* Left-align text */
-  max-width: 600px;    /* Limit text width for readability */
+  align-items: flex-start;
+  max-width: 600px;
 }
 
 .columns.columns3.block.columns-2-cols .columns-img-col {
-  flex: 1 1 0;      /* Image column grows to fill space */
+  flex: 1 1 0;
   display: flex;
   justify-content: flex-end;
   align-items: center;
-  min-width: 0;     /* Prevents overflow issue */
+  min-width: 0;
+}
+
+.columns .columns38 {
+  width: 100%;
+  background: transparent;
+  border-radius: 0;
+  box-shadow: none;
+  padding: 0;
+}
+
+.columns .columns38.block {
+  width: 100%;
+  background: transparent;
+  border-radius: 0;
+  box-shadow: none;
+  padding: 0;
+}
+
+.columns .columns38.block.columns-2-cols {
+  display: flex;
+  flex-direction: row;
+  gap: 40px;
+  align-items: flex-start;
+  justify-content: flex-start;
+  background: #fff;
+  border-radius: 0;
+  box-shadow: none;
+  padding: 0;
+  margin: 0;
+}
+
+/* Responsive: stack columns vertically below 900px */
+@media (width <= 900px) {
+  .columns .columns38.block.columns-2-cols {
+    flex-direction: column;
+    gap: 24px;
+  }
+}
+
+/* Ensure inner cell has no excess margin/padding */
+.columns .columns38.block.columns-2-cols div {
+  margin: 0;
+  padding: 0;
+  background: transparent;
+  border-radius: 0;
+  box-shadow: none;
+}
+
+/* Image row: flex horizontal, left aligned, with spacing */
+.columns .columns-img-col p {
+  display: flex;
+  flex-direction: row;
+  gap: 28px;
+  align-items: flex-start;
+  justify-content: flex-start;
+  margin: 0;
+  padding: 0;
+}
+
+/* Three images: rounded corners, no shadows, white bg */
+.columns .columns-img-col img,
+.columns .columns-img-col picture {
+  border-radius: 24px;
+  background: #fff;
+  box-shadow: none;
+  overflow: hidden;
+  margin: 0;
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+/* Emphasize center image: make larger, keep side images smaller */
+.columns .columns-img-col picture:nth-child(2) img,
+.columns .columns-img-col picture:nth-of-type(2) img {
+  width: 340px;
+  max-width: 100%;
+  aspect-ratio: 1 / 1;
+}
+
+.columns .columns-img-col picture img {
+  width: 220px;
+  max-width: 100%;
+  aspect-ratio: 0.8 / 1;
+}
+
+@media (width <= 900px) {
+  .columns .columns-img-col p {
+    flex-direction: column;
+    gap: 20px;
+    align-items: stretch;
+  }
+
+  .columns .columns-img-col picture img,
+  .columns .columns-img-col picture:nth-child(2) img,
+  .columns .columns-img-col picture:nth-of-type(2) img {
+    width: 100%;
+    aspect-ratio: unset;
+  }
+}
+
+/* Remove any default margin/padding from the image column container */
+.columns .columns-img-col {
+  margin: 0;
+  padding: 0;
+  background: transparent;
+  border-radius: 0;
+  box-shadow: none;
 }
