@@ -1165,7 +1165,6 @@
 
 
 .cards.cards35 {
-  /* Ensure block doesn't have unwanted padding or border */
   padding: 0;
   margin: 0 auto;
   background: none;
@@ -1174,7 +1173,6 @@
   max-width: 1200px;
 }
 
-/* Card grid: 3 columns, responsive, centered */
 .cards.cards35 ul {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -1186,7 +1184,6 @@
   width: 100%;
 }
 
-/* Each card: square, rounded corners, no border or background */
 .cards.cards35 li {
   display: flex;
   flex-direction: column;
@@ -1204,7 +1201,6 @@
   margin: 0;
 }
 
-/* Card image: fills card, maintains rounded corners */
 .cards.cards35 .cards-card-image {
   display: flex;
   flex-direction: row;
@@ -1219,7 +1215,6 @@
   padding: 0;
 }
 
-/* Images: fill card, cover area, rounded corners; support picture/img */
 .cards.cards35 .cards-card-image img,
 .cards.cards35 .cards-card-image picture {
   width: 100%;
@@ -1231,12 +1226,10 @@
   padding: 0;
 }
 
-/* Hide body if not used for overlays/text */
 .cards.cards35 .cards-card-body {
   display: none;
 }
 
-/* Responsive adjustments: 2 columns at medium sizes, 1 column at small */
 @media (width <= 899px) {
   .cards.cards35 ul {
     grid-template-columns: repeat(2, 1fr);
@@ -1248,3 +1241,197 @@
     grid-template-columns: 1fr;
   }
 }
+
+
+.cards.cards36 {
+  /* Max width and center the block */
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 16px;
+  box-sizing: border-box;
+  background: var(--background-color);
+}
+
+/* Root UL: two columns with moderate gutter and top alignment */
+.cards.cards36 ul {
+  display: grid;
+  grid-template-columns: 1.7fr 1fr;
+  gap: 0 28px;
+  align-items: start;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  width: 100%;
+  box-sizing: border-box;
+  padding-left: 0;
+}
+
+/* --- LEFT COLUMN: Main card is stacked vertically --- */
+.cards.cards36 ul li:nth-child(1) {
+  grid-column: 1;
+  grid-row: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 28px;
+  margin: 0;
+  padding: 0;
+}
+
+/* --- RIGHT COLUMN: Mini card, then list stack --- */
+.cards.cards36 ul li:nth-child(2) {
+  grid-column: 2;
+  grid-row: 1;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  margin-bottom: 0;
+}
+
+/* Ensure no margin below mini card, so list stack is flush */
+
+/* List items in right column: stack vertically, tight spacing, full width */
+.cards.cards36 ul li:nth-child(n+3) {
+  grid-column: 2;
+  margin: 0;
+  padding: 10px 0;
+  border-bottom: 1px solid #EDEDED;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  width: 100%;
+}
+
+/* Remove divider from last list item */
+.cards.cards36 ul li:last-child {
+  border-bottom: none;
+}
+
+/* --- CARD IMAGES --- */
+.cards.cards36 ul li .cards-card-image img {
+  width: 100%;
+  border-radius: 16px;
+  display: block;
+  object-fit: cover;
+  margin: 0;
+}
+
+/* Mini card image radius */
+.cards.cards36 ul li:nth-child(2) .cards-card-image img {
+  border-radius: 12px;
+}
+
+/* --- LABELS: pill above each card title --- */
+.cards.cards36 ul li .cards-card-body p:first-child {
+  display: inline-block;
+  background: #F3F3F3;
+  color: #505050;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  margin: 0 0 12px;
+  padding: 4px 18px;
+  line-height: 1.35;
+}
+
+/* Mini card label slightly smaller */
+.cards.cards36 ul li:nth-child(2) .cards-card-body p:first-child {
+  font-size: 11px;
+  padding: 3px 12px;
+}
+
+/* --- TITLES --- */
+.cards.cards36 ul li:nth-child(1) h3 {
+  margin: 0 0 12px;
+  font-size: 44px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  color: var(--text-color);
+  line-height: 1.08;
+}
+
+/* Mini card title */
+.cards.cards36 ul li:nth-child(2) h3 {
+  margin: 0 0 8px;
+  font-size: 20px;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--text-color);
+  letter-spacing: 0.025em;
+  line-height: 1.16;
+}
+
+/* List item titles */
+.cards.cards36 ul li:nth-child(n+3) h3 {
+  margin: 0 0 5px;
+  font-size: 18px;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--text-color);
+  letter-spacing: 0.02em;
+  line-height: 1.17;
+}
+
+/* Accent color for <span> in list titles */
+.cards.cards36 ul li:nth-child(n+3) h3 span {
+  color: #F8E5C7;
+}
+
+/* --- DESCRIPTIONS --- */
+.cards.cards36 ul li:nth-child(1) .cards-card-body p:last-child {
+  margin: 0;
+  font-size: 16px;
+  color: #616161;
+  line-height: 1.5;
+  max-width: 95%;
+}
+
+.cards.cards36 ul li:nth-child(2) .cards-card-body p:last-child {
+  margin: 0;
+  font-size: 13px;
+  color: #616161;
+  line-height: 1.5;
+}
+
+.cards.cards36 ul li:nth-child(n+3) p {
+  margin: 0;
+  font-size: 13px;
+  color: #616161;
+  line-height: 1.5;
+}
+
+/* --- RESPONSIVE: Stack vertically under 900px --- */
+@media (width <= 900px) {
+  .cards.cards36 ul {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .cards.cards36 ul li {
+    width: 100%;
+    margin: 0 0 20px;
+    padding: 0;
+  }
+
+  .cards.cards36 ul li .cards-card-image img {
+    border-radius: 16px;
+  }
+
+  .cards.cards36 ul li:nth-child(n+3) {
+    border-bottom: 1px solid #EDEDED;
+    margin-bottom: 0;
+    padding-bottom: 12px;
+  }
+
+  .cards.cards36 ul li:last-child {
+    border-bottom: none;
+  }
+}
+
+/* Remove default bullets and left padding from ul */
