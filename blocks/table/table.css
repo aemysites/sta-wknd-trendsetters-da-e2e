@@ -1,3 +1,4 @@
+/* stylelint-disable no-descending-specificity */
 .table.block {
   width: 100%;
   overflow-x: auto;
@@ -50,18 +51,101 @@
   margin-top: 0.25em;
 }
 
-/* no header variant */
 .table.block.no-header table tbody tr {
   border-top: 1px solid;
 }
 
-/* striped variant */
 .table.block.striped tbody tr:nth-child(odd) {
   background-color: var(--overlay-background-color);
 }
 
-/* bordered variant */
-.table.block.bordered table th,
-.table.block.bordered table td {
-  border: 1px solid;
+
+.table.bordered.tablebordered18 {
+  /* Center the block with moderate horizontal padding and max width */
+  margin: 40px auto;
+  padding: 0 24px;
+  max-width: 900px;
+  background: var(--background-color);
+  border-radius: 0;
+  box-shadow: none;
+  border: none;
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+}
+
+.table.bordered.tablebordered18 tr {
+  display: grid;
+  grid-template-columns: 46% 54%;
+  align-items: flex-start;
+  width: 100%;
+  background: var(--background-color);
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.table.bordered.tablebordered18 tr:last-child {
+  border-bottom: none;
+}
+
+/* Remove all cell borders and backgrounds */
+.table.bordered.tablebordered18 th,
+.table.bordered.tablebordered18 td {
+  border: none;
+  background: var(--background-color);
+  box-shadow: none;
+  margin: 0;
+  box-sizing: border-box;
+  padding-top: 24px;
+  padding-bottom: 24px;
+  min-width: 0;
+  word-break: break-word;
+  overflow-wrap: anywhere;
+  vertical-align: top;
+}
+
+/* Left column: question (first cell in each row) */
+.table.bordered.tablebordered18 th,
+.table.bordered.tablebordered18 td:not(:last-child) {
+  text-transform: uppercase;
+  color: #333;
+  font-size: 18px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  line-height: 1.4;
+  text-align: left;
+  padding-left: 4px;
+  padding-right: 18px;
+}
+
+/* Right column: answer (last cell in each row) */
+.table.bordered.tablebordered18 th ~ th,
+.table.bordered.tablebordered18 td:last-child {
+  text-transform: none;
+  color: #222;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.8;
+  text-align: left;
+  padding-left: 18px;
+  padding-right: 4px;
+}
+
+/* Responsive stacking for narrow screens */
+@media (width <= 700px) {
+  .table.bordered.tablebordered18 {
+    padding: 0 6px;
+    max-width: 100%;
+  }
+
+  .table.bordered.tablebordered18 tr {
+    grid-template-columns: 1fr;
+  }
+
+  .table.bordered.tablebordered18 th,
+  .table.bordered.tablebordered18 td,
+  .table.bordered.tablebordered18 th ~ th,
+  .table.bordered.tablebordered18 td:last-child {
+    font-size: 16px;
+    padding: 18px 0;
+  }
 }
