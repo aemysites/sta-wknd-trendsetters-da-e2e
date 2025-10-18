@@ -445,8 +445,6 @@
   flex-direction: row;
   align-items: stretch;
   gap: 60px;
-
-  /* Optional: */
   backdrop-filter: blur(6px);
 }
 
@@ -483,15 +481,15 @@
 
 .button-container .button {
   display: inline-block;
-  background: rgb(24 24 32 / 82%);
-  color: #fafafa;
-  border: 1px solid rgb(255 255 255 / 19%);
-  border-radius: 48px;
-  padding: 0.8em 2.7em;
-  font-weight: 700;
-  font-size: 1.1rem;
+  background: #232323;
+  color: #F8F9F6;
+  border: none;
+  border-radius: 24px;
+  padding: 0.75em 2em;
+  font-weight: 600;
+  font-size: 1em;
   text-decoration: none;
-  transition: background 0.2s, color 0.2s;
+  transition: background 0.2s;
   margin-top: 2rem;
 }
 
@@ -510,4 +508,101 @@
   object-fit: cover;
   display: block;
   box-shadow: 0 4px 24px rgb(0 0 0 / 19%);
+}
+
+
+.columns-container .columns-wrapper .block.columns {
+  background: #F8F9F6;
+  border-radius: 24px;
+  box-shadow: 0 2px 24px rgb(55 55 55 / 6%);
+  padding: 56px 32px 48px;
+  max-width: 960px;
+  margin: 48px auto;
+  display: block;
+}
+
+.columns-container .columns-wrapper .block.columns .columns3,
+.columns-container .columns-wrapper .block.columns .columns-2-cols {
+  width: 100%;
+  margin: 0;
+}
+
+/* Use grid for robust alignment: two columns on desktop, stack on mobile */
+.columns-container .columns-wrapper .block.columns div {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 64px;
+  align-items: center;
+  width: 100%;
+}
+
+@media (width <= 900px) {
+  .columns-container .columns-wrapper .block.columns div {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+}
+
+/* Left column: text content */
+.columns-container .columns-wrapper .block.columns div div:first-child {
+  padding-right: 8px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  min-width: 0;
+}
+
+/* Headline styling */
+.columns-container .columns-wrapper .block.columns div div:first-child h1 {
+  color: #232323;
+  font-weight: 700;
+  line-height: 1.1;
+  margin-bottom: 0.25em;
+  letter-spacing: 0.03em;
+  text-align: left;
+}
+
+.columns-container .columns-wrapper .block.columns div div:first-child p {
+  color: #232323;
+  font-size: 1.15em;
+  margin-bottom: 1.25em;
+  text-align: left;
+  max-width: 520px;
+}
+
+/* Button style */
+
+.button-container .button:hover {
+  background: #000;
+}
+
+/* Right column (image) */
+.columns-container .columns-wrapper .block.columns div .columns-img-col {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-width: 0;
+  min-height: 0;
+}
+
+.columns-container .columns-wrapper .block.columns div .columns-img-col img {
+  max-width: 480px;
+  width: 100%;
+  height: auto;
+  border-radius: 16px;
+  box-shadow: 0 2px 18px rgb(55 55 55 / 8%);
+  background: #fff;
+}
+
+/* Remove card-like appearance on columns */
+.columns-container .columns-wrapper .block.columns div div {
+  background: none;
+  box-shadow: none;
+  border-radius: 0;
+}
+
+/* Remove gutter/margin between columns block and neighbors */
+.columns-container .columns-wrapper .block.columns + * {
+  margin-top: 0;
 }
