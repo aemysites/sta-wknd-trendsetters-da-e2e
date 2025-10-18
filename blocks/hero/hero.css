@@ -492,10 +492,6 @@
   }
 }
 
-
-/* HERO HERO31 IMPROVED LAYOUT AND VISUAL MATCH */
-
-/* Root hero block: center content column horizontally */
 .hero.hero31 {
   display: block;
   width: 100%;
@@ -504,11 +500,8 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-
-  /* No horizontal flex, ensures true column centering for single-column hero */
 }
 
-/* Center content column and set max width for readable line length */
 .hero.hero31 div {
   max-width: 570px;
   margin-left: auto;
@@ -520,7 +513,6 @@
   box-sizing: border-box;
 }
 
-/* Name: small, subtle, tight to pills */
 .hero.hero31 div p:first-child {
   color: #989898;
   font-size: var(--body-font-size-s);
@@ -531,7 +523,6 @@
   text-align: left;
 }
 
-/* Pill tags: stacked vertically, compact, left-aligned, tight spacing */
 .hero.hero31 div p:nth-child(2),
 .hero.hero31 div p:nth-child(3),
 .hero.hero31 div p:nth-child(4) {
@@ -551,10 +542,9 @@
 }
 
 .hero.hero31 div p:nth-child(4) {
-  margin-bottom: 14px; /* slightly more space before heading */
+  margin-bottom: 14px;
 }
 
-/* Heading: large, bold, left, tight to tags */
 .hero.hero31 div h1,
 .hero.hero31 div h2 {
   color: #111;
@@ -567,7 +557,6 @@
   max-width: 98%;
 }
 
-/* Body paragraphs: left, readable width, compact spacing */
 .hero.hero31 div p:nth-child(n+5) {
   color: #292929;
   font-size: var(--body-font-size-s);
@@ -582,7 +571,6 @@
   margin-bottom: 0;
 }
 
-/* Responsive: narrower column, reduced paddings/gaps for mobile */
 @media (width <= 900px) {
   .hero.hero31 div {
     max-width: 99vw;
@@ -605,7 +593,6 @@
   }
 }
 
-/* IMAGE SIDE-BY-SIDE SUPPORT (if image is present as a sibling in hero) */
 .hero.hero31 .picture {
   flex: 1;
   order: 2;
@@ -614,14 +601,13 @@
   justify-content: flex-end;
   max-width: 100%;
   height: 100%;
-  z-index: unset; /* Remove z-index per constraints */
+  z-index: unset;
 }
 
 .hero.hero31 .picture.left {
   order: 1;
 }
 
-/* Image object-fit for aspect ratio preservation */
 .hero.hero31 .picture img {
   width: 100%;
   height: 100%;
@@ -629,4 +615,142 @@
   display: block;
 }
 
-/* If hero should span full width (background image scenario only) */
+
+/* Make hero span the full page width if image is intended as a side element */
+
+/* Root hero block: side-by-side image and content, full width */
+.hero.hero40 {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  width: 100vw;
+  min-height: 60vh;
+  margin: 0;
+  padding: 0;
+  background: #000; /* fallback if image fails */
+  overflow: hidden;
+  position: relative;
+}
+
+/* Image column (assumes .picture or picture is a descendant) */
+.hero.hero40 .picture,
+.hero.hero40 picture {
+  flex: 1;
+  order: 1;
+  display: flex;
+  align-items: stretch;
+  justify-content: flex-start;
+  min-width: 0;
+
+  /* intentionally no z-index */
+}
+
+/* Ensure image fills and covers its container */
+.hero.hero40 img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  min-height: 100%;
+  max-width: 100%;
+}
+
+/* Text content column (second direct div in the hero) */
+.hero.hero40 div:not(.picture, picture) {
+  flex: 1;
+  order: 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  min-width: 0;
+  max-width: 540px;
+  padding: 6vw 5vw 6vw 6vw;
+  color: #fff;
+  box-sizing: border-box;
+  position: relative;
+  height: 100%;
+  text-align: left;
+
+  /* subtle dark fade for readability over image */
+  background: linear-gradient(90deg, rgb(0 0 0 / 68%) 70%, rgb(0 0 0 / 0%) 100%);
+}
+
+/* Headline styling */
+.hero.hero40 h1 {
+  font-size: clamp(2.8rem, 6vw, 5rem);
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  line-height: 1.08;
+  margin: 0 0 1.2em;
+  color: #fff;
+  text-align: left;
+}
+
+/* Supporting text styling */
+.hero.hero40 p {
+  font-size: 1.2rem;
+  line-height: 1.6;
+  margin: 0 0 1.4em;
+  color: #fff;
+  text-align: left;
+  max-width: 32em;
+}
+
+/* Button styling - more specific to override base styles */
+.hero-container .hero-wrapper .block.hero .button,
+.hero-container .hero-wrapper .block.hero a.button {
+  background: rgb(34 34 34 / 84%);
+  color: #fff;
+  border: 2px solid #fff;
+  border-radius: 2.4em;
+  padding: 0.85em 2.1em;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  font-size: 1.05rem;
+  text-align: center;
+  margin-top: 1.5em;
+  box-shadow: none;
+  transition: background 0.2s, color 0.2s, border-color 0.2s;
+  align-self: flex-start;
+}
+
+/* Button hover/focus effect */
+.hero-container .hero-wrapper .block.hero .button:hover,
+.hero-container .hero-wrapper .block.hero a.button:hover {
+  background: #fff;
+  color: #222;
+  border-color: #222;
+}
+
+/* Responsive stacking for mobile/small screens */
+@media (width <= 900px) {
+  .hero.hero40 {
+    flex-direction: column;
+    min-height: 40vh;
+    width: 100vw;
+  }
+
+  .hero.hero40 .picture,
+  .hero.hero40 picture {
+    flex: none;
+    order: 1;
+    width: 100%;
+    min-height: 220px;
+    max-height: 40vh;
+  }
+
+  .hero.hero40 div:not(.picture, picture) {
+    order: 2;
+    padding: 4vw;
+    max-width: 100vw;
+    width: 100%;
+    background: linear-gradient(180deg, rgb(0 0 0 / 62%) 60%, rgb(0 0 0 / 0%) 100%);
+  }
+
+  .hero.hero40 h1, .hero.hero40 p {
+    text-align: left;
+    font-size: 1.1em;
+    max-width: 100%;
+  }
+}
