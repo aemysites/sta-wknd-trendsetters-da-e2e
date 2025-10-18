@@ -991,13 +991,11 @@
 
 
 .cards.cards34 {
-  /* Ensure the block uses full width and proper background */
   background: var(--background-color);
   padding: 0;
   margin: 0;
 }
 
-/* The main grid for 2x2 layout, always with gaps */
 .cards.cards34 ul {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -1009,7 +1007,6 @@
   width: 100%;
 }
 
-/* Each card: horizontal layout with image left and content right */
 .cards.cards34 ul li {
   display: flex;
   flex-direction: row;
@@ -1023,7 +1020,6 @@
   transition: box-shadow 0.25s;
 }
 
-/* Image column, always reserves space even if empty */
 .cards.cards34 .cards-card-image {
   flex: 0 0 43%;
   max-width: 43%;
@@ -1033,7 +1029,7 @@
   align-items: center;
   justify-content: center;
   min-height: 120px;
-  background: #f6f6f8; /* subtle placeholder if no image */
+  background: #f6f6f8;
   border-radius: 18px;
   overflow: hidden;
 }
@@ -1047,7 +1043,6 @@
   display: block;
 }
 
-/* Content column: vertical stack */
 .cards.cards34 .cards-card-body {
   flex: 1 1 0;
   min-width: 0;
@@ -1059,8 +1054,6 @@
   padding: 0;
   box-sizing: border-box;
 }
-
-/* Top "meta row": badge and read time always inline, never wrapping */
 
 .cards.cards34 .cards-card-body p:first-child,
 .cards.cards34 .cards-card-body p:nth-child(2) {
@@ -1089,7 +1082,6 @@
   margin-top: 0;
 }
 
-/* Headline/title */
 .cards.cards34 .cards-card-body h3 {
   margin: 16px 0 8px;
   font-size: 22px;
@@ -1100,7 +1092,6 @@
   text-align: left;
 }
 
-/* Description/paragraph */
 .cards.cards34 .cards-card-body p {
   color: #666;
   font-size: 15px;
@@ -1114,7 +1105,6 @@
   margin-bottom: 16px;
 }
 
-/* "Read" action: simple text link, visually distinct but not a button */
 .cards.cards34 .cards-card-body .button,
 .cards.cards34 .cards-card-body a.button {
   background: none;
@@ -1143,7 +1133,6 @@
   text-decoration: underline;
 }
 
-/* Responsive: stack cards vertically on mobile */
 @media (width <= 900px) {
   .cards.cards34 ul {
     grid-template-columns: 1fr;
@@ -1169,8 +1158,93 @@
   }
 }
 
-/* Accessibility: ensure spacing is consistent between elements */
 .cards.cards34 .cards-card-body h3 + p,
 .cards.cards34 .cards-card-body p:nth-child(4) + .button {
   margin-top: 0;
+}
+
+
+.cards.cards35 {
+  /* Ensure block doesn't have unwanted padding or border */
+  padding: 0;
+  margin: 0 auto;
+  background: none;
+  border: none;
+  box-sizing: border-box;
+  max-width: 1200px;
+}
+
+/* Card grid: 3 columns, responsive, centered */
+.cards.cards35 ul {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  place-items: center center;
+  width: 100%;
+}
+
+/* Each card: square, rounded corners, no border or background */
+.cards.cards35 li {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: stretch;
+  border: none;
+  background: none;
+  border-radius: 18px;
+  overflow: hidden;
+  aspect-ratio: 1 / 1;
+  min-width: 0;
+  min-height: 0;
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+/* Card image: fills card, maintains rounded corners */
+.cards.cards35 .cards-card-image {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: stretch;
+  width: 100%;
+  height: 100%;
+  border-radius: 18px;
+  overflow: hidden;
+  background: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* Images: fill card, cover area, rounded corners; support picture/img */
+.cards.cards35 .cards-card-image img,
+.cards.cards35 .cards-card-image picture {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 18px;
+  display: block;
+  margin: 0;
+  padding: 0;
+}
+
+/* Hide body if not used for overlays/text */
+.cards.cards35 .cards-card-body {
+  display: none;
+}
+
+/* Responsive adjustments: 2 columns at medium sizes, 1 column at small */
+@media (width <= 899px) {
+  .cards.cards35 ul {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (width <= 599px) {
+  .cards.cards35 ul {
+    grid-template-columns: 1fr;
+  }
 }
