@@ -6,6 +6,12 @@
 
 .columns img {
   width: 100%;
+  display: block;
+  margin: 48px 0 0;
+  border-radius: 22px;
+  object-fit: cover;
+  aspect-ratio: 16/9;
+  max-height: 480px;
 }
 
 .columns > div > div {
@@ -35,18 +41,20 @@
 
 
 .columns {
-  background-color: var(--background-color);
   width: 100%;
   min-height: 60vh;
-  display: grid;
+  display: block;
   justify-content: center;
   align-items: flex-start;
   box-sizing: border-box;
-  padding: 32px 0;
+  padding: 48px 64px 32px;
   grid-template-columns: repeat(3, 1fr);
   gap: 32px;
-  margin: 0 auto;
-  background-color: transparent;
+  margin: 48px auto 0;
+  background: var(--background-color);
+  border-radius: 24px;
+  box-shadow: none;
+  max-width: 1200px;
 }
 
 .columns .block.columns-2-cols {
@@ -207,15 +215,10 @@
   }
 }
 
-
-/* Responsive, image-card visual columns block */
-
-/* Hide any extra columns beyond the first 3 visual cards */
 .columns div:nth-child(n+4) {
   display: none;
 }
 
-/* Card styles for each column */
 .columns div {
   border-radius: 20px;
   overflow: hidden;
@@ -231,7 +234,6 @@
   transition: box-shadow 0.2s;
 }
 
-/* Ensure any img fills its card as a cover image */
 .columns div img {
   width: 100%;
   height: 100%;
@@ -240,7 +242,6 @@
   display: block;
 }
 
-/* Hide headings, lists, paragraphs, buttons, and links inside the cards */
 .columns div h1,
 .columns div h2,
 .columns div h3,
@@ -258,7 +259,6 @@
   display: none;
 }
 
-/* Responsive: stack cards vertically and stretch on small screens */
 @media (width <= 900px) {
   .columns {
     grid-template-columns: 1fr;
@@ -270,4 +270,157 @@
     aspect-ratio: 16 / 10;
     max-width: 98vw;
   }
+}
+
+.columns .columns-wrapper,
+.columns .block {
+  display: contents;
+}
+
+.columns .columns21 {
+  display: flex;
+  flex-flow: row wrap;
+  gap: 56px;
+  align-items: flex-start;
+}
+
+@media (width <= 900px) {
+  .columns {
+    padding: 32px 8px 24px;
+    margin: 24px auto 0;
+  }
+
+  .columns .columns21 {
+    flex-direction: column;
+    gap: 32px;
+  }
+}
+
+.columns .columns21 div:first-child {
+  flex: 2 1 340px;
+  min-width: 240px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  justify-content: flex-start;
+}
+
+.columns .columns21 div:not(:first-child) {
+  flex: 1 1 320px;
+  min-width: 240px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  justify-content: flex-start;
+}
+
+.columns .columns21 div:not(:first-child) div,
+.columns .columns21 div:not(:first-child) .columns-card {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 18px;
+  padding-bottom: 0;
+  margin-bottom: 0;
+}
+
+.columns .columns21 div:not(:first-child) .icon,
+.columns .columns21 div:not(:first-child) img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: #f0f0f0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.columns .columns21 div:not(:first-child) label,
+.columns .columns21 div:not(:first-child) span {
+  color: #888;
+  font-size: var(--body-font-size-xs);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-bottom: 3px;
+  display: block;
+}
+
+.columns .columns21 div:not(:first-child) p,
+.columns .columns21 div:not(:first-child) a {
+  color: #222;
+  font-size: var(--body-font-size-s);
+  line-height: 1.4;
+  margin: 0;
+  text-align: left;
+}
+
+.columns .columns21 h1,
+.columns .columns21 h2,
+.columns .columns21 h3 {
+  color: var(--text-color);
+  font-weight: 700;
+  margin: 0 0 20px;
+  line-height: 1.1;
+  letter-spacing: 0.01em;
+}
+
+.columns .columns21 p {
+  color: #555;
+  margin: 0 0 16px;
+  font-size: var(--body-font-size-s);
+  line-height: 1.6;
+}
+
+.columns .columns21 .button,
+.columns .columns21 .button-container .button {
+  margin-top: 24px;
+  min-width: 140px;
+}
+
+.columns .columns21 div:not(:first-child) ul,
+.columns .columns21 div:not(:first-child) ol {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.columns .columns21 div:not(:first-child) li {
+  margin-bottom: 14px;
+}
+
+.columns .columns21 div:not(:first-child) li a {
+  color: #555;
+  font-size: var(--body-font-size-s);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.columns .columns21 div:not(:first-child) li a:hover {
+  color: #111;
+}
+
+@media (width <= 900px) {
+  .columns img {
+    margin-top: 32px;
+    border-radius: 16px;
+    aspect-ratio: 16/9;
+    max-height: 220px;
+  }
+}
+
+.columns img + img {
+  margin-top: 32px;
+}
+
+.columns .columns21 + img {
+  margin-top: 40px;
+}
+
+.columns .columns21 div,
+.columns .columns21 div:not(:first-child),
+.columns .columns21 div:first-child {
+  background: none;
+  box-shadow: none;
 }
