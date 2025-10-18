@@ -60,3 +60,90 @@
   top: 4px;
   left: 7px;
 }
+
+
+.embed.embedvideo25 {
+  /* Center the entire block for visual balance */
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  background: #fff;
+  border-radius: 32px;
+  box-shadow: 0 4px 32px 0 rgb(32 32 32 / 10%), 0 1.5px 8px 0 rgb(32 32 32 / 3%);
+  max-width: 760px;
+  margin: 64px auto 48px;
+  padding: 56px 24px;
+  box-sizing: border-box;
+  min-height: 440px;
+
+  /* Prevent the block from stretching too wide on large screens */
+}
+
+.embed.embedvideo25 .embed-placeholder {
+  /* Keep video visually dominant and centered in block */
+  margin: 0 auto;
+  width: 100%;
+  max-width: 560px;
+  aspect-ratio: 16/9;
+  background: #fff;
+  border-radius: 24px;
+  box-shadow: 0 4px 24px 0 rgb(32 32 32 / 10%);
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.embed.embedvideo25 .embed-placeholder img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 24px;
+  object-fit: cover;
+  background: #fff;
+}
+
+.embed.embedvideo25 .embed-placeholder-play {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.embed.embedvideo25 .embed-placeholder-play button {
+  width: 68px;
+  height: 68px;
+  border-radius: 50%;
+  background: #fff;
+  border: 1.5px solid #181818;
+  box-shadow: 0 2px 12px 0 rgb(32 32 32 / 9%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  padding: 0;
+}
+
+/* Responsive layout for mobile */
+@media (width <= 900px) {
+  .embed.embedvideo25 {
+    padding: 24px 4vw;
+    border-radius: 20px;
+    min-height: unset;
+    max-width: 98vw;
+  }
+
+  .embed.embedvideo25 .embed-placeholder {
+    max-width: 100%;
+    border-radius: 16px;
+  }
+
+  .embed.embedvideo25 .embed-placeholder img {
+    border-radius: 16px;
+  }
+}
