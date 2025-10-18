@@ -258,7 +258,6 @@
   }
 }
 
-/* Main layout: collage on left, content on right */
 .hero.hero20 {
   display: flex;
   flex-direction: row;
@@ -267,7 +266,6 @@
   min-height: 100vh;
 }
 
-/* Responsive: stack vertically on small screens */
 @media (width <=900px) {
   .hero.hero20 {
     flex-direction: column;
@@ -275,7 +273,6 @@
   }
 }
 
-/* Collage Images Section (left side) */
 .hero.hero20 .collage,
 .hero.hero20 div:first-child {
   flex: 1 1 0;
@@ -309,7 +306,6 @@
   display: block;
 }
 
-/* Content Section (right side) */
 .hero.hero20 .hero-content,
 .hero.hero20 div:last-child {
   flex: 1 1 0;
@@ -332,7 +328,6 @@
   }
 }
 
-/* Headline styling */
 .hero.hero20 h1 {
   color: #fff;
   font-size: clamp(2.5rem, 7vw, 5rem);
@@ -345,7 +340,6 @@
   max-width: 18ch;
 }
 
-/* Subheading styling */
 .hero.hero20 p {
   color: #E2E2E2;
   font-size: 1.35rem;
@@ -355,7 +349,6 @@
   text-align: center;
 }
 
-/* Button container: horizontal row, center aligned */
 .hero.hero20 .hero-content .button-row,
 .hero.hero20 div:last-child .button-row {
   display: flex;
@@ -366,7 +359,6 @@
   margin-bottom: 0;
 }
 
-/* Buttons */
 .hero.hero20 .button,
 .hero.hero20 a.button {
   background: rgb(0 0 0 / 36%);
@@ -385,7 +377,6 @@
   min-width: 120px;
 }
 
-/* On hover/focus */
 .hero.hero20 .button:hover,
 .hero.hero20 a.button:hover,
 .hero.hero20 .button:focus,
@@ -395,7 +386,6 @@
   border-color: #fff;
 }
 
-/* Responsive: Stack buttons vertically on small screens */
 @media (width <=700px) {
   .hero.hero20 .hero-content .button-row,
   .hero.hero20 div:last-child .button-row {
@@ -409,5 +399,100 @@
     width: 80vw;
     min-width: 0;
     max-width: 100%;
+  }
+}
+
+.hero.hero29 {
+  width: 100vw;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  background: none;
+}
+
+/* Position image on left, fill available space */
+.hero.hero29 picture,
+.hero.hero29 img {
+  flex: 1;
+  order: 1;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Text container: right side, fill available space and center text */
+.hero.hero29 div {
+  flex: 1;
+  order: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 0;
+  min-height: 0;
+  position: relative;
+}
+
+/* Center text vertically and horizontally */
+.hero.hero29 div div {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 0;
+  min-height: 0;
+  text-align: center;
+}
+
+/* Headings: large, bold, centered, visually prominent */
+.hero.hero29 h1,
+.hero.hero29 h2,
+.hero.hero29 h3,
+.hero.hero29 h4,
+.hero.hero29 h5,
+.hero.hero29 h6 {
+  color: #fff;
+  text-align: center;
+  margin: 0;
+  padding: 0;
+  font-size: clamp(2rem, 8vw, 6rem);
+  font-weight: 600;
+  line-height: 1.1;
+  letter-spacing: 0.04em;
+  width: 100%;
+  text-shadow: 0 2px 14px rgb(0 0 0 / 40%);
+  box-sizing: border-box;
+}
+
+/* Responsive stacking for mobile: stack image and text vertically */
+@media (width <= 900px) {
+  .hero.hero29 {
+    flex-direction: column;
+  }
+
+  .hero.hero29 picture,
+  .hero.hero29 img,
+  .hero.hero29 div {
+    width: 100vw;
+    height: 50vh;
+    min-height: 200px;
+    max-width: 100vw;
+  }
+
+  .hero.hero29 h1,
+  .hero.hero29 h2,
+  .hero.hero29 h3,
+  .hero.hero29 h4,
+  .hero.hero29 h5,
+  .hero.hero29 h6 {
+    font-size: clamp(2rem, 10vw, 4rem);
+    padding: 0 3vw;
   }
 }
