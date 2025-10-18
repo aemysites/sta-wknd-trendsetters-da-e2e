@@ -117,7 +117,6 @@
   display: none;
 }
 
-/* Responsive */
 @media (width <= 900px) {
   .hero.hero5.block {
     flex-direction: column;
@@ -129,5 +128,143 @@
 
   .hero.hero5.block > div:last-child {
     min-height: 40vh;
+  }
+}
+
+
+/* Ensure the hero block fills its parent */
+.hero.hero6.block {
+  display: flex;
+  position: relative;
+  width: 100%;
+  min-height: 500px; /* Adjust as needed for height */
+  overflow: hidden;
+  background: #222; /* fallback color */
+}
+
+/* The image wrapper (first child) - use ::after for background image overlay */
+.hero.hero6.block > div:first-child {
+  flex: 1 1 0%;
+  position: relative;
+  min-width: 0;
+  height: 100%;
+}
+
+/* The image itself fills parent */
+.hero.hero6.block > div:first-child picture,
+.hero.hero6.block > div:first-child img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* The overlay wrapper (second child) */
+.hero.hero6.block > div:nth-child(2) {
+  flex: 0 0 40%; /* Overlay takes ~40% width, adjust as needed */
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  z-index: 2;
+  pointer-events: none;
+}
+
+/* The semi-transparent rectangle */
+.hero.hero6.block > div:nth-child(2) > div {
+  background: rgb(24 24 24 / 70%);
+  border-radius: 1.5rem;
+  border: 1px solid #fff;
+  padding: 2.5rem 2rem;
+  max-width: 480px;
+  margin-left: 2.5rem;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  pointer-events: auto;
+}
+
+/* Headline styling */
+.hero.hero6.block h1 {
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin: 0 0 1rem;
+  color: #fff;
+  font-family: Inter, 'Helvetica Neue', Arial, sans-serif;
+}
+
+/* Paragraph styling */
+.hero.hero6.block p:not(.button-container) {
+  font-size: 1.125rem;
+  color: #e5e5e5;
+  margin: 0 0 2rem;
+}
+
+/* Button container: horizontal layout */
+.hero.hero6.block .button-container {
+  display: flex;
+  gap: 1rem;
+  margin-top: auto;
+}
+
+/* Buttons */
+.hero.hero6.block .button {
+  font-family: inherit;
+  font-size: 1rem;
+  font-weight: 500;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.5rem;
+  text-decoration: none;
+  transition: background 0.2s, color 0.2s, border-color 0.2s;
+  border: 1.5px solid #fff;
+  color: #fff;
+  background: transparent;
+  backdrop-filter: blur(4px);
+  box-shadow: 0 2px 8px rgb(0 0 0 / 10%);
+}
+
+.hero.hero6.block .button:hover,
+.hero.hero6.block .button:focus {
+  background: rgb(255 255 255 / 12%);
+  color: #fff;
+}
+
+/* Responsive adjustments */
+@media (width <= 900px) {
+  .hero.hero6.block {
+    flex-direction: column;
+    min-height: 360px;
+  }
+
+  .hero.hero6.block > div:nth-child(2) {
+    position: static;
+    height: auto;
+    flex: 1 1 auto;
+    margin-top: -5rem;
+  }
+
+  .hero.hero6.block > div:nth-child(2) > div {
+    margin-left: 1rem;
+    margin-right: 1rem;
+    padding: 2rem 1rem;
+    max-width: none;
+  }
+}
+
+/* On very small screens, stack and remove border radius if needed */
+@media (width <= 600px) {
+  .hero.hero6.block {
+    min-height: 250px;
+  }
+
+  .hero.hero6.block > div:nth-child(2) > div {
+    border-radius: 0.75rem;
+    padding: 1.25rem 0.5rem;
+    margin-left: 0.5rem;
+    margin-right: 0.5rem;
   }
 }
