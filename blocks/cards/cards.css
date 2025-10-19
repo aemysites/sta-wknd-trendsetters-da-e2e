@@ -446,7 +446,6 @@
   }
 }
 
-/* Card container */
 .cards.cards12 li {
   display: flex;
   flex-direction: column;
@@ -460,7 +459,6 @@
   box-sizing: border-box;
 }
 
-/* Card image with taller aspect */
 .cards.cards12 .cards-card-image {
   position: relative;
   width: 100%;
@@ -481,7 +479,6 @@
   border-radius: 20px 20px 0 0;
 }
 
-/* Pill tags: overlay at the top of the image */
 .cards.cards12 .cards-card-image .cards-pill-row,
 .cards.cards12 .cards-card-image .cards-card-body-pill-row {
   display: flex;
@@ -493,7 +490,6 @@
   z-index: 2;
 }
 
-/* With default HTML: use first two p as pills, position over image */
 .cards.cards12 .cards-card-body p:nth-child(1),
 .cards.cards12 .cards-card-body p:nth-child(2) {
   position: absolute;
@@ -519,18 +515,14 @@
 .cards.cards12 .cards-card-body p:nth-child(2) {
   left: auto;
   margin-left: 10px;
-
-  /* The second pill sits to the right of the first: calculate margin-left based on pill width */
   transform: translateX(120%);
 }
 
-/* Move all subsequent content down to allow pill overlay space */
 .cards.cards12 .cards-card-body h3,
 .cards.cards12 .cards-card-body p:not(:nth-child(1), :nth-child(2)) {
   margin-top: 54px;
 }
 
-/* Card body layout */
 .cards.cards12 .cards-card-body {
   position: relative;
   padding: 0 24px 28px;
@@ -553,7 +545,6 @@
   padding: 0;
 }
 
-/* Responsive adjustments */
 @media (width <= 700px) {
   .cards.cards12 .cards-card-body {
     padding: 0 12px 16px;
@@ -576,4 +567,109 @@
     font-size: 1.1em;
     margin-top: 40px;
   }
+}
+
+
+.cards.cards19 ul {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 32px 24px;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  background: transparent;
+}
+
+@media (width <= 899px) {
+  .cards.cards19 ul {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px 16px;
+  }
+}
+
+@media (width <= 599px) {
+  .cards.cards19 ul {
+    grid-template-columns: 1fr;
+    gap: 16px 0;
+  }
+}
+
+.cards.cards19 ul li {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+  margin: 0;
+  padding: 18px 20px;
+  min-height: 48px;
+  background: transparent;
+  border: none;
+  box-shadow: none;
+}
+
+.cards.cards19 ul li .cards-card-body {
+  display: flex;
+  align-items: flex-start;
+  margin: 0;
+  padding: 0;
+  background: transparent;
+}
+
+.cards.cards19 ul li .cards-card-body:first-child {
+  margin-right: 14px;
+  flex-shrink: 0;
+}
+
+.cards.cards19 ul li .cards-card-body:first-child img {
+  width: 18px;
+  height: 18px;
+  display: block;
+  object-fit: contain;
+  margin: 0;
+  box-shadow: none;
+  background: transparent;
+  border: none;
+}
+
+.cards.cards19 ul li .cards-card-body:last-child {
+  flex: 1 1 auto;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  background: transparent;
+}
+
+/* Text styling: compact, gray, left-aligned, no font-family */
+.cards.cards19 ul li .cards-card-body p,
+.cards.cards19 ul li .cards-card-body span,
+.cards.cards19 ul li .cards-card-body strong,
+.cards.cards19 ul li .cards-card-body em {
+  color: #545454;
+  font-size: 12px;
+  line-height: 16px;
+  letter-spacing: -0.05px;
+  margin: 0;
+  padding: 0;
+  text-align: left;
+  background: transparent;
+  border: none;
+}
+
+/* Remove default list styling and backgrounds */
+.cards.cards19 ul,
+.cards.cards19 ul li {
+  list-style: none;
+  background: transparent;
+}
+
+/* Prevent image stretching on icons within cards */
+.cards.cards19 ul li img {
+  max-width: 100%;
+  height: auto;
+  object-fit: contain;
+  border: none;
+  box-shadow: none;
+  background: transparent;
 }
