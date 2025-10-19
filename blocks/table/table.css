@@ -50,18 +50,110 @@
   margin-top: 0.25em;
 }
 
-/* no header variant */
 .table.block.no-header table tbody tr {
   border-top: 1px solid;
 }
 
-/* striped variant */
-.table.block.striped tbody tr:nth-child(odd) {
-  background-color: var(--overlay-background-color);
+
+.table.striped.bordered.tablestripedbordered18 {
+  background: #fff;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  border-radius: 0;
+  box-shadow: none;
+  border: none;
+  box-sizing: border-box;
 }
 
-/* bordered variant */
-.table.block.bordered table th,
-.table.block.bordered table td {
-  border: 1px solid;
+.table.striped.bordered.tablestripedbordered18 table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  background: #fff;
+}
+
+.table.striped.bordered.tablestripedbordered18 tbody,
+.table.striped.bordered.tablestripedbordered18 thead {
+  width: 100%;
+}
+
+/* Responsive two-column layout using flex for table rows */
+.table.striped.bordered.tablestripedbordered18 tr {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  align-items: flex-start;
+  background: #fff;
+  box-sizing: border-box;
+}
+
+/* Divider: thin light gray line between rows except last row */
+.table.striped.bordered.tablestripedbordered18 tbody tr:not(:last-child) {
+  border-bottom: 1px solid #dedede;
+}
+
+/* Remove cell borders and default styling */
+.table.striped.bordered.tablestripedbordered18 th,
+.table.striped.bordered.tablestripedbordered18 td {
+  border: none;
+  background: #fff;
+  margin: 0;
+  box-sizing: border-box;
+  min-width: 0;
+  flex: 1 1 0;
+  vertical-align: top;
+  overflow-wrap: break-word;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+/* Left column: visually prominent, uppercase, larger, gray, left aligned */
+.table.striped.bordered.tablestripedbordered18 th,
+.table.striped.bordered.tablestripedbordered18 td:first-child {
+  color: #5b5b5b;
+  font-size: 18px;
+  text-transform: uppercase;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  padding-left: 24px;
+  padding-right: 18px;
+  align-items: flex-start;
+  justify-content: flex-start;
+  display: flex;
+}
+
+/* Right column: smaller, dark gray, more left padding for separation */
+.table.striped.bordered.tablestripedbordered18 td:last-child,
+.table.striped.bordered.tablestripedbordered18 th:last-child {
+  color: #2c2c2c;
+  font-size: 12px;
+  font-weight: 400;
+  text-transform: none;
+  line-height: 1.5;
+  padding-left: 32px;
+  padding-right: 24px;
+  align-items: flex-start;
+  justify-content: flex-start;
+  display: flex;
+}
+
+/* Responsive: stack columns vertically below 700px */
+@media (width <= 700px) {
+  .table.striped.bordered.tablestripedbordered18 tr {
+    flex-direction: column;
+  }
+
+  .table.striped.bordered.tablestripedbordered18 th,
+  .table.striped.bordered.tablestripedbordered18 td {
+    width: 100%;
+    max-width: 100%;
+    padding: 16px;
+  }
+
+  .table.striped.bordered.tablestripedbordered18 td:last-child,
+  .table.striped.bordered.tablestripedbordered18 th:last-child {
+    padding-left: 0;
+    padding-right: 0;
+  }
 }
