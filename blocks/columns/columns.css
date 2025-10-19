@@ -1,3 +1,4 @@
+/* stylelint-disable no-descending-specificity */
 .columns > div {
   display: flex;
   flex-direction: column;
@@ -30,4 +31,86 @@
     flex: 1;
     order: unset;
   }
+}
+
+
+/* Block background and vertical padding */
+.columns.columns1 {
+  background: #f6f7f4;
+  padding-top: 48px;
+  padding-bottom: 48px;
+  width: 100%;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+/* Main row: grid for precise even distribution of columns */
+.columns.columns1 .block.columns {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 32px;
+  width: 100%;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  align-items: start;
+}
+
+/* Column group: stack items vertically and center */
+.columns.columns1 .block.columns div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 24px;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-align: center;
+}
+
+/* Inner column items: stack images and captions */
+.columns.columns1 .block.columns div div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-align: center;
+}
+
+/* Responsive: stack columns vertically for narrow screens */
+@media (width <= 900px) {
+  .columns.columns1 .block.columns {
+    grid-template-columns: 1fr;
+    gap: 48px;
+  }
+}
+
+/* Image styles */
+.columns.columns1 img {
+  display: block;
+  margin: 0 auto 16px;
+  border-radius: 8px;
+  max-width: 100%;
+  height: auto;
+}
+
+/* Caption styles (no font-family, use inherited font) */
+.columns.columns1 p {
+  color: #262626;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 1.4;
+  margin: 0 0 24px;
+  text-align: center;
+}
+
+/* Picture tags for image alignment consistency */
+.columns.columns1 picture {
+  display: block;
+  margin: 0;
+  padding: 0;
 }
