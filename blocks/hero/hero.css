@@ -154,12 +154,6 @@
   }
 }
 
-
-/* --- HERO 13: Revised Layout and Styling --- */
-
-/* Full-bleed background handling for hero block */
-
-/* Main block: overlay and flex layout */
 .hero.hero13 {
   position: relative;
   min-height: 500px;
@@ -176,7 +170,6 @@
   box-shadow: 0 8px 64px 0 rgb(0 0 0 / 13%);
 }
 
-/* Overlay: visually separate content from bg image */
 .hero.hero13::before {
   position: absolute;
   inset: 0;
@@ -186,7 +179,6 @@
   z-index: 0;
 }
 
-/* Layout: .picture (image) and content side by side */
 .hero.hero13 .picture,
 .hero.hero13 picture,
 .hero.hero13 img {
@@ -197,12 +189,10 @@
   justify-content: center;
 }
 
-/* Remove z-index from image wrapper */
 .hero.hero13 .picture {
   z-index: unset;
 }
 
-/* Image styling */
 .hero.hero13 img {
   object-fit: cover;
   width: 290px;
@@ -217,7 +207,6 @@
   margin-right: 0;
 }
 
-/* Content column: headline, list, button stacked vertically */
 .hero.hero13 .block,
 .hero.hero13 .content,
 .hero.hero13 .text-wrapper,
@@ -234,7 +223,6 @@
   z-index: 1;
 }
 
-/* Headline styling: uppercase, bold, spaced */
 .hero.hero13 h1,
 .hero.hero13 h2,
 .hero.hero13 h3 {
@@ -247,7 +235,6 @@
   line-height: 1.12;
 }
 
-/* Subtext/list items */
 .hero.hero13 p {
   color: #b3b3b3;
   font-size: 1.13rem;
@@ -259,7 +246,6 @@
   gap: 10px;
 }
 
-/* Inline icons/arrows left of list text */
 .hero.hero13 p .icon,
 .hero.hero13 p img {
   width: 22px;
@@ -268,7 +254,6 @@
   vertical-align: middle;
 }
 
-/* Subscribe button: pill, outlined, high contrast */
 .hero-container .hero-wrapper .block.hero.hero13 .button,
 .hero-container .hero-wrapper .block.hero.hero13 a.button {
   background: transparent;
@@ -298,7 +283,6 @@
   text-decoration: none;
 }
 
-/* Responsive: stack vertically and adjust paddings/gaps */
 @media (width <= 899px) {
   .hero.hero13 {
     flex-direction: column;
@@ -335,4 +319,110 @@
   .hero.hero13 a.button {
     padding: 0.7em 1.5em;
   }
+}
+
+
+.hero.hero20.block {
+  position: relative;
+  width: 100vw;
+  min-height: 100vh; /* full viewport height */
+  overflow: hidden;
+}
+
+/* First child: image grid as background */
+.hero.hero20.block > div:first-child {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: grid; /* or flex */
+  grid-template-columns: repeat(5, 1fr);  /* Adjust for number of images */
+  grid-template-rows: repeat(2, 1fr);     /* Adjust for number of images */
+  gap: 0;
+  z-index: 1;
+}
+
+/* Ensure images fill their grid cells */
+.hero.hero20.block > div:first-child picture,
+.hero.hero20.block > div:first-child img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Second child: overlay content */
+.hero.hero20.block > div:last-child {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;      /* center horizontally */
+  height: 100vh;            /* full block height */
+  width: 100vw;             /* full block width */
+}
+
+/* Prevent overlay content from shrinking */
+.hero.hero20.block > div:last-child > div {
+  width: 100%;
+  max-width: 900px; /* or whatever fits your design */
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Heading styling */
+.hero.hero20.block h1 {
+  color: #fff;
+  font-size: clamp(3rem, 8vw, 6rem); /* responsive, very large */
+  font-family: Montserrat, Arial, sans-serif;  /* replace with geometric sans-serif */
+  font-weight: 800;
+  letter-spacing: 0.15em; 
+  text-transform: uppercase;
+  line-height: 1.12;
+  text-align: left;
+  margin-bottom: 2rem;
+}
+
+/* Description */
+.hero.hero20.block > div:last-child p:not(.button-container) {
+  color: #e0e0e0;
+  font-size: 1.25rem;
+  font-weight: 400;
+  text-align: left;
+  margin-bottom: 2rem;
+}
+
+/* Button container: make buttons side by side */
+.hero.hero20.block > div:last-child .button-container {
+  display: inline-block;
+  margin-right: 1rem;
+}
+
+/* Button styling */
+.hero.hero20.block a.button {
+  display: inline-block;
+  padding: 0.8em 2em;
+  border: 2px solid #fff;
+  border-radius: 2em;
+  color: #fff;
+  background: transparent;
+  font-size: 1.15rem;
+  font-family: inherit;
+  font-weight: 600;
+  text-align: center;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+}
+
+.hero.hero20.block a.button:hover,
+.hero.hero20.block a.button:focus {
+  background: #fff;
+  color: #222;
+}
+
+.hero.hero20.block > div:last-child .button-container:last-child {
+  margin-right: 0;
 }
