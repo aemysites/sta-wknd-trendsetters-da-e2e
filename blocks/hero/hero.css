@@ -573,7 +573,6 @@
   display: block;
 }
 
-/* Ensure the image fills the hero block, acts as visual background */
 .hero.hero29 div picture,
 .hero.hero29 div img {
   position: absolute;
@@ -585,20 +584,16 @@
   display: block;
 }
 
-/* Center the overlay text vertically and horizontally using flexbox */
 .hero.hero29 div:not(:first-child) {
   position: absolute;
   top: 0; left: 0; width: 100%; height: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
-
-  /* Prevent text from blocking image interactivity (if no buttons/links) */
   pointer-events: none;
   z-index: 1;
 }
 
-/* Headline styling: large, thin, centered, responsive */
 .hero.hero29 h1 {
   color: #fff;
   text-align: center;
@@ -608,13 +603,10 @@
   font-size: clamp(2.5rem, 7vw, var(--heading-font-size-xxl));
   padding: 0 2vw;
   letter-spacing: 0.03em;
-
-  /* Add subtle text-shadow for contrast on variable images */
   text-shadow: 0 4px 16px rgb(0 0 0 / 18%);
   pointer-events: auto;
 }
 
-/* Responsive height & font sizing for smaller screens */
 @media (width <= 900px) {
   .hero.hero29 {
     min-height: 35vh;
@@ -626,3 +618,78 @@
     padding: 0 5vw;
   }
 }
+
+
+.hero.hero38.block.no-image {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  background: #fff;
+  padding: 48px 0;
+  border-bottom: 1px solid #000;
+  width: 100%;
+  gap: 64px;
+}
+
+.hero.hero38.block.no-image > div:first-child {
+  flex: 1 1 0;
+
+  /* If it's just a spacer, you could use: min-width: 120px; */
+}
+
+.hero.hero38.block.no-image > div:last-child {
+  flex: 2 1 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.hero.hero38.block.no-image h2 {
+  font-family: Montserrat, Arial, sans-serif;
+  font-size: 48px;
+  font-weight: 700;
+  color: #000;
+  margin: 0 0 16px;
+  letter-spacing: normal;
+}
+
+.hero.hero38.block.no-image p:not(.button-container) {
+  font-size: 14px;
+  color: #757575;
+  margin-bottom: 32px; /* Space below description */
+}
+
+.button-container {
+  margin-top: 0;
+  margin-bottom: 0;
+  display: flex;
+  justify-content: flex-start;
+}
+
+.button {
+  display: inline-block;
+  width: 400px;
+  height: 48px;
+  line-height: 48px;
+  text-align: center;
+  font-size: 14px;
+  font-weight: 500;
+  color: #000;
+  background: #fff;
+  border: 1px solid #000;
+  border-radius: 24px;
+  position: relative;
+  box-shadow: 0 2px 0 0 #E6E600;
+  text-decoration: none;
+  transition: box-shadow 0.2s;
+  border-bottom: 2px solid #E6E600;
+}
+
+.button:hover {
+  box-shadow: 0 4px 0 0 #E6E600;
+}
+
+/* If you want an actual bottom border instead of box-shadow: */
+
+/* Optional: gap between columns */
