@@ -828,7 +828,6 @@
 
 
 .cards.cards24 {
-  /* Use grid for overall centering and responsiveness */
   display: grid;
   place-items: center;
   width: 100%;
@@ -840,7 +839,6 @@
 }
 
 .cards.cards24 ul {
-  /* Remove list styling, make sure items stack vertically by default */
   margin: 0;
   padding: 0;
   list-style: none;
@@ -851,7 +849,6 @@
 }
 
 .cards.cards24 ul li {
-  /* Side by side: image and card body */
   display: flex;
   flex-direction: row;
   align-items: flex-end;
@@ -895,7 +892,6 @@
 }
 
 .cards.cards24 .cards-card-body {
-  /* Overlap, rotate, and tightly hug the image's lower right */
   position: absolute;
   right: 6px;
   bottom: 8px;
@@ -924,7 +920,6 @@
   font-weight: 400;
 }
 
-/* Decorative thin lines (no content property, just visual styling) */
 .cards.cards24 .cards-card-image::before {
   position: absolute;
   top: -13px;
@@ -949,7 +944,6 @@
   display: block;
 }
 
-/* Responsive adjustments for smaller screens */
 @media (width <= 680px) {
   .cards.cards24 ul li {
     max-width: 98vw;
@@ -980,4 +974,160 @@
 .cards.cards24 .cards-card-image *,
 .cards.cards24 .cards-card-body * {
   transform: none;
+}
+
+
+.cards.cards26 {
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 0 2.5rem;
+  background: transparent;
+}
+
+.cards.cards26 ul {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-auto-rows: 1fr;
+  gap: 1.5rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.cards.cards26 ul li:nth-child(2) {
+  grid-column: span 2;
+}
+
+.cards.cards26 ul li:nth-child(4) {
+  grid-row: span 2;
+}
+
+.cards.cards26 ul li {
+  position: relative;
+  border-radius: 1rem;
+  box-shadow: 0 6px 26px 0 rgb(50 50 50 / 10%);
+  background: var(--background-color);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  min-height: 260px;
+  transition: box-shadow 0.2s, transform 0.2s;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.cards.cards26 ul li .cards-card-image,
+.cards.cards26 ul li .cards-card-image img,
+.cards.cards26 ul li .cards-card-image picture {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  border-radius: 1rem;
+  z-index: 1;
+}
+
+.cards.cards26 ul li .cards-card-body {
+  position: absolute;
+  left: 1.5rem;
+  top: 1.5rem;
+  right: 1.5rem;
+  z-index: 2;
+  color: var(--background-color);
+  text-shadow: 0 2px 8px rgb(0 0 0 / 35%);
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.cards.cards26 ul li .cards-card-body h3 {
+  margin: 0 0 0.15em;
+  font-weight: 600;
+  font-size: 2rem;
+  letter-spacing: 0.01em;
+  line-height: 1.2;
+  color: var(--light-color);
+}
+
+.cards.cards26 ul li .cards-card-body p {
+  margin: 0;
+  font-size: 1rem;
+  color: #b0b0b0;
+  line-height: 1.6;
+}
+
+.cards.cards26 ul li .cards-card-body:empty {
+  display: none;
+}
+
+.cards.cards26 ul li:hover {
+  box-shadow: 0 12px 38px 0 rgb(50 50 50 / 16%);
+  transform: translateY(-2px) scale(1.01);
+}
+
+@media (width <= 900px) {
+  .cards.cards26 ul {
+    grid-template-columns: repeat(2, 1fr);
+    grid-auto-rows: 180px;
+  }
+
+  .cards.cards26 ul li:nth-child(2) {
+    grid-column: span 2;
+  }
+
+  .cards.cards26 ul li:nth-child(4) {
+    grid-row: span 1;
+  }
+}
+
+@media (width <= 600px) {
+  .cards.cards26 ul {
+    grid-template-columns: 1fr;
+    grid-auto-rows: 140px;
+    gap: 1rem;
+  }
+
+  .cards.cards26 ul li,
+  .cards.cards26 ul li:nth-child(2),
+  .cards.cards26 ul li:nth-child(4) {
+    grid-column: span 1;
+    grid-row: span 1;
+    min-height: 140px;
+  }
+}
+
+.cards.cards26 .testcolumns {
+  display: flex;
+  flex-direction: row;
+  gap: 1.5rem;
+  width: 100%;
+}
+
+.cards.cards26 .testcolumns .testcolumn {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0;
+  min-width: 0;
+}
+
+.cards.cards26 ul li img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 1rem;
+  display: block;
+  visibility: visible;
+  opacity: 1;
+}
+
+.cards.cards26 ul li a:any-link {
+  color: var(--background-color);
+  text-decoration: underline;
+  z-index: 3;
 }
