@@ -419,10 +419,6 @@
   margin-right: 0;
 }
 
-
-/* HERO25: Responsive, visually accurate hero block layout and styles */
-
-/* MAIN HERO LAYOUT */
 .hero.hero25 {
   display: flex;
   flex-direction: row;
@@ -436,13 +432,11 @@
   margin: 0 auto;
 }
 
-/* Remove z-index from media image if present */
 .hero.hero25 .picture,
 .hero.hero25 picture {
-  /* No z-index on image container */
+  display: block;
 }
 
-/* Left column: image (if present) or headline label */
 .hero.hero25 .picture,
 .hero.hero25 picture,
 .hero.hero25 img {
@@ -458,10 +452,6 @@
   order: 1;
 }
 
-/* For image on the right, use order: 2 instead */
-
-/* .hero.hero25 .picture, .hero.hero25 picture, .hero.hero25 img { order: 2; } */
-
 .hero.hero25 div {
   flex: 1 1 0;
   min-width: 0;
@@ -471,7 +461,6 @@
   justify-content: flex-start;
 }
 
-/* HEADLINE - large, bold, black, left-aligned, tight vertical spacing */
 .hero.hero25 div p:first-child {
   color: #181818;
   font-size: clamp(42px, 6vw, var(--heading-font-size-xxl));
@@ -481,10 +470,9 @@
   margin: 0 0 18px;
   text-align: left;
   max-width: 900px;
-  word-break: break-word;
+  word-break: break-all;
 }
 
-/* Supporting paragraph: muted color, spaced below headline */
 .hero.hero25 div p:nth-child(2) {
   color: var(--dark-color);
   font-size: var(--body-font-size-s);
@@ -494,7 +482,6 @@
   max-width: 600px;
 }
 
-/* BUTTON GROUP - row, left-aligned, horizontal gap */
 .hero.hero25 .button-container,
 .hero.hero25 div p.button-container {
   display: flex;
@@ -506,7 +493,6 @@
   align-items: flex-start;
 }
 
-/* Pill-shaped outlined button, black text/border, white background */
 .hero.hero25 .button,
 .hero.hero25 a.button {
   background: #fff;
@@ -536,13 +522,11 @@
   border-color: #181818;
 }
 
-/* Remove vertical margins from p in the hero */
 .hero.hero25 p {
   margin-top: 0;
   margin-bottom: 0;
 }
 
-/* Responsive: stack columns vertically and adjust font sizes/gaps */
 @media (width <= 900px) {
   .hero.hero25 {
     flex-direction: column;
@@ -579,11 +563,66 @@
   }
 }
 
-/* If the hero block needs to go edge-to-edge as a background image hero, use: */
-
-/*
-.hero-container .hero-wrapper {
-  max-width: unset;
-  padding: 0;
+.hero.hero29 {
+  position: relative;
+  width: 100vw;
+  min-height: 55vh;
+  height: 55vh;
+  margin: 0;
+  overflow: hidden;
+  display: block;
 }
-*/
+
+/* Ensure the image fills the hero block, acts as visual background */
+.hero.hero29 div picture,
+.hero.hero29 div img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Center the overlay text vertically and horizontally using flexbox */
+.hero.hero29 div:not(:first-child) {
+  position: absolute;
+  top: 0; left: 0; width: 100%; height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  /* Prevent text from blocking image interactivity (if no buttons/links) */
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Headline styling: large, thin, centered, responsive */
+.hero.hero29 h1 {
+  color: #fff;
+  text-align: center;
+  margin: 0;
+  line-height: 1.1;
+  font-weight: 300;
+  font-size: clamp(2.5rem, 7vw, var(--heading-font-size-xxl));
+  padding: 0 2vw;
+  letter-spacing: 0.03em;
+
+  /* Add subtle text-shadow for contrast on variable images */
+  text-shadow: 0 4px 16px rgb(0 0 0 / 18%);
+  pointer-events: auto;
+}
+
+/* Responsive height & font sizing for smaller screens */
+@media (width <= 900px) {
+  .hero.hero29 {
+    min-height: 35vh;
+    height: 35vh;
+  }
+
+  .hero.hero29 h1 {
+    font-size: clamp(1.5rem, 8vw, var(--heading-font-size-xl));
+    padding: 0 5vw;
+  }
+}
