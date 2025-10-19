@@ -410,3 +410,170 @@
     height: 120px;
   }
 }
+
+
+.cards.cards12 {
+  background: #fff;
+  padding: 64px 0;
+}
+
+.cards.cards12 .cards-wrapper {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.cards.cards12 ul {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+@media (width <= 1100px) {
+  .cards.cards12 ul {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+}
+
+@media (width <= 700px) {
+  .cards.cards12 ul {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+}
+
+/* Card container */
+.cards.cards12 li {
+  display: flex;
+  flex-direction: column;
+  background: #fff;
+  border-radius: 20px;
+  box-shadow: 0 4px 32px rgb(0 0 0 / 8%), 0 1.5px 6px rgb(0 0 0 / 3%);
+  overflow: hidden;
+  min-width: 0;
+  transition: box-shadow 0.15s;
+  position: relative;
+  box-sizing: border-box;
+}
+
+/* Card image with taller aspect */
+.cards.cards12 .cards-card-image {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 3/4.5;
+  min-height: 220px;
+  background: #e3e3e3;
+  overflow: hidden;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+}
+
+.cards.cards12 .cards-card-image img,
+.cards.cards12 .cards-card-image picture {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  border-radius: 20px 20px 0 0;
+}
+
+/* Pill tags: overlay at the top of the image */
+.cards.cards12 .cards-card-image .cards-pill-row,
+.cards.cards12 .cards-card-image .cards-card-body-pill-row {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  position: absolute;
+  top: 18px;
+  left: 18px;
+  z-index: 2;
+}
+
+/* With default HTML: use first two p as pills, position over image */
+.cards.cards12 .cards-card-body p:nth-child(1),
+.cards.cards12 .cards-card-body p:nth-child(2) {
+  position: absolute;
+  top: 18px;
+  z-index: 2;
+  background: #e3e3e3;
+  color: #1a1a1a;
+  border-radius: 999px;
+  font-size: 1em;
+  font-weight: 500;
+  line-height: 1.1;
+  white-space: nowrap;
+  padding: 6px 18px;
+  margin: 0;
+  box-shadow: 0 1px 4px rgb(0 0 0 / 3%);
+  display: inline-block;
+}
+
+.cards.cards12 .cards-card-body p:nth-child(1) {
+  left: 18px;
+}
+
+.cards.cards12 .cards-card-body p:nth-child(2) {
+  left: auto;
+  margin-left: 10px;
+
+  /* The second pill sits to the right of the first: calculate margin-left based on pill width */
+  transform: translateX(120%);
+}
+
+/* Move all subsequent content down to allow pill overlay space */
+.cards.cards12 .cards-card-body h3,
+.cards.cards12 .cards-card-body p:not(:nth-child(1), :nth-child(2)) {
+  margin-top: 54px;
+}
+
+/* Card body layout */
+.cards.cards12 .cards-card-body {
+  position: relative;
+  padding: 0 24px 28px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  flex: 1 1 auto;
+}
+
+.cards.cards12 .cards-card-body h3 {
+  margin-top: 54px;
+  margin-bottom: 12px;
+  color: #1a1a1a;
+  font-size: 1.4em;
+  font-weight: 700;
+  line-height: 1.24;
+  letter-spacing: -0.01em;
+  text-align: left;
+  word-break: break-all;
+  padding: 0;
+}
+
+/* Responsive adjustments */
+@media (width <= 700px) {
+  .cards.cards12 .cards-card-body {
+    padding: 0 12px 16px;
+  }
+
+  .cards.cards12 .cards-card-body p:nth-child(1),
+  .cards.cards12 .cards-card-body p:nth-child(2) {
+    font-size: 0.96em;
+    padding: 4px 13px;
+    top: 10px;
+    left: 10px;
+  }
+
+  .cards.cards12 .cards-card-body p:nth-child(2) {
+    margin-left: 75px;
+    transform: none;
+  }
+
+  .cards.cards12 .cards-card-body h3 {
+    font-size: 1.1em;
+    margin-top: 40px;
+  }
+}
