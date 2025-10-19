@@ -1,3 +1,4 @@
+/* stylelint-disable no-descending-specificity */
 .cards > ul {
   list-style: none;
   margin: 0;
@@ -24,4 +25,187 @@
   width: 100%;
   aspect-ratio: 4 / 3;
   object-fit: cover;
+}
+
+
+.cards.cards2 {
+  /* Outer block styles: generous padding, white background, rounded corners, shadow */
+  background: var(--background-color);
+  border-radius: 20px;
+  box-shadow: 0 4px 32px rgb(0 0 0 / 6%);
+  padding: 48px 40px;
+  margin: 0 auto 48px;
+  max-width: 1200px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: stretch;
+}
+
+.cards.cards2 ul {
+  /* Side-by-side layout for cards (li elements) */
+  display: flex;
+  flex-direction: row;
+  gap: 48px;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  align-items: stretch;
+}
+
+.cards.cards2 li {
+  background: var(--background-color);
+  border-radius: 18px;
+  box-shadow: 0 2px 12px rgb(0 0 0 / 4%);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  padding: 0;
+  border: none;
+  align-items: flex-start;
+}
+
+.cards.cards2 li:first-child {
+  flex: 2.4 1 0;
+}
+
+.cards.cards2 li:not(:first-child) {
+  flex: 1 1 0;
+}
+
+/* Images */
+.cards.cards2 .cards-card-image img,
+.cards.cards2 img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  border-radius: 18px 18px 0 0;
+  display: block;
+  background: var(--light-color);
+  margin: 0;
+}
+
+.cards.cards2 li:first-child .cards-card-image img,
+.cards.cards2 li:first-child img {
+  min-height: 320px;
+  max-height: 460px;
+}
+
+.cards.cards2 li:not(:first-child) .cards-card-image img,
+.cards.cards2 li:not(:first-child) img {
+  min-height: 170px;
+  max-height: 220px;
+}
+
+/* Card content area */
+.cards.cards2 .cards-card-body {
+  padding: 54px 40px 38px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+.cards.cards2 li:not(:first-child) .cards-card-body {
+  padding: 24px 22px 18px;
+}
+
+/* Headline styling */
+.cards.cards2 .cards-card-body h1,
+.cards.cards2 .cards-card-body h2,
+.cards.cards2 .cards-card-body h3 {
+  color: var(--text-color);
+  font-weight: 600;
+  font-size: var(--heading-font-size-xl);
+  margin: 0 0 0.5em;
+  line-height: 1.18;
+  letter-spacing: 0.02em;
+  text-align: left;
+}
+
+.cards.cards2 li:not(:first-child) .cards-card-body h1,
+.cards.cards2 li:not(:first-child) .cards-card-body h2,
+.cards.cards2 li:not(:first-child) .cards-card-body h3 {
+  font-size: var(--heading-font-size-l);
+  margin-bottom: 0.3em;
+}
+
+/* Body text */
+.cards.cards2 .cards-card-body p {
+  color: var(--dark-color);
+  font-size: var(--body-font-size-s);
+  margin-bottom: 0.6em;
+  line-height: 1.55;
+  text-align: left;
+  border: none;
+  background: none;
+  box-shadow: none;
+  padding: 0;
+}
+
+/* Button style: only for last paragraph in left card (Read more) */
+.cards.cards2 li:first-child .cards-card-body p:last-child {
+  margin-top: 1.2em;
+  align-self: flex-start;
+  border: 2px solid var(--text-color);
+  border-radius: 8px;
+  padding: 12px 32px;
+  color: var(--text-color);
+  background: transparent;
+  font-weight: 500;
+  display: inline-block;
+  cursor: pointer;
+  transition: border-color 0.2s, color 0.2s;
+  letter-spacing: 0.01em;
+  text-align: center;
+}
+
+/* Responsive: stack cards vertically on mobile */
+@media (width <= 900px) {
+  .cards.cards2 {
+    padding: 24px 12px;
+    border-radius: 0;
+    box-shadow: none;
+  }
+
+  .cards.cards2 ul {
+    flex-direction: column;
+    gap: 28px;
+  }
+
+  .cards.cards2 li,
+  .cards.cards2 li:first-child,
+  .cards.cards2 li:not(:first-child) {
+    flex-grow: unset;
+    flex-shrink: unset;
+    flex-basis: unset;
+    min-width: 0;
+  }
+
+  .cards.cards2 .cards-card-body {
+    padding: 26px 8px 18px;
+  }
+}
+
+@media (width <= 600px) {
+  .cards.cards2 {
+    padding: 10px 0;
+    border-radius: 0;
+    box-shadow: none;
+    max-width: 100vw;
+  }
+
+  .cards.cards2 .cards-card-image img,
+  .cards.cards2 img {
+    min-height: 110px;
+  }
+
+  .cards.cards2 .cards-card-body h1,
+  .cards.cards2 .cards-card-body h2,
+  .cards.cards2 .cards-card-body h3 {
+    font-size: var(--heading-font-size-m);
+  }
 }
