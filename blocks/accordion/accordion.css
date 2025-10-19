@@ -1,8 +1,8 @@
+/* stylelint-disable no-descending-specificity */
 .accordion details {
   border: 1px solid #dadada;
 }
 
-/* stylelint-disable-next-line no-descending-specificity */
 .accordion details + details {
   margin-top: 24px;
 }
@@ -58,4 +58,108 @@
 .accordion details[open] .accordion-item-body {
   border-top: 1px solid #dadada;
   background-color: var(--background-color);
+}
+
+
+.accordion.accordion17 {
+  background-color: #FAFAF6;
+  margin: 0 auto;
+  max-width: 760px;
+  padding: 0;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  border-radius: 0;
+}
+
+/* Stack items vertically, no extra spacing between */
+.accordion.accordion17 details {
+  border: none;
+  margin: 0;
+  background: none;
+  box-sizing: border-box;
+  border-bottom: 1px solid #ECECEC;
+}
+
+/* Remove bottom border from last item */
+.accordion.accordion17 details:last-child {
+  border-bottom: none;
+}
+
+/* The summary row: flex row for text and icon */
+.accordion.accordion17 summary {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 20px;
+  font-size: 15px;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+  color: #222;
+  background: none;
+  border: none;
+  cursor: pointer;
+  outline: none;
+  gap: 8px;
+  min-height: 0;
+  transition: background 0.18s;
+}
+
+/* Remove default markers */
+.accordion.accordion17 summary::-webkit-details-marker,
+.accordion.accordion17 summary::marker {
+  display: none;
+}
+
+/* If a chevron SVG or <img> is present, size and align it */
+.accordion.accordion17 summary svg,
+.accordion.accordion17 summary img {
+  width: 18px;
+  height: 18px;
+  margin-left: 8px;
+  margin-right: 0;
+  flex-shrink: 0;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+/* Rotate chevron on open, if using SVGs with inline transform */
+.accordion.accordion17 details[open] summary svg,
+.accordion.accordion17 details[open] summary img {
+  transform: rotate(180deg);
+}
+
+/* Subtle background on hover/focus for accessibility */
+.accordion.accordion17 details:hover summary,
+.accordion.accordion17 details:focus-within summary {
+  background: rgb(60 60 60 / 2%);
+}
+
+/* Answer/body: slightly smaller padding than summary */
+.accordion.accordion17 .accordion-item-body {
+  padding: 0 20px 14px;
+  color: #222;
+  font-size: 15px;
+  background: none;
+  box-sizing: border-box;
+  margin: 0;
+}
+
+.accordion.accordion17 .accordion-item-body p {
+  margin: 0;
+  padding: 0;
+}
+
+/* Responsive: narrow screens, reduce horizontal padding */
+@media (width <= 599px) {
+  .accordion.accordion17 {
+    max-width: 100%;
+  }
+
+  .accordion.accordion17 summary,
+  .accordion.accordion17 .accordion-item-body {
+    padding-left: 12px;
+    padding-right: 12px;
+  }
 }
