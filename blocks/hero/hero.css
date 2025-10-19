@@ -634,8 +634,6 @@
 
 .hero.hero38.block.no-image > div:first-child {
   flex: 1 1 0;
-
-  /* If it's just a spacer, you could use: min-width: 120px; */
 }
 
 .hero.hero38.block.no-image > div:last-child {
@@ -657,7 +655,7 @@
 .hero.hero38.block.no-image p:not(.button-container) {
   font-size: 14px;
   color: #757575;
-  margin-bottom: 32px; /* Space below description */
+  margin-bottom: 32px;
 }
 
 .button-container {
@@ -690,6 +688,133 @@
   box-shadow: 0 4px 0 0 #E6E600;
 }
 
-/* If you want an actual bottom border instead of box-shadow: */
+/* Main hero block: full viewport width and tall height */
+.hero.hero41 {
+  position: relative;
+  width: 100vw;
+  min-height: 70vh;
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: flex-start;
+  overflow: hidden;
+  background: transparent;
+}
 
-/* Optional: gap between columns */
+/* If the image is present as a child (not as CSS background), make it fill the block */
+.hero.hero41 picture,
+.hero.hero41 img {
+  flex: 1 1 0;
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+  min-height: 100%;
+  min-width: 0;
+  display: block;
+}
+
+/* Content container overlays the image, anchored bottom left with generous spacing */
+.hero.hero41 div {
+  flex: 0 1 630px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-start;
+  padding: 0 0 8vh 5vw;
+  box-sizing: border-box;
+  z-index: 2;
+  background: none;
+  min-height: 100%;
+  width: 100%;
+  max-width: 630px;
+}
+
+/* Responsive: stack content and image vertically for small screens */
+@media (width <= 900px) {
+  .hero.hero41 {
+    flex-direction: column;
+    min-height: 48vh;
+  }
+
+  .hero.hero41 picture,
+  .hero.hero41 img {
+    width: 100vw;
+    height: 40vh;
+    min-height: 0;
+    min-width: 100vw;
+    order: 1;
+  }
+
+  .hero.hero41 div {
+    padding-left: 6vw;
+    padding-bottom: 5vh;
+    max-width: 98vw;
+    min-height: 0;
+    width: 100vw;
+    order: 2;
+  }
+}
+
+/* Heading styles: extra large, left-aligned, white, airy vertical spacing */
+.hero.hero41 h1 {
+  color: #fff;
+  font-weight: 300;
+  font-size: clamp(2.5rem, 7vw, 5.5rem);
+  line-height: 1.08;
+  margin: 0 0 2.8rem;
+  letter-spacing: 0.01em;
+  text-align: left;
+  text-shadow: 0 2px 10px rgb(0 0 0 / 22%);
+}
+
+/* Supporting text: smaller, lighter white, compact block */
+.hero.hero41 p:not(.button-container) {
+  color: rgb(255 255 255 / 87%);
+  font-size: clamp(1.1rem, 2vw, 1.35rem);
+  line-height: 1.48;
+  margin: 0 0 2rem;
+  max-width: 45ch;
+  text-align: left;
+  text-shadow: 0 1px 7px rgb(0 0 0 / 16%);
+}
+
+/* Outlined pill button: left-aligned, white, with subtle transition */
+.hero.hero41 .button,
+.hero.hero41 a.button {
+  background: transparent;
+  color: #fff;
+  border: 2px solid #fff;
+  border-radius: 2em;
+  padding: 0.75em 2.1em;
+  font-weight: 500;
+  font-size: 1.08rem;
+  margin: 0;
+  width: auto;
+  box-shadow: none;
+  text-align: left;
+  transition: background 0.16s, color 0.16s, border-color 0.16s;
+  text-decoration: none;
+  cursor: pointer;
+  border-bottom: none;
+}
+
+.hero.hero41 .button:hover,
+.hero.hero41 .button:focus,
+.hero.hero41 a.button:hover,
+.hero.hero41 a.button:focus {
+  background: rgb(255 255 255 / 14%);
+  color: #fff;
+  border-color: #fff;
+}
+
+/* Remove underlines and box-shadows from hero buttons */
+
+/* Ensure all content in the hero is left-aligned and stacked vertically */
+.hero.hero41 div * {
+  align-self: flex-start;
+}
+
+/* For accessibility, ensure img does not block user interaction */
+.hero.hero41 img {
+  pointer-events: none;
+}
