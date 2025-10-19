@@ -1382,32 +1382,30 @@
   min-width: 0;
 }
 
-/* Grid layout for each card block */
 .cards.cards36.block > ul {
   display: grid;
-  grid-template-columns: repeat(3, 1fr); /* 3 columns */
-  grid-template-rows: repeat(2, 1fr);   /* 2 rows */
-  gap: 20px;               /* space between cards, adjust as needed */
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  gap: 20px;
   padding: 0;
   margin: 0;
   list-style: none;
 }
 
 .cards.cards36.block > ul > li {
-  background: #fff;        /* white background */
-  border-radius: 20px;     /* rounded corners for the card itself */
-  overflow: hidden;        /* ensures child images are clipped */
+  background: #fff;
+  border-radius: 20px;
+  overflow: hidden;
   display: flex;
   flex-direction: column;
-  height: 100%;            /* makes cards stretch evenly */
+  height: 100%;
 }
 
-/* Image fills container, with rounded corners on top */
 .cards-card-image {
   width: 100%;
-  aspect-ratio: 3 / 2; /* or whichever ratio looks best */
+  aspect-ratio: 3 / 2;
   overflow: hidden;
-  border-radius: 20px 20px 0 0; /* same radius as card corners */
+  border-radius: 20px 20px 0 0;
   margin-bottom: 0;
 }
 
@@ -1418,11 +1416,10 @@
   display: block;
 }
 
-/* Card body at the bottom of the card */
 .cards-card-body {
-  padding: 16px;    /* Or adjust for tighter look */
+  padding: 16px;
   margin: 0;
-  margin-top: auto; /* Ensures content sits at the bottom */
+  margin-top: auto;
   display: flex;
   align-items: flex-end;
 }
@@ -1437,4 +1434,192 @@ ul, li {
   padding: 0;
 }
 
-/* Optional: background for wrapper */
+
+.cards.cards37 {
+  /* Reset container spacing and background */
+  padding: 0;
+  background: var(--background-color);
+}
+
+/* Two-column grid: hero left, all other cards stacked vertically in right column */
+.cards.cards37 ul {
+  display: grid;
+  grid-template-columns: minmax(320px, 440px) minmax(280px, 1fr);
+  gap: 48px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  align-items: start;
+}
+
+/* Responsive stacking for smaller screens */
+@media (width <= 900px) {
+  .cards.cards37 ul {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+}
+
+/* Left column: hero card */
+.cards.cards37 ul li:first-child {
+  grid-column: 1;
+  grid-row: 1 / 99;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  padding: 0;
+  margin: 0;
+  align-items: flex-start;
+}
+
+/* Right column: all supporting cards stacked vertically */
+.cards.cards37 ul li:not(:first-child) {
+  grid-column: 2;
+  width: 100%;
+  max-width: 420px;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  background: none;
+  border: none;
+  align-self: start;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+/* Mini-cards (with image): grouped at top, compact spacing */
+.cards.cards37 ul li:nth-child(2),
+.cards.cards37 ul li:nth-child(3) {
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 16px;
+  padding: 0 0 12px;
+  border-bottom: none;
+}
+
+/* Mini-card images */
+.cards.cards37 ul li:nth-child(2) .cards-card-image,
+.cards.cards37 ul li:nth-child(3) .cards-card-image {
+  width: 72px;
+  height: 72px;
+  min-width: 72px;
+  border-radius: 16px;
+  overflow: hidden;
+  margin: 0;
+}
+
+/* Add vertical space between mini-cards and text list */
+.cards.cards37 ul li:nth-child(4) {
+  margin-top: 10px;
+  border-top: 1px solid #e0e0e0;
+}
+
+/* Text-only list items: stacked and divided by lines */
+.cards.cards37 ul li:nth-child(n+4) {
+  padding: 18px 0;
+  border-bottom: 1px solid #e0e0e0;
+  gap: 4px;
+  background: none;
+}
+
+/* Remove last divider */
+.cards.cards37 ul li:last-child {
+  border-bottom: none;
+}
+
+/* Card body alignment and spacing */
+.cards.cards37 .cards-card-body {
+  margin: 0;
+  padding: 0;
+  text-align: left;
+}
+
+/* Category label: pill shape */
+.cards.cards37 .cards-card-body p:first-child {
+  display: inline-block;
+  background: #f5f5f5;
+  border-radius: 18px;
+  padding: 4px 14px;
+  font-size: var(--body-font-size-xs);
+  text-transform: uppercase;
+  color: var(--dark-color);
+  font-weight: 600;
+  margin: 0 0 10px;
+}
+
+/* Headings by card type */
+.cards.cards37 .cards-card-body h3 {
+  font-size: var(--heading-font-size-xl);
+  font-weight: 700;
+  color: var(--text-color);
+  margin: 0 0 8px;
+  line-height: 1.15;
+}
+
+.cards.cards37 ul li:not(:first-child) .cards-card-body h3 {
+  font-size: var(--heading-font-size-l);
+  margin-bottom: 6px;
+}
+
+.cards.cards37 ul li:nth-child(n+4) .cards-card-body h3 {
+  font-size: var(--heading-font-size-s);
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  margin-bottom: 2px;
+}
+
+/* Description text */
+.cards.cards37 .cards-card-body p:not(:first-child) {
+  font-size: var(--body-font-size-s);
+  color: #888;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* Images: rounded corners, responsive */
+.cards.cards37 .cards-card-image,
+.cards.cards37 .cards-card-image img,
+.cards.cards37 .cards-card-image picture {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  border-radius: 16px;
+  overflow: hidden;
+}
+
+/* Remove any grid/tile look and excess spacing from all cards */
+.cards.cards37 ul li {
+  background: none;
+  border: none;
+  box-shadow: none;
+  border-radius: 0;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+/* Adjust for mobile compactness */
+@media (width <= 900px) {
+  .cards.cards37 ul li:first-child {
+    gap: 14px;
+    min-width: 0;
+    max-width: 100%;
+  }
+
+  .cards.cards37 ul li:not(:first-child) {
+    max-width: 100%;
+  }
+
+  .cards.cards37 ul li:nth-child(2),
+  .cards.cards37 ul li:nth-child(3),
+  .cards.cards37 ul li:nth-child(n+4) {
+    padding: 12px 0;
+    gap: 2px;
+  }
+
+  .cards.cards37 ul li:nth-child(4) {
+    margin-top: 8px;
+  }
+}
