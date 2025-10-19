@@ -204,7 +204,6 @@
 
 
 .cards.cards7 {
-  /* Ensure the block stretches full width of its parent container */
   width: 100%;
   margin: 0;
   padding: 0;
@@ -212,23 +211,19 @@
   background: transparent;
 }
 
-/* Main row: 3 image cards side by side, edge-to-edge, with tight gaps */
 .cards.cards7 ul {
   display: flex;
   flex-direction: row;
-  gap: 16px; /* Tighter, visually compact gap */
+  gap: 16px;
   padding: 0;
   margin: 0;
   width: 100%;
   list-style: none;
   box-sizing: border-box;
-
-  /* Remove any centering that causes side gaps */
   justify-content: stretch;
   align-items: stretch;
 }
 
-/* Each card fills one third, no edge spacing */
 .cards.cards7 li {
   flex: 1 1 0;
   min-width: 0;
@@ -241,10 +236,9 @@
   box-sizing: border-box;
 }
 
-/* Image container: rounded corners, aspect ratio, no border/shadow */
 .cards.cards7 .cards-card-image {
   width: 100%;
-  aspect-ratio: 4 / 3; /* Or adjust to match your images' natural ratio */
+  aspect-ratio: 4 / 3;
   border-radius: 18px;
   overflow: hidden;
   background: transparent;
@@ -255,7 +249,6 @@
   align-items: stretch;
 }
 
-/* Images: fully fill container, rounded corners, no border/shadow */
 .cards.cards7 .cards-card-image img {
   width: 100%;
   height: 100%;
@@ -267,14 +260,12 @@
   box-sizing: border-box;
 }
 
-/* Remove body area below images if present */
 .cards.cards7 .cards-card-body {
   display: none;
   margin: 0;
   padding: 0;
 }
 
-/* Responsive: stack cards vertically on smaller screens */
 @media (width <= 900px) {
   .cards.cards7 ul {
     flex-direction: column;
@@ -286,7 +277,136 @@
   }
 }
 
-/* Remove any stray spacing from all descendants */
 .cards.cards7 * {
   box-sizing: border-box;
+}
+
+
+.cards.cards10 {
+  background: #F3F4F6;
+  padding: 40px 0;
+}
+
+.cards.cards10 .cards-wrapper {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+  background: transparent;
+}
+
+.cards.cards10 ul {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 24px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.cards.cards10 ul li {
+  background: #fff;
+  border: 1px solid #D1D5DB;
+  border-radius: 20px;
+  box-shadow: 0 2px 8px rgb(0 0 0 / 4%);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.cards.cards10 .cards-card-image {
+  width: 100%;
+  height: 180px;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  overflow: hidden;
+  background: #eee;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cards.cards10 .cards-card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  display: block;
+}
+
+.cards.cards10 .cards-card-body {
+  background: #fff;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 auto;
+}
+
+.cards.cards10 .cards-card-body p:first-child {
+  background: #E5E7EB;
+  color: #6B7280;
+  font-size: 12px;
+  border-radius: 100px;
+  font-weight: 600;
+  padding: 3px 12px;
+  display: inline-block;
+  margin-bottom: 8px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-top: 0;
+}
+
+.cards.cards10 .cards-card-body h3 {
+  font-size: 22px;
+  color: #111827;
+  font-weight: 700;
+  margin: 0 0 8px;
+  line-height: 1.2;
+  text-transform: capitalize;
+}
+
+.cards.cards10 .cards-card-body p:last-child {
+  font-size: 15px;
+  color: #6B7280;
+  font-weight: 400;
+  line-height: 1.6;
+  margin: 0;
+}
+
+@media (width <= 900px) {
+  .cards.cards10 .cards-wrapper {
+    padding: 0 12px;
+  }
+
+  .cards.cards10 ul {
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 16px;
+  }
+
+  .cards.cards10 .cards-card-image {
+    height: 140px;
+  }
+
+  .cards.cards10 .cards-card-body {
+    padding: 16px;
+  }
+}
+
+@media (width <= 600px) {
+  .cards.cards10 {
+    padding: 24px 0;
+  }
+
+  .cards.cards10 .cards-wrapper {
+    padding: 0 4px;
+  }
+
+  .cards.cards10 ul {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .cards.cards10 .cards-card-image {
+    height: 120px;
+  }
 }
