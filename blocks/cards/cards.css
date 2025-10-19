@@ -29,7 +29,6 @@
 
 
 .cards.cards2 {
-  /* Outer block styles: generous padding, white background, rounded corners, shadow */
   background: var(--background-color);
   border-radius: 20px;
   box-shadow: 0 4px 32px rgb(0 0 0 / 6%);
@@ -43,7 +42,6 @@
 }
 
 .cards.cards2 ul {
-  /* Side-by-side layout for cards (li elements) */
   display: flex;
   flex-direction: row;
   gap: 48px;
@@ -75,7 +73,6 @@
   flex: 1 1 0;
 }
 
-/* Images */
 .cards.cards2 .cards-card-image img,
 .cards.cards2 img {
   width: 100%;
@@ -99,7 +96,6 @@
   max-height: 220px;
 }
 
-/* Card content area */
 .cards.cards2 .cards-card-body {
   padding: 54px 40px 38px;
   display: flex;
@@ -113,7 +109,6 @@
   padding: 24px 22px 18px;
 }
 
-/* Headline styling */
 .cards.cards2 .cards-card-body h1,
 .cards.cards2 .cards-card-body h2,
 .cards.cards2 .cards-card-body h3 {
@@ -133,7 +128,6 @@
   margin-bottom: 0.3em;
 }
 
-/* Body text */
 .cards.cards2 .cards-card-body p {
   color: var(--dark-color);
   font-size: var(--body-font-size-s);
@@ -146,7 +140,6 @@
   padding: 0;
 }
 
-/* Button style: only for last paragraph in left card (Read more) */
 .cards.cards2 li:first-child .cards-card-body p:last-child {
   margin-top: 1.2em;
   align-self: flex-start;
@@ -163,7 +156,6 @@
   text-align: center;
 }
 
-/* Responsive: stack cards vertically on mobile */
 @media (width <= 900px) {
   .cards.cards2 {
     padding: 24px 12px;
@@ -208,4 +200,93 @@
   .cards.cards2 .cards-card-body h3 {
     font-size: var(--heading-font-size-m);
   }
+}
+
+
+.cards.cards7 {
+  /* Ensure the block stretches full width of its parent container */
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  background: transparent;
+}
+
+/* Main row: 3 image cards side by side, edge-to-edge, with tight gaps */
+.cards.cards7 ul {
+  display: flex;
+  flex-direction: row;
+  gap: 16px; /* Tighter, visually compact gap */
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  list-style: none;
+  box-sizing: border-box;
+
+  /* Remove any centering that causes side gaps */
+  justify-content: stretch;
+  align-items: stretch;
+}
+
+/* Each card fills one third, no edge spacing */
+.cards.cards7 li {
+  flex: 1 1 0;
+  min-width: 0;
+  margin: 0;
+  padding: 0;
+  background: transparent;
+  border: none;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+}
+
+/* Image container: rounded corners, aspect ratio, no border/shadow */
+.cards.cards7 .cards-card-image {
+  width: 100%;
+  aspect-ratio: 4 / 3; /* Or adjust to match your images' natural ratio */
+  border-radius: 18px;
+  overflow: hidden;
+  background: transparent;
+  display: flex;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  align-items: stretch;
+}
+
+/* Images: fully fill container, rounded corners, no border/shadow */
+.cards.cards7 .cards-card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 18px;
+  display: block;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Remove body area below images if present */
+.cards.cards7 .cards-card-body {
+  display: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* Responsive: stack cards vertically on smaller screens */
+@media (width <= 900px) {
+  .cards.cards7 ul {
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .cards.cards7 li {
+    width: 100%;
+  }
+}
+
+/* Remove any stray spacing from all descendants */
+.cards.cards7 * {
+  box-sizing: border-box;
 }
