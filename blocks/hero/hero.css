@@ -1,3 +1,4 @@
+/* stylelint-disable no-descending-specificity */
 .hero-container .hero-wrapper {
   max-width: unset;
   padding: 0;
@@ -46,7 +47,6 @@
   }
 }
 
-/* Main hero layout: side-by-side image and content panel */
 .hero.hero6 {
   display: flex;
   flex-direction: row;
@@ -151,5 +151,188 @@
 
   .hero.hero6 h1 {
     font-size: 36px;
+  }
+}
+
+
+/* --- HERO 13: Revised Layout and Styling --- */
+
+/* Full-bleed background handling for hero block */
+
+/* Main block: overlay and flex layout */
+.hero.hero13 {
+  position: relative;
+  min-height: 500px;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  border-radius: 36px;
+  overflow: hidden;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  box-shadow: 0 8px 64px 0 rgb(0 0 0 / 13%);
+}
+
+/* Overlay: visually separate content from bg image */
+.hero.hero13::before {
+  position: absolute;
+  inset: 0;
+  background: rgb(24 24 24 / 76%);
+  border-radius: 36px;
+  border: 1.5px solid rgb(34 34 34 / 32%);
+  z-index: 0;
+}
+
+/* Layout: .picture (image) and content side by side */
+.hero.hero13 .picture,
+.hero.hero13 picture,
+.hero.hero13 img {
+  flex: 1;
+  order: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Remove z-index from image wrapper */
+.hero.hero13 .picture {
+  z-index: unset;
+}
+
+/* Image styling */
+.hero.hero13 img {
+  object-fit: cover;
+  width: 290px;
+  height: 290px;
+  min-width: 160px;
+  max-width: 340px;
+  border-radius: 20px;
+  border: 1.5px solid rgb(34 34 34 / 32%);
+  background: #222;
+  box-shadow: 0 2px 20px rgb(0 0 0 / 14%);
+  margin-left: 54px;
+  margin-right: 0;
+}
+
+/* Content column: headline, list, button stacked vertically */
+.hero.hero13 .block,
+.hero.hero13 .content,
+.hero.hero13 .text-wrapper,
+.hero.hero13 div {
+  flex: 2;
+  order: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  min-width: 0;
+  padding: 0 58px 0 38px;
+  position: relative;
+  z-index: 1;
+}
+
+/* Headline styling: uppercase, bold, spaced */
+.hero.hero13 h1,
+.hero.hero13 h2,
+.hero.hero13 h3 {
+  text-transform: uppercase;
+  font-weight: 600;
+  font-size: clamp(2.2rem, 4vw, 2.8rem);
+  letter-spacing: 0.14em;
+  color: #eaeaea;
+  margin: 0 0 16px;
+  line-height: 1.12;
+}
+
+/* Subtext/list items */
+.hero.hero13 p {
+  color: #b3b3b3;
+  font-size: 1.13rem;
+  margin: 0 0 10px;
+  line-height: 1.68;
+  font-weight: 400;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* Inline icons/arrows left of list text */
+.hero.hero13 p .icon,
+.hero.hero13 p img {
+  width: 22px;
+  height: 22px;
+  margin-right: 7px;
+  vertical-align: middle;
+}
+
+/* Subscribe button: pill, outlined, high contrast */
+.hero-container .hero-wrapper .block.hero.hero13 .button,
+.hero-container .hero-wrapper .block.hero.hero13 a.button {
+  background: transparent;
+  color: #eaeaea;
+  border: 1.7px solid #eaeaea;
+  border-radius: 100px;
+  padding: 0.85em 2.5em;
+  font-size: 1.15rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  margin-top: 10px;
+  margin-bottom: 0;
+  box-shadow: none;
+  transition: background 0.17s, color 0.17s, border 0.17s;
+  outline: none;
+  cursor: pointer;
+}
+
+.hero-container .hero-wrapper .block.hero.hero13 .button:hover,
+.hero-container .hero-wrapper .block.hero.hero13 a.button:hover,
+.hero-container .hero-wrapper .block.hero.hero13 .button:focus,
+.hero-container .hero-wrapper .block.hero.hero13 a.button:focus {
+  background: #eaeaea;
+  color: #222;
+  border-color: #eaeaea;
+  text-decoration: none;
+}
+
+/* Responsive: stack vertically and adjust paddings/gaps */
+@media (width <= 899px) {
+  .hero.hero13 {
+    flex-direction: column;
+    min-height: unset;
+    border-radius: 22px;
+    padding: 0;
+  }
+
+  .hero.hero13 .picture,
+  .hero.hero13 picture,
+  .hero.hero13 img {
+    width: 160px;
+    height: 160px;
+    margin: 0 auto 18px;
+  }
+
+  .hero.hero13 .block,
+  .hero.hero13 .content,
+  .hero.hero13 .text-wrapper,
+  .hero.hero13 div {
+    align-items: center;
+    text-align: center;
+    padding: 0 18px;
+  }
+
+  .hero.hero13 h1,
+  .hero.hero13 h2,
+  .hero.hero13 h3 {
+    font-size: clamp(1.2rem, 7vw, 2.2rem);
+    margin-bottom: 10px;
+  }
+
+  .hero.hero13 .button,
+  .hero.hero13 a.button {
+    padding: 0.7em 1.5em;
   }
 }
