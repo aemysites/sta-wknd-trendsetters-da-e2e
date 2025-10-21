@@ -299,13 +299,11 @@
 
 
 .cards.cards10 {
-  /* Outer container alignment and spacing */
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 12px;
 }
 
-/* Responsive multi-column grid for cards */
 .cards.cards10 ul {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -329,7 +327,6 @@
   }
 }
 
-/* Cards: clean modern block style */
 .cards.cards10 li {
   background: var(--background-color);
   border-radius: 12px;
@@ -342,7 +339,6 @@
   transition: box-shadow 0.18s;
 }
 
-/* Card image block */
 .cards.cards10 .cards-card-image {
   width: 100%;
   height: 200px;
@@ -354,7 +350,6 @@
   justify-content: stretch;
 }
 
-/* Card image itself */
 .cards.cards10 .cards-card-image img {
   width: 100%;
   height: 100%;
@@ -364,7 +359,6 @@
   display: block;
 }
 
-/* Card body: vertical stacking under image */
 .cards.cards10 .cards-card-body {
   padding: 14px 14px 16px;
   display: flex;
@@ -374,7 +368,6 @@
   min-width: 0;
 }
 
-/* Tag/label at top of card body */
 .cards.cards10 .cards-card-body p:first-child {
   background: #f3f3f3;
   color: #6a6a6a;
@@ -390,7 +383,6 @@
   line-height: 1.1;
 }
 
-/* Card title styling */
 .cards.cards10 .cards-card-body h3 {
   font-size: 17px;
   color: var(--text-color);
@@ -400,7 +392,6 @@
   letter-spacing: 0;
 }
 
-/* Card description styling */
 .cards.cards10 .cards-card-body p:not(:first-child) {
   color: #272727;
   font-size: 13px;
@@ -411,9 +402,6 @@
   min-width: 0;
 }
 
-/* Ensure cards in a row are always equal height */
-
-/* Responsive tweaks for mobile */
 @media (width <= 700px) {
   .cards.cards10 {
     padding: 0 4px;
@@ -426,5 +414,149 @@
   .cards.cards10 .cards-card-body {
     padding: 10px 8px 12px;
     gap: 4px;
+  }
+}
+
+
+.cards.cards12 {
+  background: var(--light-color);
+  padding: 60px 0;
+}
+
+/* Center the block content and provide generous left/right padding */
+.cards.cards12 .cards-wrapper {
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 48px;
+  padding-right: 48px;
+}
+
+/* Main card row: horizontal, scrollable on overflow */
+.cards.cards12 ul {
+  display: flex;
+  flex-direction: row;
+  gap: 32px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Card styling */
+.cards.cards12 li {
+  background: #fff;
+  border-radius: 28px;
+  box-shadow: 0 8px 32px 0 rgb(0 0 0 / 8%);
+  display: flex;
+  flex-direction: column;
+  min-width: 290px;
+  max-width: 340px;
+  width: 310px;
+  overflow: hidden;
+  transition: box-shadow 0.2s;
+}
+
+/* Card image with rounded top corners and tall aspect */
+.cards.cards12 .cards-card-image,
+.cards.cards12 .cards-card-image picture,
+.cards.cards12 .cards-card-image img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  display: block;
+}
+
+.cards.cards12 .cards-card-image img {
+  border-top-left-radius: 28px;
+  border-top-right-radius: 28px;
+}
+
+/* Card body: vertical stack, generous padding */
+.cards.cards12 .cards-card-body {
+  padding: 30px 26px 36px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+/* Pills row: category and date side by side, compact, centered */
+.cards.cards12 .cards-card-body p:nth-child(1),
+.cards.cards12 .cards-card-body p:nth-child(2) {
+  display: inline-block;
+  background: #f4f4f4;
+  border-radius: 100px;
+  color: #3a3a3a;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+  padding: 5px 18px;
+  margin-right: 12px;
+  margin-bottom: 0;
+  margin-top: 0;
+  vertical-align: middle;
+  align-self: center;
+}
+
+.cards.cards12 .cards-card-body p:nth-child(2) {
+  margin-right: 0;
+}
+
+/* Ensure pills are centered horizontally */
+
+/* Headline: bold, uppercase, centered, spaced */
+.cards.cards12 .cards-card-body h3 {
+  font-size: 24px;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #232323;
+  letter-spacing: 0.16em;
+  line-height: 1.17;
+  margin-top: 16px;
+  margin-bottom: 0;
+  text-align: center;
+  padding: 0;
+}
+
+/* Responsive adjustments: stack cards vertically on small screens */
+@media (width <= 900px) {
+  .cards.cards12 .cards-wrapper {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  .cards.cards12 ul {
+    gap: 16px;
+  }
+
+  .cards.cards12 li {
+    min-width: 220px;
+    max-width: 95vw;
+    width: 100%;
+  }
+
+  .cards.cards12 .cards-card-image,
+  .cards.cards12 .cards-card-image picture,
+  .cards.cards12 .cards-card-image img {
+    height: 140px;
+  }
+
+  .cards.cards12 .cards-card-body {
+    padding: 18px 10px 22px;
+  }
+}
+
+@media (width <= 600px) {
+  .cards.cards12 ul {
+    gap: 10px;
+  }
+
+  .cards.cards12 li {
+    min-width: 150px;
+    padding: 0;
   }
 }
