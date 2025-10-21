@@ -160,7 +160,6 @@
 
 
 .hero.hero13 {
-  /* If the first picture is meant as a background, use this block for full-bleed hero */
   width: 100vw;
   min-height: 540px;
   position: relative;
@@ -175,9 +174,7 @@
     center center/cover no-repeat;
 }
 
-/* Overlay panel, assumed to be the first div inside .hero.hero13 */
 .hero.hero13 div {
-  /* Central overlay panel styles */
   background: rgb(31 32 45 / 85%);
   border-radius: 2em;
   box-shadow: 0 8px 32px rgb(16 16 32 / 24%);
@@ -190,7 +187,6 @@
   align-items: center;
 }
 
-/* Responsive: stack overlay panel content on small screens */
 @media (width <= 800px) {
   .hero.hero13 div {
     grid-template-columns: 1fr;
@@ -201,7 +197,6 @@
   }
 }
 
-/* Left column image styling - target img inside any picture inside panel */
 .hero.hero13 div picture img {
   width: 215px;
   height: 215px;
@@ -212,7 +207,6 @@
   display: block;
 }
 
-/* Responsive image size on small screens */
 @media (width <= 800px) {
   .hero.hero13 div picture img {
     width: 120px;
@@ -221,7 +215,6 @@
   }
 }
 
-/* Right column (text, icons, button) stacking and spacing */
 .hero.hero13 div h1,
 .hero.hero13 div h2,
 .hero.hero13 div h3,
@@ -237,7 +230,6 @@
   margin-bottom: 1em;
 }
 
-/* Headline styling (uppercase, glowing, large, semi-transparent) */
 .hero.hero13 div h1,
 .hero.hero13 div h2 {
   font-size: clamp(2rem, 7vw, 3.2rem);
@@ -249,7 +241,6 @@
   margin-bottom: 0.6em;
 }
 
-/* List items with icon styling */
 .hero.hero13 div p,
 .hero.hero13 div li {
   display: flex;
@@ -261,7 +252,6 @@
   line-height: 1.4;
 }
 
-/* If icons are images inside text/list items */
 .hero.hero13 div p img,
 .hero.hero13 div li img {
   width: 1.45em;
@@ -271,7 +261,6 @@
   vertical-align: middle;
 }
 
-/* Button container alignment */
 .hero.hero13 div .button-container {
   margin-top: 1.6em;
   margin-bottom: 0;
@@ -279,7 +268,6 @@
   gap: 1em;
 }
 
-/* Button styling - override defaults for outlined look */
 .hero.hero13 div .button-container a.button,
 .hero.hero13 div .button-container button {
   background: transparent;
@@ -303,7 +291,6 @@
   border-color: #fff;
 }
 
-/* Ensure lists (ul/ol) are vertical with spacing */
 .hero.hero13 div ul,
 .hero.hero13 div ol {
   list-style: none;
@@ -316,4 +303,129 @@
   margin-bottom: 0.7em;
 }
 
-/* For maximum width hero: removes default section/container constraints */
+
+.hero.hero20.block {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  min-height: 100vh;
+  position: relative;
+}
+
+/* Collage Side */
+.hero.hero20.block > div:first-child {
+  flex: 1 1 60%;
+  position: relative;
+  overflow: hidden;
+  min-width: 0;
+  display: flex;
+  align-items: stretch;
+}
+
+.hero.hero20.block > div:first-child > div > p {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  gap: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.hero.hero20.block > div:first-child picture,
+.hero.hero20.block > div:first-child img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.hero.hero20.block > div:first-child::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgb(0 0 0 / 50%);
+  z-index: 2;
+  pointer-events: none;
+}
+
+/* Main Content Side */
+.hero.hero20.block > div:last-child {
+  flex: 1 1 40%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: transparent;
+  position: relative;
+  z-index: 3;
+  min-width: 0;
+}
+
+.hero.hero20.block > div:last-child > div {
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 2rem;
+}
+
+.hero.hero20.block h1 {
+  color: #fff;
+  font-size: clamp(2.5rem, 6vw, 5rem);
+  font-weight: 800;
+  line-height: 1.1;
+  margin: 0 0 1rem;
+  letter-spacing: -0.03em;
+}
+
+.hero.hero20.block > div:last-child p {
+  color: rgb(255 255 255 / 70%);
+  font-size: 1.25rem;
+  font-weight: 400;
+  margin-bottom: 2rem;
+  margin-top: 0;
+}
+
+.hero.hero20.block > div:last-child p:last-of-type {
+  display: flex;
+  gap: 1.25rem;
+  margin-bottom: 0;
+}
+
+.hero.hero20.block > div:last-child p:last-of-type a {
+  display: inline-block;
+  color: #fff;
+  border: 2px solid #fff;
+  border-radius: 30px;
+  padding: 0.75em 2em;
+  background: transparent;
+  font-size: 1.1rem;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+  text-decoration: none;
+  transition: background 0.15s, color 0.15s;
+}
+
+.hero.hero20.block > div:last-child p:last-of-type a:hover {
+  background: rgb(255 255 255 / 15%);
+  color: #fff;
+}
+
+/* Responsive */
+@media (width <= 900px) {
+  .hero.hero20.block {
+    flex-direction: column;
+  }
+
+  .hero.hero20.block > div:first-child,
+  .hero.hero20.block > div:last-child {
+    flex-basis: auto;
+    width: 100%;
+    min-height: 40vh;
+  }
+
+  .hero.hero20.block > div:last-child > div {
+    align-items: center;
+    text-align: center;
+  }
+}
