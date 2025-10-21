@@ -1,3 +1,4 @@
+/* stylelint-disable no-descending-specificity */
 .cards > ul {
   list-style: none;
   margin: 0;
@@ -24,4 +25,194 @@
   width: 100%;
   aspect-ratio: 4 / 3;
   object-fit: cover;
+}
+
+
+.cards.cards2 {
+  background: #F7F8F6;
+  border-radius: 2rem;
+  box-shadow: 0 2px 16px 0 rgb(41 41 41 / 5%);
+  padding: 3rem 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+
+.cards.cards2 ul {
+  display: flex;
+  flex-direction: row;
+  gap: 3rem;
+  align-items: flex-start;
+  justify-content: stretch;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  width: 100%;
+}
+
+/* Left (feature) column */
+.cards.cards2 li:first-child {
+  flex: 0 1 64%;
+  max-width: 68%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding: 0;
+  min-width: 320px;
+}
+
+.cards.cards2 li:first-child .cards-card-image {
+  margin-bottom: 2.2rem;
+}
+
+.cards.cards2 li:first-child .cards-card-image img {
+  width: 100%;
+  min-height: 220px;
+  max-height: 340px;
+  object-fit: cover;
+  border-radius: 1.5rem;
+  display: block;
+  background: #e6e7e3;
+  box-shadow: 0 2px 12px 0 rgb(41 41 41 / 5%);
+}
+
+.cards.cards2 li:first-child .cards-card-body {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.cards.cards2 li:first-child .cards-card-body h3 {
+  font-size: 2.2rem;
+  font-weight: 600;
+  color: #191919;
+  letter-spacing: 0.07em;
+  line-height: 1.12;
+  margin-bottom: 1em;
+  text-transform: uppercase;
+}
+
+.cards.cards2 li:first-child .cards-card-body p {
+  color: #191919;
+  font-size: 1.1rem;
+  line-height: 1.7;
+  margin-bottom: 1.4rem;
+}
+
+.cards.cards2 li:first-child .cards-card-body p:last-child {
+  display: inline-block;
+  border: 1.5px solid #191919;
+  border-radius: 999px;
+  background: #F7F8F6;
+  color: #191919;
+  padding: 0.7em 2em;
+  font-size: 1.08rem;
+  font-weight: 500;
+  cursor: pointer;
+  margin-top: 1rem;
+  margin-bottom: 0;
+  transition: background 0.2s, color 0.2s, border-color 0.2s;
+  text-decoration: none;
+  line-height: 1.2;
+}
+
+.cards.cards2 li:first-child .cards-card-body p:last-child:hover,
+.cards.cards2 li:first-child .cards-card-body p:last-child:focus {
+  background: #191919;
+  color: #F7F8F6;
+  border-color: #191919;
+}
+
+/* Right (sidebar) column */
+.cards.cards2 li:last-child {
+  flex: 0 1 32%;
+  max-width: 32%;
+  min-width: 180px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1.2rem;
+  padding: 0;
+}
+
+/* Sidebar image at top, tight grouping */
+.cards.cards2 li:last-child .cards-card-image {
+  margin-bottom: 1rem;
+}
+
+.cards.cards2 li:last-child .cards-card-image img {
+  width: 54px;
+  height: 108px;
+  border-radius: 1.1rem;
+  object-fit: cover;
+  background: #e6e7e3;
+  display: block;
+  box-shadow: 0 2px 8px 0 rgb(41 41 41 / 5%);
+}
+
+/* Sidebar text stack */
+.cards.cards2 li:last-child .cards-card-body {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  min-width: 0;
+}
+
+.cards.cards2 li:last-child .cards-card-body h3 {
+  font-size: 1.11rem;
+  font-weight: 600;
+  color: #BABDB8;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  line-height: 1.17;
+  margin-bottom: 0.45em;
+  margin-top: 0;
+}
+
+.cards.cards2 li:last-child .cards-card-body p {
+  color: #5A5C59;
+  font-size: 1rem;
+  line-height: 1.56;
+  margin-bottom: 0;
+  margin-top: 0;
+}
+
+/* Responsive: columns stack */
+@media (width <= 900px) {
+  .cards.cards2 {
+    padding: 1.2rem 0.7rem;
+    border-radius: 1.1rem;
+    box-shadow: none;
+  }
+
+  .cards.cards2 ul {
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .cards.cards2 li,
+  .cards.cards2 li:first-child,
+  .cards.cards2 li:last-child {
+    max-width: 100%;
+    padding: 0;
+    border-radius: 0;
+    min-width: 0;
+  }
+
+  .cards.cards2 li:first-child .cards-card-image img {
+    min-height: 90px;
+    max-height: 170px;
+    border-radius: 0.8rem;
+    margin-bottom: 1rem;
+  }
+
+  .cards.cards2 li:last-child {
+    gap: 0.7rem;
+  }
+
+  .cards.cards2 li:last-child .cards-card-image img {
+    width: 42px;
+    height: 72px;
+    border-radius: 0.7rem;
+  }
 }
