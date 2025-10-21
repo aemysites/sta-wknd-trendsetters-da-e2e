@@ -1,3 +1,4 @@
+/* stylelint-disable no-descending-specificity */
 .cards > ul {
   list-style: none;
   margin: 0;
@@ -825,6 +826,7 @@
   list-style: none;
   display: contents;
 }
+
 .cards.cards26 li {
   display: flex;
   flex-direction: row;
@@ -848,6 +850,7 @@
     min-height: 170px;
   }
 }
+
 .cards.cards26 .cards-card-image {
   flex: 1 1 52%;
   min-width: 130px;
@@ -868,6 +871,7 @@
   object-fit: cover;
   display: block;
 }
+
 .cards.cards26 .cards-card-body {
   flex: 1 1 48%;
   display: flex;
@@ -890,6 +894,7 @@
 .cards.cards26 .cards-card-body:empty {
   display: none;
 }
+
 .cards.cards26 .cards-card-body h3 {
   font-size: 2.2rem;
   font-weight: 500;
@@ -908,12 +913,14 @@
   line-height: 1.58;
   text-align: left;
 }
+
 .cards.cards26 .cards-card-image::before,
 .cards.cards26 .cards-card-image::after,
 .cards.cards26 .cards-card-body::before,
 .cards.cards26 .cards-card-body::after {
   display: none;
 }
+
 .cards.cards26 .cards-card-image,
 .cards.cards26 .cards-card-image *,
 .cards.cards26 .cards-card-body,
@@ -927,7 +934,6 @@
   padding: 24px 0;
 }
 
-/* Grid container for cards */
 .cards.cards34 ul {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -937,20 +943,18 @@
   list-style: none;
 }
 
-/* Card item */
 .cards.cards34 li {
   background: var(--background-color);
   border-radius: 18px;
-  box-shadow: 0 2px 8px rgba(40, 42, 53, 0.06);
+  box-shadow: 0 2px 8px rgb(40 42 53 / 6%);
   overflow: hidden;
   display: flex;
   flex-direction: row;
   min-height: 260px;
 }
 
-/* Image section */
 .cards.cards34 .cards-card-image {
-  flex: 0 0 40%; /* 40% width */
+  flex: 0 0 40%;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -961,13 +965,12 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
-  border-radius: 18px 0 0 18px; /* rounded left corners only */
+  border-radius: 18px 0 0 18px;
   display: block;
 }
 
-/* Text body */
 .cards.cards34 .cards-card-body {
-  flex: 1 1 60%; /* 60% width */
+  flex: 1 1 60%;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -975,8 +978,7 @@
   background: transparent;
 }
 
-/* Pills & reading time */
-.cards.cards34 .cards-card-body p:nth-child(1) { /* Category pill */
+.cards.cards34 .cards-card-body p:nth-child(1) {
   display: inline-block;
   background: #F3F3F3;
   color: #232323;
@@ -989,7 +991,7 @@
   margin-bottom: 0;
 }
 
-.cards.cards34 .cards-card-body p:nth-child(2) { /* Reading time */
+.cards.cards34 .cards-card-body p:nth-child(2) {
   display: inline-block;
   color: #888;
   font-size: 13px;
@@ -997,17 +999,15 @@
   margin-bottom: 0;
 }
 
-/* Title */
 .cards.cards34 .cards-card-body h3 {
   font-size: 24px;
   font-weight: 800;
   color: #232323;
-  margin: 16px 0 12px 0;
+  margin: 16px 0 12px;
   line-height: 1.18;
-  font-family: 'Inter', 'Montserrat', Arial, sans-serif;
+  font-family: Inter, Montserrat, Arial, sans-serif;
 }
 
-/* Description */
 .cards.cards34 .cards-card-body p:nth-child(4) {
   font-size: 16px;
   color: #444;
@@ -1016,7 +1016,6 @@
   line-height: 1.5;
 }
 
-/* "Read" link */
 .cards.cards34 .cards-card-body p:last-child {
   font-size: 15px;
   color: #232323;
@@ -1032,28 +1031,124 @@
   color: #007aff;
 }
 
-/* Spacing and Responsive Design */
-@media (max-width: 900px) {
+@media (width <= 900px) {
   .cards.cards34 ul {
-    grid-template-columns: 1fr !important; /* for grid */
+    grid-template-columns: 1fr !important;
     gap: 20px;
   }
+
   .cards.cards34 li {
     flex-basis: 100%;
     max-width: 100%;
     flex-direction: column;
     min-height: unset;
   }
+
   .cards.cards34 .cards-card-image img {
     border-radius: 18px 18px 0 0;
   }
+
   .cards.cards34 .cards-card-image {
     flex: none;
     width: 100%;
     max-width: 100%;
     height: 180px;
   }
-  .cards.cards34 li {
-    flex-direction: column;
+}
+
+
+.cards.cards35 {
+  background: var(--background-color);
+  padding: 0;
+  margin: 0 auto;
+  width: 100%;
+  box-sizing: border-box;
+  display: block;
+}
+
+/* Cards grid: 3 columns × 2 rows, uniform gaps, responsive */
+.cards.cards35 ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  gap: 32px;
+  place-items: stretch stretch;
+  width: 100%;
+  box-sizing: border-box;
+  background: transparent;
+}
+
+/* Card: square, rounded corners, no shadow, fills grid cell */
+.cards.cards35 li {
+  background: var(--background-color);
+  border-radius: 18px;
+  overflow: hidden;
+  min-width: 0;
+  min-height: 0;
+  aspect-ratio: 1 / 1;
+  display: flex;
+  align-items: stretch;
+  box-shadow: none;
+  margin: 0;
+}
+
+/* Card image wrapper: fills card, rounded corners */
+.cards.cards35 .cards-card-image {
+  width: 100%;
+  height: 100%;
+  border-radius: 18px;
+  overflow: hidden;
+  display: flex;
+  align-items: stretch;
+  background: var(--light-color);
+  margin: 0;
+  position: relative;
+}
+
+/* Card image: object-fit cover, fills container, rounded corners */
+.cards.cards35 .cards-card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 18px;
+  display: block;
+  margin: 0;
+  box-shadow: none;
+}
+
+/* Hand-drawn overlay frame for each card (image or empty) */
+.cards.cards35 .cards-card-image::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 320"><rect x="18" y="14" width="284" height="284" fill="none" stroke="black" stroke-width="2"/><rect x="34" y="34" width="252" height="252" fill="none" stroke="black" stroke-width="2" transform="rotate(7 160 160)"/></svg>') center/90% 90% no-repeat;
+  z-index: 2;
+  border-radius: 18px;
+}
+
+/* Hide card body (no overlay/text) */
+.cards.cards35 .cards-card-body {
+  display: none;
+}
+
+/* Responsive: 2 columns × 3 rows on tablet */
+@media (width <= 900px) {
+  .cards.cards35 ul {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    gap: 20px;
+  }
+}
+
+/* Responsive: 1 column on mobile */
+@media (width <= 600px) {
+  .cards.cards35 ul {
+    grid-template-columns: 1fr;
+    grid-template-rows: none;
+    gap: 12px 0;
   }
 }
