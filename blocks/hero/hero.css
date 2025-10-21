@@ -1,3 +1,4 @@
+/* stylelint-disable no-descending-specificity */
 .hero-container .hero-wrapper {
   max-width: unset;
   padding: 0;
@@ -47,16 +48,16 @@
 }
 
 .hero6.block {
-  display: flex;                /* Side-by-side layout */
+  display: flex;
   position: relative;
   min-height: 600px;
   width: 100%;
   overflow: hidden;
-  background: #000;             /* fallback color */
+  background: #000;
 }
 
 .hero6.block > div:first-child {
-  flex: 1 1 0;                  /* Left side: image */
+  flex: 1 1 0;
   position: relative;
   min-width: 0;
   z-index: 1;
@@ -71,7 +72,7 @@
 }
 
 .hero6.block > div:last-child {
-  flex: 0 0 600px;              /* Right side: content panel, adjust as needed */
+  flex: 0 0 600px;
   max-width: 90vw;
   display: flex;
   align-items: center;
@@ -93,7 +94,6 @@
   pointer-events: auto;
 }
 
-/* Typography */
 .hero6.block h1 {
   font-family: Montserrat, Inter, Arial, sans-serif;
   font-size: 3rem;
@@ -112,7 +112,6 @@
   line-height: 1.6;
 }
 
-/* Button row */
 .hero6.block .button-container {
   display: flex;
   gap: 20px;
@@ -139,7 +138,6 @@
   color: #181818;
 }
 
-/* Responsive for mobile */
 @media (width <= 900px) {
   .hero6.block {
     flex-direction: column;
@@ -159,3 +157,163 @@
     padding: 32px 16px;
   }
 }
+
+
+.hero.hero13 {
+  /* If the first picture is meant as a background, use this block for full-bleed hero */
+  width: 100vw;
+  min-height: 540px;
+  position: relative;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  display: grid;
+  place-items: center;
+  background:
+    /* Place the first picture's image as background */
+    url("https://images.unsplash.com/photo-1519125323398-675f0ddb6308?auto=format&fit=crop&w=1200&q=80")
+    center center/cover no-repeat;
+}
+
+/* Overlay panel, assumed to be the first div inside .hero.hero13 */
+.hero.hero13 div {
+  /* Central overlay panel styles */
+  background: rgb(31 32 45 / 85%);
+  border-radius: 2em;
+  box-shadow: 0 8px 32px rgb(16 16 32 / 24%);
+  padding: 3.5em 2.5em;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 2fr);
+  gap: 2.5em;
+  max-width: 940px;
+  width: 90vw;
+  align-items: center;
+}
+
+/* Responsive: stack overlay panel content on small screens */
+@media (width <= 800px) {
+  .hero.hero13 div {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto;
+    gap: 1.2em;
+    padding: 2em 1em;
+    max-width: 98vw;
+  }
+}
+
+/* Left column image styling - target img inside any picture inside panel */
+.hero.hero13 div picture img {
+  width: 215px;
+  height: 215px;
+  max-width: 100%;
+  border-radius: 1.5em;
+  box-shadow: 0 2px 16px rgb(4 8 32 / 17%);
+  object-fit: cover;
+  display: block;
+}
+
+/* Responsive image size on small screens */
+@media (width <= 800px) {
+  .hero.hero13 div picture img {
+    width: 120px;
+    height: 120px;
+    margin: 0 auto;
+  }
+}
+
+/* Right column (text, icons, button) stacking and spacing */
+.hero.hero13 div h1,
+.hero.hero13 div h2,
+.hero.hero13 div h3,
+.hero.hero13 div h4,
+.hero.hero13 div h5,
+.hero.hero13 div h6,
+.hero.hero13 div p,
+.hero.hero13 div ul,
+.hero.hero13 div ol,
+.hero.hero13 div .button-container {
+  color: #fff;
+  margin: 0;
+  margin-bottom: 1em;
+}
+
+/* Headline styling (uppercase, glowing, large, semi-transparent) */
+.hero.hero13 div h1,
+.hero.hero13 div h2 {
+  font-size: clamp(2rem, 7vw, 3.2rem);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.01em;
+  line-height: 1.08;
+  color: #fffc;
+  margin-bottom: 0.6em;
+}
+
+/* List items with icon styling */
+.hero.hero13 div p,
+.hero.hero13 div li {
+  display: flex;
+  align-items: center;
+  font-size: 1.15rem;
+  font-weight: 500;
+  color: #fffc;
+  margin-bottom: 0.7em;
+  line-height: 1.4;
+}
+
+/* If icons are images inside text/list items */
+.hero.hero13 div p img,
+.hero.hero13 div li img {
+  width: 1.45em;
+  height: 1.45em;
+  margin-right: 0.7em;
+  filter: brightness(2) invert(1) drop-shadow(0 0 3px #fff3);
+  vertical-align: middle;
+}
+
+/* Button container alignment */
+.hero.hero13 div .button-container {
+  margin-top: 1.6em;
+  margin-bottom: 0;
+  display: flex;
+  gap: 1em;
+}
+
+/* Button styling - override defaults for outlined look */
+.hero.hero13 div .button-container a.button,
+.hero.hero13 div .button-container button {
+  background: transparent;
+  border: 2px solid #fffc;
+  color: #fffc;
+  border-radius: 2em;
+  font-size: 1.09rem;
+  font-weight: 700;
+  box-shadow: none;
+  transition: background 0.18s, color 0.18s, border 0.18s;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.hero.hero13 div .button-container a.button:hover,
+.hero.hero13 div .button-container a.button:focus,
+.hero.hero13 div .button-container button:hover,
+.hero.hero13 div .button-container button:focus {
+  background: #fffc;
+  color: #191929;
+  border-color: #fff;
+}
+
+/* Ensure lists (ul/ol) are vertical with spacing */
+.hero.hero13 div ul,
+.hero.hero13 div ol {
+  list-style: none;
+  padding: 0;
+  margin-bottom: 1.2em;
+}
+
+.hero.hero13 div ul li,
+.hero.hero13 div ol li {
+  margin-bottom: 0.7em;
+}
+
+/* For maximum width hero: removes default section/container constraints */
