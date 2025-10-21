@@ -648,7 +648,6 @@
   display: block;
 }
 
-/* Center the text block vertically and horizontally within the right column, not flush to any edge */
 .cards.cards23 ul li .cards-card-body {
   flex: 1 1 45%;
   display: flex;
@@ -661,7 +660,6 @@
   box-sizing: border-box;
 }
 
-/* Center text block within .cards-card-body, but text itself left aligned */
 .cards.cards23 ul li .cards-card-body h3,
 .cards.cards23 ul li .cards-card-body p {
   width: 100%;
@@ -672,7 +670,6 @@
   box-sizing: border-box;
 }
 
-/* Tighter stack for headline/subtitle, visually dominant headline */
 .cards.cards23 ul li .cards-card-body h3 {
   margin: 0 0 8px;
   font-size: 2.3rem;
@@ -691,7 +688,6 @@
   font-weight: 400;
 }
 
-/* Responsive: stack vertically on small screens */
 @media (width <= 700px) {
   .cards.cards23 ul {
     flex-direction: column;
@@ -713,5 +709,97 @@
 
   .cards.cards23 ul li .cards-card-body {
     padding: 24px 16px;
+  }
+}
+
+
+.cards-wrapper .cards ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.cards-wrapper .cards ul li {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  position: relative;
+  flex-wrap: wrap;
+}
+
+.cards-wrapper .cards-card-image,
+.cards-wrapper .cards-card-body {
+  flex: 1 1 0;
+  position: relative;
+  z-index: 1;
+}
+
+.cards-wrapper .cards-card-image {
+  position: relative;
+  z-index: 2;
+}
+
+.cards-wrapper .cards-card-image::before,
+.cards-wrapper .cards-card-image::after {
+  content: "";
+  position: absolute;
+  top: 10%;
+  left: 10%;
+  width: 80%;
+  height: 80%;
+  border: 2px solid #000;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.cards-wrapper .cards-card-image::before {
+  transform: rotate(-5deg);
+  border-color: #000;
+  opacity: 0.5;
+  background: rgb(255 255 255 / 5%);
+}
+
+.cards-wrapper .cards-card-image::after {
+  transform: rotate(7deg);
+  border-color: #222;
+  opacity: 0.35;
+  background: rgb(0 0 0 / 3%);
+}
+
+.cards-wrapper .cards-card-body {
+  position: absolute;
+  bottom: 2rem;
+  left: 2rem;
+  background: #F7F7F4cc;
+  padding: 0.75rem 1.25rem;
+  border-radius: 8px;
+  font-size: 14px;
+  color: #404040;
+  font-weight: 500;
+  z-index: 3;
+  box-shadow: 0 4px 16px rgb(0 0 0 / 10%);
+  transform: rotate(-3deg);
+  pointer-events: auto;
+  max-width: 60%;
+}
+
+.cards-wrapper .cards-card-body p {
+  margin: 0;
+  font-size: 14px;
+  color: #404040;
+}
+
+@media (width <= 700px) {
+  .cards-wrapper .cards ul li {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .cards-wrapper .cards-card-body {
+    position: static;
+    max-width: 100%;
+    transform: none;
+    box-shadow: none;
+    margin-top: 1rem;
   }
 }
