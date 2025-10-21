@@ -1,3 +1,4 @@
+/* stylelint-disable no-descending-specificity */
 .columns > div {
   display: flex;
   flex-direction: column;
@@ -54,8 +55,7 @@
 
 .columns.columns1 .block.columns div {
   display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
+  flex-flow: row wrap;
   justify-content: center;
   align-items: flex-start;
   gap: 32px;
@@ -85,14 +85,190 @@
   padding: 0;
 }
 
-/* Responsive layout: stack columns vertically and reduce gap */
-@media (max-width: 899px) {
+@media (width <= 899px) {
   .columns.columns1 .block.columns div {
     flex-direction: column;
     gap: 24px;
     align-items: center;
   }
+
   .columns.columns1 {
     padding: 32px 0;
+  }
+}
+
+
+/* Columns block layout and visual styling improvements */
+
+/* Outer wrapper: generous vertical and horizontal space */
+.columns {
+  background: #fff;
+  padding: 64px 0;
+}
+
+.columns .columns-wrapper {
+  padding-left: 64px;
+  padding-right: 64px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@media (width <= 1100px) {
+  .columns .columns-wrapper {
+    padding-left: 32px;
+    padding-right: 32px;
+  }
+}
+
+@media (width <= 700px) {
+  .columns .columns-wrapper {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+}
+
+/* Main row layout: side-by-side columns, top-aligned, responsive gap */
+.columns .columns {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 72px;
+  width: 100%;
+}
+
+@media (width <= 900px) {
+  .columns .columns {
+    flex-direction: column;
+    gap: 32px;
+  }
+}
+
+/* Left content column: heading, paragraph, button */
+.columns .columns div {
+  flex: 3 1 0;
+  min-width: 0;
+  max-width: 720px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+/* Right image column */
+.columns .columns .columns-img-col {
+  flex: 1 1 0;
+  max-width: 420px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-end;
+  padding: 0;
+}
+
+/* Responsive image scaling */
+.columns .columns .columns-img-col img,
+.columns .columns .columns-img-col picture {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  object-fit: contain;
+}
+
+/* Heading: large, bold, left-aligned, forced max-width for clean wrapping */
+.columns .columns div h2 {
+    font-size: 28px;
+    margin-bottom: 16px;
+    max-width: 100%;
+  }
+
+/* Supporting paragraph: smaller text, restricted width */
+.columns .columns div p {
+  color: #000;
+  font-size: 13px;
+  line-height: 1.45;
+  font-weight: 400;
+  margin: 0 0 22px;
+  max-width: 320px;
+  text-align: left;
+}
+
+/* Button container: left aligned, natural flow */
+.columns .columns div .button-container {
+  width: 100%;
+  text-align: left;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+/* Outlined button style: override Adobe base filled styles */
+.columns .columns .button-container .button,
+.columns .columns .button-container a.button {
+  background: #fff;
+  color: #000;
+  border: 1px solid #000;
+  border-radius: 16px;
+  font-size: 13px;
+  font-weight: 500;
+  padding: 8px 24px;
+  margin: 0;
+  line-height: 1.35;
+  min-width: 0;
+  box-shadow: none;
+  display: inline-block;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+  transition: border-color 0.2s, color 0.2s, background 0.2s;
+  overflow: visible;
+  white-space: nowrap;
+  background-color: #fff;
+  border-width: 1px;
+  border-style: solid;
+  border-color: #000;
+}
+
+/* Button hover/active states */
+.columns .columns .button-container .button:hover,
+.columns .columns .button-container a.button:hover,
+.columns .columns .button-container .button:focus,
+.columns .columns .button-container a.button:focus {
+  border-color: var(--link-color);
+  color: var(--link-color);
+  background: var(--light-color);
+}
+
+/* Remove filled button look from Adobe base styles */
+
+/* Responsive: stack vertically, compact content on mobile */
+@media (width <= 900px) {
+  .columns .columns div h2 {
+    font-size: 28px;
+    margin-bottom: 16px;
+    max-width: 100%;
+  }
+
+  .columns .columns div p {
+    font-size: 12px;
+    margin-bottom: 14px;
+    max-width: 100%;
+  }
+
+  .columns .columns .button-container .button,
+  .columns .columns .button-container a.button {
+    font-size: 12px;
+    padding: 8px 16px;
+  }
+
+  .columns .columns .columns-img-col {
+    max-width: 100%;
+    justify-content: flex-start;
+    margin-top: 16px;
+  }
+
+  .columns .columns div,
+  .columns .columns .columns-img-col {
+    max-width: 100%;
+    min-width: 0;
   }
 }
