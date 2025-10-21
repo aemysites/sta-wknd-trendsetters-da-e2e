@@ -1296,20 +1296,18 @@
 
 .columns.columns28 .block.columns-2-cols div {
   display: flex;
-  gap: 40px;                   /* horizontal gap between columns */
-  align-items: flex-start;     /* top-align columns (images and text) */
-  background: #F8F7F5;         /* Light background as described */
+  gap: 40px;
+  align-items: flex-start;
+  background: #F8F7F5;
   padding: 48px;
   border-radius: 28px;
-
-  /* Optional: max-width and margin for centering */
   max-width: 1200px;
   margin: 40px auto;
 }
 
 .columns.columns28 .block.columns-2-cols > div > div:first-child {
   flex: 1.2 1 0;
-  min-width: 0; /* Prevents overflowing content */
+  min-width: 0;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -1322,7 +1320,6 @@
   align-items: center;
 }
 
-/* Byline - first p */
 .columns.columns28 .block.columns-2-cols > div > div:first-child > p:first-child {
   font-size: 12px;
   color: #939393;
@@ -1332,7 +1329,6 @@
   font-weight: 500;
 }
 
-/* Headline */
 .columns.columns28 .block.columns-2-cols > div > div:first-child > h2 {
   font-size: 64px;
   font-weight: 800;
@@ -1344,7 +1340,6 @@
   max-width: 95%;
 }
 
-/* Body text (all p except first and last) */
 .columns.columns28 .block.columns-2-cols > div > div:first-child > p:not(:first-child, .button-container) {
   font-size: 18px;
   line-height: 1.6;
@@ -1352,12 +1347,10 @@
   margin: 0 0 18px;
 }
 
-/* Hide extra margin at bottom */
 .columns.columns28 .block.columns-2-cols > div > div:first-child > p:last-of-type:not(.button-container) {
   margin-bottom: 0;
 }
 
-/* Button styles */
 .columns.columns28 .button-container {
   margin-top: 18px;
 }
@@ -1381,7 +1374,6 @@
   color: #fff;
 }
 
-/* Image column */
 .columns.columns28 .columns-img-col {
   display: flex;
   align-items: center;
@@ -1397,7 +1389,6 @@
   margin: 0;
 }
 
-/* RESPONSIVE */
 @media (width <= 900px) {
   .columns.columns28 {
     padding: 24px;
@@ -1423,5 +1414,116 @@
 
   .columns.columns28 .block.columns-2-cols > div > div:first-child > h2 {
     font-size: 36px;
+  }
+}
+
+
+.columns.columns31 {
+  background: var(--background-color);
+  padding: 0;
+}
+
+/* Main grid: two columns side by side (left for meta/tags, right for content) */
+.columns.columns31 .block.columns-3-cols div {
+  display: grid;
+  grid-template-columns: minmax(180px, 27%) 1fr;
+  gap: min(9vw, 96px);
+  align-items: start;
+  padding: min(8vw, 90px) min(4vw, 48px);
+  background: var(--background-color);
+  box-sizing: border-box;
+}
+
+/* Left column: Name and tags/pills, top-aligned */
+.columns.columns31 .block.columns-3-cols div div:first-child {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1.3em;
+  padding-top: 0;
+  margin: 0;
+  min-width: 0;
+}
+
+.columns.columns31 .block.columns-3-cols div div:first-child p:first-child {
+  font-size: var(--body-font-size-s);
+  color: #8b8b8b;
+  font-weight: 500;
+  margin: 0 0 1.1em;
+  letter-spacing: 0.01em;
+  line-height: 1.2;
+}
+
+.columns.columns31 .block.columns-3-cols div div:first-child p:not(:first-child) {
+  display: inline-block;
+  background: #f0f0f0;
+  color: #8b8b8b;
+  border-radius: 999px;
+  padding: 0.38em 1.2em;
+  font-size: 13px;
+  font-weight: 600;
+  text-transform: uppercase;
+  margin: 0 0 0.7em;
+  letter-spacing: 0.065em;
+  line-height: 1.4;
+}
+
+.columns.columns31 .block.columns-3-cols div div:first-child p:last-child {
+  margin-bottom: 0;
+}
+
+/* Right column: headline above paragraphs, both top-aligned */
+.columns.columns31 .block.columns-3-cols div div:nth-child(2),
+.columns.columns31 .block.columns-3-cols div div:nth-child(3) {
+  grid-column: 2;
+  margin: 0;
+  align-self: start;
+  min-width: 0;
+}
+
+/* Headline styling */
+.columns.columns31 .block.columns-3-cols div div:nth-child(2) h2 {
+    font-size: 2.1em;
+    max-width: 100%;
+  }
+
+/* Paragraphs styling */
+.columns.columns31 .block.columns-3-cols div div:nth-child(3) {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25em;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.columns.columns31 .block.columns-3-cols div div:nth-child(3) p {
+  font-size: var(--body-font-size-s);
+  color: #444;
+  margin: 0;
+  line-height: 1.63;
+  max-width: 42ch;
+}
+
+/* Responsive: stack columns vertically on small screens */
+@media (width <= 900px) {
+  .columns.columns31 .block.columns-3-cols div {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    padding: 7vw 4vw;
+  }
+
+  .columns.columns31 .block.columns-3-cols div div {
+    margin-bottom: 2em;
+    padding-top: 0;
+  }
+
+  .columns.columns31 .block.columns-3-cols div div:nth-child(2) h2 {
+    font-size: 2.1em;
+    max-width: 100%;
+  }
+
+  .columns.columns31 .block.columns-3-cols div div:nth-child(3) {
+    gap: 0.8em;
   }
 }
