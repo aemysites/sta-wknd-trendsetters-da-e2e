@@ -605,8 +605,6 @@
   }
 }
 
-
-/* HERO LAYOUT: two columns, left whitespace, right content */
 .hero.hero37 {
   display: flex;
   flex-direction: row;
@@ -622,17 +620,14 @@
   box-sizing: border-box;
 }
 
-/* LEFT COLUMN: whitespace (empty div) */
 .hero.hero37 div {
   min-width: 0;
 }
 
-/* Make leftmost column (first div) take up extra space for whitespace */
 .hero.hero37 div:first-of-type {
   flex: 2 1 0%;
 }
 
-/* RIGHT COLUMN: content */
 .hero.hero37 div:last-of-type {
   flex: 1 1 560px;
   max-width: 600px;
@@ -647,13 +642,11 @@
   box-sizing: border-box;
 }
 
-/* STACK content in column and left-align everything inside right column */
 .hero.hero37 div:last-of-type * {
   text-align: left;
   box-sizing: border-box;
 }
 
-/* TIGHTER vertical spacing for hero text */
 .hero.hero37 h2 {
   color: #000;
   font-size: clamp(2.2rem, 5vw, 3.4rem);
@@ -677,7 +670,6 @@
   padding: 0;
 }
 
-/* HERO BUTTON: pill, border, yellow accent, left-aligned */
 .hero.hero37 .button, .hero.hero37 a.button {
   background: #fff;
   color: #000;
@@ -705,7 +697,6 @@
   box-shadow: 0 4px 0 0 #d4d251;
 }
 
-/* IMAGE (not background): flex layout & order, fit and no z-index */
 .hero.hero37 .picture {
   position: static;
   flex: 1 1 0%;
@@ -725,7 +716,6 @@
   display: block;
 }
 
-/* RESPONSIVE: stack columns and reduce padding on small screens */
 @media (width <= 900px) {
   .hero.hero37 {
     flex-direction: column;
@@ -768,5 +758,146 @@
   .hero.hero37 .button, .hero.hero37 a.button {
     padding: 0.55em 1.4em;
     font-size: 0.97em;
+  }
+}
+
+.hero.hero40 {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  min-height: 600px;
+  width: 100vw;
+  margin: 0;
+  position: relative;
+  background: #000;
+  overflow: hidden;
+}
+
+/* Remove unwanted z-index if present */
+.hero .picture {
+  z-index: unset;
+}
+
+/* Assume structure: image in first div, text in second div */
+.hero.hero40 .picture,
+.hero.hero40 picture,
+.hero.hero40 img {
+  flex: 1;
+  order: 1;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  border-radius: 0;
+  margin: 0;
+  min-height: 600px;
+  max-height: 100vh;
+}
+
+/* Text panel/layout */
+.hero.hero40 div {
+  flex: 1;
+  order: 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 64px 5vw;
+  margin: 0;
+  min-width: 0;
+  background: none;
+  box-shadow: none;
+  border-radius: 0;
+  position: relative;
+  z-index: 1;
+  max-width: 800px;
+}
+
+/* Headline */
+.hero.hero40 h1 {
+  color: #fff;
+  font-size: var(--heading-font-size-xxl);
+  font-weight: 700;
+  line-height: 1.08;
+  margin: 0 0 32px;
+  text-align: left;
+  letter-spacing: 0.01em;
+  background: none;
+  border-radius: 0;
+}
+
+/* Body text */
+.hero.hero40 p {
+  color: rgb(255 255 255 / 85%);
+  font-size: var(--body-font-size-m);
+  margin: 0 0 32px;
+  text-align: left;
+  background: none;
+  border-radius: 0;
+}
+
+/* Button styling (override base styles) */
+.hero-container .hero-wrapper .block.hero.hero40 .button,
+.hero-container .hero-wrapper .block.hero.hero40 a.button,
+.hero-container .hero-wrapper .block.hero.hero40 button {
+  background: rgb(0 0 0 / 25%);
+  color: #fff;
+  border: 1.5px solid #A8A8A8;
+  border-radius: 2em;
+  font-size: var(--body-font-size-s);
+  font-weight: 600;
+  padding: 0.8em 2.2em;
+  margin-top: 8px;
+  box-shadow: none;
+  text-align: left;
+  transition: background 0.2s, color 0.2s, border-color 0.2s;
+  cursor: pointer;
+  max-width: fit-content;
+}
+
+.hero-container .hero-wrapper .block.hero.hero40 .button:hover,
+.hero-container .hero-wrapper .block.hero.hero40 a.button:hover,
+.hero-container .hero-wrapper .block.hero.hero40 button:hover,
+.hero-container .hero-wrapper .block.hero.hero40 .button:focus,
+.hero-container .hero-wrapper .block.hero.hero40 a.button:focus,
+.hero-container .hero-wrapper .block.hero.hero40 button:focus {
+  background: rgb(255 255 255 / 15%);
+  color: #fff;
+  border-color: #fff;
+}
+
+/* Responsive adjustments for mobile */
+@media (width <= 900px) {
+  .hero.hero40 {
+    flex-direction: column;
+    min-height: 340px;
+    width: 100vw;
+  }
+
+  .hero.hero40 .picture,
+  .hero.hero40 picture,
+  .hero.hero40 img {
+    height: 220px;
+    min-height: 120px;
+    flex: none;
+    order: 1;
+    max-height: 40vh;
+  }
+
+  .hero.hero40 div {
+    padding: 24px 6vw;
+    order: 2;
+    max-width: unset;
+    align-items: flex-start;
+  }
+
+  .hero.hero40 h1 {
+    font-size: var(--heading-font-size-xl);
+    margin-bottom: 24px;
+  }
+
+  .hero.hero40 p {
+    font-size: var(--body-font-size-s);
+    margin-bottom: 20px;
   }
 }
