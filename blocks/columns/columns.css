@@ -119,8 +119,8 @@
   display: block;
   width: 100%;
   height: auto;
-  max-width: 600px; /* Or adjust as appropriate for design balance */
-  box-shadow: 0 2px 16px rgb(0 0 0 / 4%); /* Optional: subtle shadow for depth */
+  max-width: 600px;
+  box-shadow: 0 2px 16px rgb(0 0 0 / 4%);
 }
 
 .columns.columns3 h1 {
@@ -193,5 +193,135 @@
   .columns.columns3 .columns-img-col picture img,
   .columns.columns3 .columns-img-col img {
     max-width: 100%;
+  }
+}
+
+
+.columns.columns4 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 120px;
+  background: #fff;
+  padding: 96px 0;
+}
+
+@media (width <= 900px) {
+  .columns.columns4 {
+    grid-template-columns: 1fr;
+    gap: 48px;
+    padding: 56px 0;
+  }
+}
+
+/* Left column headline/desc block */
+.columns.columns4 div {
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.columns.columns4 div div {
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.columns.columns4 div div:first-child {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 28px;
+  max-width: 540px;
+}
+
+.columns.columns4 div div:first-child h2 {
+  margin: 0 0 14px;
+  font-size: 3rem;
+  font-weight: 600;
+  color: #111;
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  text-align: left;
+}
+
+.columns.columns4 div div:first-child p {
+  margin: 0;
+  color: #444;
+  font-size: 1.1rem;
+  font-weight: 400;
+  line-height: 1.6;
+  text-align: left;
+}
+
+/* Right column: stacked buttons, centered horizontally */
+.columns.columns4 div div:last-child {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-width: 260px;
+  max-width: 320px;
+  width: 100%;
+}
+
+.columns.columns4 div div:last-child p {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  margin: 0;
+  padding: 0;
+}
+
+/* Pill-shaped button appearance */
+.columns.columns4 div div:last-child a {
+  display: block;
+  width: 100%;
+  min-width: 200px;
+  padding: 24px 0;
+  border: 3px solid #111;
+  border-radius: 999px;
+  background: #fff;
+  color: #111;
+  text-align: center;
+  font-size: 1.1rem;
+  font-weight: 600;
+  line-height: 1.2;
+  margin: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+  transition: box-shadow 0.13s, border-color 0.13s;
+  cursor: pointer;
+  background-clip: padding-box;
+}
+
+.columns.columns4 div div:last-child a:first-child {
+  border-top: 5px solid #F2F55E;
+}
+
+.columns.columns4 div div:last-child a:hover,
+.columns.columns4 div div:last-child a:focus {
+  box-shadow: 0 2px 12px rgb(30 30 30 / 9%);
+  border-color: #000;
+}
+
+@media (width <= 600px) {
+  .columns.columns4 {
+    gap: 18px;
+    padding: 20px 0;
+  }
+
+  .columns.columns4 div div:last-child a {
+    min-width: 0;
+    width: 100%;
+    font-size: 1rem;
+    padding: 14px 0;
+  }
+
+  .columns.columns4 div div:first-child h2 {
+    font-size: 2rem;
+  }
+
+  .columns.columns4 div div:last-child p {
+    gap: 14px;
   }
 }
