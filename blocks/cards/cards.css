@@ -273,7 +273,6 @@
   box-sizing: border-box;
 }
 
-/* Hide card body if empty to make image full-bleed */
 .cards.cards7 .cards-card-body {
   display: none;
   margin: 0;
@@ -281,7 +280,6 @@
   box-sizing: border-box;
 }
 
-/* Responsive: stack cards vertically on small screens */
 @media (width <= 900px) {
   .cards.cards7 ul {
     flex-direction: column;
@@ -296,5 +294,137 @@
 
   .cards.cards7 .cards-card-image {
     aspect-ratio: 16/11;
+  }
+}
+
+
+.cards.cards10 {
+  /* Outer container alignment and spacing */
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 12px;
+}
+
+/* Responsive multi-column grid for cards */
+.cards.cards10 ul {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-auto-rows: 1fr;
+  gap: 16px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  align-items: stretch;
+}
+
+@media (width <= 1024px) {
+  .cards.cards10 ul {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (width <= 700px) {
+  .cards.cards10 ul {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Cards: clean modern block style */
+.cards.cards10 li {
+  background: var(--background-color);
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgb(30 30 30 / 7%);
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  min-width: 0;
+  overflow: hidden;
+  transition: box-shadow 0.18s;
+}
+
+/* Card image block */
+.cards.cards10 .cards-card-image {
+  width: 100%;
+  height: 200px;
+  border-top-left-radius: 12px;
+  border-top-right-radius: 12px;
+  overflow: hidden;
+  display: flex;
+  align-items: stretch;
+  justify-content: stretch;
+}
+
+/* Card image itself */
+.cards.cards10 .cards-card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-top-left-radius: 12px;
+  border-top-right-radius: 12px;
+  display: block;
+}
+
+/* Card body: vertical stacking under image */
+.cards.cards10 .cards-card-body {
+  padding: 14px 14px 16px;
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 auto;
+  gap: 6px;
+  min-width: 0;
+}
+
+/* Tag/label at top of card body */
+.cards.cards10 .cards-card-body p:first-child {
+  background: #f3f3f3;
+  color: #6a6a6a;
+  font-size: 11px;
+  text-transform: uppercase;
+  display: inline-block;
+  border-radius: 11px;
+  padding: 2px 9px;
+  margin: 0 0 7px;
+  letter-spacing: 0.08em;
+  font-weight: 600;
+  align-self: flex-start;
+  line-height: 1.1;
+}
+
+/* Card title styling */
+.cards.cards10 .cards-card-body h3 {
+  font-size: 17px;
+  color: var(--text-color);
+  font-weight: 700;
+  margin: 0 0 6px;
+  line-height: 1.15;
+  letter-spacing: 0;
+}
+
+/* Card description styling */
+.cards.cards10 .cards-card-body p:not(:first-child) {
+  color: #272727;
+  font-size: 13px;
+  line-height: 1.44;
+  margin: 0;
+  font-weight: 400;
+  flex: 1;
+  min-width: 0;
+}
+
+/* Ensure cards in a row are always equal height */
+
+/* Responsive tweaks for mobile */
+@media (width <= 700px) {
+  .cards.cards10 {
+    padding: 0 4px;
+  }
+
+  .cards.cards10 .cards-card-image {
+    height: 120px;
+  }
+
+  .cards.cards10 .cards-card-body {
+    padding: 10px 8px 12px;
+    gap: 4px;
   }
 }
