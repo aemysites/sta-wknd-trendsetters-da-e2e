@@ -525,8 +525,8 @@
 .hero.hero29.block {
   display: flex;
   flex-direction: row;
-  align-items: center;  /* vertically center items */
-  min-height: 60vh;     /* adjust as needed for block height */
+  align-items: center;
+  min-height: 60vh;
   position: relative;
   overflow: hidden;
   background: #faf9f6;
@@ -602,5 +602,171 @@
 
   .hero.hero29.block h1 {
     font-size: 7vw;
+  }
+}
+
+
+/* HERO LAYOUT: two columns, left whitespace, right content */
+.hero.hero37 {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+  background: var(--background-color, #fff);
+  border-bottom: 2px solid #000;
+  border-radius: 0;
+  box-shadow: none;
+  width: 100%;
+  min-height: 340px;
+  padding: 64px 0 56px;
+  box-sizing: border-box;
+}
+
+/* LEFT COLUMN: whitespace (empty div) */
+.hero.hero37 div {
+  min-width: 0;
+}
+
+/* Make leftmost column (first div) take up extra space for whitespace */
+.hero.hero37 div:first-of-type {
+  flex: 2 1 0%;
+}
+
+/* RIGHT COLUMN: content */
+.hero.hero37 div:last-of-type {
+  flex: 1 1 560px;
+  max-width: 600px;
+  min-width: 260px;
+  margin: 0;
+  padding-right: 6vw;
+  padding-left: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  box-sizing: border-box;
+}
+
+/* STACK content in column and left-align everything inside right column */
+.hero.hero37 div:last-of-type * {
+  text-align: left;
+  box-sizing: border-box;
+}
+
+/* TIGHTER vertical spacing for hero text */
+.hero.hero37 h2 {
+  color: #000;
+  font-size: clamp(2.2rem, 5vw, 3.4rem);
+  font-weight: 600;
+  margin-top: 0;
+  margin-bottom: 0.18em;
+  line-height: 1.08;
+  letter-spacing: 0.04em;
+}
+
+.hero.hero37 p:not(.button-container) {
+  color: #666;
+  font-size: 1.13rem;
+  font-weight: 400;
+  margin: 0 0 1.6em;
+  line-height: 1.44;
+}
+
+.hero.hero37 p.button-container {
+  margin: 0;
+  padding: 0;
+}
+
+/* HERO BUTTON: pill, border, yellow accent, left-aligned */
+.hero.hero37 .button, .hero.hero37 a.button {
+  background: #fff;
+  color: #000;
+  border: 2px solid #000;
+  border-radius: 999px;
+  padding: 0.65em 2.5em;
+  font-weight: 500;
+  font-size: 1em;
+  margin: 0;
+  margin-top: 0.35em;
+  box-shadow: 0 4px 0 0 #eae88a;
+  line-height: 1.25;
+  text-align: center;
+  max-width: 100%;
+  transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+  cursor: pointer;
+}
+
+.hero.hero37 .button:hover,
+.hero.hero37 .button:focus,
+.hero.hero37 a.button:hover,
+.hero.hero37 a.button:focus {
+  background: #f7f7e5;
+  color: #222;
+  box-shadow: 0 4px 0 0 #d4d251;
+}
+
+/* IMAGE (not background): flex layout & order, fit and no z-index */
+.hero.hero37 .picture {
+  position: static;
+  flex: 1 1 0%;
+  order: 2;
+  margin: 0;
+  max-width: 100%;
+  min-width: 0;
+  display: flex;
+  align-items: stretch;
+  justify-content: stretch;
+}
+
+.hero.hero37 .picture img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* RESPONSIVE: stack columns and reduce padding on small screens */
+@media (width <= 900px) {
+  .hero.hero37 {
+    flex-direction: column;
+    padding-top: 40px;
+    padding-bottom: 28px;
+  }
+
+  .hero.hero37 div:first-of-type {
+    display: none;
+  }
+
+  .hero.hero37 div:last-of-type {
+    max-width: 100%;
+    min-width: 0;
+    padding-right: 6vw;
+    padding-left: 0;
+  }
+}
+
+@media (width <= 600px) {
+  .hero.hero37 {
+    padding-top: 20px;
+    padding-bottom: 20px;
+  }
+
+  .hero.hero37 div:last-of-type {
+    padding-right: 3vw;
+  }
+
+  .hero.hero37 h2 {
+    font-size: clamp(1.18rem, 7vw, 2.15rem);
+    margin-bottom: 0.17em;
+  }
+
+  .hero.hero37 p:not(.button-container) {
+    font-size: 1rem;
+    margin-bottom: 1em;
+  }
+
+  .hero.hero37 .button, .hero.hero37 a.button {
+    padding: 0.55em 1.4em;
+    font-size: 0.97em;
   }
 }
