@@ -50,7 +50,6 @@
   width: 100%;
 }
 
-/* Left (feature) column */
 .cards.cards2 li:first-child {
   flex: 0 1 64%;
   max-width: 68%;
@@ -123,7 +122,6 @@
   border-color: #191919;
 }
 
-/* Right (sidebar) column */
 .cards.cards2 li:last-child {
   flex: 0 1 32%;
   max-width: 32%;
@@ -135,7 +133,6 @@
   padding: 0;
 }
 
-/* Sidebar image at top, tight grouping */
 .cards.cards2 li:last-child .cards-card-image {
   margin-bottom: 1rem;
 }
@@ -150,7 +147,6 @@
   box-shadow: 0 2px 8px 0 rgb(41 41 41 / 5%);
 }
 
-/* Sidebar text stack */
 .cards.cards2 li:last-child .cards-card-body {
   display: flex;
   flex-direction: column;
@@ -177,7 +173,6 @@
   margin-top: 0;
 }
 
-/* Responsive: columns stack */
 @media (width <= 900px) {
   .cards.cards2 {
     padding: 1.2rem 0.7rem;
@@ -214,5 +209,92 @@
     width: 42px;
     height: 72px;
     border-radius: 0.7rem;
+  }
+}
+
+
+.cards.cards7 {
+  width: 100%;
+  max-width: none;
+  padding: 0;
+  margin: 0;
+  background: transparent;
+  box-sizing: border-box;
+}
+
+.cards.cards7 ul {
+  display: flex;
+  flex-direction: row;
+  gap: 12px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  width: 100%;
+  box-sizing: border-box;
+  align-items: stretch;
+}
+
+.cards.cards7 li {
+  flex: 1 1 0;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  border-radius: 20px;
+  overflow: hidden;
+  background: transparent;
+  margin: 0;
+  box-shadow: none;
+  border: none;
+  box-sizing: border-box;
+}
+
+.cards.cards7 .cards-card-image {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  aspect-ratio: 16/9;
+  display: flex;
+  align-items: stretch;
+  flex: 1 0 auto;
+  box-sizing: border-box;
+}
+
+.cards.cards7 .cards-card-image img,
+.cards.cards7 .cards-card-image picture {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+  margin: 0;
+  padding: 0;
+  border: none;
+  background: transparent;
+  box-sizing: border-box;
+}
+
+/* Hide card body if empty to make image full-bleed */
+.cards.cards7 .cards-card-body {
+  display: none;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Responsive: stack cards vertically on small screens */
+@media (width <= 900px) {
+  .cards.cards7 ul {
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+  }
+
+  .cards.cards7 li {
+    border-radius: 16px;
+    min-width: 0;
+  }
+
+  .cards.cards7 .cards-card-image {
+    aspect-ratio: 16/11;
   }
 }
