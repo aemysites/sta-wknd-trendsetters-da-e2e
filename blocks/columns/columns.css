@@ -459,8 +459,6 @@
   }
 }
 
-
-/* Columns block: two main columns (left: text + contact, right: image) */
 .columns.columns9 .columns-2-cols {
   display: grid;
   grid-template-columns: 1fr 1.07fr;
@@ -474,7 +472,6 @@
   max-width: 1200px;
 }
 
-/* Responsive: stack columns on mobile */
 @media (width <= 900px) {
   .columns.columns9 .columns-2-cols {
     grid-template-columns: 1fr;
@@ -483,7 +480,6 @@
   }
 }
 
-/* Left column: stack headline, subtext, and contact info vertically */
 .columns.columns9 .columns-2-cols .block,
 .columns.columns9 .columns-2-cols .columns9-block,
 .columns.columns9 .columns-2-cols .columns-block,
@@ -496,7 +492,6 @@
   width: 100%;
 }
 
-/* Headline and subtext: spacing refinements */
 .columns.columns9 h2 {
   font-size: var(--heading-font-size-s);
   color: #888;
@@ -522,7 +517,6 @@
   line-height: 1.5;
 }
 
-/* Contact info list: compact vertical spacing, no bullets */
 .columns.columns9 ul {
   list-style: none;
   padding: 0;
@@ -533,7 +527,6 @@
   width: 100%;
 }
 
-/* Contact row: icon, label, value side-by-side */
 .columns.columns9 li {
   display: flex;
   flex-direction: row;
@@ -543,7 +536,6 @@
   width: 100%;
 }
 
-/* Icon style for contact info */
 .columns.columns9 li img,
 .columns.columns9 li svg {
   width: 40px;
@@ -558,7 +550,6 @@
   display: block;
 }
 
-/* Label and value styles */
 .columns.columns9 li h4 {
   font-size: var(--body-font-size-xs);
   text-transform: uppercase;
@@ -591,7 +582,6 @@
   font-weight: 400;
 }
 
-/* Right column: image only, top-aligned, tall and visually balanced */
 .columns.columns9 .columns-img-col,
 .columns.columns9 .columns-img-col img,
 .columns.columns9 .columns-2-cols img {
@@ -605,7 +595,6 @@
   margin: 0;
 }
 
-/* Responsive: soften image corners */
 @media (width <= 900px) {
   .columns.columns9 .columns-img-col,
   .columns.columns9 .columns-img-col img,
@@ -615,10 +604,204 @@
   }
 }
 
-/* Optional: space adjustment for very wide screens */
 @media (width >= 1200px) {
   .columns.columns9 .columns-2-cols {
     padding-left: 0;
     padding-right: 0;
   }
+}
+
+
+.columns.columns11 {
+  /* Main block: two columns side by side, responsive grid fallback for multi-row stacking */
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 56px;
+  background: var(--background-color);
+  padding: 64px;
+  border-radius: 0;
+  box-sizing: border-box;
+  width: 100%;
+}
+
+/* Left column: vertical stack for label, headline, description, meta, button */
+.columns.columns11 div {
+  min-width: 0;
+}
+
+.columns.columns11 div:first-child {
+  flex: 1 1 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 32px;
+  min-width: 0;
+  padding-top: 12px;
+  padding-bottom: 12px;
+}
+
+.columns.columns11 div:first-child p:first-child,
+.columns.columns11 div:first-child span:first-child {
+  text-transform: uppercase;
+  color: #888;
+  font-size: 0.93em;
+  letter-spacing: 0.08em;
+  margin-bottom: 8px;
+  font-weight: 500;
+}
+
+.columns.columns11 div:first-child h1,
+.columns.columns11 div:first-child h2,
+.columns.columns11 div:first-child h3 {
+  color: var(--text-color);
+  font-weight: 700;
+  line-height: 0.96;
+  font-size: clamp(54px, 9vw, var(--heading-font-size-xxl));
+  letter-spacing: -0.01em;
+  margin-bottom: 0.3em;
+  margin-top: 0;
+}
+
+.columns.columns11 div:first-child p:not(:first-child) {
+  color: #222;
+  font-size: var(--body-font-size-s);
+  margin: 0 0 24px;
+  line-height: 1.65;
+  max-width: 540px;
+}
+
+.columns.columns11 div:first-child .meta-row,
+.columns.columns11 div:first-child .author-row,
+.columns.columns11 div:first-child div:has(img) {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 12px;
+}
+
+.columns.columns11 div:first-child img[alt*="avatar"],
+.columns.columns11 div:first-child img.avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.columns.columns11 div:first-child .author {
+  font-weight: 600;
+  font-size: 1em;
+  color: var(--text-color);
+}
+
+.columns.columns11 div:first-child .meta,
+.columns.columns11 div:first-child .details {
+  color: #888;
+  font-size: 0.9em;
+}
+
+/* Outlined pill button override, more specific for block context */
+.columns.columns11 a.button,
+.columns.columns11 button,
+.columns.columns11 .button {
+  border: 2px solid var(--text-color);
+  background: var(--background-color);
+  color: var(--text-color);
+  border-radius: 999em;
+  font-weight: 600;
+  font-size: 1em;
+  padding: 0.5em 1.8em;
+  min-width: 110px;
+  height: 38px;
+  box-shadow: none;
+  margin-left: 20px;
+  text-align: center;
+  transition: border-color 0.2s, color 0.2s;
+}
+
+.columns.columns11 a.button:hover,
+.columns.columns11 button:hover,
+.columns.columns11 .button:hover {
+  border-color: var(--link-color);
+  color: var(--link-color);
+}
+
+/* Right column: images row */
+.columns.columns11 div:last-child {
+  flex: 1 1 0;
+  display: flex;
+  flex-direction: row;
+  gap: 32px;
+  align-items: flex-start;
+  justify-content: flex-end;
+  min-width: 0;
+  padding-top: 12px;
+  padding-bottom: 12px;
+}
+
+/* Each image: square aspect, rounded corners, spacing */
+.columns.columns11 div:last-child div {
+  flex: 1 1 0;
+  aspect-ratio: 1/1;
+  border-radius: 16px;
+  overflow: hidden;
+  background: var(--light-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 0;
+  box-sizing: border-box;
+}
+
+/* Images fill container, rounded corners, no overflow */
+.columns.columns11 div:last-child div img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 16px;
+  display: block;
+}
+
+/* Responsive: stack columns vertically, images become stacked below 900px */
+@media (width <= 900px) {
+  .columns.columns11 {
+    flex-direction: column;
+    gap: 40px;
+    padding: 32px;
+  }
+
+  .columns.columns11 div:last-child {
+    flex-direction: row;
+    gap: 24px;
+    justify-content: flex-start;
+    align-items: flex-start;
+  }
+}
+
+@media (width <= 600px) {
+  .columns.columns11 {
+    padding: 16px;
+    gap: 18px;
+  }
+
+  .columns.columns11 div:first-child {
+    gap: 18px;
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+
+  .columns.columns11 div:last-child {
+    flex-direction: column;
+    gap: 16px;
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+}
+
+/* Prevent images from overflowing */
+.columns.columns11 div:last-child div,
+.columns.columns11 div:last-child div img {
+  max-width: 100%;
+  max-height: 100%;
 }
