@@ -312,7 +312,6 @@
   position: relative;
 }
 
-/* Collage Side */
 .hero.hero20.block > div:first-child {
   flex: 1 1 60%;
   position: relative;
@@ -347,7 +346,6 @@
   pointer-events: none;
 }
 
-/* Main Content Side */
 .hero.hero20.block > div:last-child {
   flex: 1 1 40%;
   display: flex;
@@ -411,7 +409,6 @@
   color: #fff;
 }
 
-/* Responsive */
 @media (width <= 900px) {
   .hero.hero20.block {
     flex-direction: column;
@@ -427,5 +424,111 @@
   .hero.hero20.block > div:last-child > div {
     align-items: center;
     text-align: center;
+  }
+}
+
+
+.hero.block {
+  /* Set up a 2-column grid for desktop */
+  display: grid;
+  grid-template-columns: 1.1fr 1fr; /* Slightly wider left block for video/image */
+  grid-gap: 3rem;
+  align-items: start;
+  background: #FAF9F6;
+  padding: 3rem 2rem;
+  border-radius: 1.5rem;
+  box-shadow: 0 2px 16px rgb(0 0 0 / 5%);
+}
+
+.hero.block > div:first-child {
+  /* Video/Image block (left) */
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+
+  /* Optionally add some padding, or use shadow/bg for emphasis */
+}
+
+.hero.block > div:first-child picture,
+.hero.block > div:first-child img {
+  /* Make picture/image responsive, visually prominent */
+  width: 100%;
+  max-width: 540px;
+  border-radius: 2rem;
+  box-shadow: 0 4px 32px rgb(0 0 0 / 7%);
+  background: linear-gradient(135deg,#222 0%, #888 100%);
+  display: block;
+}
+
+.hero.block > div:nth-child(2) {
+  /* Text/buttons block (right) */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  /* Optionally pad out a bit */
+}
+
+.hero.block > div:nth-child(2) p:first-child {
+  /* Headline styles */
+  font-family: 'Inter Rounded', Nunito, Arial, sans-serif;
+  font-size: 2.7rem;
+  line-height: 1.1;
+  font-weight: 800;
+  color: #222;
+  letter-spacing: -1px;
+  margin-bottom: 1.2rem;
+  text-wrap: balance;
+}
+
+.hero.block > div:nth-child(2) p:nth-child(2) {
+  /* Subheadline/body text */
+  font-size: 1.15rem;
+  color: #444;
+  margin-bottom: 2rem;
+  max-width: 32rem;
+}
+
+.button-container {
+  display: flex;
+  gap: 1rem;
+}
+
+.button-container .button {
+  /* Button styles, pill-shaped, border */
+  display: inline-block;
+  padding: 0.7rem 2rem;
+  border: 1.5px solid #222;
+  border-radius: 2rem;
+  background: #fff;
+  color: #222;
+  font-weight: 600;
+  font-size: 1rem;
+  text-decoration: none;
+  transition: background 0.15s;
+}
+
+.button-container .button:hover {
+  background: #FAF9F6;
+  box-shadow: 0 2px 8px rgb(34 34 34 / 5%);
+}
+
+/* Responsive: stack columns on mobile */
+@media (width <= 900px) {
+  .hero.block {
+    grid-template-columns: 1fr;
+    grid-gap: 2rem;
+    padding: 2rem 0.5rem;
+  }
+
+  .button-container {
+    flex-direction: column;
+    gap: 0.7rem;
+  }
+
+  .hero.block > div:first-child picture,
+  .hero.block > div:first-child img {
+    max-width: 100%;
+    margin-bottom: 1.2rem;
   }
 }
