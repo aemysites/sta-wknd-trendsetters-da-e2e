@@ -798,14 +798,11 @@
   max-height: 100%;
 }
 
-
-/* Block background color and spacing */
 .columns.columns15 {
   background: #f6f7f4;
   padding: 0;
 }
 
-/* Main columns layout: flex row, top-aligned, with spacing */
 .columns.columns15 .block.columns {
   display: flex;
   flex-direction: row;
@@ -819,7 +816,6 @@
   min-width: 0;
 }
 
-/* Responsive: stack vertically on small screens */
 @media (width <= 899px) {
   .columns.columns15 .block.columns {
     flex-direction: column;
@@ -828,7 +824,6 @@
   }
 }
 
-/* Remove margin/padding/background/border/shadow from all column cells */
 .columns.columns15 .block.columns div {
   margin: 0;
   padding: 0;
@@ -837,7 +832,6 @@
   box-shadow: none;
 }
 
-/* Text columns: regular weight, small size, dark color */
 .columns.columns15 .block.columns div:not(:last-child) {
   color: #242424;
   font-size: 12px;
@@ -848,7 +842,6 @@
   min-width: 0;
 }
 
-/* Right column: aligns button top right */
 .columns.columns15 .block.columns div:last-child {
   display: flex;
   align-items: flex-start;
@@ -862,7 +855,6 @@
   margin: 0;
 }
 
-/* Button styling for accurate visual match */
 .columns.columns15 .block.columns .button,
 .columns.columns15 .block.columns a.button {
   background-color: #fff;
@@ -882,9 +874,75 @@
   transition: box-shadow 0.2s;
 }
 
-/* Remove default margin from paragraphs for tighter layout */
 .columns.columns15 .block.columns p {
   margin: 0;
 }
 
-/* Ensure column block can fill its container */
+
+.columns-wrapper {
+  background: #fff;
+  padding: 64px 0;
+  box-sizing: border-box;
+}
+
+.columns-wrapper .columns > div {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;    /* center the collage horizontally */
+  align-items: flex-end;      /* allows slight vertical offsets */
+  gap: 16px;
+  max-width: 900px;           /* constrains collage width */
+  margin: 0 auto;             /* center the collage in the block */
+}
+
+.columns-wrapper .columns-img-col {
+  max-width: 140px;
+  width: 100%;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Images: responsive, clean, no border/shadow, slightly spaced out for collage feel */
+.columns-wrapper .columns-img-col img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border: none;
+  background: none;
+  box-shadow: none;
+  transition: transform 0.2s;
+  margin: 0;
+  padding: 0;
+}
+
+/* Playful collage rotations */
+.columns-wrapper .columns-img-col:nth-child(1) img { transform: rotate(-4deg); }
+.columns-wrapper .columns-img-col:nth-child(2) img { transform: rotate(3deg); }
+.columns-wrapper .columns-img-col:nth-child(3) img { transform: rotate(-2deg); }
+.columns-wrapper .columns-img-col:nth-child(4) img { transform: rotate(2deg); }
+.columns-wrapper .columns-img-col:nth-child(5) img { transform: rotate(-3deg);}
+.columns-wrapper .columns-img-col:nth-child(6) img { transform: rotate(4deg); }
+
+/* Add slight vertical offsets for organic look */
+.columns-wrapper .columns-img-col:nth-child(2) { margin-top: 12px; }
+.columns-wrapper .columns-img-col:nth-child(5) { margin-top: 16px; }
+.columns-wrapper .columns-img-col:nth-child(4) { margin-bottom: 10px; }
+
+@media (width <= 900px) {
+  .columns-wrapper .columns > div {
+    max-width: 100vw;
+    gap: 10px;
+  }
+
+  .columns-wrapper .columns-img-col {
+    max-width: 90px;
+  }
+
+  .columns-wrapper {
+    padding: 36px 0;
+  }
+}
