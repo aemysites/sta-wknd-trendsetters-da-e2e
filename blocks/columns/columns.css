@@ -325,7 +325,6 @@
 
 
 .columns.columns5 {
-  /* Restrict width if not full-bleed, otherwise use suggested wrapper CSS */
   width: 100%;
   background: var(--background-color);
   margin: 0;
@@ -368,7 +367,7 @@
   flex-direction: column;
   align-items: flex-start;
   justify-content: flex-start;
-  padding: 36px 48px 32px 72px; /* Top, Right, Bottom, Left */
+  padding: 36px 48px 32px 72px;
   background: var(--background-color);
   min-width: 0;
 }
@@ -457,5 +456,169 @@
 
   .columns.columns5 h2 {
     font-size: var(--heading-font-size-l);
+  }
+}
+
+
+/* Columns block: two main columns (left: text + contact, right: image) */
+.columns.columns9 .columns-2-cols {
+  display: grid;
+  grid-template-columns: 1fr 1.07fr;
+  align-items: start;
+  gap: 56px;
+  margin: 0 auto;
+  padding: 48px 32px;
+  background: var(--background-color);
+  border-radius: 0;
+  box-sizing: border-box;
+  max-width: 1200px;
+}
+
+/* Responsive: stack columns on mobile */
+@media (width <= 900px) {
+  .columns.columns9 .columns-2-cols {
+    grid-template-columns: 1fr;
+    gap: 32px;
+    padding: 32px 16px;
+  }
+}
+
+/* Left column: stack headline, subtext, and contact info vertically */
+.columns.columns9 .columns-2-cols .block,
+.columns.columns9 .columns-2-cols .columns9-block,
+.columns.columns9 .columns-2-cols .columns-block,
+.columns.columns9 .columns-2-cols .columns-text-col {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 22px;
+  min-width: 0;
+  width: 100%;
+}
+
+/* Headline and subtext: spacing refinements */
+.columns.columns9 h2 {
+  font-size: var(--heading-font-size-s);
+  color: #888;
+  text-transform: uppercase;
+  font-weight: 600;
+  letter-spacing: 2px;
+  margin: 0 0 10px;
+}
+
+.columns.columns9 h3 {
+  font-size: 2.5rem;
+  color: #222;
+  font-weight: 700;
+  text-transform: lowercase;
+  margin: 0 0 14px;
+  line-height: 1.13;
+}
+
+.columns.columns9 p {
+  font-size: var(--body-font-size-s);
+  color: #666;
+  margin: 0 0 2px;
+  line-height: 1.5;
+}
+
+/* Contact info list: compact vertical spacing, no bullets */
+.columns.columns9 ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: 100%;
+}
+
+/* Contact row: icon, label, value side-by-side */
+.columns.columns9 li {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 14px;
+  margin: 0;
+  width: 100%;
+}
+
+/* Icon style for contact info */
+.columns.columns9 li img,
+.columns.columns9 li svg {
+  width: 40px;
+  height: 40px;
+  min-width: 40px;
+  min-height: 40px;
+  background: #f4f4f4;
+  border-radius: 50%;
+  box-shadow: 0 2px 8px rgb(0 0 0 / 6%);
+  padding: 8px;
+  object-fit: contain;
+  display: block;
+}
+
+/* Label and value styles */
+.columns.columns9 li h4 {
+  font-size: var(--body-font-size-xs);
+  text-transform: uppercase;
+  color: #888;
+  font-weight: 600;
+  letter-spacing: 1px;
+  margin: 0 8px 0 0;
+}
+
+.columns.columns9 li p,
+.columns.columns9 li a {
+  font-size: var(--body-font-size-s);
+  color: #222;
+  margin: 0;
+  display: inline-block;
+}
+
+.columns.columns9 .button,
+.columns.columns9 .button-container .button {
+  font-size: var(--body-font-size-s);
+  color: #222;
+  text-decoration: underline;
+  background: none;
+  border: none;
+  padding: 0;
+  margin: 0;
+  min-width: unset;
+  box-shadow: none;
+  border-radius: 0;
+  font-weight: 400;
+}
+
+/* Right column: image only, top-aligned, tall and visually balanced */
+.columns.columns9 .columns-img-col,
+.columns.columns9 .columns-img-col img,
+.columns.columns9 .columns-2-cols img {
+  width: 100%;
+  max-width: 560px;
+  height: auto;
+  border-radius: 20px;
+  box-shadow: 0 4px 20px rgb(0 0 0 / 8%);
+  object-fit: cover;
+  display: block;
+  margin: 0;
+}
+
+/* Responsive: soften image corners */
+@media (width <= 900px) {
+  .columns.columns9 .columns-img-col,
+  .columns.columns9 .columns-img-col img,
+  .columns.columns9 .columns-2-cols img {
+    border-radius: 14px;
+    max-width: 100%;
+  }
+}
+
+/* Optional: space adjustment for very wide screens */
+@media (width >= 1200px) {
+  .columns.columns9 .columns-2-cols {
+    padding-left: 0;
+    padding-right: 0;
   }
 }
