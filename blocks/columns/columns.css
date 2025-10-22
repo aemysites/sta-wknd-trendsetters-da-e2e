@@ -1,3 +1,4 @@
+/* stylelint-disable no-descending-specificity */
 .columns > div {
   display: flex;
   flex-direction: column;
@@ -29,5 +30,163 @@
   .columns > div > div {
     flex: 1;
     order: unset;
+  }
+}
+
+
+.columns {
+  background-color: #f5f6f3;
+  padding: 56px 0 64px;
+}
+
+.columns .columns-wrapper {
+  margin: 0 auto;
+  padding: 0 32px;
+  max-width: 1200px;
+}
+
+/* GRID LAYOUT FOR COLUMNS BLOCK */
+.columns .block.columns {
+  padding: 0;
+  margin: 0;
+  background: none;
+  box-shadow: none;
+  border: none;
+}
+
+.columns .columns21 {
+  padding: 0;
+  margin: 0;
+}
+
+.columns .columns21 div {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 40px;
+  align-items: center;
+}
+
+/* ALL COLUMNS: VERTICAL & HORIZONTAL CENTERING */
+.columns .columns21 div div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-width: 0;
+  padding: 0 8px;
+  margin: 0;
+  background: none;
+  box-shadow: none;
+}
+
+/* HEADINGS: BOLD, MODERATE, CENTERED */
+.columns .columns21 h2,
+.columns .columns21 h3,
+.columns .columns21 h4 {
+  color: var(--text-color);
+  font-weight: 600;
+  font-size: 1.7rem;
+  text-align: center;
+  margin: 0 0 20px;
+  letter-spacing: normal;
+  line-height: 1.2;
+}
+
+/* REMOVE BULLETS, CENTER LISTS */
+.columns .columns21 ul,
+.columns .columns21 ol {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  text-align: center;
+}
+
+/* LIST ITEMS: SPACING & COLOR */
+.columns .columns21 li {
+  margin-bottom: 13px;
+  color: var(--text-color);
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+.columns .columns21 li:last-child {
+  margin-bottom: 0;
+}
+
+/* SOCIAL COLUMN: CENTER SOCIAL LINKS, NO BULLETS */
+.columns .columns21 div div:first-child ul,
+.columns .columns21 div div:first-child ol {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  padding: 0;
+  margin: 0;
+}
+
+.columns .columns21 div div:first-child li {
+  margin: 0;
+}
+
+/* SOCIAL BUTTON VISUAL STYLE */
+.columns .columns21 div div:first-child a,
+.columns .columns21 div div:first-child button {
+  display: inline-block;
+  background: #fff;
+  color: var(--text-color);
+  border: 1.5px solid #e0e0e0;
+  border-radius: 2em;
+  box-shadow: none;
+  font-size: 1rem;
+  font-weight: 500;
+  padding: 8px 24px;
+  margin: 0;
+  transition: background 0.2s, color 0.2s, border-color 0.2s;
+  text-align: center;
+  min-width: 120px;
+  line-height: 1.4;
+}
+
+.columns .columns21 div div:first-child a:hover,
+.columns .columns21 div div:first-child button:hover {
+  background: #f0f0f0;
+  color: var(--link-color);
+  border-color: #bdbdbd;
+}
+
+/* LINKS IN ALL COLUMNS: DARK, SUBTLE HOVER */
+.columns .columns21 a:not(.button),
+.columns .columns21 li a {
+  color: var(--text-color);
+  text-decoration: none;
+  font-size: 1rem;
+  transition: color 0.2s;
+}
+
+.columns .columns21 a:not(.button):hover,
+.columns .columns21 li a:hover {
+  color: var(--link-color);
+  text-decoration: underline;
+}
+
+/* ENSURE TEXT CENTERING IN ALL CONTENT */
+.columns .columns21 div div,
+.columns .columns21 div div * {
+  text-align: center;
+}
+
+/* RESPONSIVE: STACK COLUMNS ON NARROW SCREENS */
+@media (width <= 900px) {
+  .columns .columns-wrapper {
+    padding: 0 16px;
+  }
+
+  .columns .columns21 div {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+
+  .columns {
+    padding: 32px 0 40px;
   }
 }
