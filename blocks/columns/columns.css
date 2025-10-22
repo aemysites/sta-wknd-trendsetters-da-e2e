@@ -36,9 +36,9 @@
 
 .columns {
   background-color: #f5f6f3;
-  padding: 48px 32px;
-  border-radius: 36px;
-  margin: 40px auto;
+  padding: 3.5rem 3vw;
+  border-radius: 2.5rem;
+  margin: 0 auto;
   box-sizing: border-box;
   display: grid;
   grid-template-columns: 1fr 2fr;
@@ -64,6 +64,11 @@
 .columns .columns21 {
   padding: 0;
   margin: 0;
+  display: grid;
+  grid-template-columns: minmax(220px, 1.1fr) repeat(3, minmax(0, 1fr));
+  gap: 6vw;
+  align-items: center;
+  width: 100%;
 }
 
 .columns .columns21 div {
@@ -189,7 +194,6 @@
   }
 }
 
-/* Responsive stacking on smaller screens */
 @media (width <= 900px) {
   .columns {
     grid-template-columns: 1fr;
@@ -199,7 +203,6 @@
   }
 }
 
-/* Left column - image placeholder block */
 .columns div div:first-child {
   width: 220px;
   height: 220px;
@@ -212,7 +215,6 @@
   box-sizing: border-box;
 }
 
-/* Left column - stacked category text below image */
 .columns div div:nth-child(2) {
   display: flex;
   flex-direction: column;
@@ -227,7 +229,6 @@
   margin: 0;
 }
 
-/* Right column - main content */
 .columns div div:nth-child(3) {
   display: flex;
   flex-direction: column;
@@ -235,7 +236,6 @@
   min-width: 0;
 }
 
-/* Headline styles */
 .columns div div:nth-child(3) h2 {
   font-size: 3.2rem;
   font-weight: 800;
@@ -247,7 +247,6 @@
   max-width: 16ch;
 }
 
-/* Supporting text styles */
 .columns div div:nth-child(3) p {
   color: #4B4B4B;
   font-size: 1.18rem;
@@ -261,5 +260,150 @@
   .columns div div:first-child,
   .columns div div:nth-child(2) {
     width: 100%;
+  }
+}
+
+
+/* Ensure root columns block is visually separated and centered */
+
+/* Use CSS Grid for multi-column layout and vertical centering */
+
+/* Leftmost stack: logo, buttons, socials, all vertically stacked with whitespace */
+.columns .columns21 div:first-child {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 2.2rem;
+  padding: 0;
+  background: none;
+  border: none;
+  box-shadow: none;
+}
+
+/* Remove any default box or separator styling in the left section */
+.columns .columns21 div:first-child * {
+  background: none;
+  border: none;
+  box-shadow: none;
+  margin: 0;
+}
+
+/* Logo image spacing */
+.columns .columns21 div:first-child img {
+  max-width: 140px;
+  width: 100%;
+  margin-bottom: 0.5rem;
+  border-radius: 0.6rem;
+}
+
+/* Wide, pill, outlined buttons in left column */
+.columns .columns21 div:first-child a.button,
+.columns .columns21 div:first-child button {
+  width: 100%;
+  min-width: 160px;
+  max-width: 320px;
+  border-radius: 999px;
+  border: 2px solid #000;
+  background: #fff;
+  color: #000;
+  padding: 1.05em 2.2em;
+  font-size: 1.08em;
+  font-weight: 500;
+  line-height: 1.25;
+  margin: 0;
+  box-shadow: 0 2px 0 0 #f6f566;
+}
+
+/* Left column social row: horizontal alignment with spacing */
+.columns .columns21 div:first-child .icon,
+.columns .columns21 div:first-child .social {
+  display: flex;
+  gap: 1.1rem;
+  align-items: center;
+  margin-top: 0.5rem;
+}
+
+/* Social icon images: fixed size, rounded */
+.columns .columns21 div:first-child .icon img,
+.columns .columns21 div:first-child .social img {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+/* Remove bullets from all menus, increase vertical spacing for air */
+.columns .columns21 div:not(:first-child) ul {
+  margin: 0;
+  padding-left: 0;
+  list-style: none;
+}
+
+/* Menu columns: vertical stack, left-aligned, sufficient spacing */
+.columns .columns21 div:not(:first-child) {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1.2rem;
+  min-width: 120px;
+}
+
+/* Headings: large, bold, airy, left-aligned */
+.columns .columns21 div:not(:first-child) h2,
+.columns .columns21 div:not(:first-child) h3 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin: 0 0 1rem;
+  color: #000;
+  line-height: 1.1;
+  text-align: left;
+  letter-spacing: 0.01em;
+}
+
+/* Menu link styling: black, bold, spaced, underline on hover */
+.columns .columns21 div:not(:first-child) a {
+  display: block;
+  color: #000;
+  font-size: 1.13rem;
+  line-height: 1.5;
+  text-align: left;
+  text-decoration: none;
+  margin-bottom: 1.2rem;
+  font-weight: 400;
+  transition: color 0.18s;
+}
+
+.columns .columns21 div:not(:first-child) a:hover {
+  color: #222;
+  text-decoration: underline;
+}
+
+/* Responsive: stack vertically on small screens */
+@media (width <= 900px) {
+  .columns {
+    padding: 2rem 1rem;
+    border-radius: 1.3rem;
+  }
+
+  .columns .columns21 {
+    grid-template-columns: 1fr;
+    gap: 2.2rem;
+  }
+
+  .columns .columns21 div {
+    min-width: 0;
+    width: 100%;
+    align-items: stretch;
+  }
+
+  .columns .columns21 div:first-child {
+    max-width: none;
+    min-width: 0;
+  }
+
+  .columns .columns21 div:not(:first-child) h2,
+  .columns .columns21 div:not(:first-child) h3 {
+    font-size: 1.55rem;
   }
 }
