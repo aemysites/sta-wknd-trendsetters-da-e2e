@@ -390,7 +390,6 @@
   background: transparent;
 }
 
-/* Responsive grid: 4 columns desktop, 2 tablet, 1 mobile */
 .cards.cards19 ul {
   display: grid;
   grid-template-columns: 1fr;
@@ -399,7 +398,7 @@
   padding: 0;
   margin: 0;
   list-style: none;
-  place-items: center start; /* Left-align grid content */  /* Vertically center content in cells */
+  place-items: center start;
 }
 
 @media (width >= 600px) {
@@ -414,12 +413,11 @@
   }
 }
 
-/* Each feature item: horizontal icon + text, vertically centered */
 .cards.cards19 ul li {
   display: flex;
   flex-direction: row;
-  align-items: center;        /* Vertically center icon and text */
-  justify-content: flex-start;/* Left-align content in cell */
+  align-items: center;
+  justify-content: flex-start;
   width: 100%;
   min-height: 40px;
   background: transparent;
@@ -429,7 +427,6 @@
   padding: 0;
 }
 
-/* Remove any spacing from child containers */
 .cards.cards19 ul li .cards-card-body {
   margin: 0;
   padding: 0;
@@ -438,7 +435,6 @@
   box-shadow: none;
 }
 
-/* Icon container: first .cards-card-body descendant in li */
 .cards.cards19 ul li .cards-card-body:first-child {
   display: flex;
   align-items: center;
@@ -450,7 +446,6 @@
   margin-right: 8px;
 }
 
-/* Icon image styling */
 .cards.cards19 ul li .cards-card-body img {
   width: 20px;
   height: 20px;
@@ -460,7 +455,6 @@
   padding: 0;
 }
 
-/* Text container: second .cards-card-body descendant in li */
 .cards.cards19 ul li .cards-card-body:not(:first-child) {
   display: flex;
   align-items: center;
@@ -468,7 +462,6 @@
   padding: 0;
 }
 
-/* Text paragraph styling */
 .cards.cards19 ul li .cards-card-body p {
   color: #222;
   font-size: 12px;
@@ -479,10 +472,122 @@
   text-align: left;
 }
 
-/* Remove any default list styles from nested lists */
 .cards.cards19 ul,
 .cards.cards19 ol {
   list-style: none;
   margin: 0;
   padding: 0;
+}
+
+
+.cards.cards23 {
+  margin: 0 auto;
+  box-sizing: border-box;
+  padding: 0;
+  max-width: 1200px;
+  background: transparent;
+}
+
+/* Grid layout for cards: 2 columns, 2 rows */
+.cards.cards23 ul {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto auto;
+  gap: 32px;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  box-sizing: border-box;
+  place-items: stretch stretch;
+}
+
+/* Card styling */
+.cards.cards23 li {
+  display: flex;
+  flex-direction: column;
+  background: #fff;
+  border-radius: 24px;
+  box-shadow: 0 4px 24px 0 rgb(0 0 0 / 7%);
+  overflow: hidden;
+  min-width: 0;
+  min-height: 340px;
+  transition: box-shadow 0.2s;
+}
+
+/* Hover effect for depth */
+.cards.cards23 li:hover {
+  box-shadow: 0 8px 32px 0 rgb(0 0 0 / 13%);
+}
+
+/* Image block always at top, full width */
+.cards.cards23 .cards-card-image {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: center;
+  background: #ececec;
+  min-height: 180px;
+  max-height: 220px;
+  border-top-left-radius: 24px;
+  border-top-right-radius: 24px;
+  overflow: hidden;
+}
+
+/* Image covers area, rounded top corners */
+.cards.cards23 .cards-card-image img,
+.cards.cards23 .cards-card-image picture {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  border-top-left-radius: 24px;
+  border-top-right-radius: 24px;
+  display: block;
+  background: #ececec;
+}
+
+/* Card body below image, vertical stack, left aligned */
+.cards.cards23 .cards-card-body {
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  padding: 24px 24px 20px;
+  box-sizing: border-box;
+}
+
+/* Card title: uppercased, bold, spaced, color */
+.cards.cards23 .cards-card-body h3 {
+  font-size: 22px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: #393939;
+  margin: 0 0 8px;
+  line-height: 1.2;
+  overflow-wrap: break-word;
+}
+
+/* Card subtitle/body text styling */
+.cards.cards23 .cards-card-body p {
+  font-size: 14px;
+  color: #767676;
+  font-weight: 400;
+  margin: 0;
+  line-height: 1.5;
+  overflow-wrap: break-word;
+}
+
+/* Responsive: stack cards in one column on small screens */
+@media (width <= 900px) {
+  .cards.cards23 ul {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+    gap: 24px;
+  }
+
+  .cards.cards23 {
+    max-width: 100%;
+  }
 }
