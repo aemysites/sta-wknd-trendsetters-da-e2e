@@ -610,7 +610,6 @@
 }
 
 .cards.cards24 ul li {
-  /* Each card is a relatively positioned flex row for overlapping */
   display: flex;
   flex-direction: row;
   align-items: flex-end;
@@ -637,7 +636,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-right: -68px; /* Key overlap: more negative for stronger overlay on desktop */
+  margin-right: -68px;
 }
 
 .cards.cards24 .cards-card-image img {
@@ -648,7 +647,6 @@
   border-radius: inherit;
 }
 
-/* Overlapping card body, visually floats above */
 .cards.cards24 .cards-card-body {
   position: relative;
   z-index: 2;
@@ -659,7 +657,7 @@
   min-width: 170px;
   max-width: 250px;
   padding: 20px 28px 16px;
-  margin-left: -62px; /* Overlap with image */
+  margin-left: -62px;
   margin-bottom: 24px;
   display: flex;
   align-items: flex-end;
@@ -674,7 +672,6 @@
   letter-spacing: 0.01em;
 }
 
-/* Responsive: Stack vertically and reduce overlap on small screens */
 @media (width <= 700px) {
   .cards.cards24 ul {
     grid-template-columns: 1fr;
@@ -701,5 +698,179 @@
     min-width: unset;
     max-width: 95vw;
     padding: 14px 18px 12px;
+  }
+}
+
+
+.cards.cards26 {
+  background-color: #FAFAFA;
+  padding: 2.5rem 1.5rem;
+}
+
+.cards.cards26 ul {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto auto auto;
+  gap: 1.5rem;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0;
+  list-style: none;
+}
+
+/* Wide hero card at the top spanning both columns */
+.cards.cards26 li:nth-child(1) {
+  grid-column: 1 / span 2;
+  grid-row: 1 / 2;
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  min-height: 320px;
+  background: #fff;
+  border-radius: 1.2rem;
+  box-shadow: 0 6px 24px rgb(0 0 0 / 13%);
+  overflow: hidden;
+  position: relative;
+}
+
+/* Other cards: two per row below the hero */
+.cards.cards26 li:nth-child(2) {
+  grid-column: 1 / 2;
+  grid-row: 2 / 3;
+}
+
+.cards.cards26 li:nth-child(3) {
+  grid-column: 2 / 3;
+  grid-row: 2 / 3;
+}
+
+.cards.cards26 li:nth-child(4) {
+  grid-column: 1 / 2;
+  grid-row: 3 / 4;
+}
+
+.cards.cards26 li:nth-child(5) {
+  grid-column: 2 / 3;
+  grid-row: 3 / 4;
+}
+
+/* Card base styles (all cards) */
+.cards.cards26 li {
+  background: #fff;
+  border-radius: 1.2rem;
+  box-shadow: 0 2px 8px rgb(0 0 0 / 8%);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  min-height: 0;
+  transition: box-shadow 0.2s;
+}
+
+/* Card image styling - always fills card top, rounded corners */
+.cards.cards26 .cards-card-image {
+  position: relative;
+  width: 100%;
+  height: 220px;
+  overflow: hidden;
+  flex-shrink: 0;
+  margin: 0;
+}
+
+.cards.cards26 .cards-card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-top-left-radius: 1.2rem;
+  border-top-right-radius: 1.2rem;
+  display: block;
+}
+
+/* Overlay for hero card text */
+.cards.cards26 li:nth-child(1) .cards-card-body {
+  position: absolute;
+  left: 2rem;
+  bottom: 2rem;
+  background: rgb(255 255 255 / 85%);
+  padding: 2rem 2.5rem 2rem 2rem;
+  border-radius: 0.8rem;
+  box-shadow: 0 2px 16px rgb(0 0 0 / 7%);
+  max-width: 60%;
+  z-index: 2;
+  margin: 0;
+}
+
+/* Overlay for all other cards with text */
+.cards.cards26 li:not(:nth-child(1)) .cards-card-image .cards-card-body {
+  position: absolute;
+  left: 1.1rem;
+  bottom: 1.1rem;
+  right: 1.1rem;
+  background: rgb(255 255 255 / 77%);
+  padding: 1rem 1.2rem;
+  border-radius: 0.8rem;
+  box-shadow: 0 2px 10px rgb(0 0 0 / 5%);
+  z-index: 2;
+  margin: 0;
+}
+
+/* Remove vertical stacking in non-overlay cards */
+.cards.cards26 li:not(:nth-child(1)) .cards-card-body {
+  display: none;
+}
+
+/* Heading hierarchy and color */
+.cards.cards26 li:nth-child(1) .cards-card-body h3 {
+  font-size: 2.4rem;
+  margin-bottom: 0.5rem;
+  color: #B2DFDB;
+  line-height: 1.15;
+  font-weight: 600;
+}
+
+.cards.cards26 .cards-card-body h3 {
+  font-size: 2rem;
+  color: #E5E5E5;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+  line-height: 1.15;
+}
+
+.cards.cards26 .cards-card-body p {
+  font-size: 1rem;
+  color: #757575;
+  margin: 0;
+  line-height: 1.5;
+}
+
+/* Responsive adjustments */
+@media (width <= 900px) {
+  .cards.cards26 ul {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+    gap: 1rem;
+    max-width: 100%;
+  }
+
+  .cards.cards26 li {
+    min-width: 0;
+    margin-top: 0;
+  }
+
+  .cards.cards26 li:nth-child(1) {
+    flex-direction: column;
+    min-height: 0;
+  }
+
+  .cards.cards26 li:nth-child(1) .cards-card-body {
+    left: 1rem;
+    right: 1rem;
+    bottom: 1rem;
+    max-width: 100%;
+    padding: 1.2rem 1rem;
+  }
+
+  .cards.cards26 .cards-card-image {
+    height: 160px;
   }
 }
