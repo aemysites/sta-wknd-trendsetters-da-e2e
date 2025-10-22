@@ -488,7 +488,6 @@
   background: transparent;
 }
 
-/* Grid layout for cards: 2 columns, 2 rows */
 .cards.cards23 ul {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -501,7 +500,6 @@
   place-items: stretch stretch;
 }
 
-/* Card styling */
 .cards.cards23 li {
   display: flex;
   flex-direction: column;
@@ -514,12 +512,10 @@
   transition: box-shadow 0.2s;
 }
 
-/* Hover effect for depth */
 .cards.cards23 li:hover {
   box-shadow: 0 8px 32px 0 rgb(0 0 0 / 13%);
 }
 
-/* Image block always at top, full width */
 .cards.cards23 .cards-card-image {
   width: 100%;
   display: flex;
@@ -534,7 +530,6 @@
   overflow: hidden;
 }
 
-/* Image covers area, rounded top corners */
 .cards.cards23 .cards-card-image img,
 .cards.cards23 .cards-card-image picture {
   width: 100%;
@@ -546,7 +541,6 @@
   background: #ececec;
 }
 
-/* Card body below image, vertical stack, left aligned */
 .cards.cards23 .cards-card-body {
   flex: 1 1 auto;
   display: flex;
@@ -557,7 +551,6 @@
   box-sizing: border-box;
 }
 
-/* Card title: uppercased, bold, spaced, color */
 .cards.cards23 .cards-card-body h3 {
   font-size: 22px;
   font-weight: 700;
@@ -569,7 +562,6 @@
   overflow-wrap: break-word;
 }
 
-/* Card subtitle/body text styling */
 .cards.cards23 .cards-card-body p {
   font-size: 14px;
   color: #767676;
@@ -579,7 +571,6 @@
   overflow-wrap: break-word;
 }
 
-/* Responsive: stack cards in one column on small screens */
 @media (width <= 900px) {
   .cards.cards23 ul {
     grid-template-columns: 1fr;
@@ -589,5 +580,126 @@
 
   .cards.cards23 {
     max-width: 100%;
+  }
+}
+
+
+.cards.cards24 {
+  background: var(--light-color);
+  padding-top: 48px;
+  padding-bottom: 48px;
+}
+
+.cards.cards24 .cards-wrapper {
+  display: flex;
+  justify-content: center;
+}
+
+.cards.cards24 .cards {
+  width: 100%;
+}
+
+.cards.cards24 ul {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 48px 32px;
+  justify-items: center;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.cards.cards24 ul li {
+  /* Each card is a relatively positioned flex row for overlapping */
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  justify-content: center;
+  position: relative;
+  min-height: 300px;
+  background: none;
+  padding: 0;
+  margin: 0;
+  overflow: visible;
+}
+
+.cards.cards24 .cards-card-image {
+  position: relative;
+  width: 220px;
+  height: 282px;
+  border: 2px solid #000;
+  border-radius: 20px;
+  background: #fff;
+  box-shadow: 0 8px 32px 0 rgb(0 0 0 / 8%);
+  transform: rotate(-7deg);
+  z-index: 1;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: -68px; /* Key overlap: more negative for stronger overlay on desktop */
+}
+
+.cards.cards24 .cards-card-image img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: inherit;
+}
+
+/* Overlapping card body, visually floats above */
+.cards.cards24 .cards-card-body {
+  position: relative;
+  z-index: 2;
+  background: #fff;
+  border: 2px solid #000;
+  border-radius: 24px 24px 38px 38px;
+  box-shadow: 0 4px 18px 0 rgb(0 0 0 / 11%);
+  min-width: 170px;
+  max-width: 250px;
+  padding: 20px 28px 16px;
+  margin-left: -62px; /* Overlap with image */
+  margin-bottom: 24px;
+  display: flex;
+  align-items: flex-end;
+  box-sizing: border-box;
+}
+
+.cards.cards24 .cards-card-body p {
+  color: #6B6B6B;
+  font-size: 14px;
+  margin: 0;
+  line-height: 1.5;
+  letter-spacing: 0.01em;
+}
+
+/* Responsive: Stack vertically and reduce overlap on small screens */
+@media (width <= 700px) {
+  .cards.cards24 ul {
+    grid-template-columns: 1fr;
+    gap: 36px;
+  }
+
+  .cards.cards24 ul li {
+    flex-direction: column;
+    align-items: center;
+    min-height: unset;
+  }
+
+  .cards.cards24 .cards-card-image {
+    width: 160px;
+    height: 180px;
+    margin-right: 0;
+    margin-bottom: -32px;
+    transform: rotate(-4deg);
+  }
+
+  .cards.cards24 .cards-card-body {
+    margin-left: 0;
+    margin-top: -32px;
+    min-width: unset;
+    max-width: 95vw;
+    padding: 14px 18px 12px;
   }
 }
