@@ -36,7 +36,7 @@
 
 .columns {
   background-color: #f5f6f3;
-  padding: 0;
+  padding: 3.5rem 2rem;
   border-radius: 0;
   margin: 0;
   box-sizing: border-box;
@@ -45,6 +45,8 @@
   align-items: center;
   gap: 64px;
   max-width: 1200px;
+  /* Removed shorthand "background" to avoid overriding "background-color" */
+  background-color: var(--background-color);
 }
 
 .columns .columns-wrapper {
@@ -394,7 +396,7 @@
 
 .columns .block {
   display: grid;
-  grid-template-columns: repeat(4, 1fr); /* Adjust to match card count */
+  grid-template-columns: repeat(4, 1fr);
   gap: 24px;
   align-items: stretch;
   background: transparent;
@@ -428,10 +430,159 @@
   display: block;
 }
 
-/* Responsive stacking */
 @media (width <= 900px) {
   .columns .block {
     grid-template-columns: 1fr;
     gap: 20px;
+  }
+}
+
+
+/* Layout: 4 columns side by side, equal width, max responsive, vertical top alignment */
+
+.columns .block.columns,
+.columns .block.columns .columns21,
+.columns .block.columns .columns21.block,
+.columns .block.columns .columns21.block.columns-4-cols,
+.columns .block.columns .columns21.block.columns-4-cols div {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 3.5rem;
+  align-items: start;
+  width: 100%;
+  background: transparent;
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+/* Each column: padding and vertical rhythm */
+.columns .block.columns .columns21.block.columns-4-cols div div {
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+
+/* Social column: light rounded box, vertically centered content */
+.columns .block.columns .columns21.block.columns-4-cols div div:first-child {
+  background: #f5f6f3;
+  border-radius: 2.8rem;
+  min-height: 340px;
+  padding: 2.5rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  gap: 0.5rem;
+}
+
+/* Social buttons: pill-shaped, stacked, spacing between */
+.columns .block.columns .columns21.block.columns-4-cols div div:first-child a.button,
+.columns .block.columns .columns21.block.columns-4-cols div div:first-child button {
+  background-color: var(--link-color);
+  color: var(--background-color);
+  border: none;
+  border-radius: 2.2em;
+  margin: 0.4rem 0;
+  padding: 0.55em 1.2em;
+  font-size: var(--body-font-size-s);
+  max-width: 210px;
+  width: 100%;
+  text-align: center;
+}
+
+.columns .block.columns .columns21.block.columns-4-cols div div:first-child a.button:hover,
+.columns .block.columns .columns21.block.columns-4-cols div div:first-child button:hover,
+.columns .block.columns .columns21.block.columns-4-cols div div:first-child a.button:focus,
+.columns .block.columns .columns21.block.columns-4-cols div div:first-child button:focus {
+  background-color: var(--link-hover-color);
+  color: var(--background-color);
+}
+
+/* Vertical dots between buttons if present: spacing, size */
+.columns .block.columns .columns21.block.columns-4-cols div div:first-child .dot {
+  width: 8px;
+  height: 8px;
+  margin: 0.65rem 0;
+  border-radius: 50%;
+  background: var(--text-color);
+}
+
+/* Headline columns: left-align, vertical rhythm */
+.columns .block.columns .columns21.block.columns-4-cols div div:not(:first-child) {
+  padding-top: 0.2rem;
+  padding-bottom: 0.2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  min-width: 0;
+}
+
+/* Headline styling: bold, geometric, left aligned, margin below */
+.columns .block.columns .columns21.block.columns-4-cols div div:not(:first-child) h2,
+.columns .block.columns .columns21.block.columns-4-cols div div:not(:first-child) h3 {
+  font-weight: 700;
+  font-size: 2.1rem;
+  margin: 0 0 1.1rem;
+  color: var(--text-color);
+  letter-spacing: 0.02em;
+  text-align: left;
+  line-height: 1.1;
+}
+
+/* List styling: blue links, tight vertical spacing */
+.columns .block.columns .columns21.block.columns-4-cols div div:not(:first-child) ul {
+  margin: 0;
+  padding: 0;
+  list-style: disc inside;
+}
+
+.columns .block.columns .columns21.block.columns-4-cols div div:not(:first-child) ul li {
+  margin-bottom: 0.5em;
+  line-height: 1.6;
+}
+
+.columns .block.columns .columns21.block.columns-4-cols div div:not(:first-child) ul li a,
+.columns .block.columns .columns21.block.columns-4-cols div div:not(:first-child) ul li a:any-link {
+  color: var(--link-color);
+  font-size: var(--body-font-size-s);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.columns .block.columns .columns21.block.columns-4-cols div div:not(:first-child) ul li a:hover,
+.columns .block.columns .columns21.block.columns-4-cols div div:not(:first-child) ul li a:focus {
+  color: var(--link-hover-color);
+  text-decoration: underline;
+}
+
+/* Responsive: stack columns vertically on small screens */
+@media (width <= 900px) {
+  .columns {
+    padding: 2rem 1rem;
+  }
+
+  .columns .block.columns .columns21.block.columns-4-cols div {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .columns .block.columns .columns21.block.columns-4-cols div div {
+    min-width: 0;
+  }
+
+  .columns .block.columns .columns21.block.columns-4-cols div div:first-child {
+    min-height: 200px;
+    padding: 1.3rem 1rem;
+  }
+
+  .columns .block.columns .columns21.block.columns-4-cols div div:not(:first-child) h2,
+  .columns .block.columns .columns21.block.columns-4-cols div div:not(:first-child) h3 {
+    font-size: 1.3rem;
   }
 }
