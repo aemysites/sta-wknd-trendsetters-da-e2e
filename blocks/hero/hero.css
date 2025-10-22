@@ -45,3 +45,117 @@
     padding: 40px 32px;
   }
 }
+
+.hero.hero5 {
+  display: flex;
+  flex-direction: row;
+  min-height: 600px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* Left side: image column */
+.hero.hero5 > div:first-child {
+  flex: 1 1 0;
+  display: flex;
+  align-items: stretch;
+  justify-content: stretch;
+  padding: 0;
+  margin: 0;
+  background: #000; /* fallback color */
+  min-height: 400px;
+}
+
+.hero.hero5 > div:first-child picture,
+.hero.hero5 > div:first-child img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Right side: content column */
+.hero.hero5 > div:last-child {
+  flex: 1 1 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;      /* vertically center all content */
+  align-items: flex-start;
+  background: #fff;
+  padding: 56px 48px;
+  min-height: 400px;
+  box-sizing: border-box;
+}
+
+.hero.hero5 > div:last-child > * {
+  max-width: 480px;
+}
+
+/* Typography and spacing */
+.hero.hero5 h2 {
+  color: #222;
+  font-weight: 700;
+  font-size: 2.5rem;
+  margin: 0 0 2rem;
+  line-height: 1.1;
+}
+
+.hero.hero5 p {
+  color: #555;
+  font-size: 1.125rem;
+  line-height: 1.7;
+  margin: 0 0 2.4rem;
+}
+
+/* Button row styling */
+.hero.hero5 .button-container {
+  display: flex;
+  gap: 32px;
+  margin-top: 2rem;
+}
+
+.hero.hero5 .button {
+  background: #fff;
+  color: #222;
+  border: 2px solid #222;
+  border-radius: 2.4em;
+  font-weight: 500;
+  font-size: 1rem;
+  padding: 0.7em 2.2em;
+  min-width: 140px;
+  text-align: center;
+  white-space: nowrap;
+  transition: background 0.2s, color 0.2s, border-color 0.2s;
+}
+
+.hero.hero5 .button:hover {
+  background: #222;
+  color: #fff;
+  border-color: #222;
+}
+
+/* Responsive: stack on mobile */
+@media (width <= 900px) {
+  .hero.hero5 {
+    flex-direction: column;
+    min-height: 0;
+  }
+
+  .hero.hero5 > div {
+    min-height: 220px;
+    padding: 0;
+  }
+
+  .hero.hero5 > div:last-child {
+    padding: 32px 20px;
+    align-items: center;
+  }
+
+  .hero.hero5 h2 {
+    font-size: 2rem;
+  }
+
+  .hero.hero5 p {
+    font-size: 1rem;
+  }
+}
