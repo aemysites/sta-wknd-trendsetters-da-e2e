@@ -1,8 +1,8 @@
+/* stylelint-disable no-descending-specificity */
 .accordion details {
   border: 1px solid #dadada;
 }
 
-/* stylelint-disable-next-line no-descending-specificity */
 .accordion details + details {
   margin-top: 24px;
 }
@@ -59,3 +59,132 @@
   border-top: 1px solid #dadada;
   background-color: var(--background-color);
 }
+
+
+.accordion.accordion17 {
+  background: #F7F8F6;
+  color: #353532;
+  border-radius: 0;
+  box-shadow: none;
+  padding: 0;
+}
+
+/* Stack items vertically */
+.accordion.accordion17 .accordion-wrapper {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: 0;
+  background: transparent;
+}
+
+/* Each details is a row, no outer border, subtle divider line below (except last) */
+.accordion.accordion17 details {
+  border: none;
+  margin: 0;
+  padding: 0;
+  background: transparent;
+  box-shadow: none;
+  border-bottom: 1px solid #ededec;
+}
+
+.accordion.accordion17 details:last-child {
+  border-bottom: none;
+}
+
+/* Layout: summary as flex row, text left, chevron right, vertically centered */
+.accordion.accordion17 summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 40px;
+  padding-left: 12px;
+  padding-right: 4px;
+  font-size: 16px;
+  font-weight: 500;
+  color: #353532;
+  background: transparent;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  line-height: 1.4;
+  transition: background 0.15s;
+  box-sizing: border-box;
+}
+
+/* Remove default disclosure marker (cross-browser) */
+.accordion.accordion17 summary::-webkit-details-marker {
+  display: none;
+}
+
+.accordion.accordion17 summary::marker {
+  font-size: 0;
+  color: transparent;
+}
+
+/* Remove margins from summary paragraph */
+.accordion.accordion17 summary p {
+  margin: 0;
+  padding: 0;
+  font-size: inherit;
+  font-weight: inherit;
+  color: inherit;
+  line-height: 1.4;
+  display: flex;
+  align-items: center;
+}
+
+/* Chevron styling (if span.chevron exists as last element in summary) */
+.accordion.accordion17 summary span.chevron {
+  display: inline-flex;
+  width: 20px;
+  height: 20px;
+  margin-left: 12px;
+  margin-right: 0;
+  align-items: center;
+  justify-content: center;
+  background: url("data:image/svg+xml,%3Csvg fill='none' stroke='rgb(53,53,50)' stroke-width='2.5' viewBox='0 0 24 24' width='20' height='20' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M8 10l4 4 4-4'/%3E%3C/svg%3E") no-repeat center center;
+  background-size: 20px 20px;
+  transition: transform 0.2s cubic-bezier(.4,0,.2,1);
+  flex-shrink: 0;
+}
+
+/* Chevron rotates on open */
+.accordion.accordion17 details[open] summary span.chevron {
+  transform: rotate(180deg);
+}
+
+/* Accordion body/content style */
+.accordion.accordion17 .accordion-item-body {
+  padding: 12px;
+  color: #353532;
+  font-size: 16px;
+  line-height: 1.6;
+  background: #F7F8F6;
+  box-sizing: border-box;
+}
+
+/* Subtle highlight for summary on hover/focus for accessibility */
+.accordion.accordion17 summary:hover,
+.accordion.accordion17 summary:focus {
+  background: #f3f4f0;
+}
+
+/* Responsive: tighter padding on small screens */
+@media (width <= 600px) {
+  .accordion.accordion17 summary,
+  .accordion.accordion17 .accordion-item-body {
+    font-size: 15px;
+    padding-left: 8px;
+    padding-right: 2px;
+  }
+
+  .accordion.accordion17 summary span.chevron {
+    width: 16px;
+    height: 16px;
+    background-size: 16px 16px;
+    margin-left: 6px;
+  }
+}
+
+/* Remove any accidental extra spacing from details */
