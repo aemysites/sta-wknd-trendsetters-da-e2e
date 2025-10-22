@@ -189,7 +189,6 @@
   }
 }
 
-/* Responsive stacking on smaller screens */
 @media (width <= 900px) {
   .columns {
     grid-template-columns: 1fr;
@@ -199,7 +198,6 @@
   }
 }
 
-/* Left column - image placeholder block */
 .columns div div:first-child {
   width: 220px;
   height: 220px;
@@ -212,7 +210,6 @@
   box-sizing: border-box;
 }
 
-/* Left column - stacked category text below image */
 .columns div div:nth-child(2) {
   display: flex;
   flex-direction: column;
@@ -227,7 +224,6 @@
   margin: 0;
 }
 
-/* Right column - main content */
 .columns div div:nth-child(3) {
   display: flex;
   flex-direction: column;
@@ -235,7 +231,6 @@
   min-width: 0;
 }
 
-/* Headline styles */
 .columns div div:nth-child(3) h2 {
   font-size: 3.2rem;
   font-weight: 800;
@@ -247,7 +242,6 @@
   max-width: 16ch;
 }
 
-/* Supporting text styles */
 .columns div div:nth-child(3) p {
   color: #4B4B4B;
   font-size: 1.18rem;
@@ -261,5 +255,96 @@
   .columns div div:first-child,
   .columns div div:nth-child(2) {
     width: 100%;
+  }
+}
+
+
+/* Layout: three columns side by side, baseline-aligned and visually grouped */
+.columns.columns15 {
+  background: #f7f8f6;
+  padding: 2.5rem 0;
+}
+
+.columns.columns15 .block {
+  display: flex;
+  flex-direction: row;
+  align-items: baseline;   /* Ensures text and button align on baseline */
+  gap: 2.2rem;             /* Moderate horizontal spacing for grouping */
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* Remove unwanted backgrounds, borders, padding, and margin from all nested columns */
+.columns.columns15 .block div {
+  background: none;
+  border: none;
+  border-radius: 0;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+/* Paragraphs in columns: consistent sizing, color, spacing */
+.columns.columns15 .block p {
+  margin: 0;
+  padding: 0;
+  color: #222;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.3;
+}
+
+/* Button container: slight left margin for separation */
+.columns.columns15 .block .button-container {
+  margin-left: 1rem;
+  display: flex;
+  align-items: baseline;
+}
+
+/* Button: outlined white pill, black border, dark text, subtle yellow underline */
+.columns.columns15 .block .button,
+.columns.columns15 .block a.button {
+  border: 1px solid #222;
+  background: #fff;
+  color: #222;
+  border-radius: 999px;
+  padding: 0.5em 2em;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.2;
+  text-align: center;
+  text-decoration: none;
+  position: relative;
+  box-sizing: border-box;
+  box-shadow: 0 4px 0 0 #fffcc1; /* yellow underline effect */
+  max-width: none;
+  overflow: visible;
+  text-overflow: unset;
+  white-space: normal;
+  margin: 0; /* override default button margin */
+}
+
+/* Button hover/focus state: subtle background tint */
+.columns.columns15 .block .button:hover,
+.columns.columns15 .block .button:focus,
+.columns.columns15 .block a.button:hover,
+.columns.columns15 .block a.button:focus {
+  background: #fffbe8;
+  border-color: #222;
+}
+
+/* Responsive: stack vertically on smaller screens, adjust spacing */
+@media (width <= 900px) {
+  .columns.columns15 .block {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 1.2rem;
+    padding: 1.2rem 0;
+  }
+
+  .columns.columns15 .block .button-container {
+    margin-left: 0;
+    margin-top: 1rem;
+    justify-content: flex-start;
   }
 }
