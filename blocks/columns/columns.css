@@ -36,9 +36,9 @@
 
 .columns {
   background-color: #f5f6f3;
-  padding: 3.5rem 3vw;
-  border-radius: 2.5rem;
-  margin: 0 auto;
+  padding: 0;
+  border-radius: 0;
+  margin: 0;
   box-sizing: border-box;
   display: grid;
   grid-template-columns: 1fr 2fr;
@@ -263,12 +263,6 @@
   }
 }
 
-
-/* Ensure root columns block is visually separated and centered */
-
-/* Use CSS Grid for multi-column layout and vertical centering */
-
-/* Leftmost stack: logo, buttons, socials, all vertically stacked with whitespace */
 .columns .columns21 div:first-child {
   display: flex;
   flex-direction: column;
@@ -281,7 +275,6 @@
   box-shadow: none;
 }
 
-/* Remove any default box or separator styling in the left section */
 .columns .columns21 div:first-child * {
   background: none;
   border: none;
@@ -289,7 +282,6 @@
   margin: 0;
 }
 
-/* Logo image spacing */
 .columns .columns21 div:first-child img {
   max-width: 140px;
   width: 100%;
@@ -297,7 +289,6 @@
   border-radius: 0.6rem;
 }
 
-/* Wide, pill, outlined buttons in left column */
 .columns .columns21 div:first-child a.button,
 .columns .columns21 div:first-child button {
   width: 100%;
@@ -315,7 +306,6 @@
   box-shadow: 0 2px 0 0 #f6f566;
 }
 
-/* Left column social row: horizontal alignment with spacing */
 .columns .columns21 div:first-child .icon,
 .columns .columns21 div:first-child .social {
   display: flex;
@@ -324,7 +314,6 @@
   margin-top: 0.5rem;
 }
 
-/* Social icon images: fixed size, rounded */
 .columns .columns21 div:first-child .icon img,
 .columns .columns21 div:first-child .social img {
   width: 28px;
@@ -333,14 +322,12 @@
   object-fit: cover;
 }
 
-/* Remove bullets from all menus, increase vertical spacing for air */
 .columns .columns21 div:not(:first-child) ul {
   margin: 0;
   padding-left: 0;
   list-style: none;
 }
 
-/* Menu columns: vertical stack, left-aligned, sufficient spacing */
 .columns .columns21 div:not(:first-child) {
   display: flex;
   flex-direction: column;
@@ -349,7 +336,6 @@
   min-width: 120px;
 }
 
-/* Headings: large, bold, airy, left-aligned */
 .columns .columns21 div:not(:first-child) h2,
 .columns .columns21 div:not(:first-child) h3 {
   font-size: 2.5rem;
@@ -361,7 +347,6 @@
   letter-spacing: 0.01em;
 }
 
-/* Menu link styling: black, bold, spaced, underline on hover */
 .columns .columns21 div:not(:first-child) a {
   display: block;
   color: #000;
@@ -379,7 +364,6 @@
   text-decoration: underline;
 }
 
-/* Responsive: stack vertically on small screens */
 @media (width <= 900px) {
   .columns {
     padding: 2rem 1rem;
@@ -405,5 +389,49 @@
   .columns .columns21 div:not(:first-child) h2,
   .columns .columns21 div:not(:first-child) h3 {
     font-size: 1.55rem;
+  }
+}
+
+.columns .block {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* Adjust to match card count */
+  gap: 24px;
+  align-items: stretch;
+  background: transparent;
+  padding: 0;
+  margin: 0;
+  border-radius: 0;
+}
+
+.columns .block div {
+  background: #fff;
+  border-radius: 20px;
+  overflow: hidden;
+  min-height: 220px;
+  min-width: 0;
+  display: flex;
+  align-items: stretch;
+  justify-content: stretch;
+  box-sizing: border-box;
+  padding: 0;
+}
+
+.columns .block div *:not(img) {
+  display: none;
+}
+
+.columns .block div img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 20px;
+  display: block;
+}
+
+/* Responsive stacking */
+@media (width <= 900px) {
+  .columns .block {
+    grid-template-columns: 1fr;
+    gap: 20px;
   }
 }
