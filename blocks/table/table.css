@@ -1,7 +1,24 @@
+/* stylelint-disable no-descending-specificity */
+
 .table.block {
   width: 100%;
   overflow-x: auto;
 }
+
+/* --- Merged header nav selector START --- */
+header nav {
+  display: flex;
+  max-width: 1264px;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+  background: #fff;
+  box-sizing: border-box;
+  height: 64px;
+  padding: 0 32px;
+}
+
+/* --- Merged header nav selector END --- */
 
 .table.block table {
   width: 100%;
@@ -50,18 +67,316 @@
   margin-top: 0.25em;
 }
 
-/* no header variant */
-.table.block.no-header table tbody tr {
-  border-top: 1px solid;
-}
-
-/* striped variant */
 .table.block.striped tbody tr:nth-child(odd) {
   background-color: var(--overlay-background-color);
 }
 
-/* bordered variant */
 .table.block.bordered table th,
 .table.block.bordered table td {
   border: 1px solid;
+}
+
+
+/* EDS Foundation: Layout and alignment */
+header { display: flex; }
+
+.header-wrapper .nav-wrapper {
+  box-shadow: none;
+}
+header nav .nav-hamburger {
+  display: none;
+  visibility: hidden;
+}
+
+/* Brand/logo left */
+header nav .nav-brand {
+  order: 1;
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+  min-width: 44px;
+  min-height: 44px;
+  margin-right: 32px;
+}
+
+header nav .nav-brand img,
+header nav .nav-brand picture {
+  display: block;
+  height: 32px;
+  width: 32px;
+  object-fit: contain;
+  margin: 0;
+}
+
+/* Navigation: Trends | About | Blog | Support */
+header nav .nav-sections {
+  order: 2;
+  flex: 1 1 0;
+  display: flex;
+  align-items: center;
+  background: none;
+  padding: 0;
+}
+
+header nav .nav-sections ul {
+  display: flex;
+  align-items: center;
+  gap: 36px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+header nav .nav-sections ul > li {
+  display: flex;
+  align-items: center;
+  position: relative;
+  min-height: 44px;
+  padding: 0;
+  background: none;
+}
+
+header nav .nav-sections ul > li > p {
+  margin: 0;
+  background: none;
+  border: none;
+  color: #181818;
+  font-family: Montserrat, Arial, sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  letter-spacing: 0;
+  line-height: 1;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  padding: 0 4px;
+}
+
+header nav .nav-sections ul > li.nav-drop > p::after {
+  content: "";
+  display: inline-block;
+  margin-left: 7px;
+  width: 13px;
+  height: 13px;
+  vertical-align: middle;
+  background: url("data:image/svg+xml,%3Csvg width='13' height='13' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M3 5l3.5 3 3.5-3' stroke='black' stroke-width='1.5' fill='none'/%3E%3C/svg%3E") center/contain no-repeat;
+}
+
+/* About & Blog buttons */
+header nav .nav-sections ul > li > .button-container a.button {
+  min-width: 112px;
+  min-height: 44px;
+  height: 44px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 32px;
+  background: #fff;
+  border: 2px solid #2563fd;
+  border-radius: 999px;
+  color: #2563fd;
+  font-family: Montserrat, Arial, sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  text-transform: uppercase;
+  box-sizing: border-box;
+  letter-spacing: 0.01em;
+  transition: background 0.15s, color 0.15s, border 0.15s;
+  text-decoration: none;
+}
+
+header nav .nav-sections ul > li > .button-container a.button:hover,
+header nav .nav-sections ul > li > .button-container a.button:focus {
+  background: #2563fd0d;
+  color: #2563fd;
+  border-color: #2563fd;
+  text-decoration: none;
+}
+
+header nav .nav-sections ul > li > .button-container {
+  margin: 0;
+}
+
+/* Support dropdown menu styling */
+header nav .nav-sections ul > li.nav-drop > ul {
+  display: none;
+  position: absolute;
+  top: 110%;
+  left: 0;
+  min-width: 120px;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 24px rgb(0 0 0 / 7%);
+  z-index: 10;
+  margin-top: 8px;
+  padding: 8px 0;
+}
+
+header nav .nav-sections ul > li.nav-drop[aria-expanded="true"] > ul {
+  display: block;
+}
+
+header nav .nav-sections ul > li.nav-drop > ul > li a {
+  color: #1a1a1a;
+  font-size: 15px;
+  font-family: Montserrat, Arial, sans-serif;
+  font-weight: 400;
+  padding: 6px 20px;
+  display: block;
+  border-radius: 4px;
+  background: none;
+  transition: background 0.1s, color 0.1s;
+  text-decoration: none;
+}
+
+header nav .nav-sections ul > li.nav-drop > ul > li a:hover {
+  background: #2563fd0d;
+  color: #2563fd;
+}
+
+/* Tool section right: Subscribe CTA */
+header nav .nav-tools {
+  order: 3;
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+  min-width: 44px;
+  min-height: 44px;
+  padding-left: 32px;
+}
+
+header nav .nav-tools .button-container {
+  margin: 0;
+}
+
+header nav .nav-tools .button {
+  min-width: 140px;
+  min-height: 44px;
+  height: 44px;
+  border-radius: 999px;
+  border: none;
+  background: #2563fd;
+  color: #fff;
+  font-family: Montserrat, Arial, sans-serif;
+  font-size: 17px;
+  font-weight: 600;
+  box-shadow: none;
+  text-align: center;
+  letter-spacing: 0.01em;
+  padding: 0 32px;
+  transition: background 0.14s, color 0.14s;
+  text-transform: none;
+}
+
+header nav .nav-tools .button:hover,
+header nav .nav-tools .button:focus {
+  background: #1741b3;
+  color: #fff;
+}
+
+/* Touch targets */
+header nav a,
+header nav button {
+  min-width: 44px;
+  min-height: 44px;
+  box-sizing: border-box;
+  outline: none;
+}
+
+/* Responsive: mobile/tablet */
+@media (width <= 899px) {
+  header nav {
+    padding: 0 8px;
+    height: 56px;
+  }
+
+  header nav .nav-brand,
+  header nav .nav-tools {
+    padding: 0 8px;
+  }
+
+  /* Hamburger menu visible on mobile */
+  header nav .nav-hamburger {
+    display: flex;
+    visibility: visible;
+    align-items: center;
+    margin-left: 4px;
+    min-width: 44px;
+    min-height: 44px;
+  }
+
+  header nav .nav-hamburger button {
+    background: none;
+    border: none;
+    min-width: 44px;
+    min-height: 44px;
+    cursor: pointer;
+    padding: 0;
+  }
+
+  header nav .nav-hamburger-icon {
+    display: block;
+    width: 32px;
+    height: 32px;
+    background: url('data:image/svg+xml;utf8,<svg fill="none" stroke="currentColor" viewBox="0 0 32 32"><line x1="8" y1="10" x2="24" y2="10" stroke-width="2"/><line x1="8" y1="16" x2="24" y2="16" stroke-width="2"/><line x1="8" y1="22" x2="24" y2="22" stroke-width="2"/></svg>') center/contain no-repeat;
+  }
+
+  /* Nav collapses vertically */
+  header nav .nav-sections {
+    display: none;
+    position: absolute;
+    top: 56px;
+    left: 0;
+    width: 100vw;
+    background: #fff;
+    z-index: 3;
+    flex-direction: column;
+    box-shadow: 0 2px 16px rgb(0 0 0 / 4%);
+    padding: 24px 10px 10px;
+  }
+
+  header nav[aria-expanded="true"] .nav-sections {
+    display: flex;
+  }
+
+  header nav .nav-sections ul {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  header nav .nav-sections ul > li {
+    min-height: 44px;
+    padding: 4px 0;
+    width: 100%;
+    justify-content: flex-start;
+  }
+
+  header nav .nav-sections ul > li > .button-container a.button {
+    width: 100%;
+    min-width: 44px;
+    min-height: 44px;
+    font-size: 16px;
+    margin: 6px 0;
+    padding: 0.75em 1.2em;
+    border-radius: 999px;
+  }
+
+  header nav .nav-sections ul > li.nav-drop > ul {
+    position: static;
+    min-width: 0;
+    box-shadow: none;
+    border: none;
+    padding: 0;
+    margin: 0;
+    background: none;
+  }
+
+  header nav .nav-tools {
+    padding-left: 8px;
+  }
+}
+
+/* Always enforce solid white background for header */
+header, .header-wrapper, .nav-wrapper, header nav {
+  background: #fff;
 }
