@@ -1,3 +1,4 @@
+/* stylelint-disable no-descending-specificity */
 .hero-container .hero-wrapper {
   max-width: unset;
   padding: 0;
@@ -155,10 +156,6 @@
   }
 }
 
-
-/* Make hero span full width if needed */
-
-/* Main hero block layout: side-by-side, overlay left, image right */
 .hero.hero6 {
   display: flex;
   flex-direction: row;
@@ -172,12 +169,10 @@
   overflow: hidden;
 }
 
-/* Remove any legacy z-index from .picture if present */
 .hero .picture {
   z-index: unset;
 }
 
-/* Image column: right side, fills available space */
 .hero.hero6 div:first-child {
   flex: 1;
   order: 2;
@@ -198,7 +193,6 @@
   display: block;
 }
 
-/* Overlay column: left side, fixed width, vertical centering */
 .hero.hero6 div:last-child {
   flex: 0 0 37vw;
   max-width: 560px;
@@ -215,7 +209,6 @@
   min-height: 100%;
 }
 
-/* Overlay rectangle: vertically centered, generous padding, responsive width */
 .hero.hero6 div:last-child div {
   background: rgb(24 32 44 / 68%);
   border: 2px solid #fff;
@@ -233,7 +226,6 @@
   box-shadow: 0 8px 32px 0 rgb(24 32 44 / 7%);
 }
 
-/* Headings in overlay: left-aligned, large, spaced */
 .hero.hero6 h1,
 .hero.hero6 h2,
 .hero.hero6 h3 {
@@ -246,7 +238,6 @@
   text-align: left;
 }
 
-/* Paragraph in overlay: left, subdued, good line height */
 .hero.hero6 p {
   color: rgb(255 255 255 / 70%);
   font-size: 1.15rem;
@@ -255,7 +246,6 @@
   text-align: left;
 }
 
-/* Button row: side by side, evenly spaced */
 .hero.hero6 .button-row,
 .hero.hero6 .buttonrow,
 .hero.hero6 .buttons {
@@ -267,7 +257,6 @@
   align-items: center;
 }
 
-/* Button styles: pill, filled and outlined */
 .hero.hero6 a,
 .hero.hero6 button {
   border-radius: 100px;
@@ -287,7 +276,6 @@
   box-shadow: none;
 }
 
-/* First button filled, second outlined */
 .hero.hero6 .button-row a:not(:last-child),
 .hero.hero6 .buttonrow a:not(:last-child),
 .hero.hero6 .buttons a:not(:last-child),
@@ -299,7 +287,6 @@
   border-color: #d9ead3;
 }
 
-/* Second button outlined */
 .hero.hero6 .button-row a:last-child,
 .hero.hero6 .buttonrow a:last-child,
 .hero.hero6 .buttons a:last-child,
@@ -311,7 +298,6 @@
   background: transparent;
 }
 
-/* Responsive stacking for mobile screens */
 @media (width <= 900px) {
   .hero.hero6 {
     flex-direction: column;
@@ -351,5 +337,181 @@
     gap: 16px;
     width: 100%;
     align-items: stretch;
+  }
+}
+
+
+/* 1. The outer wrapper: full viewport, background image, rounded edges */
+.hero.hero13.block {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  min-height: 90vh;
+  width: 100%;
+  box-sizing: border-box;
+  border-radius: 1.5rem;
+  overflow: hidden;
+
+  /* Replace the URL with your desired hero background image */
+  background: url('./media_1cc267ba8a95f828b43cf6ac145ee17487be5c09c.avif?width=2000&format=webply&optimize=medium') center/cover no-repeat;
+}
+
+/* 2. Overlay for semi-transparent dark panel */
+.hero.hero13.block::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgb(0 0 0 / 65%);
+  border-radius: 1.5rem;
+  border: 1.5px solid rgb(0 0 0 / 90%);
+  pointer-events: none; /* Let clicks through to children */
+  z-index: 1;
+}
+
+/* 3. The two side-by-side columns (only direct children) */
+.hero.hero13.block > div {
+  position: relative;
+  z-index: 2; /* Above overlay */
+  padding: 2.5rem 2rem;
+
+  /* Dynamic width for left/right columns */
+  flex: 0 1 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Make left column narrower, right column wider */
+.hero.hero13.block > div:first-child {
+  flex: 0 1 35%;
+  align-items: flex-end;
+  justify-content: center;
+}
+
+.hero.hero13.block > div:last-child {
+  flex: 1 1 65%;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+/* 4. Square image on the left, with rounded corners */
+.hero.hero13.block > div:first-child picture,
+.hero.hero13.block > div:first-child img {
+  width: 320px;
+  height: 320px;
+  object-fit: cover;
+  border-radius: 1rem;
+  box-shadow: 0 2px 18px 0 rgb(0 0 0 / 15%);
+  display: block;
+}
+
+/* 5. Right column: headline, list items, CTA button */
+.hero.hero13.block > div:last-child > div {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1rem;
+  width: 100%;
+}
+
+.hero.hero13.block h2 {
+  font-family: Inter, 'Helvetica Neue', Arial, sans-serif;
+  font-size: 2.6rem;
+  font-weight: 300;
+  color: #222c;
+  margin: 0 0 1.5rem;
+  line-height: 1.1;
+}
+
+/* List-like items with icons */
+.hero.hero13.block > div:last-child p {
+  display: flex;
+  align-items: center;
+  font-size: 1.15rem;
+  color: #383838;
+  margin: 0.3rem 0;
+  font-weight: 400;
+}
+
+.hero.hero13.block > div:last-child p img[alt=""] {
+  width: 1.5em;
+  height: 1.5em;
+  margin-right: 0.7em;
+  filter: brightness(0.2) opacity(0.7);
+}
+
+/* Optional: visually separate the two feature sections */
+.hero.hero13.block > div:last-child p:nth-of-type(4) {
+  border-bottom: 1px solid #3334;
+  width: 80%;
+  margin: 1.5em 0 1em;
+}
+
+/* CTA button styling */
+.hero.hero13.block .button-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-top: 2rem;
+}
+
+.hero.hero13.block .button {
+  display: inline-block;
+  padding: 0.75em 2.2em;
+  border-radius: 999px;
+  font-size: 1.15rem;
+  color: #fff;
+  border: 1.5px solid #fff;
+  background: rgb(255 255 255 / 15%);
+  box-shadow: 0 2px 12px 0 rgb(0 0 0 / 4%);
+  backdrop-filter: blur(1.5px);
+  transition: background 0.2s;
+}
+
+.hero.hero13.block .button:hover,
+.hero.hero13.block .button:focus {
+  background: rgb(255 255 255 / 35%);
+  color: #111;
+  border-color: #eee;
+  text-decoration: none;
+}
+
+/* 6. Responsive: stack vertically on small screens */
+@media (width <= 900px) {
+  .hero.hero13.block {
+    flex-direction: column;
+    min-height: unset;
+    padding: 0.5em;
+  }
+
+  .hero.hero13.block > div {
+    padding: 2em 1em;
+    width: 100%;
+    flex: 1 1 100%;
+    align-items: center;
+  }
+
+  .hero.hero13.block > div:first-child picture,
+  .hero.hero13.block > div:first-child img {
+    width: 80vw;
+    height: 80vw;
+    max-width: 340px;
+    max-height: 340px;
+  }
+
+  .hero.hero13.block > div:last-child {
+    align-items: center;
+    justify-content: flex-start;
+  }
+
+  .hero.hero13.block h2 {
+    text-align: center;
+    font-size: 2rem;
+  }
+
+  .hero.hero13.block .button-container {
+    justify-content: center;
   }
 }
