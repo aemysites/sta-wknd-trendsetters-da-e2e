@@ -689,3 +689,75 @@
   gap: 1rem;
   justify-content: flex-start;
 }
+
+
+/* Make hero full-bleed, no padding or max-width */
+
+/* Main hero block setup */
+.hero.hero29 {
+  position: relative;
+  width: 100vw;
+  min-height: 400px;
+  height: 60vh;
+  margin: 0;
+  overflow: hidden;
+  background: none;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr;
+}
+
+/* If the hero image is a DOM element (not CSS background), ensure it fills the hero and sits visually underneath the text. */
+.hero.hero29 picture,
+.hero.hero29 img {
+  position: absolute;
+  inset: 0;
+  width: 100vw;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Overlay headline text centered over the image */
+.hero.hero29 div div {
+  /* Ensure the innermost div (text container) is absolutely centered over the hero */
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 100%;
+  padding: 0 2vw;
+  box-sizing: border-box;
+
+  /* No background, no border */
+}
+
+/* Headline styling is visually impactful, bold, and centered */
+.hero.hero29 h1 {
+  color: #fff;
+  text-align: center;
+  margin: 0;
+  padding: 0;
+  font-size: clamp(2.4rem, 8vw, var(--heading-font-size-xxl));
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: 0.025em;
+}
+
+@media (width <= 900px) {
+  .hero.hero29 {
+    min-height: 240px;
+    height: 38vh;
+  }
+
+  .hero.hero29 div div {
+    padding: 0 6vw;
+  }
+
+  .hero.hero29 h1 {
+    font-size: clamp(1.2rem, 10vw, var(--heading-font-size-xl));
+  }
+}
