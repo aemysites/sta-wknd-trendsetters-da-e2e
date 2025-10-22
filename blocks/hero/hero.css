@@ -515,7 +515,6 @@
   background: transparent;
 }
 
-/* Collage grid: fills the block, covers with images */
 .hero.hero20 div:first-child {
   position: absolute;
   inset: 0;
@@ -537,12 +536,10 @@
   display: block;
 }
 
-/* Remove z-index from picture if present */
 .hero.hero20 picture {
   z-index: unset;
 }
 
-/* Foreground text overlay: centered and stacked towards upper-middle */
 .hero.hero20 div:last-child {
   position: relative;
   z-index: 2;
@@ -580,7 +577,6 @@
   text-shadow: 0 2px 16px rgb(0 0 0 / 23%);
 }
 
-/* Button row: horizontally aligned, tightly grouped, centered */
 .hero.hero20 div:last-child p:last-child {
   margin-bottom: 0;
   display: flex;
@@ -590,7 +586,6 @@
   gap: 1.2rem;
 }
 
-/* Pill button styling for links/buttons in last paragraph */
 .hero.hero20 div:last-child p:last-child a,
 .hero.hero20 div:last-child p:last-child button {
   display: inline-block;
@@ -647,4 +642,50 @@
     flex-direction: column;
     gap: 0.8rem;
   }
+}
+
+
+.hero.hero25 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2vw;
+  align-items: start;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 6vw 2vw;
+}
+
+.hero.hero25 > div:first-child {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  text-align: left;
+}
+
+.hero.hero25 > div:last-child {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.hero.hero25 .picture img {
+  display: block;
+  max-width: 560px;
+  width: 100%;
+  border-radius: 24px;
+  box-shadow: 0 8px 32px rgb(0 0 0 / 10%);
+  margin-bottom: 1rem;
+}
+
+.hero.hero25 h1,
+.hero.hero25 p {
+  text-align: left;
+}
+
+.hero.hero25 .button-container {
+  display: flex;
+  gap: 1rem;
+  justify-content: flex-start;
 }
