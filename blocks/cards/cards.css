@@ -243,7 +243,6 @@
   background: #fff;
 }
 
-/* Responsive 4-column grid, stack below 900px */
 .cards.cards12 ul {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -267,7 +266,6 @@
   }
 }
 
-/* Card Container: floating, rounded, vertical stack */
 .cards.cards12 ul li {
   background: #fff;
   border-radius: 20px;
@@ -279,7 +277,6 @@
   transition: box-shadow 0.2s, transform 0.2s;
 }
 
-/* Card Image: prominent, rounded top only */
 .cards.cards12 .cards-card-image img,
 .cards.cards12 .cards-card-image picture {
   width: 100%;
@@ -290,7 +287,6 @@
   background: #eaeaea;
 }
 
-/* Card Body: vertical stack, generous padding */
 .cards.cards12 .cards-card-body {
   display: flex;
   flex-direction: column;
@@ -302,7 +298,6 @@
   box-sizing: border-box;
 }
 
-/* Label Bar: full-width, flex row, category left, date right */
 .cards.cards12 .cards-card-body .button-container {
   display: flex;
   flex-direction: row;
@@ -319,7 +314,6 @@
   gap: 8px;
 }
 
-/* Category label: bold, dark, left side of the bar */
 .cards.cards12 .cards-card-body .button {
   background: none;
   border: none;
@@ -341,7 +335,6 @@
   cursor: default;
 }
 
-/* Date label: lighter and smaller, right side of the bar */
 .cards.cards12 .cards-card-body .button + span,
 .cards.cards12 .cards-card-body .button + em,
 .cards.cards12 .cards-card-body .button + strong {
@@ -355,7 +348,6 @@
   background: none;
 }
 
-/* Title: large, bold, left-aligned, below label bar */
 .cards.cards12 .cards-card-body .button-container ~ * {
   margin-top: 8px;
   margin-bottom: 0.5em;
@@ -369,7 +361,6 @@
   text-overflow: ellipsis;
 }
 
-/* Remove default .button styling inside .cards.cards12 only */
 .cards.cards12 .cards-card-body .button,
 .cards.cards12 .cards-card-body a.button {
   background: none;
@@ -390,4 +381,108 @@
   .cards.cards12 .cards-card-body {
     padding: 14px 6px 10px;
   }
+}
+
+
+.cards.cards19 {
+  padding: 0;
+  margin: 0;
+  background: transparent;
+}
+
+/* Responsive grid: 4 columns desktop, 2 tablet, 1 mobile */
+.cards.cards19 ul {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto;
+  gap: 24px 32px;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  place-items: center start; /* Left-align grid content */  /* Vertically center content in cells */
+}
+
+@media (width >= 600px) {
+  .cards.cards19 ul {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (width >= 900px) {
+  .cards.cards19 ul {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+/* Each feature item: horizontal icon + text, vertically centered */
+.cards.cards19 ul li {
+  display: flex;
+  flex-direction: row;
+  align-items: center;        /* Vertically center icon and text */
+  justify-content: flex-start;/* Left-align content in cell */
+  width: 100%;
+  min-height: 40px;
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* Remove any spacing from child containers */
+.cards.cards19 ul li .cards-card-body {
+  margin: 0;
+  padding: 0;
+  border: none;
+  background: transparent;
+  box-shadow: none;
+}
+
+/* Icon container: first .cards-card-body descendant in li */
+.cards.cards19 ul li .cards-card-body:first-child {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 20px;
+  min-height: 20px;
+  width: 20px;
+  height: 20px;
+  margin-right: 8px;
+}
+
+/* Icon image styling */
+.cards.cards19 ul li .cards-card-body img {
+  width: 20px;
+  height: 20px;
+  object-fit: contain;
+  display: block;
+  margin: 0;
+  padding: 0;
+}
+
+/* Text container: second .cards-card-body descendant in li */
+.cards.cards19 ul li .cards-card-body:not(:first-child) {
+  display: flex;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+}
+
+/* Text paragraph styling */
+.cards.cards19 ul li .cards-card-body p {
+  color: #222;
+  font-size: 12px;
+  line-height: 16px;
+  font-weight: 400;
+  margin: 0;
+  padding: 0;
+  text-align: left;
+}
+
+/* Remove any default list styles from nested lists */
+.cards.cards19 ul,
+.cards.cards19 ol {
+  list-style: none;
+  margin: 0;
+  padding: 0;
 }
