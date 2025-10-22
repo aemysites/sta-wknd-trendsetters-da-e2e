@@ -35,7 +35,6 @@
 
 
 .columns {
-  background-color: #f5f6f3;
   padding: 3.5rem 2rem;
   border-radius: 0;
   margin: 0;
@@ -45,14 +44,17 @@
   align-items: center;
   gap: 64px;
   max-width: 1200px;
-  /* Removed shorthand "background" to avoid overriding "background-color" */
   background-color: var(--background-color);
 }
 
 .columns .columns-wrapper {
   margin: 0 auto;
-  padding: 0 32px;
+  padding: 0;
   max-width: 1200px;
+  display: grid;
+  grid-template-columns: minmax(260px, 340px) 1fr;
+  gap: 64px;
+  align-items: start;
 }
 
 .columns .block.columns {
@@ -437,9 +439,6 @@
   }
 }
 
-
-/* Layout: 4 columns side by side, equal width, max responsive, vertical top alignment */
-
 .columns .block.columns,
 .columns .block.columns .columns21,
 .columns .block.columns .columns21.block,
@@ -456,7 +455,6 @@
   margin: 0;
 }
 
-/* Each column: padding and vertical rhythm */
 .columns .block.columns .columns21.block.columns-4-cols div div {
   padding: 0;
   margin: 0;
@@ -466,7 +464,6 @@
   justify-content: flex-start;
 }
 
-/* Social column: light rounded box, vertically centered content */
 .columns .block.columns .columns21.block.columns-4-cols div div:first-child {
   background: #f5f6f3;
   border-radius: 2.8rem;
@@ -480,7 +477,6 @@
   gap: 0.5rem;
 }
 
-/* Social buttons: pill-shaped, stacked, spacing between */
 .columns .block.columns .columns21.block.columns-4-cols div div:first-child a.button,
 .columns .block.columns .columns21.block.columns-4-cols div div:first-child button {
   background-color: var(--link-color);
@@ -503,7 +499,6 @@
   color: var(--background-color);
 }
 
-/* Vertical dots between buttons if present: spacing, size */
 .columns .block.columns .columns21.block.columns-4-cols div div:first-child .dot {
   width: 8px;
   height: 8px;
@@ -512,7 +507,6 @@
   background: var(--text-color);
 }
 
-/* Headline columns: left-align, vertical rhythm */
 .columns .block.columns .columns21.block.columns-4-cols div div:not(:first-child) {
   padding-top: 0.2rem;
   padding-bottom: 0.2rem;
@@ -523,7 +517,6 @@
   min-width: 0;
 }
 
-/* Headline styling: bold, geometric, left aligned, margin below */
 .columns .block.columns .columns21.block.columns-4-cols div div:not(:first-child) h2,
 .columns .block.columns .columns21.block.columns-4-cols div div:not(:first-child) h3 {
   font-weight: 700;
@@ -535,7 +528,6 @@
   line-height: 1.1;
 }
 
-/* List styling: blue links, tight vertical spacing */
 .columns .block.columns .columns21.block.columns-4-cols div div:not(:first-child) ul {
   margin: 0;
   padding: 0;
@@ -561,7 +553,6 @@
   text-decoration: underline;
 }
 
-/* Responsive: stack columns vertically on small screens */
 @media (width <= 900px) {
   .columns {
     padding: 2rem 1rem;
@@ -584,5 +575,132 @@
   .columns .block.columns .columns21.block.columns-4-cols div div:not(:first-child) h2,
   .columns .block.columns .columns21.block.columns-4-cols div div:not(:first-child) h3 {
     font-size: 1.3rem;
+  }
+}
+
+.columns .columns-wrapper .block.columns-4-cols {
+  /* inherit grid layout, no display override here */
+}
+
+/* Social/blog block (first column), with all social/blog content vertically centered and grouped */
+.columns .columns-wrapper .block.columns-4-cols div:first-child {
+  background: var(--light-color);
+  border-radius: 24px;
+  box-shadow: 0 4px 24px rgb(0 0 0 / 6%);
+  padding: 40px 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 18px;
+  min-width: 260px;
+  max-width: 340px;
+  width: 100%;
+  margin: 0;
+}
+
+/* Remove all default list styling and extra vertical spacing for social area elements */
+.columns .columns-wrapper .block.columns-4-cols div:first-child ul,
+.columns .columns-wrapper .block.columns-4-cols div:first-child ol {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* All direct children in the social block evenly spaced and centered */
+.columns .columns-wrapper .block.columns-4-cols div:first-child > * {
+  margin: 0;
+  align-self: center;
+}
+
+/* Make social/blog buttons and links full width and stacked */
+.columns .columns-wrapper .block.columns-4-cols div:first-child a,
+.columns .columns-wrapper .block.columns-4-cols div:first-child button {
+  display: block;
+  width: 90%;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+/* Group the 3 right columns in a flex row, tight horizontal grouping */
+.columns .columns-wrapper .block.columns-4-cols div:not(:first-child) {
+  display: flex;
+  flex-direction: row;
+  gap: 40px;
+  align-items: flex-start;
+  justify-content: flex-start;
+  width: 100%;
+}
+
+/* Each right column: vertical stack, left-aligned, headings spaced from lists */
+.columns .columns-wrapper .block.columns-4-cols div:not(:first-child) div {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: flex-start;
+  min-width: 120px;
+  max-width: 220px;
+}
+
+/* Headings: visually spaced from lists, no list-style or marker */
+.columns .columns-wrapper .block.columns-4-cols div:not(:first-child) h2,
+.columns .columns-wrapper .block.columns-4-cols div:not(:first-child) h3,
+.columns .columns-wrapper .block.columns-4-cols div:not(:first-child) h4 {
+  margin: 0 0 12px;
+  font-weight: 600;
+}
+
+/* Remove all list markers in right columns as well */
+.columns .columns-wrapper .block.columns-4-cols div:not(:first-child) ul,
+.columns .columns-wrapper .block.columns-4-cols div:not(:first-child) ol {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* List items: clean, tight, left-aligned */
+.columns .columns-wrapper .block.columns-4-cols div:not(:first-child) li {
+  margin: 0 0 8px;
+  color: var(--dark-color);
+  font-size: var(--body-font-size-s);
+  line-height: 1.5;
+  text-align: left;
+}
+
+/* Responsive: stack blocks vertically, columns become single column */
+@media (width <= 900px) {
+  .columns .columns-wrapper {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .columns .columns-wrapper .block.columns-4-cols div:not(:first-child) {
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  .columns .columns-wrapper .block.columns-4-cols div:first-child {
+    max-width: 100%;
+    padding: 28px 10px;
+    min-width: unset;
+  }
+}
+
+@media (width <= 600px) {
+  .columns .columns-wrapper {
+    gap: 24px;
+  }
+
+  .columns .columns-wrapper .block.columns-4-cols div:first-child {
+    padding: 16px 4px;
+  }
+
+  .columns .columns-wrapper .block.columns-4-cols div:not(:first-child) {
+    gap: 16px;
+  }
+
+  .columns .columns-wrapper .block.columns-4-cols div:not(:first-child) div {
+    min-width: 0;
+    max-width: none;
   }
 }
