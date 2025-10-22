@@ -36,7 +36,15 @@
 
 .columns {
   background-color: #f5f6f3;
-  padding: 56px 0 64px;
+  padding: 48px 32px;
+  border-radius: 36px;
+  margin: 40px auto;
+  box-sizing: border-box;
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  align-items: center;
+  gap: 64px;
+  max-width: 1200px;
 }
 
 .columns .columns-wrapper {
@@ -45,7 +53,6 @@
   max-width: 1200px;
 }
 
-/* GRID LAYOUT FOR COLUMNS BLOCK */
 .columns .block.columns {
   padding: 0;
   margin: 0;
@@ -66,7 +73,6 @@
   align-items: center;
 }
 
-/* ALL COLUMNS: VERTICAL & HORIZONTAL CENTERING */
 .columns .columns21 div div {
   display: flex;
   flex-direction: column;
@@ -79,7 +85,6 @@
   box-shadow: none;
 }
 
-/* HEADINGS: BOLD, MODERATE, CENTERED */
 .columns .columns21 h2,
 .columns .columns21 h3,
 .columns .columns21 h4 {
@@ -92,7 +97,6 @@
   line-height: 1.2;
 }
 
-/* REMOVE BULLETS, CENTER LISTS */
 .columns .columns21 ul,
 .columns .columns21 ol {
   list-style: none;
@@ -101,7 +105,6 @@
   text-align: center;
 }
 
-/* LIST ITEMS: SPACING & COLOR */
 .columns .columns21 li {
   margin-bottom: 13px;
   color: var(--text-color);
@@ -113,7 +116,6 @@
   margin-bottom: 0;
 }
 
-/* SOCIAL COLUMN: CENTER SOCIAL LINKS, NO BULLETS */
 .columns .columns21 div div:first-child ul,
 .columns .columns21 div div:first-child ol {
   display: flex;
@@ -128,7 +130,6 @@
   margin: 0;
 }
 
-/* SOCIAL BUTTON VISUAL STYLE */
 .columns .columns21 div div:first-child a,
 .columns .columns21 div div:first-child button {
   display: inline-block;
@@ -154,7 +155,6 @@
   border-color: #bdbdbd;
 }
 
-/* LINKS IN ALL COLUMNS: DARK, SUBTLE HOVER */
 .columns .columns21 a:not(.button),
 .columns .columns21 li a {
   color: var(--text-color);
@@ -169,13 +169,11 @@
   text-decoration: underline;
 }
 
-/* ENSURE TEXT CENTERING IN ALL CONTENT */
 .columns .columns21 div div,
 .columns .columns21 div div * {
   text-align: center;
 }
 
-/* RESPONSIVE: STACK COLUMNS ON NARROW SCREENS */
 @media (width <= 900px) {
   .columns .columns-wrapper {
     padding: 0 16px;
@@ -188,5 +186,80 @@
 
   .columns {
     padding: 32px 0 40px;
+  }
+}
+
+/* Responsive stacking on smaller screens */
+@media (width <= 900px) {
+  .columns {
+    grid-template-columns: 1fr;
+    padding: 32px 12px;
+    gap: 32px;
+    margin: 24px 8px;
+  }
+}
+
+/* Left column - image placeholder block */
+.columns div div:first-child {
+  width: 220px;
+  height: 220px;
+  border-radius: 24px;
+  background: #E5E5E0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 24px;
+  box-sizing: border-box;
+}
+
+/* Left column - stacked category text below image */
+.columns div div:nth-child(2) {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+.columns div div:nth-child(2) p {
+  color: #181818;
+  font-size: 1rem;
+  font-weight: 500;
+  margin: 0;
+}
+
+/* Right column - main content */
+.columns div div:nth-child(3) {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-width: 0;
+}
+
+/* Headline styles */
+.columns div div:nth-child(3) h2 {
+  font-size: 3.2rem;
+  font-weight: 800;
+  letter-spacing: 0.02em;
+  line-height: 1.13;
+  color: #181818;
+  margin: 0 0 32px;
+  text-align: left;
+  max-width: 16ch;
+}
+
+/* Supporting text styles */
+.columns div div:nth-child(3) p {
+  color: #4B4B4B;
+  font-size: 1.18rem;
+  font-weight: 500;
+  line-height: 1.7;
+  margin-bottom: 16px;
+  text-align: left;
+}
+
+@media (width <= 900px) {
+  .columns div div:first-child,
+  .columns div div:nth-child(2) {
+    width: 100%;
   }
 }
