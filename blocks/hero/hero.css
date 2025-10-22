@@ -690,10 +690,6 @@
   justify-content: flex-start;
 }
 
-
-/* Make hero full-bleed, no padding or max-width */
-
-/* Main hero block setup */
 .hero.hero29 {
   position: relative;
   width: 100vw;
@@ -707,7 +703,6 @@
   grid-template-rows: 1fr;
 }
 
-/* If the hero image is a DOM element (not CSS background), ensure it fills the hero and sits visually underneath the text. */
 .hero.hero29 picture,
 .hero.hero29 img {
   position: absolute;
@@ -718,9 +713,7 @@
   display: block;
 }
 
-/* Overlay headline text centered over the image */
 .hero.hero29 div div {
-  /* Ensure the innermost div (text container) is absolutely centered over the hero */
   position: absolute;
   inset: 0;
   display: flex;
@@ -731,11 +724,8 @@
   height: 100%;
   padding: 0 2vw;
   box-sizing: border-box;
-
-  /* No background, no border */
 }
 
-/* Headline styling is visually impactful, bold, and centered */
 .hero.hero29 h1 {
   color: #fff;
   text-align: center;
@@ -759,5 +749,120 @@
 
   .hero.hero29 h1 {
     font-size: clamp(1.2rem, 10vw, var(--heading-font-size-xl));
+  }
+}
+
+
+.hero.hero41.block {
+  display: flex;
+  flex-direction: row;
+  width: 100vw;
+  min-height: 100vh; /* Full viewport height */
+  padding: 0;
+  margin: 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero.hero41.block > div:first-child {
+  /* Image column */
+  flex: 1 1 60%; /* Take up most of the space */
+  position: relative;
+  overflow: hidden;
+  min-width: 0;
+  display: flex;
+  align-items: stretch;
+}
+
+.hero.hero41.block > div:last-child {
+  /* Content column */
+  flex: 1 1 40%; /* Take up remaining space */
+  display: flex;
+  align-items: flex-end;    /* Align content to bottom */
+  justify-content: flex-start; /* Align content to left */
+  padding: 4vw 0 4vw 5vw;  /* Top, right, bottom, left */
+  background: rgb(0 0 0 / 0%); /* transparent, let image show through */
+  min-width: 0;
+}
+
+.hero.hero41.block > div:first-child > div {
+  width: 100%;
+  height: 100%;
+  display: flex;
+}
+
+.hero.hero41.block picture,
+.hero.hero41.block img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Make image fill the area */
+  display: block;
+}
+
+.hero.hero41.block h1 {
+  color: #fff;
+  font-family: Montserrat, 'Helvetica Neue', Arial, sans-serif;
+  font-size: clamp(2.5rem, 6vw, 5.5rem);
+  font-weight: 300;
+  line-height: 1.1;
+  letter-spacing: 0.04em;
+  margin-bottom: 2rem;
+  margin-top: 0;
+  text-align: left;
+  max-width: 30rem;
+}
+
+.hero.hero41.block p {
+  color: #ededed;
+  font-size: 1.25rem;
+  line-height: 1.5;
+  max-width: 28rem;
+  margin-bottom: 2rem;
+  text-align: left;
+}
+
+.hero.hero41.block .button-container {
+  margin: 0;
+}
+
+.hero.hero41.block .button {
+  display: inline-block;
+  background: rgb(0 0 0 / 70%);
+  color: #fff;
+  border: 1.5px solid #fff;
+  border-radius: 2rem;
+  padding: 0.75em 2.5em;
+  font-size: 1rem;
+  font-family: inherit;
+  font-weight: 400;
+  text-decoration: none;
+  transition: background 0.2s, color 0.2s;
+}
+
+.hero.hero41.block .button:hover,
+.hero.hero41.block .button:focus {
+  background: rgb(255 255 255 / 10%);
+  color: #fff;
+}
+
+@media (width <= 900px) {
+  .hero.hero41.block {
+    flex-direction: column;
+  }
+
+  .hero.hero41.block > div:first-child,
+  .hero.hero41.block > div:last-child {
+    width: 100%;
+    min-width: 0;
+  }
+
+  .hero.hero41.block > div:last-child {
+    align-items: flex-start;
+    padding: 5vw;
+  }
+
+  .hero.hero41.block h1 {
+    font-size: clamp(2rem, 9vw, 3rem);
+    max-width: 100%;
   }
 }
